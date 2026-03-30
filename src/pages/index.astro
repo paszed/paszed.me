@@ -33,7 +33,7 @@
       .wrapper {
         max-width: 960px;
         margin: 0 auto;
-        padding: 0 24px;
+        padding: 0 20px;
       }
 
       .container {
@@ -43,14 +43,14 @@
 
       .content {
         grid-column: 2;
-        padding: 140px 0;
+        padding: 120px 0;
         animation: fadeIn 0.8s ease;
       }
 
       @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: translateY(10px);
+          transform: translateY(8px);
         }
         to {
           opacity: 1;
@@ -61,17 +61,16 @@
       /* TYPOGRAPHY */
       h1 {
         font-size: 52px;
-        letter-spacing: -1.6px;
+        letter-spacing: -1.4px;
         font-weight: 600;
         margin: 0 0 6px 0;
-        line-height: 1.1;
         text-align: center;
       }
 
       .subtitle {
         font-size: 18px;
         color: #777;
-        margin: 0 0 72px 0;
+        margin: 0 0 64px 0;
         text-align: center;
         line-height: 1.6;
       }
@@ -81,52 +80,53 @@
         letter-spacing: 1.4px;
         text-transform: uppercase;
         color: #555;
-        margin-bottom: 18px;
+        margin-bottom: 14px;
       }
 
       .section {
-        margin-top: 72px;
+        margin-top: 64px;
       }
 
       .divider {
         height: 1px;
         background: #1a1a1a;
-        margin: 56px 0;
+        margin: 48px 0;
       }
 
       /* AVATAR */
       .avatar {
         display: block;
-        margin: 0 auto 28px auto;
-        width: 112px;
-        height: 112px;
+        margin: 0 auto 24px auto;
+        width: 104px;
+        height: 104px;
         border-radius: 50%;
         object-fit: cover;
         box-shadow: 0 0 0 1px #1a1a1a;
-        transition: transform 0.3s ease;
+        transition: transform 0.25s ease;
       }
 
       .avatar:hover {
-        transform: scale(1.05);
+        transform: scale(1.04);
       }
 
-      /* PROJECTS */
+      /* PROJECT */
       .project {
-        margin-bottom: 26px;
-        transition: transform 0.2s ease;
+        margin-bottom: 20px;
       }
 
       .project a {
         color: #eaeaea;
         text-decoration: none;
+        display: inline-block;
+        transition: all 0.2s ease;
       }
 
-      .project:hover {
-        transform: translateX(4px);
+      .project a:hover {
+        transform: translateX(3px);
       }
 
       .project strong {
-        font-size: 17px;
+        font-size: 18px;
         font-weight: 500;
       }
 
@@ -143,18 +143,16 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        margin-bottom: 14px;
+        margin-bottom: 10px;
         color: #aaa;
         text-decoration: none;
         transition: all 0.2s ease;
         font-size: 14px;
-        padding: 6px 0;
       }
 
       .links a:hover {
         color: #fff;
-        transform: translateX(4px);
-        text-shadow: 0 0 6px rgba(255,255,255,0.2);
+        transform: translateX(3px);
       }
 
       .icon {
@@ -166,8 +164,8 @@
       /* REVEAL */
       .reveal {
         opacity: 0;
-        transform: translateY(12px);
-        transition: all 0.6s ease;
+        transform: translateY(10px);
+        transition: all 0.5s ease;
       }
 
       .reveal.visible {
@@ -175,28 +173,31 @@
         transform: translateY(0);
       }
 
-      /* 🔥 MOBILE PERFECT */
-      @media (max-width: 600px) {
-
+      /* TABLET */
+      @media (max-width: 900px) {
         .container {
           display: block;
         }
 
         .content {
-          padding: 100px 0 80px 0;
+          padding: 100px 0 80px;
         }
+      }
+
+      /* MOBILE */
+      @media (max-width: 600px) {
 
         h1 {
-          font-size: 38px;
+          font-size: 36px;
         }
 
         .subtitle {
           font-size: 16px;
-          margin-bottom: 56px;
+          margin-bottom: 48px;
         }
 
         .section {
-          margin-top: 56px;
+          margin-top: 48px;
           text-align: center;
         }
 
@@ -205,7 +206,7 @@
         }
 
         .divider {
-          margin: 40px 0;
+          margin: 36px 0;
         }
 
         .project {
@@ -229,13 +230,12 @@
         .links a {
           justify-content: center;
           font-size: 15px;
-          padding: 8px 0;
+          padding: 6px 0;
         }
 
         .avatar {
-          width: 96px;
-          height: 96px;
-          margin-bottom: 24px;
+          width: 92px;
+          height: 92px;
         }
       }
 
