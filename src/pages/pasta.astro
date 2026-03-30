@@ -1,0 +1,205 @@
+---
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>pasta</title>
+
+    <style>
+      body {
+        margin: 0;
+        background: radial-gradient(
+          circle at top,
+          rgba(255,255,255,0.04),
+          transparent 50%
+        ),
+        #0a0a0a;
+        color: #eaeaea;
+        font-family: 'Inter', -apple-system, sans-serif;
+      }
+
+      .wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .container {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 120px 0;
+      }
+
+      a {
+        color: #aaa;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      a:hover {
+        color: #fff;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 40px;
+        color: #666;
+      }
+
+      h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        letter-spacing: -1px;
+      }
+
+      .subtitle {
+        color: #777;
+        font-size: 18px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      .tagline {
+        font-size: 16px;
+        color: #aaa;
+        margin-bottom: 40px;
+      }
+
+      h2 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: #555;
+        margin-top: 60px;
+        margin-bottom: 16px;
+      }
+
+      ul {
+        padding-left: 18px;
+        color: #aaa;
+        line-height: 1.6;
+        font-size: 15px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      pre {
+        background: #111;
+        padding: 18px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .cta {
+        display: inline-block;
+        margin-top: 10px;
+        color: #aaa;
+        transition: 0.2s;
+      }
+
+      .cta:hover {
+        color: #fff;
+        transform: translateX(3px);
+      }
+
+      /* MOBILE */
+      @media (max-width: 600px) {
+        .container {
+          padding: 100px 0;
+        }
+
+        h1 {
+          font-size: 36px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+        }
+
+        ul {
+          font-size: 16px;
+        }
+
+        pre {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+
+        <!-- Back -->
+        <a href="/" class="back">← back</a>
+
+        <!-- Title -->
+        <h1>pasta</h1>
+        <p class="subtitle">
+          Paste messy text → get clean, usable output instantly.
+        </p>
+
+        <p class="tagline">
+          A simple browser-based tool to clean up messy text data in seconds.<br/>
+          No setup. No login. Just paste and clean.
+        </p>
+
+        <!-- Features -->
+        <h2>Features</h2>
+        <ul>
+          <li>Remove duplicate lines</li>
+          <li>Trim whitespace</li>
+          <li>Remove empty lines</li>
+          <li>Normalize formatting</li>
+        </ul>
+
+        <!-- Usage -->
+        <h2>Usage</h2>
+        <ul>
+          <li>Paste your messy text</li>
+          <li>Click clean</li>
+          <li>Copy the result</li>
+        </ul>
+
+        <!-- Example -->
+        <h2>Example</h2>
+        <pre>
+Input:
+john@test.com
+john@test.com
+jane@test.com
+bob@test.com
+
+Output:
+john@test.com
+jane@test.com
+bob@test.com
+        </pre>
+
+        <!-- Tech -->
+        <h2>Tech</h2>
+        <ul>
+          <li>HTML / CSS / JavaScript</li>
+        </ul>
+
+        <!-- Goal -->
+        <h2>Goal</h2>
+        <ul>
+          <li>Fast</li>
+          <li>Simple</li>
+          <li>Instantly useful</li>
+        </ul>
+
+        <!-- Status -->
+        <h2>Status</h2>
+        <p style="color:#888;">MVP in progress 🚧</p>
+
+      </div>
+    </div>
+  </body>
+</html>
