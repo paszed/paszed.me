@@ -1,220 +1,249 @@
 ---
 ---
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+<meta charset="UTF-8" />
+<title>Paszed</title>
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
+<style>
+body {
+margin: 0;
+background: radial-gradient(
+circle at top,
+rgba(255, 255, 255, 0.04),
+transparent 50%
+),
+#0a0a0a;
+color: #eaeaea;
+font-family: 'Inter', -apple-system, sans-serif;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+.wrapper {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 20px;
+}
 
-    <title>Paszed</title>
+.container {
+max-width: 720px;
+margin: 0 auto;
+padding: 120px 0;
+}
 
-    <style>
-      html { scroll-behavior: smooth; }
+/* HERO */
+.hero {
+text-align: center;
+margin-bottom: 80px;
+}
 
-      body {
-        margin: 0;
-        font-family: 'Inter', -apple-system, sans-serif;
-        color: #eaeaea;
-        background: radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 50%), #0a0a0a;
-      }
+.avatar {
+width: 180px; /* BIG like reference */
+height: 180px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 28px;
+}
 
-      .wrapper {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
+h1 {
+font-size: 52px;
+margin-bottom: 12px;
+letter-spacing: -1px;
+}
 
-      .container {
-        display: grid;
-        grid-template-columns: 1fr minmax(0, 680px) 1fr;
-      }
+.subtitle {
+color: #aaa;
+font-size: 18px;
+line-height: 1.6;
+}
 
-      .content {
-        grid-column: 2;
-        padding: 130px 0;
-        animation: fadeIn 0.8s ease;
-      }
+hr {
+border: none;
+border-top: 1px solid #222;
+margin: 60px 0;
+}
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+h2 {
+font-size: 14px;
+font-weight: 600;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #aaa;
+margin-top: 70px;
+margin-bottom: 20px;
+}
 
-      h1 {
-        font-size: 58px;
-        letter-spacing: -1.4px;
-        font-weight: 600;
-        margin: 0 0 10px 0;
-        text-align: center;
-      }
+/* PROJECTS (FIXED CLICKABLE) */
+.project {
+display: block;
+margin-bottom: 24px;
+text-decoration: none;
+}
 
-      .subtitle {
-        font-size: 20px;
-        color: #777;
-        margin: 0 0 72px 0;
-        text-align: center;
-      }
+.project-title {
+font-weight: 600;
+font-size: 20px;
+color: #eaeaea;
+}
 
-      h2 {
-        font-size: 12px;
-        letter-spacing: 1.6px;
-        text-transform: uppercase;
-        color: #555;
-        margin-bottom: 16px;
-      }
+.project-desc {
+color: #aaa;
+font-size: 15px;
+}
 
-      .section { margin-top: 72px; }
+.project:hover .project-title {
+color: #fff;
+}
 
-      .divider {
-        height: 1px;
-        background: #1a1a1a;
-        margin: 56px 0;
-      }
+/* LIST */
+ul {
+padding-left: 18px;
+color: #aaa;
+line-height: 1.6;
+font-size: 15px;
+}
 
-      .avatar {
-        display: block;
-        margin: 0 auto 28px auto;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 0 0 1px #1a1a1a;
-      }
+li {
+margin-bottom: 8px;
+}
 
-      .project { margin-bottom: 24px; }
+/* LINKS */
+.links {
+list-style: none;
+padding-left: 0;
+}
 
-      .project a {
-        color: #eaeaea;
-        text-decoration: none;
-        transition: 0.2s;
-      }
+.links li {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 12px;
+}
 
-      .project a:hover { transform: translateX(4px); }
+a {
+color: #aaa;
+text-decoration: none;
+transition: 0.2s;
+}
 
-      .project strong { font-size: 20px; }
+a:hover {
+color: #fff;
+}
 
-      .project span {
-        display: block;
-        font-size: 15px;
-        color: #888;
-        margin-top: 6px;
-      }
+.icon {
+width: 18px;
+height: 18px;
+fill: currentColor;
+flex-shrink: 0;
+}
 
-      .links a {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 12px;
-        color: #aaa;
-        text-decoration: none;
-        font-size: 15px;
-        transition: 0.2s;
-      }
+@media (max-width: 600px) {
+.container {
+padding: 100px 0;
+}
 
-      .links a:hover {
-        color: #fff;
-        transform: translateX(4px);
-      }
+h1 {
+font-size: 38px;
+}
 
-      .icon {
-        width: 18px;
-        height: 18px;
-        fill: currentColor;
-      }
+.avatar {
+width: 140px;
+height: 140px;
+}
+}
+</style>
+</head>
 
-      /* Mobile */
-      @media (max-width: 600px) {
-        .container { display: block; }
+<body>
+<div class="wrapper">
+<div class="container">
 
-        h1 { font-size: 42px; }
-        .subtitle { font-size: 17px; }
+<!-- HERO -->
+<div class="hero">
+<img src="/profile.jpg" alt="Paszed" class="avatar" />
 
-        .section { text-align: center; }
+<h1>Paszed</h1>
 
-        .links {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
+<p class="subtitle">
+Building tools to automate annoying things
+</p>
+</div>
 
-        .links a {
-          justify-content: center;
-          font-size: 16px;
-        }
+<hr />
 
-        .icon {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    </style>
-  </head>
+<!-- PROJECTS -->
+<h2>🚀 Projects</h2>
 
-  <body>
-    <div class="wrapper">
-      <div class="container">
-        <div class="content">
+<a href="/doctor" class="project">
+<div class="project-title">🩺 doctor</div>
+<div class="project-desc">
+Diagnose developer environments and verify installed tooling
+</div>
+</a>
 
-          <img src="/profile.jpg" class="avatar" />
+<a href="/pasta" class="project">
+<div class="project-title">🍝 pasta</div>
+<div class="project-desc">
+Clean messy text instantly in the browser
+</div>
+</a>
 
-          <h1>Paszed</h1>
-          <p class="subtitle">
-            Building CLI tools and developer infrastructure.
-          </p>
+<hr />
 
-          <div class="divider"></div>
+<!-- WHAT I DO -->
+<h2>🧠 What I do</h2>
 
-          <div class="section">
-            <h2>Projects</h2>
+<ul>
+<li>Automation & scripting</li>
+<li>Websites & small apps</li>
+<li>Developer tools</li>
+<li>Data cleanup & transformation</li>
+</ul>
 
-            <div class="project">
-              <a href="/doctor"><strong>doctor</strong></a>
-              <span>Diagnose developer environments and verify installed tooling.</span>
-	    </div>
+<hr />
 
-	     <div class="project">
-    <a href="/pasta"><strong>pasta</strong></a>
-    <span>Clean messy text instantly in the browser.</span>
-  </div>
+<!-- LINKS -->
+<h2>🔗 Links</h2>
 
-          </div>
+<ul class="links">
+<!-- GitHub -->
+<li>
+<svg class="icon" viewBox="0 0 24 24">
+<path fill="currentColor" d="M12 0.5C5.65 0.5 0.5 5.65 0.5 12c0 5.1 3.29 9.43 7.86 10.96.57.1.78-.25.78-.55
+0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67
+-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.34.96
+.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.28 1.18-3.08
+-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.17 1.18.92-.26 1.9-.39 2.88-.39.98 0
+1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.62 1.57.23 2.73.11 3.02.73.8
+1.18 1.83 1.18 3.08 0 4.4-2.69 5.36-5.25 5.65.41.36.77 1.08.77 2.18 0 1.57-.01
+2.83-.01 3.21 0 .3.21.66.79.55C20.21 21.43 23.5 17.1 23.5 12
+23.5 5.65 18.35 0.5 12 0.5z"/>
+</svg>
+<a href="https://github.com/paszed" target="_blank">GitHub</a>
+</li>
 
-          <div class="section">
-            <h2>Links</h2>
+<!-- X (CORRECT LOGO) -->
+<li>
+<svg class="icon" viewBox="0 0 24 24">
+<path fill="currentColor" d="M3 3h4.5l5 6.5L18 3h3l-7.5 9.5L22 21h-4.5l-5.5-7L6 21H3l8-10L3 3z"/>
+</svg>
+<a href="https://twitter.com/paszed_" target="_blank" rel="noopener noreferrer">Twitter</a>
+</li>
 
-            <div class="links">
+<!-- Email -->
+<li>
+<span style="width:18px;">✉️</span>
+<a href="mailto:edvard@paszed.me">edvard@paszed.me</a>
+</li>
+</ul>
 
-              <a href="https://github.com/paszed" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.86 10.9.58.1.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.64 0-1.25.45-2.27 1.2-3.07-.12-.3-.52-1.52.12-3.17 0 0 .98-.31 3.2 1.18.93-.26 1.93-.4 2.92-.4.99 0 2 .14 2.92.4 2.22-1.5 3.2-1.18 3.2-1.18.64 1.65.24 2.87.12 3.17.75.8 1.2 1.82 1.2 3.07 0 4.38-2.69 5.35-5.25 5.63.41.35.77 1.04.77 2.1v3.12c0 .31.21.67.8.56A10.99 10.99 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/>
-                </svg>
-                GitHub
-              </a>
-
-              <a href="https://x.com/paszed_" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M18.244 2H21l-6.55 7.48L22 22h-6.828l-5.34-6.99L3.5 22H1l7.01-8.01L2 2h6.828l4.84 6.35L18.244 2z"/>
-                </svg>
-                Twitter
-              </a>
-
-              <a href="mailto:edvard@paszed.me">
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M12 13.5 2 6.75V18h20V6.75L12 13.5zm0-2.25L22 4H2l10 7.25z"/>
-                </svg>
-                Email
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </body>
+</div>
+</div>
+</body>
 </html>
+     
+
+    
+     
+
+    
