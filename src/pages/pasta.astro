@@ -135,7 +135,18 @@ font-size: 16px;
 }
 
 pre {
-font-size: 15px;
+background: #0d0d0d;
+border: 1px solid #222;	
+border-radius: 6px
+
+padding: 18px;
+overflow-x: auto;
+
+font-size: 14px;
+line-height 1.5;
+
+margin-top: 10px
+margin-bottom: 30px;
 }
 }
 </style>
@@ -184,39 +195,37 @@ class="github-link"
 </a>
 </div>
 
-<!-- Features -->
-<h2>⚡ Features</h2>
-<ul>
-<li>Remove duplicate lines</li>
-<li>Trim whitespace</li>
-<li>Remove empty lines</li>
-<li>Normalize formatting</li>
-</ul>
-
-<!-- Usage -->
-<h2>🚀 Usage</h2>
-<ul>
-<li>Paste your messy text</li>
-<li>Click clean</li>
-<li>Copy the result</li>
-</ul>
-
 <!-- Example -->
-<h2>🧪 Example</h2>
+<h2>✏️ Example</h2>
+
+<p><strong>Input:</strong></p>
+<pre>
+john@test.com
+john@test.com
+  jane@test.com
+
+bob@test.com
+</pre>
+
+<p><strong>Output:</strong></p>
+<pre>
+john@test.com
+jane@test.com
+bob@test.com
+</pre>
 
 <!-- Tech -->
 <h2>🛠 Tech</h2>
 <ul>
-<li>HTML / CSS / JavaScript</li>
+  <li>HTML / CSS / JavaScript</li>
+  <li>Deployed on Vercel</li>
 </ul>
 
 <!-- Goal -->
 <h2>🎯 Goal</h2>
-<ul>
-<li>Fast</li>
-<li>Simple</li>
-<li>Instantly useful</li>
-</ul>
+<p>
+Fast, simple, and instantly useful text cleanup — no setup, no friction.
+</p>
 
 </div>
 </div>
