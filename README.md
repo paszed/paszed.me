@@ -6,21 +6,21 @@ Minimal personal site focused on CLI tools and developer infrastructure.
 
 ---
 
-##🧱 Stack
+## 🧱 Stack
 
 - Astro
 - Vercel
 
 ---
 
-##⚙️ Development
+## ⚙️ Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-##🏗 Build
+## 🏗 Build
 
 ```bash
 npm run build
@@ -28,7 +28,7 @@ npm run build
 
 ---
 
-##🗂 Structure
+## 🗂 Structure
 
 ```text
 src/
@@ -43,6 +43,6 @@ public/
 
 ---
 
-##📝 Notes
+## 📝 Notes
 
 Built to be simple, fast, and easy to extend.
