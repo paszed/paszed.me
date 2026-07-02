@@ -2,38 +2,36 @@ import { Container } from "@/components/layout/container";
 import { Card } from "@/components/ui/card";
 import { H2 } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
-
-const principles = [
-  {
-    title: "Build useful software",
-    description: "Focus on solving real problems instead of chasing trends.",
-  },
-  {
-    title: "Keep things simple",
-    description: "Good software is easier to understand, maintain, and extend.",
-  },
-  {
-    title: "Ship continuously",
-    description:
-      "Small improvements delivered consistently beat perfect ideas that never launch.",
-  },
-];
+import { home } from "@/content/home";
 
 export function Philosophy() {
   return (
     <Section>
       <Container>
         <div className="space-y-10">
-          <H2>Philosophy</H2>
+          <div className="space-y-3">
+            <H2>{home.philosophy.title}</H2>
+
+            <p className="max-w-2xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+              The principles that guide how I design, build, and ship software.
+            </p>
+          </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {principles.map((principle) => (
-              <Card key={principle.title}>
-                <h3 className="font-semibold">{principle.title}</h3>
+            {home.philosophy.items.map((principle) => (
+              <Card
+                key={principle.title}
+                className="transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30"
+              >
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold">
+                    {principle.title}
+                  </h3>
 
-                <p className="mt-3 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
-                  {principle.description}
-                </p>
+                  <p className="leading-7 text-neutral-600 dark:text-neutral-400">
+                    {principle.description}
+                  </p>
+                </div>
               </Card>
             ))}
           </div>
