@@ -1,8 +1,10 @@
 import { Page } from "@/components/layout/page";
 import { ProjectCard } from "@/components/shared/project-card";
-import { projects } from "@/content/projects";
+import { getProjects } from "@/lib/projects";
 
 export default function ProjectsPage() {
+  const projects = getProjects();
+
   return (
     <Page
       title="Projects"
@@ -10,7 +12,7 @@ export default function ProjectsPage() {
     >
       <div className="grid gap-6">
         {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
+          <ProjectCard key={project.slug} {...project} />
         ))}
       </div>
     </Page>

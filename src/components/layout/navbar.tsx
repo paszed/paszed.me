@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { BrandLogo } from "@/components/brand/brand-logo";
+import { BrandLogo } from "@/brand";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { navigation } from "@/config/navigation";
 

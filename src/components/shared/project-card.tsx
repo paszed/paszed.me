@@ -1,34 +1,34 @@
 import Link from "next/link";
 
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import type { Project } from "@/types/project";
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  href: string;
-  tags: readonly string[];
-}
+type ProjectCardProps = Project;
 
 export function ProjectCard({
+  slug,
   title,
-  description,
-  href,
-  tags,
+  summary,
+  technologies,
 }: ProjectCardProps) {
   return (
-    <Link href={href} className="block">
+    <Link href={`/projects/${slug}`} className="block">
       <Card className="h-full transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+          <h3 className="text-xl font-semibold tracking-tight">
+            {title}
+          </h3>
 
           <p className="leading-7 text-neutral-600 dark:text-neutral-400">
-            {description}
+            {summary}
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <Badge key={tag}>{tag}</Badge>
+            {technologies.map((technology) => (
+              <Badge key={technology}>
+                {technology}
+              </Badge>
             ))}
           </div>
         </div>
