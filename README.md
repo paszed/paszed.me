@@ -1,36 +1,179 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# paszed.me
 
-## Getting Started
+> My personal website, engineering journal, and digital home.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Overview
+
+This repository contains the source code for **paszed.me**.
+
+The goal is to build more than a traditional portfolio. This project serves as:
+
+- Personal website
+- Engineering journal
+- Project showcase
+- Technical blog
+- Experimentation platform
+
+Everything is built with a strong emphasis on maintainability, scalability, and developer experience.
+
+---
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- next-themes
+- ESLint
+- pnpm
+
+---
+
+## Project Structure
+
+```
+src
+├── app
+├── brand
+├── components
+├── config
+├── content
+├── features
+├── hooks
+├── lib
+├── providers
+└── types
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Philosophy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app
+    ↓
+features
+    ↓
+content
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **app** handles routing.
+- **features** contain reusable UI and business logic.
+- **content** contains structured data.
+- **components** provide shared UI primitives.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Home
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Hero
+- Current Focus
+- Philosophy
+- Contact CTA
 
-## Deploy on Vercel
+### Projects
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Dynamic routing
+- Typed content
+- SEO metadata
+- Gallery support
+- Technology badges
+- Status metadata
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### About
+
+- Personal introduction
+- Story
+- Engineering philosophy
+
+### Uses
+
+- Hardware
+- Development tools
+- AI tools
+- Design tools
+
+### Now
+
+A snapshot of what I'm currently building and learning.
+
+### Blog
+
+Foundation for future engineering articles.
+
+---
+
+## Development
+
+Install dependencies
+
+```bash
+pnpm install
+```
+
+Start the development server
+
+```bash
+pnpm dev
+```
+
+Run linting
+
+```bash
+pnpm lint
+```
+
+Build for production
+
+```bash
+pnpm build
+```
+
+---
+
+## Design Principles
+
+This project follows a few simple principles.
+
+- Build reusable components.
+- Prefer composition over duplication.
+- Keep content separate from presentation.
+- Ship small improvements continuously.
+- Favor simplicity over unnecessary abstraction.
+
+---
+
+## Roadmap
+
+- [x] Core architecture
+- [x] Theme system
+- [x] Design system
+- [x] Project pages
+- [x] About page
+- [x] Uses page
+- [x] Now page
+- [x] Blog foundation
+- [ ] Real project case studies
+- [ ] MDX blog
+- [ ] Search
+- [ ] RSS feed
+- [ ] Dynamic Open Graph images
+- [ ] Analytics
+
+---
+
+## License
+
+MIT
+
+---
+
+Built with ❤️ by **Edvard Pasz**.
