@@ -1,12 +1,26 @@
 import { notFound } from "next/navigation";
 
 import { Page } from "@/components/layout/page";
-import { getProjectBySlug } from "@/lib/projects";
+import {
+  ProjectHero,
+  ProjectLinks,
+  ProjectTech,
+} from "@/features/projects";
+import {
+  getProjectBySlug,
+  getProjectSlugs,
+} from "@/lib/projects";
 
 interface ProjectPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  return getProjectSlugs().map((slug) => ({
+    slug,
+  }));
 }
 
 export default async function ProjectPage({
@@ -25,25 +39,12 @@ export default async function ProjectPage({
       title={project.title}
       description={project.summary}
     >
-      <div className="space-y-8">
-        <p>{project.description}</p>
+      <div className="space-y-16">
+        <ProjectHero project={project} />
 
-        <div>
-          <h2 className="mb-2 text-lg font-semibold">
-            Technologies
-          </h2>
+        <ProjectLinks project={project} />
 
-          <ul className="flex flex-wrap gap-2">
-            {project.technologies.map((technology) => (
-              <li
-                key={technology}
-                className="rounded-full border px-3 py-1 text-sm"
-              >
-                {technology}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ProjectTech project={project} />
       </div>
     </Page>
   );
