@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { H1 } from "@/components/ui/heading";
+import { ProjectMeta } from "@/features/projects";
 import type { Project } from "@/types/project";
 
 interface ProjectHeroProps {
@@ -11,6 +12,8 @@ export function ProjectHero({
 }: ProjectHeroProps) {
   return (
     <header className="space-y-8">
+      <ProjectMeta project={project} />
+
       <div className="space-y-4">
         <H1>{project.title}</H1>
 
