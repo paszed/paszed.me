@@ -1,45 +1,5 @@
 import { H2 } from "@/components/ui/heading";
-
-const skills = [
-  {
-    category: "Languages",
-    items: [
-      "TypeScript",
-      "JavaScript",
-      "Python",
-      "SQL",
-    ],
-  },
-  {
-    category: "Frontend",
-    items: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "HTML",
-      "CSS",
-    ],
-  },
-  {
-    category: "Backend",
-    items: [
-      "Node.js",
-      "REST APIs",
-      "PostgreSQL",
-      "Prisma",
-    ],
-  },
-  {
-    category: "Tools",
-    items: [
-      "Git",
-      "Docker",
-      "GitHub",
-      "Figma",
-      "Linux",
-    ],
-  },
-];
+import { about } from "@/content/about";
 
 export function AboutSkills() {
   return (
@@ -47,7 +7,7 @@ export function AboutSkills() {
       <H2>Technologies I Enjoy Working With</H2>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {skills.map((group) => (
+        {about.skills.map((group) => (
           <div
             key={group.category}
             className="rounded-2xl border border-neutral-200 p-6 dark:border-neutral-800"
