@@ -48,4 +48,13 @@ export const paszedMe: Project = {
     "Keep content independent from UI.",
     "Ship small improvements continuously.",
   ],
+
+
+  gallery: [
+  {
+    src: "/images/projects/paszed-me/homepage.png",
+    alt: "Homepage",
+  },
+],
+
 };

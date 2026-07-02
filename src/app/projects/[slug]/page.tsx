@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Page } from "@/components/layout/page";
 import {
   ProjectContent,
+  ProjectGallery,
   ProjectHero,
   ProjectLinks,
   ProjectTech,
@@ -70,6 +71,8 @@ export default async function ProjectPage({
     >
       <div className="space-y-16">
         <ProjectHero project={project} />
+
+        <ProjectGallery project={project} />
 
         <ProjectContent project={project} />
 

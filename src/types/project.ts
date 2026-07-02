@@ -1,3 +1,8 @@
+export interface ProjectImage {
+  src: string;
+  alt: string;
+}
+
 export interface Project {
   slug: string;
 
@@ -23,4 +28,6 @@ export interface Project {
   challenges: readonly string[];
 
   lessons: readonly string[];
+
+  gallery: readonly ProjectImage[];
 }
