@@ -11,12 +11,12 @@ import { site } from "@/config/site";
 
 export function Hero() {
   return (
-    <Section className="relative overflow-hidden py-32 lg:py-40">
+    <Section className="relative overflow-hidden py-24 lg:py-32">
       <ThemedLion />
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-24 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="max-w-2xl space-y-10">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="max-w-xl space-y-8">
             <p className="font-mono text-sm uppercase tracking-[0.35em] text-green-500">
               {home.hero.eyebrow}
             </p>
@@ -27,7 +27,7 @@ export function Hero() {
               {home.hero.subtitle}
             </H1>
 
-            <p className="max-w-xl text-xl leading-9 text-neutral-600 dark:text-neutral-400">
+            <p className="text-xl leading-9 text-neutral-600 dark:text-neutral-400">
               {home.hero.description}
             </p>
 
@@ -46,15 +46,17 @@ export function Hero() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="relative h-[24rem] w-[24rem] overflow-hidden rounded-full border border-green-500/20 shadow-[0_20px_80px_rgba(0,0,0,0.25)] lg:h-[26rem] lg:w-[26rem]">
-              <Image
-                src="/images/profile.jpg"
-                alt={site.owner}
-                fill
-                priority
-                sizes="(max-width: 1024px) 384px, 416px"
-                className="object-cover"
-              />
+            <div className="rounded-full border border-neutral-200 bg-white p-2 shadow-2xl dark:border-neutral-800 dark:bg-neutral-950">
+              <div className="relative h-[20rem] w-[20rem] overflow-hidden rounded-full lg:h-[22rem] lg:w-[22rem]">
+                <Image
+                  src="/images/profile.jpg"
+                  alt={site.owner}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 320px, 352px"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

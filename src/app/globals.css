@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm paper background */
-  --background: #f7f3eb;
+  /* Light theme */
+  --background: #faf9f6;
   --foreground: #1b1b1b;
 }
 
 .dark {
+  /* Dark theme */
   --background: #09090b;
   --foreground: #fafafa;
 }
@@ -19,7 +20,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
