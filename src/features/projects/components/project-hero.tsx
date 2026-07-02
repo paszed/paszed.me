@@ -11,13 +11,13 @@ export function ProjectHero({
   project,
 }: ProjectHeroProps) {
   return (
-    <header className="space-y-8">
+    <header className="space-y-10">
       <ProjectMeta project={project} />
 
-      <div className="space-y-4">
+      <div className="space-y-5">
         <H1>{project.title}</H1>
 
-        <p className="max-w-3xl text-xl leading-8 text-neutral-600 dark:text-neutral-400">
+        <p className="max-w-3xl text-xl leading-9 text-neutral-600 dark:text-neutral-400">
           {project.summary}
         </p>
       </div>
@@ -29,6 +29,8 @@ export function ProjectHero({
           </Badge>
         ))}
       </div>
+
+      <div className="h-px bg-neutral-200 dark:bg-neutral-800" />
     </header>
   );
 }

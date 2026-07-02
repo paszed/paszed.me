@@ -5,22 +5,42 @@ interface ProjectMetaProps {
   project: Project;
 }
 
-const STATUS_LABELS: Record<Project["status"], string> = {
-  building: "Building",
-  completed: "Completed",
-  archived: "Archived",
-};
+const STATUS = {
+  building: {
+    label: "🟢 Building",
+  },
+  completed: {
+    label: "✅ Completed",
+  },
+  archived: {
+    label: "📦 Archived",
+  },
+} as const;
 
 export function ProjectMeta({
   project,
 }: ProjectMetaProps) {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <Badge>{STATUS_LABELS[project.status]}</Badge>
+    <div className="flex flex-wrap items-center gap-3 text-sm">
+      <Badge>
+        {STATUS[project.status].label}
+      </Badge>
 
-      <span className="text-sm text-neutral-500 dark:text-neutral-400">
+      <span className="text-neutral-500 dark:text-neutral-400">
         {project.year}
       </span>
+
+      {project.featured && (
+        <>
+          <span className="text-neutral-300 dark:text-neutral-700">
+            •
+          </span>
+
+          <span className="font-medium text-green-500">
+            Featured Project
+          </span>
+        </>
+      )}
     </div>
   );
 }
