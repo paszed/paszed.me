@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { H1 } from "@/components/ui/heading";
+import { about } from "@/content/about";
 
 export function AboutHero() {
   return (
@@ -16,12 +17,10 @@ export function AboutHero() {
         </div>
 
         <div className="space-y-4">
-          <H1>About</H1>
+          <H1>{about.hero.title}</H1>
 
           <p className="max-w-2xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-            {
-              "I'm Edvard, a software engineer passionate about building developer tools, AI applications, and modern web experiences."
-            }
+            {about.hero.intro}
           </p>
         </div>
       </div>
