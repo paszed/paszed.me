@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-neutral-200 dark:border-neutral-800">
       <Container>
-        <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
           <div className="space-y-5">
             <BrandLogo />
 
@@ -30,14 +30,20 @@ export function Footer() {
           />
 
           <FooterSection
-            title="Connect"
-            items={footer.connect}
+            title="Developer"
+            items={footer.developer}
             showIcons
           />
 
           <FooterSection
-            title="Developer"
-            items={footer.developer}
+            title="Social"
+            items={footer.social}
+            showIcons
+          />
+
+          <FooterSection
+            title="Contact"
+            items={footer.contact}
             showIcons
           />
         </div>

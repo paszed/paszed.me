@@ -1,5 +1,6 @@
 export const profiles = {
   github: {
+    id: "github",
     label: "GitHub",
     href: "https://github.com/paszed",
     description: "Open source projects and engineering work.",
@@ -8,6 +9,7 @@ export const profiles = {
   },
 
   linkedin: {
+    id: "linkedin",
     label: "LinkedIn",
     href: "https://linkedin.com/in/paszed",
     description: "Professional experience and network.",
@@ -16,6 +18,7 @@ export const profiles = {
   },
 
   x: {
+    id: "x",
     label: "X",
     href: "https://x.com/paszed_",
     description: "Building in public and sharing ideas.",
@@ -24,6 +27,7 @@ export const profiles = {
   },
 
   reddit: {
+    id: "reddit",
     label: "Reddit",
     href: "https://reddit.com/u/paszed",
     description: "Community discussions and learning.",
@@ -32,6 +36,7 @@ export const profiles = {
   },
 
   email: {
+    id: "email",
     label: "Email",
     href: "mailto:edvard@paszed.me",
     description: "The best way to get in touch.",
@@ -40,14 +45,16 @@ export const profiles = {
   },
 
   discord: {
+    id: "discord",
     label: "Discord",
     href: "#",
     description: "Developer community.",
-    category: "contact",
+    category: "social",
     featured: false,
   },
 
   npm: {
+    id: "npm",
     label: "npm",
     href: "https://www.npmjs.com/~paszed",
     description: "JavaScript and TypeScript packages.",
@@ -56,6 +63,7 @@ export const profiles = {
   },
 
   pypi: {
+    id: "pypi",
     label: "PyPI",
     href: "#",
     description: "Python packages.",
@@ -64,6 +72,7 @@ export const profiles = {
   },
 
   docker: {
+    id: "docker",
     label: "Docker Hub",
     href: "#",
     description: "Container images.",
@@ -72,6 +81,7 @@ export const profiles = {
   },
 
   huggingFace: {
+    id: "huggingface",
     label: "Hugging Face",
     href: "#",
     description: "Models and AI experiments.",
@@ -80,6 +90,7 @@ export const profiles = {
   },
 
   stackOverflow: {
+    id: "stackoverflow",
     label: "Stack Overflow",
     href: "#",
     description: "Questions and technical answers.",
@@ -87,3 +98,5 @@ export const profiles = {
     featured: false,
   },
 } as const;
+
+export type Profile = (typeof profiles)[keyof typeof profiles];
