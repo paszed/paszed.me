@@ -11,27 +11,29 @@ export function FeaturedProjects() {
 
   return (
     <section className="space-y-10">
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-        <div className="max-w-2xl space-y-3">
-          <H2>{home.featuredProjects.title}</H2>
+      <div className="mx-auto max-w-5xl">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl space-y-3">
+            <H2>{home.featuredProjects.title}</H2>
 
-          <p className="text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-            {home.featuredProjects.description}
-          </p>
+            <p className="text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+              {home.featuredProjects.description}
+            </p>
+          </div>
+
+          <Link href="/projects">
+            <Button>View All Projects</Button>
+          </Link>
         </div>
 
-        <Link href="/projects">
-          <Button>View All Projects</Button>
-        </Link>
-      </div>
-
-      <div className="grid gap-6">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.slug}
-            {...project}
-          />
-        ))}
+        <div className="mt-10 grid gap-6">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.slug}
+              {...project}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -13,8 +13,8 @@ export function CurrentFocus() {
             <H2>{home.currentFocus.title}</H2>
 
             <p className="max-w-2xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-              What I'm actively building, learning, and exploring right now.
-            </p>
+             {"What I'm actively building, learning, and exploring right now."}
+               </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
