@@ -26,7 +26,7 @@ export function ProjectCard({
       href={`/projects/${slug}`}
       className="group block"
     >
-      <Card className="h-full transition-all duration-300 group-hover:-translate-y-1 group-hover:border-green-500/40 group-hover:shadow-xl">
+      <Card className="h-full transition-all duration-300 group-hover:-translate-y-1 group-hover:border-green-500/40 group-hover:shadow-lg dark:group-hover:shadow-2xl">
         <div className="space-y-6">
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <Badge>{STATUS[status]}</Badge>
@@ -60,9 +60,7 @@ export function ProjectCard({
 
           <div className="flex flex-wrap gap-2">
             {technologies.map((technology) => (
-              <Badge key={technology}>
-                {technology}
-              </Badge>
+              <Badge key={technology}>{technology}</Badge>
             ))}
           </div>
 
@@ -71,7 +69,7 @@ export function ProjectCard({
               Engineering Case Study
             </span>
 
-            <span className="text-sm font-medium text-green-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <span className="text-sm font-medium text-green-500 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
               View Project →
             </span>
           </div>
