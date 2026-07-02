@@ -11,9 +11,9 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <CurrentFocus />
-
       <FeaturedProjects />
+
+      <CurrentFocus />
 
       <Philosophy />
 

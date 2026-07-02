@@ -10,40 +10,41 @@ import { site } from "@/config/site";
 
 export function Hero() {
   return (
-    <Section className="relative overflow-hidden py-24">
+    <Section className="relative overflow-hidden py-28">
       <ThemedLion />
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-20 lg:grid-cols-2">
           <div className="space-y-8">
-            <p className="font-mono text-sm uppercase tracking-[0.25em] text-green-500">
+            <p className="font-mono text-sm uppercase tracking-[0.3em] text-green-500">
               BUILD • LEARN • SHIP
             </p>
 
             <H1>
-              Building developer tools,
+              Hi, I&apos;m {site.owner}.
               <br />
-              AI applications,
+              I build developer tools,
               <br />
-              and modern web products.
+              AI products, and modern web experiences.
             </H1>
 
             <p className="max-w-xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-              {`I'm ${site.owner}. I build software that's fast, maintainable, and genuinely useful.`}
+              I&apos;m a software engineer passionate about creating products
+              that are fast, maintainable, and genuinely useful. This site is
+              where I document what I build, what I learn, and the decisions
+              behind each project.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link href="/projects">
-                <Button>Projects</Button>
+                <Button>Explore Projects</Button>
               </Link>
 
               <Link
-                href={site.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/about"
                 className="text-sm font-medium transition-colors hover:text-green-500"
               >
-                GitHub →
+                About me →
               </Link>
             </div>
           </div>
