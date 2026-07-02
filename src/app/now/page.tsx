@@ -1,17 +1,27 @@
-import { Container } from "@/components/layout/container";
-import { H1 } from "@/components/ui/heading";
-import { Section } from "@/components/ui/section";
+import { Page } from "@/components/layout/page";
+import { status } from "@/content/status";
+import {
+  NowHero,
+  NowSection,
+} from "@/features/now";
 
 export default function NowPage() {
   return (
-    <Section>
-      <Container>
-        <div className="max-w-3xl space-y-8">
-          <H1>Now</H1>
+    <Page
+      title="Now"
+      description="What I'm currently building, learning, and focused on."
+    >
+      <div className="space-y-20">
+        <NowHero />
 
-          <p>What I&apos;m currently focused on and actively building.</p>
-        </div>
-      </Container>
-    </Section>
+        {status.map((section) => (
+          <NowSection
+            key={section.title}
+            title={section.title}
+            items={section.items}
+          />
+        ))}
+      </div>
+    </Page>
   );
 }
