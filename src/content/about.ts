@@ -2,35 +2,35 @@ export const about = {
   hero: {
     title: "About",
     intro:
-      "I'm Edvard, a software engineer passionate about building developer tools, AI applications, and modern web experiences.",
+      "I'm Edvard, a software engineer focused on building developer tools, AI-powered applications, and products that help people build faster and think better.",
   },
 
   story: [
-    "I'm passionate about building software that solves real problems. I enjoy working across the stack, from backend systems to polished user interfaces.",
-    "My focus is on creating developer tools, AI-powered applications, and products that are simple to use but thoughtfully engineered.",
-    "I treat every project as an opportunity to learn, improve my engineering skills, and document the process so others can benefit from it.",
+    "I enjoy building software from the ground up, turning ideas into products through thoughtful architecture, clean code, and continuous iteration. My favorite projects are the ones that combine technical depth with a polished user experience.",
+    "Most of my work revolves around developer tooling, artificial intelligence, and modern web technologies. I'm especially interested in creating products that automate repetitive work and improve the daily workflow of developers.",
+    "I believe the best way to learn is by shipping. Every project teaches me something new, whether it's a framework, a design pattern, or a better way to solve a problem. That's why I build in public and continuously refine both my projects and my engineering process.",
   ],
 
   philosophy: [
     {
-      title: "Build for maintainability",
+      title: "Think in systems",
       description:
-        "I prefer clear architecture, reusable components, and strong typing over clever shortcuts.",
+        "I prefer designing reusable foundations instead of solving the same problem multiple times.",
     },
     {
       title: "Ship continuously",
       description:
-        "Small, incremental improvements keep projects healthy and make it easier to gather feedback.",
+        "Small, frequent improvements create better software than waiting for perfection.",
     },
     {
-      title: "Learn by building",
+      title: "Build with purpose",
       description:
-        "Every project is an opportunity to explore new technologies and refine my engineering practices.",
+        "Technology should solve real problems and provide a genuinely better experience for the people using it.",
     },
     {
-      title: "Keep it simple",
+      title: "Never stop learning",
       description:
-        "Simple solutions are easier to understand, maintain, and scale than unnecessary complexity.",
+        "Every project is an opportunity to explore new technologies, challenge assumptions, and become a better engineer.",
     },
   ],
 
