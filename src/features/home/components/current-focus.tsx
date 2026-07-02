@@ -1,7 +1,7 @@
 import { Container } from "@/components/layout/container";
 import { Card } from "@/components/ui/card";
-import { H2 } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
+import { SectionHeader } from "@/components/ui/section-header";
 import { home } from "@/content/home";
 
 export function CurrentFocus() {
@@ -9,13 +9,11 @@ export function CurrentFocus() {
     <Section>
       <Container>
         <div className="space-y-10">
-          <div className="space-y-3">
-            <H2>{home.currentFocus.title}</H2>
-
-            <p className="max-w-2xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-             {"What I'm actively building, learning, and exploring right now."}
-               </p>
-          </div>
+          <SectionHeader
+            eyebrow="Current"
+            title={home.currentFocus.title}
+            description="What I'm actively building, learning, and exploring right now."
+          />
 
           <div className="grid gap-6 md:grid-cols-3">
             {home.currentFocus.items.map((item) => (

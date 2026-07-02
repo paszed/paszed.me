@@ -1,7 +1,7 @@
 import { Container } from "@/components/layout/container";
 import { Card } from "@/components/ui/card";
-import { H2 } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
+import { SectionHeader } from "@/components/ui/section-header";
 import { home } from "@/content/home";
 
 export function Philosophy() {
@@ -9,13 +9,11 @@ export function Philosophy() {
     <Section>
       <Container>
         <div className="space-y-10">
-          <div className="space-y-3">
-            <H2>{home.philosophy.title}</H2>
-
-            <p className="max-w-2xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-              The principles that guide how I design, build, and ship software.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Philosophy"
+            title={home.philosophy.title}
+            description="The principles that guide how I design, build, and ship software."
+          />
 
           <div className="grid gap-6 md:grid-cols-3">
             {home.philosophy.items.map((principle) => (

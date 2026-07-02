@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Page } from "@/components/layout/page";
 import { Card } from "@/components/ui/card";
-import { H1, H2 } from "@/components/ui/heading";
+import { SectionHeader } from "@/components/ui/section-header";
 import { profiles } from "@/content/profiles";
 
 type Profile = (typeof profiles)[keyof typeof profiles];
@@ -36,7 +36,7 @@ function ProfileGroup({
 }: ProfileGroupProps) {
   return (
     <section className="space-y-6">
-      <H2>{title}</H2>
+      <SectionHeader title={title} />
 
       <div className="grid gap-4">
         {profiles.map((profile) => (
@@ -54,13 +54,13 @@ function ProfileGroup({
                 : undefined
             }
           >
-            <Card className="transition-all hover:-translate-y-1 hover:border-green-500/40">
+            <Card className="transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30">
               <div className="space-y-2">
-                <h3 className="font-semibold">
+                <h3 className="text-lg font-semibold">
                   {profile.label}
                 </h3>
 
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                <p className="leading-7 text-neutral-600 dark:text-neutral-400">
                   {profile.description}
                 </p>
               </div>
@@ -75,19 +75,12 @@ function ProfileGroup({
 export default function LinksPage() {
   return (
     <Page className="space-y-16">
-      <section className="space-y-4">
-        <p className="font-mono text-sm uppercase tracking-[0.3em] text-green-500">
-          PASZED
-        </p>
-
-        <H1>Links</H1>
-
-        <p className="max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
-          {
-            "Everything I'm building, sharing, and contributing to across the web."
-          }
-        </p>
-      </section>
+      <SectionHeader
+        centered
+        eyebrow="Paszed"
+        title="Links"
+        description="Everything I'm building, sharing, and contributing to across the web."
+      />
 
       <ProfileGroup
         title="Featured"
