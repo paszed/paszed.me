@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 import { Page } from "@/components/layout/page";
-import { Card } from "@/components/ui/card";
+import { SocialIcon } from "@/components/icons/social-icon";
 import { SectionHeader } from "@/components/ui/section-header";
 import { profiles } from "@/content/profiles";
 
@@ -38,7 +39,7 @@ function ProfileGroup({
     <section className="space-y-6">
       <SectionHeader title={title} />
 
-      <div className="grid gap-4">
+      <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
         {profiles.map((profile) => (
           <Link
             key={profile.label}
@@ -53,18 +54,28 @@ function ProfileGroup({
                 ? "noopener noreferrer"
                 : undefined
             }
+            className="group flex items-center justify-between rounded-xl px-4 py-5 transition-all duration-200 hover:bg-white hover:shadow-sm dark:hover:bg-neutral-950"
           >
-            <Card className="transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30">
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold">
+            <div className="flex items-start gap-4">
+              <div className="mt-1 text-neutral-500 transition-colors group-hover:text-green-500 dark:text-neutral-400">
+                <SocialIcon
+                  name={profile.label}
+                  className="h-5 w-5"
+                />
+              </div>
+
+              <div>
+                <h3 className="font-semibold transition-colors group-hover:text-green-500">
                   {profile.label}
                 </h3>
 
-                <p className="leading-7 text-neutral-600 dark:text-neutral-400">
+                <p className="mt-1 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
                   {profile.description}
                 </p>
               </div>
-            </Card>
+            </div>
+
+            <ArrowUpRight className="h-4 w-4 text-neutral-400 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-green-500" />
           </Link>
         ))}
       </div>

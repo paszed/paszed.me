@@ -1,15 +1,14 @@
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import type { Project } from "@/types/project";
 
 type ProjectCardProps = Project;
 
 const STATUS = {
-  building: "🟢 Building",
-  completed: "✅ Completed",
-  archived: "📦 Archived",
+  building: "● Building",
+  completed: "● Completed",
+  archived: "● Archived",
 } as const;
 
 export function ProjectCard({
@@ -26,51 +25,50 @@ export function ProjectCard({
       href={`/projects/${slug}`}
       className="group block"
     >
-      <Card className="h-full transition-all duration-300 group-hover:-translate-y-1 group-hover:border-green-500/40 group-hover:shadow-lg dark:group-hover:shadow-2xl">
-        <div className="space-y-6">
-          <div className="flex flex-wrap items-center gap-3 text-sm">
-            <Badge>{STATUS[status]}</Badge>
+      <Card className="h-full rounded-3xl border border-neutral-200 bg-white/80 p-8 shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="flex h-full flex-col gap-8">
+          <div className="flex items-center gap-4 text-sm">
+            <span className="font-medium text-green-500">
+              {STATUS[status]}
+            </span>
 
-            <span className="text-neutral-500 dark:text-neutral-400">
+            <span className="text-neutral-400">
               {year}
             </span>
 
             {featured && (
-              <>
-                <span className="text-neutral-300 dark:text-neutral-700">
-                  •
-                </span>
-
-                <span className="font-medium text-green-500">
-                  Featured
-                </span>
-              </>
+              <span className="text-green-500">
+                Featured
+              </span>
             )}
           </div>
 
-          <div className="space-y-3">
-            <h3 className="text-2xl font-semibold tracking-tight transition-colors group-hover:text-green-500">
+          <div className="space-y-4">
+            <h3 className="text-3xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-green-500">
               {title}
             </h3>
 
-            <p className="leading-7 text-neutral-600 dark:text-neutral-400">
+            <p className="max-w-2xl leading-8 text-neutral-600 dark:text-neutral-400">
               {description}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {technologies.map((technology) => (
-              <Badge key={technology}>{technology}</Badge>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-neutral-500 dark:text-neutral-400">
+            {technologies.map((technology, index) => (
+              <span key={technology}>
+                {technology}
+                {index !== technologies.length - 1 && (
+                  <span className="ml-4 text-neutral-300 dark:text-neutral-700">
+                    •
+                  </span>
+                )}
+              </span>
             ))}
           </div>
 
-          <div className="flex items-center justify-between border-t border-neutral-200 pt-4 dark:border-neutral-800">
-            <span className="text-sm text-neutral-500 dark:text-neutral-400">
-              Engineering Case Study
-            </span>
-
-            <span className="text-sm font-medium text-green-500 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-              View Project →
+          <div className="mt-auto pt-2">
+            <span className="font-medium text-neutral-900 transition-colors group-hover:text-green-500 dark:text-neutral-100">
+              Engineering Case Study →
             </span>
           </div>
         </div>
