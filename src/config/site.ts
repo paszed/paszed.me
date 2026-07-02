@@ -1,6 +1,7 @@
 export const site = {
   name: "Paszed",
-  owner: "Edvard Paz",
+  brand: "paszed",
+  owner: "Edvard Pasz",
 
   url: "https://paszed.me",
 
@@ -15,6 +16,6 @@ export const site = {
     x: "https://x.com/paszed_",
     reddit: "https://reddit.com/u/paszed",
   },
-} as const
+} as const;
 
-export type Site = typeof site
+export type Site = typeof site;

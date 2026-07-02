@@ -8,23 +8,25 @@ import { Container } from "./container";
 
 export function Navbar() {
   return (
-    <header className="border-b border-neutral-200 dark:border-neutral-800">
+    <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/80 backdrop-blur-md dark:border-neutral-800/80 dark:bg-black/80">
       <Container>
         <nav className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="text-lg font-semibold tracking-tight"
+            className="font-mono text-lg font-semibold tracking-tight"
           >
-            {site.name}
+            <span className="text-green-500">$</span>{" "}
+            {site.brand}
+            <span className="animate-pulse text-green-500">_</span>
           </Link>
 
-          <div className="flex items-center gap-6">
-            <ul className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
+            <ul className="flex items-center gap-8">
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-neutral-600 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
+                    className="text-sm font-medium text-neutral-600 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                   >
                     {item.label}
                   </Link>
