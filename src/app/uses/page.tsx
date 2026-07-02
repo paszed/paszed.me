@@ -11,7 +11,7 @@ export default function UsesPage() {
       <div className="space-y-20">
         <UsesHero />
 
-        {uses.map((section) => (
+        {uses.sections.map((section) => (
           <UsesSection
             key={section.title}
             title={section.title}
