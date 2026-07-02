@@ -2,11 +2,11 @@ import { projects } from "@/content/projects";
 import type { Project } from "@/types/project";
 
 export function getProjects(): readonly Project[] {
-  return projects;
+  return [...projects].sort((a, b) => b.year - a.year);
 }
 
 export function getFeaturedProjects(): readonly Project[] {
-  return projects.filter((project) => project.featured);
+  return getProjects().filter((project) => project.featured);
 }
 
 export function getProjectBySlug(

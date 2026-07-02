@@ -1,0 +1,15 @@
+import { H1 } from "@/components/ui/heading";
+
+export function ProjectsHero() {
+  return (
+    <header className="space-y-6">
+      <H1>Projects</H1>
+
+      <p className="max-w-3xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+        A collection of software, experiments, and products I've built. Every
+        project documents not only the final result, but also the architecture,
+        technical decisions, and lessons learned along the way.
+      </p>
+    </header>
+  );
+}
