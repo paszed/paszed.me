@@ -12,7 +12,7 @@ export function ThemedLion() {
         priority
         aria-hidden
         sizes="100vw"
-        className="pointer-events-none select-none object-contain object-center opacity-10 transition-opacity duration-500 dark:hidden"
+        className="pointer-events-none select-none object-contain object-center opacity-30 transition-opacity duration-500 dark:hidden"
       />
 
       <Image
@@ -22,7 +22,7 @@ export function ThemedLion() {
         priority
         aria-hidden
         sizes="100vw"
-        className="pointer-events-none hidden select-none object-contain object-center opacity-10 transition-opacity duration-500 dark:block"
+        className="pointer-events-none hidden select-none object-contain object-center opacity-30 transition-opacity duration-500 dark:block"
       />
     </>
   );
