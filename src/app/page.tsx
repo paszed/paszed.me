@@ -1,13 +1,23 @@
-import { CurrentFocus } from "@/features/home/components/current-focus";
-import { Hero } from "@/features/home/components/hero";
-import { Philosophy } from "@/features/home/components/philosophy";
+import {
+  ContactCTA,
+  CurrentFocus,
+  FeaturedProjects,
+  Hero,
+  Philosophy,
+} from "@/features/home";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+
       <CurrentFocus />
+
+      <FeaturedProjects />
+
       <Philosophy />
+
+      <ContactCTA />
     </>
   );
 }
