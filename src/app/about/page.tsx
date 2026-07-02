@@ -1,6 +1,7 @@
 import { Page } from "@/components/layout/page";
 import {
   AboutHero,
+  AboutPhilosophy,
   AboutStory,
 } from "@/features/about";
 
@@ -14,6 +15,8 @@ export default function AboutPage() {
         <AboutHero />
 
         <AboutStory />
+
+        <AboutPhilosophy />
       </div>
     </Page>
   );
