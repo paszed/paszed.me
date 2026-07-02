@@ -24,14 +24,16 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: RootLayoutProps) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-screen bg-white font-sans text-black antialiased dark:bg-black dark:text-white">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <Providers>
           <Navbar />
 

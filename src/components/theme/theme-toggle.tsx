@@ -7,7 +7,12 @@ import { useMounted } from "@/hooks/use-mounted";
 
 export function ThemeToggle() {
   const mounted = useMounted();
-  const { resolvedTheme, setTheme } = useTheme();
+
+  const {
+    theme,
+    resolvedTheme,
+    setTheme,
+  } = useTheme();
 
   if (!mounted) {
     return (
@@ -20,6 +25,11 @@ export function ThemeToggle() {
       </button>
     );
   }
+
+  console.log({
+    theme,
+    resolvedTheme,
+  });
 
   const isDark = resolvedTheme === "dark";
 
