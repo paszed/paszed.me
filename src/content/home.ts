@@ -16,6 +16,28 @@ export const home = {
     },
   },
 
+  currentFocus: {
+  title: "Currently",
+
+  items: [
+    {
+      title: "🟢 Building",
+      description:
+        "Growing paszed.me into my engineering journal while building Dev Toolbox.",
+    },
+    {
+      title: "📚 Learning",
+      description:
+        "AI agents, Model Context Protocol, and modern TypeScript architecture.",
+    },
+    {
+      title: "🔬 Exploring",
+      description:
+        "Developer experience, browser extensions, and practical AI tooling.",
+    },
+  ],
+},
+
   featuredProjects: {
     title: "Featured Projects",
     description:
