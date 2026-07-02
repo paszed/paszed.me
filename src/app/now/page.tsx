@@ -7,10 +7,7 @@ import {
 
 export default function NowPage() {
   return (
-    <Page
-      title="Now"
-      description="What I'm currently building, learning, and focused on."
-    >
+    <Page>
       <div className="space-y-20">
         <NowHero />
 

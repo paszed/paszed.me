@@ -65,10 +65,7 @@ export default async function ProjectPage({
   }
 
   return (
-    <Page
-      title={project.title}
-      description={project.summary}
-    >
+    <Page>
       <div className="space-y-16">
         <ProjectHero project={project} />
 

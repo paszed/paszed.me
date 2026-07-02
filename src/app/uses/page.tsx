@@ -7,10 +7,7 @@ import {
 
 export default function UsesPage() {
   return (
-    <Page
-      title="Uses"
-      description="The hardware, software, and tools I use to build software."
-    >
+    <Page>
       <div className="space-y-20">
         <UsesHero />
 

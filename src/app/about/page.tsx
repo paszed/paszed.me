@@ -7,10 +7,7 @@ import {
 
 export default function AboutPage() {
   return (
-    <Page
-      title="About"
-      description="Learn more about me, my background, and how I approach building software."
-    >
+    <Page>
       <div className="space-y-20">
         <AboutHero />
 

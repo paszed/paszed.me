@@ -7,16 +7,16 @@ export default function ProjectsPage() {
   const projects = getProjects();
 
   return (
-    <Page
-      title="Projects"
-      description="Software, experiments, and things I'm building."
-    >
+    <Page>
       <div className="space-y-16">
         <ProjectsHero />
 
         <div className="grid gap-6">
           {projects.map((project) => (
-            <ProjectCard key={project.slug} {...project} />
+            <ProjectCard
+              key={project.slug}
+              {...project}
+            />
           ))}
         </div>
       </div>

@@ -6,10 +6,7 @@ import {
 
 export default function BlogPage() {
   return (
-    <Page
-      title="Blog"
-      description="Engineering articles, tutorials, and development notes."
-    >
+    <Page>
       <div className="space-y-20">
         <BlogHero />
 
