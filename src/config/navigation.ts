@@ -4,24 +4,28 @@ export const navigation = [
     href: "/",
   },
   {
-    label: "About",
-    href: "/about",
-  },
-  {
     label: "Projects",
     href: "/projects",
   },
   {
-    label: "Uses",
-    href: "/uses",
+    label: "Blog",
+    href: "/blog",
+  },
+  {
+    label: "Links",
+    href: "/links",
+  },
+  {
+    label: "About",
+    href: "/about",
   },
   {
     label: "Now",
     href: "/now",
   },
   {
-    label: "Blog",
-    href: "/blog",
+    label: "Uses",
+    href: "/uses",
   },
 ] as const;
 
