@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { H2 } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
+import { profiles } from "@/content/profiles";
 import { site } from "@/config/site";
 
 export function ContactCTA() {
@@ -26,12 +27,12 @@ export function ContactCTA() {
               </Link>
 
               <Link
-                href={site.links.github}
+                href={profiles.github.href}
                 target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center text-sm font-medium hover:underline"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm font-medium transition-colors hover:text-green-500"
               >
-                GitHub
+                {profiles.github.label}
               </Link>
             </div>
           </div>

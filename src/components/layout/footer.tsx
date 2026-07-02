@@ -1,8 +1,8 @@
-import Link from "next/link";
-
+import { BrandLogo } from "@/brand/components/logo";
+import { Container } from "@/components/layout/container";
+import { FooterSection } from "@/components/layout/footer-section";
+import { footer } from "@/content/footer";
 import { site } from "@/config/site";
-
-import { Container } from "./container";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -10,54 +10,42 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-neutral-200 dark:border-neutral-800">
       <Container>
-        <div className="grid gap-12 py-12 md:grid-cols-2">
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold tracking-tight">
-              {site.name}
-            </h2>
+        <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div className="space-y-5">
+            <BrandLogo />
 
             <p className="max-w-sm leading-7 text-neutral-600 dark:text-neutral-400">
               Building developer tools, AI applications, and modern web
-              experiences. Documenting the journey one project at a time.
+              products.
+            </p>
+
+            <p className="text-sm font-medium text-green-500">
+              Build. Learn. Ship.
             </p>
           </div>
 
-          <div className="flex flex-col items-start gap-3 md:items-end">
-            <Link
-              href={site.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-green-500"
-            >
-              GitHub
-            </Link>
+          <FooterSection
+            title="Navigation"
+            items={footer.navigation}
+          />
 
-            <Link
-              href={site.links.x}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-green-500"
-            >
-              X
-            </Link>
+          <FooterSection
+            title="Connect"
+            items={footer.connect}
+            showIcons
+          />
 
-            <Link
-              href={`mailto:${site.email}`}
-              className="transition-colors hover:text-green-500"
-            >
-              Email
-            </Link>
-          </div>
+          <FooterSection
+            title="Developer"
+            items={footer.developer}
+            showIcons
+          />
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-neutral-200 py-6 text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400 md:flex-row md:items-center md:justify-between">
-          <p>
-            © {year} {site.owner}. All rights reserved.
-          </p>
+        <div className="flex flex-col gap-2 border-t border-neutral-200 py-6 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between dark:border-neutral-800 dark:text-neutral-500">
+          <p>© {year} {site.owner}. All rights reserved.</p>
 
-          <p>
-            Built with Next.js, TypeScript & Tailwind CSS.
-          </p>
+          <p>Built with Next.js, TypeScript & Tailwind CSS.</p>
         </div>
       </Container>
     </footer>
