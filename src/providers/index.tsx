@@ -1,4 +1,8 @@
+"use client";
+
 import type { ReactNode } from "react";
+
+import { ThemeProvider } from "./theme-provider";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -7,5 +11,9 @@ interface ProvidersProps {
 export function Providers({
   children,
 }: ProvidersProps) {
-  return <>{children}</>;
+  return (
+    <ThemeProvider>
+      {children}
+    </ThemeProvider>
+  );
 }

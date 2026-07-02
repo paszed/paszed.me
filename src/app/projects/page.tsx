@@ -1,20 +1,21 @@
-import { Container } from "@/components/layout/container";
-import { H1 } from "@/components/ui/heading";
-import { Section } from "@/components/ui/section";
+import { Page } from "@/components/layout/page";
+import { ProjectCard } from "@/components/shared/project-card";
+import { projects } from "@/content/projects";
 
 export default function ProjectsPage() {
   return (
-    <Section>
-      <Container>
-        <div className="max-w-3xl space-y-8">
-          <H1>Projects</H1>
-
-          <p>
-            A collection of software, developer tools, and experiments I'm
-            building.
-          </p>
-        </div>
-      </Container>
-    </Section>
+    <Page
+      title="Projects"
+      description="Software, experiments, and things I'm building."
+    >
+      <div className="grid gap-6">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            {...project}
+          />
+        ))}
+      </div>
+    </Page>
   );
 }
