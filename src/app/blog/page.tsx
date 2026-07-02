@@ -1,20 +1,20 @@
-import { Container } from "@/components/layout/container";
-import { H1 } from "@/components/ui/heading";
-import { Section } from "@/components/ui/section";
+import { Page } from "@/components/layout/page";
+import {
+  BlogHero,
+  BlogPostList,
+} from "@/features/blog";
 
 export default function BlogPage() {
   return (
-    <Section>
-      <Container>
-        <div className="max-w-3xl space-y-8">
-          <H1>Blog</H1>
+    <Page
+      title="Blog"
+      description="Engineering articles, tutorials, and development notes."
+    >
+      <div className="space-y-20">
+        <BlogHero />
 
-          <p>
-            Writing about software engineering, developer tools, AI, and things
-            I learn while building.
-          </p>
-        </div>
-      </Container>
-    </Section>
+        <BlogPostList />
+      </div>
+    </Page>
   );
 }
