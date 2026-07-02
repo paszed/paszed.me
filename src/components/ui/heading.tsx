@@ -35,12 +35,7 @@ export function H2({ children, className }: HeadingProps) {
 
 export function H3({ children, className }: HeadingProps) {
   return (
-    <h3
-      className={cn(
-        "text-2xl font-semibold tracking-tight",
-        className,
-      )}
-    >
+    <h3 className={cn("text-2xl font-semibold tracking-tight", className)}>
       {children}
     </h3>
   );

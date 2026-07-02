@@ -10,13 +10,13 @@ export default function AboutPage() {
           <H1>About</H1>
 
           <p>
-            I'm Edvard, a software engineer building developer tools,
-            AI applications, and modern web products.
+            I&apos;m Edvard, a software engineer building developer tools, AI
+            applications, and modern web products.
           </p>
 
           <p>
-            I enjoy creating software that's fast, maintainable,
-            and enjoyable to use.
+            I enjoy creating software that&apos;s fast, maintainable, and
+            enjoyable to use.
           </p>
         </div>
       </Container>

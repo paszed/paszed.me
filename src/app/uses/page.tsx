@@ -9,9 +9,7 @@ export default function UsesPage() {
         <div className="max-w-3xl space-y-8">
           <H1>Uses</H1>
 
-          <p>
-            The hardware, software, and tools I use every day.
-          </p>
+          <p>The hardware, software, and tools I use every day.</p>
         </div>
       </Container>
     </Section>

@@ -2,13 +2,9 @@ import type { HTMLAttributes } from "react";
 
 import { cn } from "@/lib/cn";
 
-interface ProseProps extends HTMLAttributes<HTMLDivElement> {}
+type ProseProps = HTMLAttributes<HTMLDivElement>;
 
-export function Prose({
-  className,
-  children,
-  ...props
-}: ProseProps) {
+export function Prose({ className, children, ...props }: ProseProps) {
   return (
     <div
       className={cn(

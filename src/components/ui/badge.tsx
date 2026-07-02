@@ -7,11 +7,7 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   className?: string;
 }
 
-export function Badge({
-  children,
-  className,
-  ...props
-}: BadgeProps) {
+export function Badge({ children, className, ...props }: BadgeProps) {
   return (
     <span
       className={cn(

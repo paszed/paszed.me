@@ -12,11 +12,12 @@ export function ContactCTA() {
       <Container>
         <div className="rounded-3xl border border-neutral-200 p-12 text-center dark:border-neutral-800">
           <div className="mx-auto max-w-2xl space-y-6">
-            <H2>Let's build something great.</H2>
+            <H2>{"Let's build something great."}</H2>
 
             <p className="text-lg text-neutral-600 dark:text-neutral-400">
-              Whether it's a product, developer tool, or AI project, I'm always
-              interested in solving interesting problems.
+              {
+                "Whether it's a product, developer tool, or AI project, I'm always interested in solving interesting problems."
+              }
             </p>
 
             <div className="flex justify-center gap-4">

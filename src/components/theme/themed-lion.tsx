@@ -1,20 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export function ThemedLion() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   const src =
     resolvedTheme === "dark"

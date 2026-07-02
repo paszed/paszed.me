@@ -10,10 +10,7 @@ export default function ProjectsPage() {
     >
       <div className="grid gap-6">
         {projects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            {...project}
-          />
+          <ProjectCard key={project.title} {...project} />
         ))}
       </div>
     </Page>

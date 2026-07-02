@@ -9,9 +9,7 @@ export default function NowPage() {
         <div className="max-w-3xl space-y-8">
           <H1>Now</H1>
 
-          <p>
-            What I'm currently focused on and actively building.
-          </p>
+          <p>What I&apos;m currently focused on and actively building.</p>
         </div>
       </Container>
     </Section>

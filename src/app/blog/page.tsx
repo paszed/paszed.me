@@ -10,8 +10,8 @@ export default function BlogPage() {
           <H1>Blog</H1>
 
           <p>
-            Writing about software engineering, developer tools,
-            AI, and things I learn while building.
+            Writing about software engineering, developer tools, AI, and things
+            I learn while building.
           </p>
         </div>
       </Container>

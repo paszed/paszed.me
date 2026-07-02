@@ -29,8 +29,7 @@ export function Hero() {
             </H1>
 
             <p className="max-w-xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-              I'm {site.owner}. I build software that's fast,
-              maintainable, and genuinely useful.
+              {`I'm ${site.owner}. I build software that's fast, maintainable, and genuinely useful.`}
             </p>
 
             <div className="flex flex-wrap items-center gap-4">

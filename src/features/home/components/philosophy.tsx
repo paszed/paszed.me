@@ -6,13 +6,11 @@ import { Section } from "@/components/ui/section";
 const principles = [
   {
     title: "Build useful software",
-    description:
-      "Focus on solving real problems instead of chasing trends.",
+    description: "Focus on solving real problems instead of chasing trends.",
   },
   {
     title: "Keep things simple",
-    description:
-      "Good software is easier to understand, maintain, and extend.",
+    description: "Good software is easier to understand, maintain, and extend.",
   },
   {
     title: "Ship continuously",
@@ -31,9 +29,7 @@ export function Philosophy() {
           <div className="grid gap-6 md:grid-cols-3">
             {principles.map((principle) => (
               <Card key={principle.title}>
-                <h3 className="font-semibold">
-                  {principle.title}
-                </h3>
+                <h3 className="font-semibold">{principle.title}</h3>
 
                 <p className="mt-3 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
                   {principle.description}

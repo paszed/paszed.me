@@ -11,7 +11,9 @@ export function Footer() {
     <footer className="border-t border-neutral-200 py-8 dark:border-neutral-800">
       <Container>
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-neutral-600 sm:flex-row dark:text-neutral-400">
-          <p>© {year} {site.owner}. All rights reserved.</p>
+          <p>
+            © {year} {site.owner}. All rights reserved.
+          </p>
 
           <div className="flex items-center gap-6">
             <Link

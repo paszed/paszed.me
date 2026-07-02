@@ -11,12 +11,7 @@ interface PageProps {
   className?: string;
 }
 
-export function Page({
-  title,
-  description,
-  children,
-  className,
-}: PageProps) {
+export function Page({ title, description, children, className }: PageProps) {
   return (
     <main className={cn("py-16 sm:py-20 lg:py-24", className)}>
       <Container>

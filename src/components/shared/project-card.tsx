@@ -20,9 +20,7 @@ export function ProjectCard({
     <Link href={href} className="block">
       <Card className="h-full transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold tracking-tight">
-            {title}
-          </h3>
+          <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
 
           <p className="leading-7 text-neutral-600 dark:text-neutral-400">
             {description}
