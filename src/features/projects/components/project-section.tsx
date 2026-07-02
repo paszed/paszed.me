@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { H2 } from "@/components/ui/heading";
+
 interface ProjectSectionProps {
   title: string;
   children: ReactNode;
@@ -11,13 +13,13 @@ export function ProjectSection({
 }: ProjectSectionProps) {
   return (
     <section className="space-y-6">
-      <h2 className="text-2xl font-semibold tracking-tight">
-        {title}
-      </h2>
+      <div className="space-y-2">
+        <H2>{title}</H2>
 
-      <div className="space-y-4 text-neutral-700 dark:text-neutral-300">
-        {children}
+        <div className="h-px bg-neutral-200 dark:bg-neutral-800" />
       </div>
+
+      {children}
     </section>
   );
 }

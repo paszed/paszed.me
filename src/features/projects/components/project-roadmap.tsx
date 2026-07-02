@@ -1,4 +1,4 @@
-import { H2 } from "@/components/ui/heading";
+import { ProjectSection } from "@/features/projects";
 import type { Project } from "@/types/project";
 
 interface ProjectRoadmapProps {
@@ -13,9 +13,7 @@ export function ProjectRoadmap({
   }
 
   return (
-    <section className="space-y-6">
-      <H2>Roadmap</H2>
-
+    <ProjectSection title="Roadmap">
       <ul className="space-y-3">
         {project.roadmap.map((item) => (
           <li
@@ -28,6 +26,6 @@ export function ProjectRoadmap({
           </li>
         ))}
       </ul>
-    </section>
+    </ProjectSection>
   );
 }

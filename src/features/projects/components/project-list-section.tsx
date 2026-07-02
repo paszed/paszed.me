@@ -1,4 +1,4 @@
-import { H2 } from "@/components/ui/heading";
+import { ProjectSection } from "@/features/projects";
 
 interface ProjectListSectionProps {
   title: string;
@@ -14,9 +14,7 @@ export function ProjectListSection({
   }
 
   return (
-    <section className="space-y-6">
-      <H2>{title}</H2>
-
+    <ProjectSection title={title}>
       <ul className="space-y-3">
         {items.map((item) => (
           <li
@@ -29,6 +27,6 @@ export function ProjectListSection({
           </li>
         ))}
       </ul>
-    </section>
+    </ProjectSection>
   );
 }
