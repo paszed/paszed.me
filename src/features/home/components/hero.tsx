@@ -6,6 +6,7 @@ import { ThemedLion } from "@/components/theme/themed-lion";
 import { Button } from "@/components/ui/button";
 import { H1 } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
+import { home } from "@/content/home";
 import { site } from "@/config/site";
 
 export function Hero() {
@@ -17,34 +18,29 @@ export function Hero() {
         <div className="grid items-center gap-20 lg:grid-cols-2">
           <div className="space-y-8">
             <p className="font-mono text-sm uppercase tracking-[0.3em] text-green-500">
-              BUILD • LEARN • SHIP
+              {home.hero.eyebrow}
             </p>
 
             <H1>
-              Hi, I&apos;m {site.owner}.
+              {home.hero.title}
               <br />
-              I build developer tools,
-              <br />
-              AI products, and modern web experiences.
+              {home.hero.subtitle}
             </H1>
 
             <p className="max-w-xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
-              I&apos;m a software engineer passionate about creating products
-              that are fast, maintainable, and genuinely useful. This site is
-              where I document what I build, what I learn, and the decisions
-              behind each project.
+              {home.hero.description}
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/projects">
-                <Button>Explore Projects</Button>
+              <Link href={home.hero.primaryCta.href}>
+                <Button>{home.hero.primaryCta.label}</Button>
               </Link>
 
               <Link
-                href="/about"
+                href={home.hero.secondaryCta.href}
                 className="text-sm font-medium transition-colors hover:text-green-500"
               >
-                About me →
+                {home.hero.secondaryCta.label} →
               </Link>
             </div>
           </div>
