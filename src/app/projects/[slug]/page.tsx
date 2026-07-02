@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 
 import { Page } from "@/components/layout/page";
 import {
-  ProjectContent,
   ProjectGallery,
   ProjectHero,
   ProjectLinks,
+  ProjectListSection,
+  ProjectOverview,
+  ProjectRoadmap,
   ProjectTech,
 } from "@/features/projects";
 import {
@@ -71,7 +73,24 @@ export default async function ProjectPage({
 
         <ProjectGallery project={project} />
 
-        <ProjectContent project={project} />
+        <ProjectOverview overview={project.overview} />
+
+        <ProjectListSection
+          title="Architecture"
+          items={project.architecture}
+        />
+
+        <ProjectListSection
+          title="Challenges"
+          items={project.challenges}
+        />
+
+        <ProjectListSection
+          title="Lessons Learned"
+          items={project.lessons}
+        />
+
+        <ProjectRoadmap project={project} />
 
         <ProjectTech project={project} />
 

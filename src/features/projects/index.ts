@@ -6,3 +6,6 @@ export * from "./components/project-meta";
 export * from "./components/project-section";
 export * from "./components/project-tech";
 export * from "./components/projects-hero";
+export * from "./components/project-roadmap";
+export * from "./components/project-list-section";
+export * from "./components/project-overview";
