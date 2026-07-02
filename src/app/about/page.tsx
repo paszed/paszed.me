@@ -2,6 +2,7 @@ import { Page } from "@/components/layout/page";
 import {
   AboutHero,
   AboutPhilosophy,
+  AboutSkills,
   AboutStory,
 } from "@/features/about";
 
@@ -14,6 +15,8 @@ export default function AboutPage() {
         <AboutStory />
 
         <AboutPhilosophy />
+
+        <AboutSkills />
       </div>
     </Page>
   );
