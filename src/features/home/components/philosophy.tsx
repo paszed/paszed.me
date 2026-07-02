@@ -19,14 +19,14 @@ export function Philosophy() {
             {home.philosophy.items.map((principle) => (
               <Card
                 key={principle.title}
-                className="transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30"
+                className="transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
               >
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold">
+                  <h3 className="text-lg font-semibold text-fg">
                     {principle.title}
                   </h3>
 
-                  <p className="leading-7 text-neutral-600 dark:text-neutral-400">
+                  <p className="leading-7 text-fg-secondary">
                     {principle.description}
                   </p>
                 </div>

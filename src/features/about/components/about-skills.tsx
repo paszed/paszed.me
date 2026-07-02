@@ -55,9 +55,9 @@ export function AboutSkills() {
         {about.skills.map((group) => (
           <div
             key={group.category}
-            className="border-b border-neutral-200 pb-8 last:border-none dark:border-neutral-800"
+            className="border-b border-border pb-8 last:border-none"
           >
-            <h3 className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.35em] text-green-500">
+            <h3 className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.35em] text-accent">
               {group.category}
             </h3>
 
@@ -68,10 +68,10 @@ export function AboutSkills() {
                 return (
                   <div
                     key={item}
-                    className="group inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-green-500 hover:text-green-500 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-green-400 dark:hover:text-green-400"
+                    className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-fg transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                   >
                     {Icon && (
-                      <Icon className="h-4 w-4 flex-shrink-0" />
+                      <Icon className="h-4 w-4 flex-shrink-0 transition-colors duration-200" />
                     )}
 
                     <span>{item}</span>

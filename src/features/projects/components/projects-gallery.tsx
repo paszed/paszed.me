@@ -20,7 +20,7 @@ export function ProjectGallery({
         {project.gallery.map((image) => (
           <div
             key={image.src}
-            className="overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800"
+            className="overflow-hidden rounded-2xl border border-border"
           >
             <Image
               src={image.src}

@@ -17,7 +17,7 @@ export function ProjectHero({
       <div className="space-y-5">
         <H1>{project.title}</H1>
 
-        <p className="max-w-3xl text-xl leading-9 text-neutral-600 dark:text-neutral-400">
+        <p className="max-w-3xl text-xl leading-9 text-fg-secondary">
           {project.summary}
         </p>
       </div>
@@ -30,7 +30,7 @@ export function ProjectHero({
         ))}
       </div>
 
-      <div className="h-px bg-neutral-200 dark:bg-neutral-800" />
+      <div className="h-px bg-border" />
     </header>
   );
 }

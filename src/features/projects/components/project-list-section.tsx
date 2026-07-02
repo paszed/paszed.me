@@ -19,9 +19,9 @@ export function ProjectListSection({
         {items.map((item) => (
           <li
             key={item}
-            className="flex gap-3 text-neutral-600 dark:text-neutral-400"
+            className="flex gap-3 text-fg-secondary"
           >
-            <span className="mt-2 h-2 w-2 rounded-full bg-green-500" />
+            <span className="mt-2 h-2 w-2 rounded-full bg-success" />
 
             <span>{item}</span>
           </li>

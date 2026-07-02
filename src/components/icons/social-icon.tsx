@@ -1,5 +1,4 @@
 import { Mail } from "lucide-react";
-import { cn } from "@/lib/cn";
 import type { IconType } from "react-icons";
 import { FaLinkedin } from "react-icons/fa6";
 import {
@@ -13,6 +12,8 @@ import {
   SiStackoverflow,
   SiX,
 } from "react-icons/si";
+
+import { cn } from "@/lib/cn";
 
 interface SocialIconProps {
   name: string;
@@ -39,7 +40,7 @@ const colors: Record<string, string> = {
   X: "",
   Reddit: "group-hover:text-[#FF4500]",
   Discord: "group-hover:text-[#5865F2]",
-  Email: "group-hover:text-green-500",
+  Email: "group-hover:text-accent",
   npm: "group-hover:text-[#CB3837]",
   PyPI: "group-hover:text-[#3775A9]",
   "Docker Hub": "group-hover:text-[#2496ED]",

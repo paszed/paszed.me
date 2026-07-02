@@ -9,7 +9,7 @@ export function ProjectOverview({
 }: ProjectOverviewProps) {
   return (
     <ProjectSection title="Overview">
-      <p className="leading-8 text-neutral-600 dark:text-neutral-400">
+      <p className="leading-8 text-fg-secondary">
         {overview}
       </p>
     </ProjectSection>

@@ -17,7 +17,7 @@ export function Hero() {
       <Container className="relative z-10">
         <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="max-w-xl space-y-8">
-            <p className="font-mono text-sm uppercase tracking-[0.35em] text-green-500">
+            <p className="font-mono text-sm uppercase tracking-[0.35em] text-accent">
               {home.hero.eyebrow}
             </p>
 
@@ -27,7 +27,7 @@ export function Hero() {
               {home.hero.subtitle}
             </H1>
 
-            <p className="text-xl leading-9 text-neutral-600 dark:text-neutral-400">
+            <p className="text-xl leading-9 text-fg-secondary">
               {home.hero.description}
             </p>
 
@@ -38,7 +38,7 @@ export function Hero() {
 
               <Link
                 href={home.hero.secondaryCta.href}
-                className="text-sm font-medium transition-colors hover:text-green-500"
+                className="text-sm font-medium text-fg transition-colors hover:text-accent"
               >
                 {home.hero.secondaryCta.label} →
               </Link>
@@ -46,7 +46,7 @@ export function Hero() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="rounded-full border border-neutral-200 bg-white p-2 shadow-2xl dark:border-neutral-800 dark:bg-neutral-950">
+            <div className="rounded-full border border-border bg-card p-2 shadow-2xl">
               <div className="relative h-[20rem] w-[20rem] overflow-hidden rounded-full lg:h-[22rem] lg:w-[22rem]">
                 <Image
                   src="/images/profile.jpg"

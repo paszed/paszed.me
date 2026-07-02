@@ -8,18 +8,18 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-neutral-200 dark:border-neutral-800">
+    <footer className="mt-24 border-t border-border">
       <Container>
         <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
           <div className="space-y-5">
             <BrandLogo />
 
-            <p className="max-w-sm leading-7 text-neutral-600 dark:text-neutral-400">
+            <p className="max-w-sm leading-7 text-fg-secondary">
               Building developer tools, AI applications, and modern web
               products.
             </p>
 
-            <p className="text-sm font-medium text-green-500">
+            <p className="text-sm font-medium text-accent">
               Build. Learn. Ship.
             </p>
           </div>
@@ -48,10 +48,14 @@ export function Footer() {
           />
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-neutral-200 py-6 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between dark:border-neutral-800 dark:text-neutral-500">
-          <p>© {year} {site.owner}. All rights reserved.</p>
+        <div className="flex flex-col gap-2 border-t border-border py-6 text-sm text-fg-muted md:flex-row md:items-center md:justify-between">
+          <p>
+            © {year} {site.owner}. All rights reserved.
+          </p>
 
-          <p>Built with Next.js, TypeScript & Tailwind CSS.</p>
+          <p>
+            Built with Next.js, TypeScript & Tailwind CSS.
+          </p>
         </div>
       </Container>
     </footer>

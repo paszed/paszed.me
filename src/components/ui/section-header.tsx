@@ -38,7 +38,7 @@ export function SectionHeader({
         )}
       >
         {eyebrow && (
-          <p className="font-mono text-sm uppercase tracking-[0.3em] text-green-500">
+          <p className="font-mono text-sm uppercase tracking-[0.3em] text-accent">
             {eyebrow}
           </p>
         )}
@@ -46,7 +46,7 @@ export function SectionHeader({
         <H2>{title}</H2>
 
         {description && (
-          <p className="text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+          <p className="text-lg leading-8 text-fg-secondary">
             {description}
           </p>
         )}

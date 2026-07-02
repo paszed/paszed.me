@@ -9,7 +9,7 @@ export function UsesSection({
 }: UsesSectionProps) {
   return (
     <section className="space-y-6">
-      <h2 className="text-2xl font-semibold tracking-tight">
+      <h2 className="text-2xl font-semibold tracking-tight text-fg">
         {title}
       </h2>
 
@@ -17,7 +17,7 @@ export function UsesSection({
         {items.map((item) => (
           <li
             key={item}
-            className="text-neutral-600 dark:text-neutral-400"
+            className="text-fg-secondary"
           >
             {item}
           </li>

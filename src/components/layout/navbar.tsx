@@ -14,9 +14,9 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur-xl dark:border-neutral-800 dark:bg-black/80">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <Container>
-        <nav className="flex h-16 items-center justify-between">
+        <nav className="flex h-[4.5rem] items-center justify-between">
           <BrandLogo />
 
           <div className="flex items-center gap-6">
@@ -29,27 +29,26 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "relative text-sm font-medium transition-colors",
+                        "relative text-sm font-medium transition-colors duration-200",
                         active
-                          ? "text-green-500"
-                          : "text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white",
+                          ? "text-accent"
+                          : "text-muted hover:text-accent",
                       )}
                     >
                       {item.label}
 
-                      <span
-                        className={cn(
-                          "absolute -bottom-2 left-0 h-0.5 rounded-full bg-green-500 transition-all duration-200",
-                          active ? "w-full" : "w-0",
-                        )}
-                      />
+                      {active && (
+                        <span className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-accent" />
+                      )}
                     </Link>
                   </li>
                 );
               })}
             </ul>
 
-            <ThemeToggle />
+            <div className="rounded-xl border border-border bg-surface p-1">
+              <ThemeToggle />
+            </div>
           </div>
         </nav>
       </Container>

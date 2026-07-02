@@ -16,7 +16,7 @@ export function ProjectSection({
       <div className="space-y-2">
         <H2>{title}</H2>
 
-        <div className="h-px bg-neutral-200 dark:bg-neutral-800" />
+        <div className="h-px bg-border" />
       </div>
 
       {children}

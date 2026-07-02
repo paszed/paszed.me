@@ -11,11 +11,11 @@ export function ContactCTA() {
   return (
     <Section>
       <Container>
-        <div className="rounded-3xl border border-neutral-200 p-12 text-center dark:border-neutral-800">
+        <div className="rounded-3xl border border-border p-12 text-center">
           <div className="mx-auto max-w-2xl space-y-6">
             <H2>{"Let's build something great."}</H2>
 
-            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            <p className="text-lg text-fg-secondary">
               {
                 "Whether it's a product, developer tool, or AI project, I'm always interested in solving interesting problems."
               }
@@ -30,7 +30,7 @@ export function ContactCTA() {
                 href={profiles.github.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium transition-colors hover:text-green-500"
+                className="inline-flex items-center text-sm font-medium text-fg transition-colors hover:text-accent"
               >
                 {profiles.github.label}
               </Link>

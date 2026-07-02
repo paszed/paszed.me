@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import { Page } from "@/components/layout/page";
 import { SocialIcon } from "@/components/icons/social-icon";
+import { Page } from "@/components/layout/page";
 import { SectionHeader } from "@/components/ui/section-header";
 import { profiles } from "@/content/profiles";
 
@@ -39,7 +39,7 @@ function ProfileGroup({
     <section className="space-y-6">
       <SectionHeader title={title} />
 
-      <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
+      <div className="divide-y divide-border">
         {profiles.map((profile) => (
           <Link
             key={profile.label}
@@ -54,10 +54,10 @@ function ProfileGroup({
                 ? "noopener noreferrer"
                 : undefined
             }
-            className="group flex items-center justify-between rounded-xl px-4 py-5 transition-all duration-200 hover:bg-white hover:shadow-sm dark:hover:bg-neutral-950"
+            className="group flex items-center justify-between rounded-xl px-4 py-5 transition-all duration-200 hover:bg-card hover:shadow-sm"
           >
             <div className="flex items-start gap-4">
-              <div className="mt-1 text-neutral-500 transition-colors group-hover:text-green-500 dark:text-neutral-400">
+              <div className="mt-1 text-fg-muted transition-colors group-hover:text-accent">
                 <SocialIcon
                   name={profile.label}
                   className="h-5 w-5"
@@ -65,17 +65,17 @@ function ProfileGroup({
               </div>
 
               <div>
-                <h3 className="font-semibold transition-colors group-hover:text-green-500">
+                <h3 className="font-semibold text-fg transition-colors group-hover:text-accent">
                   {profile.label}
                 </h3>
 
-                <p className="mt-1 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+                <p className="mt-1 text-sm leading-6 text-fg-secondary">
                   {profile.description}
                 </p>
               </div>
             </div>
 
-            <ArrowUpRight className="h-4 w-4 text-neutral-400 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-green-500" />
+            <ArrowUpRight className="h-4 w-4 text-fg-muted transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent" />
           </Link>
         ))}
       </div>

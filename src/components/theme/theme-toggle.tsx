@@ -8,11 +8,7 @@ import { useMounted } from "@/hooks/use-mounted";
 export function ThemeToggle() {
   const mounted = useMounted();
 
-  const {
-    theme,
-    resolvedTheme,
-    setTheme,
-  } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   if (!mounted) {
     return (
@@ -26,11 +22,6 @@ export function ThemeToggle() {
     );
   }
 
-  console.log({
-    theme,
-    resolvedTheme,
-  });
-
   const isDark = resolvedTheme === "dark";
 
   return (
@@ -38,7 +29,7 @@ export function ThemeToggle() {
       type="button"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="rounded-lg p-2 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-900"
+      className="rounded-lg p-2 transition-colors hover:bg-muted"
     >
       {isDark ? (
         <Sun className="h-4 w-4" />

@@ -20,7 +20,7 @@ export function FooterSection({
 }: FooterSectionProps) {
   return (
     <div>
-      <h4 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-900 dark:text-neutral-100">
+      <h4 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-fg">
         {title}
       </h4>
 
@@ -35,7 +35,7 @@ export function FooterSection({
                   ? "noopener noreferrer"
                   : undefined
               }
-              className="group inline-flex items-center gap-3 text-neutral-600 transition-colors duration-200 hover:text-green-500 dark:text-neutral-400"
+              className="group inline-flex items-center gap-3 text-fg-secondary transition-colors duration-200 hover:text-accent"
             >
               {showIcons && (
                 <span className="flex h-4 w-4 items-center justify-center">

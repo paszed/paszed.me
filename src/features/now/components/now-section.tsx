@@ -17,7 +17,7 @@ export function NowSection({
         {items.map((item) => (
           <li
             key={item}
-            className="text-neutral-600 dark:text-neutral-400"
+            className="text-fg-secondary"
           >
             {item}
           </li>

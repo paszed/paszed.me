@@ -10,13 +10,13 @@ export function AboutPhilosophy() {
         {about.philosophy.map((principle) => (
           <div
             key={principle.title}
-            className="rounded-2xl border border-neutral-200 p-6 dark:border-neutral-800"
+            className="rounded-2xl border border-border p-6"
           >
-            <h3 className="mb-3 text-lg font-semibold">
+            <h3 className="mb-3 text-lg font-semibold text-fg">
               {principle.title}
             </h3>
 
-            <p className="leading-7 text-neutral-600 dark:text-neutral-400">
+            <p className="leading-7 text-fg-secondary">
               {principle.description}
             </p>
           </div>

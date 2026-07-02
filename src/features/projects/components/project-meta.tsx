@@ -26,17 +26,17 @@ export function ProjectMeta({
         {STATUS[project.status].label}
       </Badge>
 
-      <span className="text-neutral-500 dark:text-neutral-400">
+      <span className="text-fg-muted">
         {project.year}
       </span>
 
       {project.featured && (
         <>
-          <span className="text-neutral-300 dark:text-neutral-700">
+          <span className="text-border">
             •
           </span>
 
-          <span className="font-medium text-green-500">
+          <span className="font-medium text-accent">
             Featured Project
           </span>
         </>
