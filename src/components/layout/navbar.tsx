@@ -10,6 +10,8 @@ import { cn } from "@/lib/cn";
 
 import { Container } from "./container";
 
+import { MobileMenu } from "./mobile-menu";
+
 export function Navbar() {
   const pathname = usePathname();
 
@@ -46,9 +48,17 @@ export function Navbar() {
               })}
             </ul>
 
-            <div className="rounded-xl border border-border bg-surface p-1">
-              <ThemeToggle />
-            </div>
+
+           <div className="flex items-center gap-2">
+  <div className="md:hidden">
+    <MobileMenu />
+  </div>
+
+  <div className="rounded-xl border border-border bg-surface p-1">
+    <ThemeToggle />
+  </div>
+</div>
+
           </div>
         </nav>
       </Container>
