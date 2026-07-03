@@ -9,7 +9,6 @@ import { navigation } from "@/config/navigation";
 import { cn } from "@/lib/cn";
 
 import { Container } from "./container";
-
 import { MobileMenu } from "./mobile-menu";
 
 export function Navbar() {
@@ -21,7 +20,7 @@ export function Navbar() {
         <nav className="flex h-[4.5rem] items-center justify-between">
           <BrandLogo />
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2">
             <ul className="hidden items-center gap-8 md:flex">
               {navigation.map((item) => {
                 const active = pathname === item.href;
@@ -48,17 +47,17 @@ export function Navbar() {
               })}
             </ul>
 
+            {/* Mobile */}
+            <div className="md:hidden">
+              <MobileMenu />
+            </div>
 
-           <div className="flex items-center gap-2">
-  <div className="md:hidden">
-    <MobileMenu />
-  </div>
-
-  <div className="rounded-xl border border-border bg-surface p-1">
-    <ThemeToggle />
-  </div>
-</div>
-
+            {/* Desktop only */}
+            <div className="hidden md:block">
+              <div className="rounded-xl border border-border bg-surface p-1">
+                <ThemeToggle />
+              </div>
+            </div>
           </div>
         </nav>
       </Container>
