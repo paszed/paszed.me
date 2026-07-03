@@ -1,3 +1,5 @@
+paszed.me on  main via  v26.4.0 on ☁️   took 16s
+❯ cat README.md
 # paszed.me
 
 > My personal website, engineering journal, and digital home.
