@@ -47,7 +47,7 @@ export function Navbar() {
               })}
             </ul>
 
-            <div className="rounded-xl border border-border bg-surface p-1">
+            <div className="ml-4 rounded-xl border border-border bg-surface p-1">
               <ThemeToggle />
             </div>
 
