@@ -18,13 +18,13 @@ export const profiles = {
   },
 
   x: {
-    id: "x",
-    label: "X",
-    href: "https://x.com/paszed_",
-    description: "Building in public and sharing ideas.",
-    category: "social",
-    featured: true,
-  },
+  id: "x",
+  label: "X",
+  href: "https://x.com/paszed_",
+  description: "Building in public and sharing ideas.",
+  category: "social",
+  featured: false,
+},
 
   reddit: {
     id: "reddit",
@@ -54,13 +54,13 @@ export const profiles = {
   },
 
   npm: {
-    id: "npm",
-    label: "npm",
-    href: "https://www.npmjs.com/~paszed",
-    description: "JavaScript and TypeScript packages.",
-    category: "developer",
-    featured: true,
-  },
+  id: "npm",
+  label: "npm",
+  href: "https://www.npmjs.com/~paszed",
+  description: "JavaScript and TypeScript packages.",
+  category: "developer",
+  featured: false,
+},
 
   pypi: {
     id: "pypi",
