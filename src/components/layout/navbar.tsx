@@ -47,16 +47,12 @@ export function Navbar() {
               })}
             </ul>
 
-            {/* Mobile */}
-            <div className="md:hidden">
-              <MobileMenu />
+            <div className="rounded-xl border border-border bg-surface p-1">
+              <ThemeToggle />
             </div>
 
-            {/* Desktop only */}
-            <div className="hidden md:block">
-              <div className="rounded-xl border border-border bg-surface p-1">
-                <ThemeToggle />
-              </div>
+            <div className="md:hidden">
+              <MobileMenu />
             </div>
           </div>
         </nav>
