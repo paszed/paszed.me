@@ -32,7 +32,7 @@ export function Navbar() {
                         "relative text-sm font-medium transition-colors duration-200",
                         active
                           ? "text-accent"
-                          : "text-muted hover:text-accent",
+                          : "text-fg-secondary hover:text-accent",
                       )}
                     >
                       {item.label}
