@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Links",
+  description:
+    "Find Edvard Pasz across GitHub, LinkedIn, Reddit, X, and other developer platforms.",
+};
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 

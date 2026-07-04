@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Now",
+  description:
+    "What I'm currently building, learning, exploring, and working on.",
+};
+
 import { Page } from "@/components/layout/page";
 import { status } from "@/content/status";
 import {

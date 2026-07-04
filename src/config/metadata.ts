@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { site } from "./site";
 
 export const metadata: Metadata = {
@@ -22,16 +23,22 @@ export const metadata: Metadata = {
 
   creator: site.owner,
 
+  publisher: site.owner,
+
   keywords: [
-    "Edvard Paz",
+    "Edvard Pasz",
     "Paszed",
-    "Software Engineer",
-    "Developer",
+    "Developer Tools",
+    "Software Engineering",
+    "Software Architecture",
+    "Developer Experience",
+    "Terminal Workflow",
     "TypeScript",
     "Go",
-    "Python",
-    "AI",
-    "Developer Tools",
+    "Next.js",
+    "React",
+    "AI Workflows",
+    "Engineering Blog",
   ],
 
   openGraph: {
@@ -41,6 +48,14 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: site.title,
     description: site.description,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} Open Graph Image`,
+      },
+    ],
   },
 
   twitter: {
@@ -48,10 +63,25 @@ export const metadata: Metadata = {
     creator: "@paszed_",
     title: site.title,
     description: site.description,
+    images: ["/og.png"],
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+
+  category: "technology",
+
+  // Uncomment after verifying your site with Google Search Console.
+  // verification: {
+  //   google: "YOUR_GOOGLE_SITE_VERIFICATION",
+  // },
 };

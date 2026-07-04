@@ -21,11 +21,13 @@ export function Hero() {
               {home.hero.eyebrow}
             </p>
 
-            <H1>
-              {home.hero.title}
-              <br />
-              {home.hero.subtitle}
-            </H1>
+            <div className="space-y-5">
+              <H1>{home.hero.title}</H1>
+
+              <p className="text-2xl font-medium leading-tight text-fg lg:text-3xl">
+                {home.hero.subtitle}
+              </p>
+            </div>
 
             <p className="text-xl leading-9 text-fg-secondary">
               {home.hero.description}

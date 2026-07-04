@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Explore developer tools, web applications, and software engineering projects built by Edvard Pasz.",
+};
+
 import { Page } from "@/components/layout/page";
 import { ProjectCard } from "@/components/shared/project-card";
 import { ProjectsHero } from "@/features/projects";

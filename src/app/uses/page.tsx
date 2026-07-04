@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Uses",
+  description:
+    "The hardware, software, terminal tools, AI, and development workflow I use every day.",
+};
+
 import { Page } from "@/components/layout/page";
 import { uses } from "@/content/uses";
 import {
