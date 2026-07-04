@@ -2,30 +2,30 @@ export const status = [
   {
     title: "Currently Building",
     items: [
-      "Growing paszed.me into an engineering journal.",
-      "Developer tools and AI-powered applications.",
-      "Expanding my portfolio with production-ready projects.",
+      "Growing paszed.me into my engineering journal.",
+      "Developer tools focused on improving engineering workflows.",
+      "Projects I use myself before sharing publicly.",
     ],
   },
   {
     title: "Currently Learning",
     items: [
-      "System design",
-      "Cloud infrastructure",
-      "Advanced TypeScript",
-      "AI workflows and agents",
+      "AI agents and Model Context Protocol",
+      "Software architecture",
+      "Go",
+      "Terminal workflows",
     ],
   },
   {
     title: "Current Goals",
     items: [
       "Ship consistently.",
-      "Write more technical content.",
-      "Build products people actually use.",
+      "Write about what I build.",
+      "Create software that earns a permanent place in my workflow.",
     ],
   },
   {
     title: "Last Updated",
-    items: ["March 2026"],
+    items: ["July 2026"],
   },
 ] as const;

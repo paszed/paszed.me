@@ -6,10 +6,10 @@ export const paszedMe: Project = {
   title: "paszed.me",
 
   summary:
-    "My personal website, engineering journal, and digital home built with Next.js.",
+    "My personal website, engineering journal, and long-term home for documenting projects, ideas, and lessons learned.",
 
   description:
-    "A content-driven personal website built with Next.js, React, TypeScript, and Tailwind CSS. Designed around a scalable feature-first architecture with reusable UI components and a structured content layer.",
+    "Rather than treating a portfolio as a static resume, I wanted a place that grows alongside my engineering journey. paszed.me is where I document projects, share what I'm learning, and continuously refine both my workflow and the software behind the site.",
 
   technologies: [
     "Next.js",
@@ -31,39 +31,39 @@ export const paszedMe: Project = {
   year: 2026,
 
   overview:
-    "paszed.me is more than a portfolio. It serves as my engineering journal, project showcase, and long-term experimentation platform. Every major architectural decision is made with maintainability, performance, and scalability in mind.",
+    "This website is designed to be more than a portfolio. It serves as my engineering journal, project showcase, and experimentation platform. Every new project, article, and improvement becomes part of a long-term record of how I think, build, and learn.",
 
   architecture: [
     "Next.js App Router",
     "Feature-first architecture",
-    "Reusable UI component library",
+    "Reusable UI components",
     "Centralized content layer",
-    "Typed project engine",
+    "Typed project system",
     "Dynamic project routing",
-    "SEO-first metadata configuration",
+    "SEO-first metadata",
   ],
 
   challenges: [
-    "Designing a feature-first architecture that remains simple as the project grows.",
-    "Creating reusable UI primitives before building page-specific components.",
-    "Separating content from presentation to make the site easy to maintain.",
-    "Building a scalable project system that supports detailed engineering case studies.",
+    "Designing an architecture that remains easy to evolve without becoming overly abstract.",
+    "Separating content from presentation so writing and development can evolve independently.",
+    "Creating reusable UI components before introducing page-specific solutions.",
+    "Building a project system that can grow from simple showcases into detailed engineering case studies.",
   ],
 
   lessons: [
-    "Good architecture makes future development significantly easier.",
-    "Reusable components reduce maintenance and improve consistency.",
-    "Keeping content separate from UI enables faster iteration.",
-    "Small, incremental improvements compound into a polished product.",
+    "Architecture should make future development easier rather than more clever.",
+    "Good developer experience starts with simple foundations.",
+    "Shipping regularly teaches more than endlessly redesigning.",
+    "Personal websites become more valuable when they reflect ongoing work instead of acting as static portfolios.",
   ],
 
   roadmap: [
-    "Replace placeholder content with real engineering articles.",
-    "Launch an MDX-powered blog.",
-    "Add RSS support.",
-    "Generate dynamic Open Graph images.",
+    "Replace placeholder content with original writing.",
+    "Launch an MDX-powered engineering blog.",
+    "Publish detailed project case studies.",
     "Improve accessibility and performance.",
-    "Publish additional case studies and developer tools.",
+    "Generate dynamic Open Graph images.",
+    "Continue evolving the site alongside future projects.",
   ],
 
   gallery: [

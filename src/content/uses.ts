@@ -1,6 +1,6 @@
 export const uses = {
   description:
-    "This is the hardware, software, and tools I use every day to design, build, and ship software. I'll keep this page updated as my setup evolves.",
+    "My development environment is intentionally simple. I prefer dependable tools that remove friction from everyday engineering work over large, heavily customized setups. Every tool on this page has earned its place by solving a real problem in my workflow.",
 
   sections: [
     {
@@ -12,6 +12,7 @@ export const uses = {
         "Logitech MX Master 3S",
       ],
     },
+
     {
       title: "Development",
       items: [
@@ -20,21 +21,37 @@ export const uses = {
         "Git",
         "Docker",
         "Node.js",
+        "TypeScript",
+        "ripgrep (rg)",
+        "fd",
+        "fzf",
+        "zoxide",
       ],
     },
+
     {
       title: "AI",
       items: [
         "ChatGPT",
         "Claude",
-        "GitHub Copilot",
       ],
     },
+
     {
       title: "Design",
       items: [
         "Figma",
         "Excalidraw",
+      ],
+    },
+
+    {
+      title: "Philosophy",
+      items: [
+        "Keep the workflow simple.",
+        "Automate repetitive tasks.",
+        "Adopt tools only after they've proven useful.",
+        "Prefer maintainable systems over clever ones.",
       ],
     },
   ],
