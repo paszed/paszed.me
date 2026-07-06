@@ -1,52 +1,56 @@
 # paszed.me
 
-Official website of Edvard Pasz, a software engineer focused on developer tools, AI applications, software architecture, and modern web engineering.
+The personal website of Edvard Pasz.
 
-This website serves as a personal engineering journal, project portfolio, and long-term knowledge base documenting software projects, technical writing, and ongoing learning.
+This website contains articles, projects, notes, developer resources, and information about my work building software, AI applications, and modern web experiences.
 
 ## Primary Pages
 
-- [Home](https://paszed.me/)
-- [About](https://paszed.me/about)
-- [Projects](https://paszed.me/projects)
-- [Journal](https://paszed.me/journal)
-- [Uses](https://paszed.me/uses)
-- [Now](https://paszed.me/now)
-- [Links](https://paszed.me/links)
-- [Search](https://paszed.me/search)
+- https://paszed.me/
+- https://paszed.me/about
+- https://paszed.me/projects
+- https://paszed.me/journal
+- https://paszed.me/uses
+- https://paszed.me/now
+- https://paszed.me/links
+- https://paszed.me/search
 
 ## Feeds
 
-- [RSS Feed](https://paszed.me/rss.xml)
-- [Sitemap](https://paszed.me/sitemap.xml)
+- https://paszed.me/rss.xml
+- https://paszed.me/sitemap.xml
 
-## Topics
+## Content
 
-This website primarily covers:
+### Journal
 
-- Software Engineering
-- Software Architecture
-- Developer Experience
-- Artificial Intelligence
-- AI Engineering
-- TypeScript
-- Go
+Technical articles covering:
+
 - Next.js
 - React
-- Terminal Workflows
-- Linux
-- Developer Tools
+- TypeScript
+- AI Engineering
+- Software Architecture
+- Design Systems
+- Web Performance
+
+### Projects
+
+Portfolio of software projects including:
+
+- paszed.me
+- Developer Toolbox
 
 ## Author
 
 Edvard Pasz
 
+Website:
+https://paszed.me/
+
 GitHub:
 https://github.com/paszed
 
-LinkedIn:
-https://www.linkedin.com/in/edvardpasz/
+## License
 
-## Purpose
-
-The goal of this website is to document real engineering work, publish technical writing, share open-source projects, and continuously improve engineering practices through public documentation.
+Copyright © Edvard Pasz. All rights reserved.
