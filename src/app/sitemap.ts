@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const journalPages = getPublishedArticles().map((article) => ({
     url: `${site.url}/journal/${article.slug}`,
-    lastModified: article.publishedAt,
+    lastModified: article.publishedAt ?? undefined,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

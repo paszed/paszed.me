@@ -1,5 +1,3 @@
-paszed.me on  main via  v26.4.0 on ☁️
-❯ cat src/config/metadata.ts
 import type { Metadata } from "next";
 
 import { site } from "./site";
@@ -16,6 +14,8 @@ export const metadata: Metadata = {
 
   applicationName: site.name,
 
+  referrer: "origin-when-cross-origin",
+
   authors: [
     {
       name: site.owner,
@@ -27,32 +27,38 @@ export const metadata: Metadata = {
 
   publisher: site.owner,
 
+  alternates: {
+    canonical: "/",
+  },
+
   keywords: [
     "Edvard Pasz",
     "Paszed",
-    "Developer Tools",
+    "Software Engineer",
     "Software Engineering",
     "Software Architecture",
     "Developer Experience",
-    "Terminal Workflow",
+    "Developer Tools",
+    "Engineering Journal",
     "TypeScript",
     "Go",
     "Next.js",
     "React",
-    "AI Workflows",
-    "Engineering Blog",
+    "Artificial Intelligence",
+    "AI Engineering",
+    "Terminal Workflow",
   ],
 
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: site.locale,
     url: site.url,
     siteName: site.name,
     title: site.title,
     description: site.description,
     images: [
       {
-        url: "/og.png",
+        url: site.ogImage,
         width: 1200,
         height: 630,
         alt: `${site.name} Open Graph Image`,
@@ -65,12 +71,13 @@ export const metadata: Metadata = {
     creator: "@paszed_",
     title: site.title,
     description: site.description,
-    images: ["/og.png"],
+    images: [site.ogImage],
   },
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -80,6 +87,14 @@ export const metadata: Metadata = {
     },
   },
 
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  manifest: "/site.webmanifest",
+
   category: "technology",
 
   // Uncomment after verifying your site with Google Search Console.
@@ -87,4 +102,3 @@ export const metadata: Metadata = {
   //   google: "YOUR_GOOGLE_SITE_VERIFICATION",
   // },
 };
-
