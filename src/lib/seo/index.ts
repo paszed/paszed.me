@@ -5,3 +5,4 @@ export * from "./person-schema";
 export * from "./project-schema";
 export * from "./types";
 export * from "./website-schema";
+export * from "./metadata";

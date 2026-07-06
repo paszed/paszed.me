@@ -18,6 +18,7 @@ import {
 } from "@/lib/projects";
 import {
   createBreadcrumbSchema,
+  createMetadata,
   createProjectSchema,
 } from "@/lib/seo";
 
@@ -44,20 +45,12 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
+  return createMetadata({
     title: project.title,
     description: project.summary,
-    openGraph: {
-      title: project.title,
-      description: project.summary,
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: project.title,
-      description: project.summary,
-    },
-  };
+    path: `/projects/${project.slug}`,
+    type: "article",
+  });
 }
 
 export default async function ProjectPage({

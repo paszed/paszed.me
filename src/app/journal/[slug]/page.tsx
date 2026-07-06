@@ -18,6 +18,7 @@ import {
 import {
   createArticleSchema,
   createBreadcrumbSchema,
+  createMetadata,
 } from "@/lib/seo";
 
 interface Props {
@@ -37,10 +38,12 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
+  return createMetadata({
     title: article.title,
     description: article.description,
-  };
+    path: `/journal/${article.slug}`,
+    type: "article",
+  });
 }
 
 export default async function JournalArticlePage({
