@@ -3,8 +3,14 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { ThemedLion } from "@/components/theme/themed-lion";
-import { Button } from "@/components/ui/button";
-import { H1 } from "@/components/ui/heading";
+import {
+  Button,
+  Eyebrow,
+  H1,
+  Stack,
+  Text,
+  TextLink,
+} from "@/components/ui";
 import { Section } from "@/components/ui/section";
 import { home } from "@/content";
 import { site } from "@/config/site";
@@ -23,18 +29,23 @@ export function Hero() {
 
       <Container className="relative z-10">
         <div className="grid items-center gap-20 lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="max-w-2xl space-y-10">
-            <p className="font-sans text-xs font-medium uppercase tracking-[0.4em] text-accent">
-              {home.hero.eyebrow}
-            </p>
+          <Stack
+            gap="xl"
+            className="max-w-2xl"
+          >
+            <Eyebrow>{home.hero.eyebrow}</Eyebrow>
 
-            <div className="space-y-6">
+            <Stack gap="md">
               <H1>{home.hero.title}</H1>
 
-              <p className="max-w-xl font-sans text-xl leading-9 text-fg-secondary lg:text-2xl">
+              <Text
+                size="lead"
+                muted
+                className="max-w-xl"
+              >
                 {home.hero.subtitle}
-              </p>
-            </div>
+              </Text>
+            </Stack>
 
             <p className="max-w-2xl font-serif text-xl leading-10 text-fg-secondary">
               {home.hero.description}
@@ -45,14 +56,11 @@ export function Hero() {
                 <Button>{home.hero.primaryCta.label}</Button>
               </Link>
 
-              <Link
-                href={home.hero.secondaryCta.href}
-                className="font-sans text-sm font-medium tracking-[0.015em] text-fg transition-colors hover:text-accent"
-              >
+              <TextLink href={home.hero.secondaryCta.href}>
                 {home.hero.secondaryCta.label} →
-              </Link>
+              </TextLink>
             </div>
-          </div>
+          </Stack>
 
           <div className="flex justify-center lg:justify-end lg:pl-12">
             <div className="border border-border bg-card p-3">

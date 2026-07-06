@@ -2,9 +2,12 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { JournalCard } from "@/components/journal";
-import { Button } from "@/components/ui/button";
-import { Section } from "@/components/ui/section";
-import { SectionHeader } from "@/components/ui/section-header";
+import {
+  Button,
+  Section,
+  SectionHeader,
+  Stack,
+} from "@/components/ui";
 import { home } from "@/content";
 import { getPublishedArticles } from "@/lib/journal";
 
@@ -18,7 +21,7 @@ export function LatestWriting() {
   return (
     <Section>
       <Container>
-        <div className="space-y-10">
+        <Stack gap="xl">
           <SectionHeader
             title={home.latestWriting.title}
             description={home.latestWriting.description}
@@ -37,7 +40,7 @@ export function LatestWriting() {
               />
             ))}
           </div>
-        </div>
+        </Stack>
       </Container>
     </Section>
   );

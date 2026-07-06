@@ -1,14 +1,18 @@
 import { Container } from "@/components/layout/container";
-import { Card } from "@/components/ui/card";
-import { Section } from "@/components/ui/section";
-import { SectionHeader } from "@/components/ui/section-header";
+import {
+  Card,
+  Section,
+  SectionHeader,
+  Stack,
+  Text,
+} from "@/components/ui";
 import { home } from "@/content";
 
 export function Philosophy() {
   return (
     <Section>
       <Container>
-        <div className="space-y-10">
+        <Stack gap="xl">
           <SectionHeader
             eyebrow="Philosophy"
             title={home.philosophy.title}
@@ -21,19 +25,19 @@ export function Philosophy() {
                 key={principle.title}
                 className="transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
               >
-                <div className="space-y-4">
+                <Stack gap="sm">
                   <h3 className="text-lg font-semibold text-fg">
                     {principle.title}
                   </h3>
 
-                  <p className="leading-7 text-fg-secondary">
+                  <Text muted>
                     {principle.description}
-                  </p>
-                </div>
+                  </Text>
+                </Stack>
               </Card>
             ))}
           </div>
-        </div>
+        </Stack>
       </Container>
     </Section>
   );

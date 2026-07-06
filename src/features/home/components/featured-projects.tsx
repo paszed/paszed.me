@@ -2,9 +2,12 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { ProjectCard } from "@/components/shared/project-card";
-import { Button } from "@/components/ui/button";
-import { Section } from "@/components/ui/section";
-import { SectionHeader } from "@/components/ui/section-header";
+import {
+  Button,
+  Section,
+  SectionHeader,
+  Stack,
+} from "@/components/ui";
 import { home } from "@/content";
 import { getFeaturedProjects } from "@/lib/projects";
 
@@ -14,7 +17,7 @@ export function FeaturedProjects() {
   return (
     <Section>
       <Container>
-        <div className="space-y-10">
+        <Stack gap="xl">
           <SectionHeader
             title={home.featuredProjects.title}
             description={home.featuredProjects.description}
@@ -33,7 +36,7 @@ export function FeaturedProjects() {
               />
             ))}
           </div>
-        </div>
+        </Stack>
       </Container>
     </Section>
   );
