@@ -12,10 +12,10 @@ import { Navbar } from "@/components/layout/navbar";
 import { JsonLd } from "@/components/seo/json-ld";
 import { metadata } from "@/config/metadata";
 import {
-  organizationSchema,
-  personSchema,
-  websiteSchema,
-} from "@/config/schema";
+  createOrganizationSchema,
+  createPersonSchema,
+  createWebsiteSchema,
+} from "@/lib/seo";
 import { Providers } from "@/providers";
 
 export { metadata };
@@ -49,9 +49,9 @@ export default function RootLayout({
       className={`${inter.variable} ${serif.variable} ${mono.variable}`}
     >
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <JsonLd data={websiteSchema} />
-        <JsonLd data={organizationSchema} />
-        <JsonLd data={personSchema} />
+        <JsonLd data={createWebsiteSchema()} />
+        <JsonLd data={createOrganizationSchema()} />
+        <JsonLd data={createPersonSchema()} />
 
         <Providers>
           <Navbar />

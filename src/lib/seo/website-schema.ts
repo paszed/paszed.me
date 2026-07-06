@@ -1,3 +1,21 @@
+import { site } from "@/config/site";
+
 export function createWebsiteSchema() {
-  return {};
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+
+    name: site.name,
+
+    url: site.url,
+
+    description: site.description,
+
+    inLanguage: site.language,
+
+    publisher: {
+      "@type": "Person",
+      name: site.owner,
+    },
+  };
 }

@@ -9,13 +9,13 @@ import {
 } from "@/components/article";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Prose } from "@/components/ui/prose";
-import { site } from "@/config/site";
 import {
   getArticle,
   getNextArticle,
   getPreviousArticle,
   getRelatedArticles,
 } from "@/lib/journal";
+import { createArticleSchema } from "@/lib/seo";
 
 interface Props {
   params: Promise<{
@@ -55,34 +55,7 @@ export default async function JournalArticlePage({
   const next = getNextArticle(slug);
   const related = getRelatedArticles(slug);
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-
-    headline: article.title,
-    description: article.description,
-
-    author: {
-      "@type": "Person",
-      name: article.author,
-    },
-
-    publisher: {
-      "@type": "Organization",
-      name: site.name,
-      url: site.url,
-    },
-
-    mainEntityOfPage: `${site.url}/journal/${article.slug}`,
-
-    url: `${site.url}/journal/${article.slug}`,
-
-    image: `${site.url}${site.ogImage}`,
-
-    datePublished: article.publishedAt?.toISOString(),
-
-    inLanguage: site.language,
-  };
+  const articleSchema = createArticleSchema(article);
 
   return (
     <>
