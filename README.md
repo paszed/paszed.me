@@ -1,11 +1,12 @@
 # paszed.me
 
-> My personal website, engineering journal, and digital home.
+> Personal website, engineering journal, and long-term software project.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8)
+![pnpm](https://img.shields.io/badge/pnpm-10-F69220)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
@@ -14,58 +15,56 @@
 
 🌐 **https://paszed.me**
 
-> *(Screenshot coming soon.)*
+> Screenshot coming soon.
 
 ---
 
-## About
+# About
 
-This repository contains the source code for my personal website.
+**paszed.me** is my personal engineering platform.
 
-Rather than being a traditional portfolio, **paszed.me** is where I document what I build, what I learn, and how I think about software engineering.
+It combines a portfolio, engineering journal, project showcase, and long-term knowledge base into a single website focused on thoughtful software engineering.
 
-It serves as my:
+Rather than showcasing finished work alone, the site documents the process of building software—from architecture decisions and developer tooling to practical AI and long-term system design.
 
-- Portfolio
+---
+
+# Features
+
 - Engineering journal
-- Project showcase
-- Technical blog
-- Digital garden
-
-The site is built with a strong focus on performance, maintainability, accessibility, and developer experience.
+- Project case studies
+- Feature-based architecture
+- Typed content system
+- Reusable design system
+- Responsive layout
+- Light & dark mode
+- Reading progress indicator
+- SEO-ready pages
+- Structured metadata
+- XML sitemap
+- robots.txt
+- Automated testing foundation
+- GitHub Actions ready
 
 ---
 
-## Tech Stack
+# Tech Stack
 
 - Next.js 16
 - React 19
 - TypeScript
 - Tailwind CSS v4
+- Motion
 - pnpm
 - next-themes
-- Lucide Icons
+- Lucide React
 - ESLint
+- Vitest
 - Vercel
 
 ---
 
-## Features
-
-- Responsive design
-- Light & dark mode
-- Project case studies
-- About page
-- Blog
-- Now page
-- Uses page
-- Links directory
-- Typed content architecture
-- SEO-ready pages
-
----
-
-## Project Structure
+# Architecture
 
 ```text
 src
@@ -78,14 +77,17 @@ src
 ├── hooks
 ├── lib
 ├── providers
+├── styles
 └── types
 ```
 
-The project follows a feature-based architecture where routing, reusable components, and structured content remain clearly separated.
+The project follows a feature-oriented architecture where routing, presentation, domain logic, and structured content remain clearly separated.
+
+For a more detailed overview, see **ARCHITECTURE.md**.
 
 ---
 
-## Development
+# Development
 
 Install dependencies:
 
@@ -99,63 +101,78 @@ Start the development server:
 pnpm dev
 ```
 
-Run linting:
+Run the complete verification pipeline:
+
+```bash
+pnpm check
+```
+
+Individual commands:
 
 ```bash
 pnpm lint
-```
-
-Create a production build:
-
-```bash
+pnpm test
 pnpm build
 ```
 
 ---
 
-## Design Principles
+# Engineering Principles
 
 This project follows a few simple principles:
 
-- Build reusable components.
+- Build software intended to last.
 - Keep content separate from presentation.
 - Prefer composition over duplication.
+- Optimize for maintainability.
 - Ship continuously.
-- Favor simplicity over unnecessary abstraction.
+- Choose clarity over unnecessary complexity.
 
 ---
 
-## Roadmap
+# Roadmap
 
-- [x] Design system
-- [x] Responsive layout
-- [x] Theme support
-- [x] Projects
-- [x] Blog foundation
-- [x] About
-- [x] Uses
-- [x] Now
-- [x] Links
-- [ ] MDX blog
-- [ ] Search
-- [ ] RSS
-- [ ] Open Graph image generation
-- [ ] Analytics
+## Completed
 
----
+- ✅ Design system
+- ✅ Feature-based architecture
+- ✅ Typed content model
+- ✅ Project platform
+- ✅ Engineering journal
+- ✅ Reading progress
+- ✅ Responsive design
+- ✅ Theme support
+- ✅ SEO foundation
+- ✅ Testing foundation
 
-## Deployment
+## Planned
 
-The website is automatically deployed on **Vercel** whenever changes are pushed to the `main` branch.
-
----
-
-## License
-
-MIT License
+- 🔍 Search
+- 📰 RSS feed
+- 🖼️ Dynamic Open Graph images
+- 📊 Analytics
+- ✨ Enhanced article components
 
 ---
 
-Built with ❤️ by **Edvard Pasz**
+# Deployment
 
-**Website:** https://paszed.me
+The site is automatically deployed through **Vercel**.
+
+Every change merged into `main` is verified before deployment.
+
+---
+
+# License
+
+Released under the **MIT License**.
+
+See the **LICENSE** file for details.
+
+---
+
+## Author
+
+**Edvard Pasz**
+
+🌐 https://paszed.me
