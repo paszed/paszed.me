@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/seo/json-ld";
 import { Page } from "@/components/layout/page";
 import {
   ProjectGallery,
@@ -15,6 +16,7 @@ import {
   getProjectBySlug,
   getProjectSlugs,
 } from "@/lib/projects";
+import { createProjectSchema } from "@/lib/seo";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -66,36 +68,42 @@ export default async function ProjectPage({
     notFound();
   }
 
+  const projectSchema = createProjectSchema(project);
+
   return (
-    <Page>
-      <div className="space-y-16">
-        <ProjectHero project={project} />
+    <>
+      <JsonLd data={projectSchema} />
 
-        <ProjectGallery project={project} />
+      <Page>
+        <div className="space-y-16">
+          <ProjectHero project={project} />
 
-        <ProjectOverview overview={project.overview} />
+          <ProjectGallery project={project} />
 
-        <ProjectListSection
-          title="Architecture"
-          items={project.architecture}
-        />
+          <ProjectOverview overview={project.overview} />
 
-        <ProjectListSection
-          title="Challenges"
-          items={project.challenges}
-        />
+          <ProjectListSection
+            title="Architecture"
+            items={project.architecture}
+          />
 
-        <ProjectListSection
-          title="Lessons Learned"
-          items={project.lessons}
-        />
+          <ProjectListSection
+            title="Challenges"
+            items={project.challenges}
+          />
 
-        <ProjectRoadmap project={project} />
+          <ProjectListSection
+            title="Lessons Learned"
+            items={project.lessons}
+          />
 
-        <ProjectTech project={project} />
+          <ProjectRoadmap project={project} />
 
-        <ProjectLinks project={project} />
-      </div>
-    </Page>
+          <ProjectTech project={project} />
+
+          <ProjectLinks project={project} />
+        </div>
+      </Page>
+    </>
   );
 }
