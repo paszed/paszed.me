@@ -1,26 +1,26 @@
 export const home = {
-  hero: {
-    eyebrow: "ENGINEERING • TOOLS • LEARNING",
 
-    title: "Hi, I'm Edvard.",
+ hero: {
+  eyebrow: "ENGINEERING • SYSTEMS • CRAFT",
 
-    subtitle:
-      "I build developer tools, explore practical AI workflows, and design software with a focus on simplicity and maintainability.",
+  title: "Building software built to last.",
 
-    description:
-      "I'm a software engineer interested in improving the developer experience through thoughtful architecture and automation. This site is my engineering journal—a place to share the projects I build, the ideas I explore, and the lessons I learn along the way.",
+  subtitle:
+    "Developer tools, practical AI, and software architecture guided by clarity, restraint, and long-term thinking.",
 
-    primaryCta: {
-      label: "Explore Projects",
-      href: "/projects",
-    },
+  description:
+    "I'm Edvard, a software engineer focused on building dependable software and thoughtful developer experiences. This site is my engineering journal—a place to document projects, explore ideas, and share what I learn while building.",
 
-    secondaryCta: {
-      label: "About Me",
-      href: "/about",
-    },
+  primaryCta: {
+    label: "View Projects",
+    href: "/projects",
   },
 
+  secondaryCta: {
+    label: "About",
+    href: "/about",
+  },
+},
   currentFocus: {
     title: "Currently",
 

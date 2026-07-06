@@ -24,7 +24,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "flex flex-col gap-6",
+        "flex flex-col gap-8",
         !centered &&
           "md:flex-row md:items-end md:justify-between",
         centered && "items-center text-center",
@@ -33,12 +33,12 @@ export function SectionHeader({
     >
       <div
         className={cn(
-          "space-y-3",
+          "space-y-5",
           centered ? "max-w-3xl" : "max-w-2xl",
         )}
       >
         {eyebrow && (
-          <p className="font-mono text-sm uppercase tracking-[0.3em] text-accent">
+          <p className="font-sans text-xs font-medium uppercase tracking-[0.35em] text-accent">
             {eyebrow}
           </p>
         )}
@@ -46,13 +46,17 @@ export function SectionHeader({
         <H2>{title}</H2>
 
         {description && (
-          <p className="text-lg leading-8 text-fg-secondary">
+          <p className="max-w-2xl font-serif text-xl leading-9 text-fg-secondary">
             {description}
           </p>
         )}
       </div>
 
-      {!centered && actions && <div>{actions}</div>}
+      {!centered && actions && (
+        <div className="shrink-0">
+          {actions}
+        </div>
+      )}
     </div>
   );
 }

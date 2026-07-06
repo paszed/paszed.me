@@ -15,13 +15,13 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
       <Container>
-        <nav className="flex h-[4.5rem] items-center justify-between">
+        <nav className="flex h-18 items-center justify-between">
           <BrandLogo />
 
-          <div className="flex items-center gap-2">
-            <ul className="hidden items-center gap-8 md:flex">
+          <div className="flex items-center gap-3">
+            <ul className="hidden items-center gap-10 md:flex">
               {navigation.map((item) => {
                 const active = pathname === item.href;
 
@@ -30,7 +30,7 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "relative text-sm font-medium transition-colors duration-200",
+                        "relative font-sans text-sm font-medium tracking-[0.015em] transition-colors duration-200",
                         active
                           ? "text-accent"
                           : "text-fg-secondary hover:text-accent",
@@ -39,7 +39,7 @@ export function Navbar() {
                       {item.label}
 
                       {active && (
-                        <span className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-accent" />
+                        <span className="absolute -bottom-2 left-0 h-px w-full bg-accent" />
                       )}
                     </Link>
                   </li>
@@ -47,7 +47,7 @@ export function Navbar() {
               })}
             </ul>
 
-            <div className="ml-4 rounded-xl border border-border bg-surface p-1">
+            <div className="ml-3 rounded-xl border border-border bg-surface p-1">
               <ThemeToggle />
             </div>
 
