@@ -49,6 +49,12 @@ export const home = {
       "A selection of projects that reflect my interests in developer tools, software architecture, and practical AI.",
   },
 
+    latestWriting: {
+    title: "Latest Writing",
+    description:
+      "Essays and engineering notes documenting what I'm learning while building software, developer tools, and practical AI.",
+  },
+
   philosophy: {
     title: "Engineering Principles",
 

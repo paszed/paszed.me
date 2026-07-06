@@ -5,6 +5,7 @@ import {
   ArticleHeader,
   ArticleNavigation,
   ArticleRelated,
+  ReadingProgress,
 } from "@/components/article";
 import { Prose } from "@/components/ui/prose";
 import {
@@ -53,27 +54,31 @@ export default async function JournalArticlePage({
   const related = getRelatedArticles(slug);
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-24">
-      <ArticleHeader article={article} />
+    <>
+      <ReadingProgress />
 
-      <Prose>
-        {article.sections.map((section) => (
-          <section key={section.heading}>
-            <h2>{section.heading}</h2>
+      <article className="mx-auto max-w-3xl px-6 py-24">
+        <ArticleHeader article={article} />
 
-            {section.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </section>
-        ))}
-      </Prose>
+        <Prose>
+          {article.sections.map((section) => (
+            <section key={section.heading}>
+              <h2>{section.heading}</h2>
 
-      <ArticleRelated articles={related} />
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </section>
+          ))}
+        </Prose>
 
-      <ArticleNavigation
-        previous={previous}
-        next={next}
-      />
-    </article>
+        <ArticleRelated articles={related} />
+
+        <ArticleNavigation
+          previous={previous}
+          next={next}
+        />
+      </article>
+    </>
   );
 }

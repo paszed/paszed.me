@@ -11,6 +11,7 @@ import {
   CurrentFocus,
   FeaturedProjects,
   Hero,
+  LatestWriting,
   Philosophy,
 } from "@/features/home";
 
@@ -19,9 +20,11 @@ export default function HomePage() {
     <>
       <Hero />
 
+      <CurrentFocus />
+
       <FeaturedProjects />
 
-      <CurrentFocus />
+      <LatestWriting />
 
       <Philosophy />
 
