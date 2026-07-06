@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/brand";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { navigation } from "@/config/navigation";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 
 import { Container } from "./container";
 import { MobileMenu } from "./mobile-menu";

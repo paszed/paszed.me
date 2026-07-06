@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { navigation } from "@/config/navigation";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);

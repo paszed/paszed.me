@@ -13,7 +13,7 @@ import {
   SiX,
 } from "react-icons/si";
 
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 
 interface SocialIconProps {
   name: string;

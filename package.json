@@ -10,7 +10,8 @@
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "check": "pnpm lint && pnpm test && pnpm build"
+    "check": "pnpm lint && pnpm test && pnpm build",
+    "search:index": "pagefind"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -33,6 +34,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "pagefind": "^1.5.2",
     "prettier": "^3.9.4",
     "tailwindcss": "^4",
     "typescript": "^5",
