@@ -4,24 +4,14 @@ import {
   Text,
   TextLink,
 } from "@/components/ui";
+import {
+  formatDate,
+  formatReadingTime,
+} from "@/lib";
 import type { JournalEntry } from "@/types/journal";
 
 interface JournalCardProps {
   article: JournalEntry;
-}
-
-function formatPublishedDate(
-  date: Date | null,
-): string {
-  if (!date) {
-    return "Draft";
-  }
-
-  return new Intl.DateTimeFormat("en", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(date);
 }
 
 export function JournalCard({
@@ -35,11 +25,15 @@ export function JournalCard({
 
           <span>•</span>
 
-          <span>{formatPublishedDate(article.publishedAt)}</span>
+          <span>{formatDate(article.publishedAt)}</span>
 
           <span>•</span>
 
-          <span>{article.readingTime}</span>
+          <span>
+            {formatReadingTime(
+              article.readingTimeMinutes,
+            )}
+          </span>
         </div>
 
         <Stack gap="sm">

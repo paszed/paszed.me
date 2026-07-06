@@ -20,7 +20,7 @@ export interface JournalEntry {
 
   author: string;
 
-  readingTime: string;
+  readingTimeMinutes: number;
 
   tags: string[];
 

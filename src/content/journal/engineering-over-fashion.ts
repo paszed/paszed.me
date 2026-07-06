@@ -16,7 +16,7 @@ const article: JournalEntry = {
 
   author: "Edvard Pasz",
 
-  readingTime: "7 min read",
+  readingTimeMinutes: 7,
 
   tags: [
     "Architecture",

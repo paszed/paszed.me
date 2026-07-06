@@ -1,21 +1,16 @@
+import {
+  Eyebrow,
+  H1,
+  Text,
+} from "@/components/ui";
+import {
+  formatDate,
+  formatReadingTime,
+} from "@/lib";
 import type { JournalEntry } from "@/types/journal";
 
 interface ArticleHeaderProps {
   article: JournalEntry;
-}
-
-function formatPublishedDate(
-  date: Date | null,
-): string {
-  if (!date) {
-    return "Draft";
-  }
-
-  return new Intl.DateTimeFormat("en", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(date);
 }
 
 export function ArticleHeader({
@@ -23,28 +18,30 @@ export function ArticleHeader({
 }: ArticleHeaderProps) {
   return (
     <header className="mb-20 space-y-6">
-      <p className="text-xs font-medium uppercase tracking-[0.35em] text-accent">
-        {article.category}
-      </p>
+      <Eyebrow>{article.category}</Eyebrow>
 
-      <h1 className="font-serif text-5xl font-semibold tracking-tight text-fg lg:text-6xl">
-        {article.title}
-      </h1>
+      <H1>{article.title}</H1>
 
-      <p className="max-w-2xl text-xl leading-9 text-fg-secondary">
+      <Text
+        size="lg"
+        muted
+        className="max-w-2xl"
+      >
         {article.description}
-      </p>
+      </Text>
 
       <div className="flex flex-wrap items-center gap-3 text-sm text-fg-muted">
         <span>{article.author}</span>
 
         <span>•</span>
 
-        <span>{formatPublishedDate(article.publishedAt)}</span>
+        <span>{formatDate(article.publishedAt)}</span>
 
         <span>•</span>
 
-        <span>{article.readingTime}</span>
+        <span>
+          {formatReadingTime(article.readingTimeMinutes)}
+        </span>
       </div>
     </header>
   );
