@@ -48,7 +48,7 @@ export function Footer() {
           />
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-border py-6 text-sm text-fg-muted md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-2 border-t border-border py-6 text-sm text-fg-secondary md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {site.owner}. All rights reserved.
           </p>

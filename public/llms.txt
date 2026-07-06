@@ -1,0 +1,52 @@
+# paszed.me
+
+Official website of Edvard Pasz, a software engineer focused on developer tools, AI applications, software architecture, and modern web engineering.
+
+This website serves as a personal engineering journal, project portfolio, and long-term knowledge base documenting software projects, technical writing, and ongoing learning.
+
+## Primary Pages
+
+- [Home](https://paszed.me/)
+- [About](https://paszed.me/about)
+- [Projects](https://paszed.me/projects)
+- [Journal](https://paszed.me/journal)
+- [Uses](https://paszed.me/uses)
+- [Now](https://paszed.me/now)
+- [Links](https://paszed.me/links)
+- [Search](https://paszed.me/search)
+
+## Feeds
+
+- [RSS Feed](https://paszed.me/rss.xml)
+- [Sitemap](https://paszed.me/sitemap.xml)
+
+## Topics
+
+This website primarily covers:
+
+- Software Engineering
+- Software Architecture
+- Developer Experience
+- Artificial Intelligence
+- AI Engineering
+- TypeScript
+- Go
+- Next.js
+- React
+- Terminal Workflows
+- Linux
+- Developer Tools
+
+## Author
+
+Edvard Pasz
+
+GitHub:
+https://github.com/paszed
+
+LinkedIn:
+https://www.linkedin.com/in/edvardpasz/
+
+## Purpose
+
+The goal of this website is to document real engineering work, publish technical writing, share open-source projects, and continuously improve engineering practices through public documentation.
