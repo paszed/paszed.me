@@ -8,6 +8,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 import { Footer } from "@/components/layout/footer";
+import { GlobalSearch } from "@/components/layout/global-search";
 import { Navbar } from "@/components/layout/navbar";
 import { JsonLd } from "@/components/seo/json-ld";
 import { metadata } from "@/config/metadata";
@@ -55,6 +56,8 @@ export default function RootLayout({
 
         <Providers>
           <Navbar />
+
+          <GlobalSearch />
 
           <main>{children}</main>
 
