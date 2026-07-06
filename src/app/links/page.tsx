@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+import { SocialIcon } from "@/components/icons/social-icon";
+import { Page } from "@/components/layout/page";
+import {
+  Card,
+  SectionHeader,
+  Stack,
+  Text,
+} from "@/components/ui";
+import { profiles } from "@/content";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Links",
   description:
     "Find Edvard Pasz across GitHub, LinkedIn, Reddit, X, and other developer platforms.",
 };
-
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-
-import { SocialIcon } from "@/components/icons/social-icon";
-import { Page } from "@/components/layout/page";
-import { Card } from "@/components/ui/card";
-import { SectionHeader } from "@/components/ui/section-header";
-import { profiles } from "@/content";
-import { cn } from "@/lib/utils";
 
 type Profile = (typeof profiles)[keyof typeof profiles];
 
@@ -55,7 +58,7 @@ function ProfileGroup({
     <section className={cn("space-y-8", className)}>
       <SectionHeader title={title} />
 
-      <div className="space-y-4">
+      <Stack gap="sm">
         {profiles.map((profile) => (
           <Link
             key={profile.id}
@@ -71,7 +74,10 @@ function ProfileGroup({
                 : undefined
             }
           >
-            <Card className="group flex items-center justify-between px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-lg">
+            <Card
+              variant="interactive"
+              className="group flex items-center justify-between px-6 py-4"
+            >
               <div className="flex items-center gap-4">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-fg-muted transition-colors group-hover:text-accent">
                   <SocialIcon
@@ -85,9 +91,9 @@ function ProfileGroup({
                     {profile.label}
                   </h3>
 
-                  <p className="text-sm text-fg-secondary">
+                  <Text size="sm" muted>
                     {profile.description}
-                  </p>
+                  </Text>
                 </div>
               </div>
 
@@ -95,7 +101,7 @@ function ProfileGroup({
             </Card>
           </Link>
         ))}
-      </div>
+      </Stack>
     </section>
   );
 }

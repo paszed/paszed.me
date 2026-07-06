@@ -23,7 +23,7 @@ export function Philosophy() {
             {home.philosophy.items.map((principle) => (
               <Card
                 key={principle.title}
-                className="transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
+                variant="interactive"
               >
                 <Stack gap="sm">
                   <h3 className="text-lg font-semibold text-fg">

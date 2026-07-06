@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-import { Card } from "@/components/ui";
+import {
+  Card,
+  H2,
+  Label,
+  Stack,
+  Text,
+} from "@/components/ui";
 import type { JournalEntry } from "@/types/journal";
 
 interface ArticleRelatedProps {
@@ -16,10 +22,8 @@ export function ArticleRelated({
 
   return (
     <aside className="mt-24 border-t border-border pt-12">
-      <div className="space-y-8">
-        <h2 className="font-serif text-3xl font-semibold tracking-tight text-fg">
-          Related Articles
-        </h2>
+      <Stack gap="lg">
+        <H2>Related Articles</H2>
 
         <div className="grid gap-6">
           {articles.map((article) => (
@@ -28,23 +32,26 @@ export function ArticleRelated({
               href={`/journal/${article.slug}`}
               className="group block"
             >
-              <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg">
-                <p className="mb-2 text-xs uppercase tracking-[0.3em] text-fg-muted">
-                  {article.category}
-                </p>
+              <Card
+                variant="interactive"
+                className="h-full"
+              >
+                <Stack gap="sm">
+                  <Label>{article.category}</Label>
 
-                <h3 className="font-serif text-2xl font-semibold text-fg transition-colors group-hover:text-accent">
-                  {article.title}
-                </h3>
+                  <h3 className="font-serif text-2xl font-semibold text-fg transition-colors group-hover:text-accent">
+                    {article.title}
+                  </h3>
 
-                <p className="mt-3 text-fg-secondary">
-                  {article.description}
-                </p>
+                  <Text muted>
+                    {article.description}
+                  </Text>
+                </Stack>
               </Card>
             </Link>
           ))}
         </div>
-      </div>
+      </Stack>
     </aside>
   );
 }
