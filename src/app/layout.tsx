@@ -1,4 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Source_Serif_4,
+} from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
@@ -16,12 +20,17 @@ import { Providers } from "@/providers";
 
 export { metadata };
 
-const geistSans = Geist({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const geistMono = Geist_Mono({
+const serif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-serif",
+});
+
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 });
@@ -37,12 +46,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${inter.variable} ${serif.variable} ${mono.variable}`}
     >
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
         <JsonLd data={organizationSchema} />
+        <JsonLd data={personSchema} />
 
         <Providers>
           <Navbar />
