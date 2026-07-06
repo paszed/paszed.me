@@ -13,6 +13,8 @@ import { SearchResults } from "./search-results";
 
 export function SearchBox() {
   const [query, setQuery] = useState("");
+  const [selectedIndex, setSelectedIndex] =
+    useState(0);
 
   const index = useMemo(
     () => createSearchIndex(),
@@ -28,11 +30,17 @@ export function SearchBox() {
     <Panel className="p-6">
       <SearchInput
         value={query}
-        onChange={setQuery}
+        onChange={(value) => {
+          setQuery(value);
+          setSelectedIndex(0);
+        }}
       />
 
       <div className="mt-6">
-        <SearchResults results={results} />
+        <SearchResults
+          results={results}
+          selectedIndex={selectedIndex}
+        />
       </div>
     </Panel>
   );
