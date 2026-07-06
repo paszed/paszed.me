@@ -20,8 +20,8 @@
   --fg-muted: #8b7b68;
 
   /* Brand */
-  --accent: #c86b3c;
-  --accent-hover: #a65232;
+  --accent: #a65232;
+  --accent-hover: #8b4328;
 
   /* Status */
   --success: #68764a;
@@ -86,13 +86,10 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
 
-
-
   /* Fonts */
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
-
 }
 
 * {
