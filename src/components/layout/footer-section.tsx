@@ -35,7 +35,7 @@ export function FooterSection({
                   ? "noopener noreferrer"
                   : undefined
               }
-              className="group inline-flex items-center gap-3 text-fg-secondary transition-colors duration-200 hover:text-accent"
+              className="group inline-flex items-center gap-3 text-fg transition-colors duration-200 hover:text-accent"
             >
               {showIcons && (
                 <span
