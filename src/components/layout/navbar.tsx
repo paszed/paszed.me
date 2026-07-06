@@ -17,7 +17,11 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
       <Container>
-        <nav className="flex h-18 items-center justify-between">
+
+     <nav
+  aria-label="Primary navigation"
+  className="flex h-18 items-center justify-between"
+>
           <BrandLogo />
 
           <div className="flex items-center gap-3">
@@ -27,9 +31,13 @@ export function Navbar() {
 
                 return (
                   <li key={item.href}>
+
+
                     <Link
-                      href={item.href}
-                      className={cn(
+  href={item.href}
+  aria-current={active ? "page" : undefined}
+  className={cn(
+
                         "relative font-sans text-sm font-medium tracking-[0.015em] transition-colors duration-200",
                         active
                           ? "text-accent"
@@ -39,7 +47,13 @@ export function Navbar() {
                       {item.label}
 
                       {active && (
-                        <span className="absolute -bottom-2 left-0 h-px w-full bg-accent" />
+
+
+                        <span
+  aria-hidden="true"
+  className="absolute -bottom-2 left-0 h-px w-full bg-accent"
+/>
+
                       )}
                     </Link>
                   </li>
