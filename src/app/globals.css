@@ -2,17 +2,17 @@
 
 :root {
   /* Base */
-  --background: #f4f0e6;
+  --background: #f8f5ef;
   --foreground: #2b2622;
 
   /* Surfaces */
-  --surface: #e8ddc7;
-  --card: #f8f5ee;
-  --muted: #efe5d5;
+  --surface: #f2ede4;
+  --card: #fcfbf8;
+  --muted: #ece5da;
 
   /* Borders */
-  --border: #8c6a3c;
-  --border-muted: #d5c2a3;
+  --border: #b99b73;
+  --border-muted: #ddd2bf;
 
   /* Foreground */
   --fg: #2b2622;

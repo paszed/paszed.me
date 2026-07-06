@@ -16,12 +16,14 @@ export function Card({
     <div
       className={cn(
         [
-          "rounded-lg",
+          "rounded-xl",
           "border",
-          "border-border",
-          "bg-surface",
+          "border-border-muted",
+          "bg-card",
           "p-8",
-          "transition-colors duration-200",
+          "transition-all duration-200",
+          "hover:border-border",
+          "hover:-translate-y-0.5",
         ],
         className,
       )}
