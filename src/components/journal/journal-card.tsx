@@ -1,6 +1,9 @@
-import Link from "next/link";
-
-import { Card } from "@/components/ui/card";
+import {
+  Card,
+  Stack,
+  Text,
+  TextLink,
+} from "@/components/ui";
 import type { JournalEntry } from "@/types/journal";
 
 interface JournalCardProps {
@@ -25,8 +28,8 @@ export function JournalCard({
   article,
 }: JournalCardProps) {
   return (
-    <Card className="transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
-      <div className="space-y-6">
+    <Card variant="interactive">
+      <Stack gap="lg">
         <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-fg-muted">
           <span>{article.category}</span>
 
@@ -39,15 +42,18 @@ export function JournalCard({
           <span>{article.readingTime}</span>
         </div>
 
-        <div className="space-y-3">
+        <Stack gap="sm">
           <h2 className="font-serif text-3xl font-semibold tracking-tight text-fg">
             {article.title}
           </h2>
 
-          <p className="text-lg leading-8 text-fg-secondary">
+          <Text
+            size="lg"
+            muted
+          >
             {article.description}
-          </p>
-        </div>
+          </Text>
+        </Stack>
 
         <div className="flex flex-wrap gap-2">
           {article.tags.map((tag) => (
@@ -61,18 +67,18 @@ export function JournalCard({
         </div>
 
         {article.published ? (
-          <Link
-            href={`/journal/${article.slug}`}
-            className="inline-flex items-center font-medium text-accent transition-colors hover:text-accent-hover"
-          >
+          <TextLink href={`/journal/${article.slug}`}>
             Read article →
-          </Link>
+          </TextLink>
         ) : (
-          <span className="text-sm text-fg-muted">
+          <Text
+            size="sm"
+            muted
+          >
             Draft
-          </span>
+          </Text>
         )}
-      </div>
+      </Stack>
     </Card>
   );
 }

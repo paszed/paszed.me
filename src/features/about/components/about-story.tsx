@@ -1,16 +1,28 @@
-import { H2 } from "@/components/ui/heading";
+import {
+  H2,
+  Stack,
+  Text,
+} from "@/components/ui";
 import { about } from "@/content";
 
 export function AboutStory() {
   return (
-    <section className="space-y-6">
-      <H2>My Story</H2>
+    <section>
+      <Stack gap="md">
+        <H2>My Story</H2>
 
-      <div className="space-y-4 text-lg leading-8 text-fg-secondary">
-        {about.story.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
+        <Stack gap="sm">
+          {about.story.map((paragraph) => (
+            <Text
+              key={paragraph}
+              size="lg"
+              muted
+            >
+              {paragraph}
+            </Text>
+          ))}
+        </Stack>
+      </Stack>
     </section>
   );
 }

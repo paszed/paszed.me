@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 
-import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui";
 import type { Project } from "@/types/project";
 
 type ProjectCardProps = Project;
@@ -32,7 +32,10 @@ export function ProjectCard({
       href={`/projects/${slug}`}
       className="group block"
     >
-      <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg">
+      <Card
+        variant="interactive"
+        className="h-full"
+      >
         <div className="flex h-full flex-col">
           <div className="mb-6 flex flex-wrap items-center gap-4 text-sm">
             <span className="flex items-center gap-2 font-medium text-accent">
