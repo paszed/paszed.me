@@ -1,17 +1,15 @@
 import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
-import { Button } from "@/components/ui/button";
-import { H2 } from "@/components/ui/heading";
-import { Section } from "@/components/ui/section";
 import { profiles } from "@/content";
 import { site } from "@/config/site";
+import { Button, H2, Panel, Section } from "@/components/ui";
 
 export function ContactCTA() {
   return (
     <Section>
       <Container>
-        <div className="rounded-3xl border border-border p-12 text-center">
+        <Panel className="rounded-3xl p-12 text-center">
           <div className="mx-auto max-w-2xl space-y-6">
             <H2>{"Let's build something great."}</H2>
 
@@ -36,7 +34,7 @@ export function ContactCTA() {
               </Link>
             </div>
           </div>
-        </div>
+        </Panel>
       </Container>
     </Section>
   );

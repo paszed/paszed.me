@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Card } from "@/components/ui";
 import type { JournalEntry } from "@/types/journal";
 
 interface ArticleNavigationProps {
@@ -22,15 +23,17 @@ export function ArticleNavigation({
           {previous && (
             <Link
               href={`/journal/${previous.slug}`}
-              className="group block rounded-2xl border border-border p-6 transition-colors hover:border-accent"
+              className="group block"
             >
-              <p className="mb-2 text-xs uppercase tracking-[0.3em] text-fg-muted">
-                Previous
-              </p>
+              <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg">
+                <p className="mb-2 text-xs uppercase tracking-[0.3em] text-fg-muted">
+                  Previous
+                </p>
 
-              <h3 className="font-serif text-xl font-semibold text-fg group-hover:text-accent">
-                {previous.title}
-              </h3>
+                <h3 className="font-serif text-xl font-semibold text-fg transition-colors group-hover:text-accent">
+                  {previous.title}
+                </h3>
+              </Card>
             </Link>
           )}
         </div>
@@ -39,15 +42,17 @@ export function ArticleNavigation({
           {next && (
             <Link
               href={`/journal/${next.slug}`}
-              className="group block rounded-2xl border border-border p-6 transition-colors hover:border-accent"
+              className="group block"
             >
-              <p className="mb-2 text-xs uppercase tracking-[0.3em] text-fg-muted">
-                Next
-              </p>
+              <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg">
+                <p className="mb-2 text-xs uppercase tracking-[0.3em] text-fg-muted">
+                  Next
+                </p>
 
-              <h3 className="font-serif text-xl font-semibold text-fg group-hover:text-accent">
-                {next.title}
-              </h3>
+                <h3 className="font-serif text-xl font-semibold text-fg transition-colors group-hover:text-accent">
+                  {next.title}
+                </h3>
+              </Card>
             </Link>
           )}
         </div>

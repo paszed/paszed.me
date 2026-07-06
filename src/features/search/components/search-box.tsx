@@ -1,10 +1,12 @@
 "use client";
 
+import { Panel } from "@/components/ui";
+
 export function SearchBox() {
   return (
-    <div
+    <Panel
       id="search"
-      className="rounded-xl border border-border bg-card p-6"
+      className="p-6"
     />
   );
 }

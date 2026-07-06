@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Card } from "@/components/ui";
 import type { JournalEntry } from "@/types/journal";
 
 interface ArticleRelatedProps {
@@ -25,19 +26,21 @@ export function ArticleRelated({
             <Link
               key={article.slug}
               href={`/journal/${article.slug}`}
-              className="group rounded-2xl border border-border p-6 transition-colors hover:border-accent"
+              className="group block"
             >
-              <p className="mb-2 text-xs uppercase tracking-[0.3em] text-fg-muted">
-                {article.category}
-              </p>
+              <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg">
+                <p className="mb-2 text-xs uppercase tracking-[0.3em] text-fg-muted">
+                  {article.category}
+                </p>
 
-              <h3 className="font-serif text-2xl font-semibold text-fg group-hover:text-accent">
-                {article.title}
-              </h3>
+                <h3 className="font-serif text-2xl font-semibold text-fg transition-colors group-hover:text-accent">
+                  {article.title}
+                </h3>
 
-              <p className="mt-3 text-fg-secondary">
-                {article.description}
-              </p>
+                <p className="mt-3 text-fg-secondary">
+                  {article.description}
+                </p>
+              </Card>
             </Link>
           ))}
         </div>

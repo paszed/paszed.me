@@ -1,4 +1,4 @@
-import { H2 } from "@/components/ui/heading";
+import { H2, Panel } from "@/components/ui";
 import { about } from "@/content";
 
 export function AboutPhilosophy() {
@@ -8,9 +8,9 @@ export function AboutPhilosophy() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {about.philosophy.map((principle) => (
-          <div
+          <Panel
             key={principle.title}
-            className="rounded-2xl border border-border p-6"
+            className="h-full p-6"
           >
             <h3 className="mb-3 text-lg font-semibold text-fg">
               {principle.title}
@@ -19,7 +19,7 @@ export function AboutPhilosophy() {
             <p className="leading-7 text-fg-secondary">
               {principle.description}
             </p>
-          </div>
+          </Panel>
         ))}
       </div>
     </section>
