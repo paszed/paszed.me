@@ -1,6 +1,7 @@
 import { site } from "@/config/site";
+import type { Schema } from "./types";
 
-export function createWebsiteSchema() {
+export function createWebsiteSchema(): Schema {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",

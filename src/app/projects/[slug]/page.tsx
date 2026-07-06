@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { JsonLd } from "@/components/seo/json-ld";
 import { Page } from "@/components/layout/page";
+import { JsonLd } from "@/components/seo/json-ld";
 import {
   ProjectGallery,
   ProjectHero,
@@ -16,7 +16,10 @@ import {
   getProjectBySlug,
   getProjectSlugs,
 } from "@/lib/projects";
-import { createProjectSchema } from "@/lib/seo";
+import {
+  createBreadcrumbSchema,
+  createProjectSchema,
+} from "@/lib/seo";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -70,9 +73,25 @@ export default async function ProjectPage({
 
   const projectSchema = createProjectSchema(project);
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "Projects",
+      path: "/projects",
+    },
+    {
+      name: project.title,
+      path: `/projects/${project.slug}`,
+    },
+  ]);
+
   return (
     <>
       <JsonLd data={projectSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       <Page>
         <div className="space-y-16">

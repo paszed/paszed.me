@@ -1,8 +1,12 @@
 import type { JournalEntry } from "@/types/journal";
+import type { Schema } from "./types";
 
 import { site } from "@/config/site";
 
-export function createArticleSchema(article: JournalEntry) {
+export function createArticleSchema(
+  article: JournalEntry,
+): Schema {
+
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",

@@ -1,6 +1,7 @@
 import { site } from "@/config/site";
+import type { Schema } from "./types";
 
-export function createPersonSchema() {
+export function createPersonSchema(): Schema {
   return {
     "@context": "https://schema.org",
     "@type": "Person",

@@ -15,7 +15,10 @@ import {
   getPreviousArticle,
   getRelatedArticles,
 } from "@/lib/journal";
-import { createArticleSchema } from "@/lib/seo";
+import {
+  createArticleSchema,
+  createBreadcrumbSchema,
+} from "@/lib/seo";
 
 interface Props {
   params: Promise<{
@@ -57,9 +60,25 @@ export default async function JournalArticlePage({
 
   const articleSchema = createArticleSchema(article);
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "Journal",
+      path: "/journal",
+    },
+    {
+      name: article.title,
+      path: `/journal/${article.slug}`,
+    },
+  ]);
+
   return (
     <>
       <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       <ReadingProgress />
 

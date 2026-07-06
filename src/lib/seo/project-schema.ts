@@ -1,8 +1,11 @@
 import type { Project } from "@/types/project";
+import type { Schema } from "./types";
 
 import { site } from "@/config/site";
 
-export function createProjectSchema(project: Project) {
+export function createProjectSchema(
+  project: Project,
+): Schema {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
