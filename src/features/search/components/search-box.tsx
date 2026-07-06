@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { KeyboardEvent } from "react";
 
 import { Panel } from "@/components/ui";
 import {
@@ -26,6 +27,30 @@ export function SearchBox() {
     [index, query],
   );
 
+  function handleKeyDown(
+    event: KeyboardEvent<HTMLInputElement>,
+  ) {
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+
+        setSelectedIndex((index) =>
+          Math.min(index + 1, results.length - 1),
+        );
+
+        break;
+
+      case "ArrowUp":
+        event.preventDefault();
+
+        setSelectedIndex((index) =>
+          Math.max(index - 1, 0),
+        );
+
+        break;
+    }
+  }
+
   return (
     <Panel className="p-6">
       <SearchInput
@@ -34,6 +59,7 @@ export function SearchBox() {
           setQuery(value);
           setSelectedIndex(0);
         }}
+        onKeyDown={handleKeyDown}
       />
 
       <div className="mt-6">
