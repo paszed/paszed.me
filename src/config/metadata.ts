@@ -29,6 +29,10 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "/",
+
+    types: {
+      "application/rss+xml": `${site.url}/rss.xml`,
+    },
   },
 
   keywords: [
