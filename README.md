@@ -1,6 +1,6 @@
 # paszed.me
 
-> Personal website, engineering journal, and long-term software project.
+> A personal website, engineering journal, and long-term software project documenting software engineering, AI, and developer tooling.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
@@ -11,11 +11,9 @@
 
 ---
 
-## Live
+# Live
 
 🌐 **https://paszed.me**
-
-> Screenshot coming soon.
 
 ---
 
@@ -25,7 +23,17 @@
 
 It combines a portfolio, engineering journal, project showcase, and long-term knowledge base into a single website focused on thoughtful software engineering.
 
-Rather than showcasing finished work alone, the site documents the process of building software—from architecture decisions and developer tooling to practical AI and long-term system design.
+Rather than acting as a static portfolio, the site documents how software is designed, built, maintained, and improved over time.
+
+Topics include:
+
+- Software Engineering
+- Software Architecture
+- Artificial Intelligence
+- AI Engineering
+- Developer Experience
+- Developer Tools
+- Modern Web Development
 
 ---
 
@@ -33,18 +41,22 @@ Rather than showcasing finished work alone, the site documents the process of bu
 
 - Engineering journal
 - Project case studies
-- Feature-based architecture
+- Feature-first architecture
 - Typed content system
 - Reusable design system
 - Responsive layout
 - Light & dark mode
 - Reading progress indicator
-- SEO-ready pages
-- Structured metadata
+- RSS feed
+- Dynamic Open Graph images
+- Structured data (JSON-LD)
 - XML sitemap
 - robots.txt
+- llms.txt
+- SEO-first metadata
+- Accessibility focused
+- Lighthouse optimized
 - Automated testing foundation
-- GitHub Actions ready
 
 ---
 
@@ -58,9 +70,9 @@ Rather than showcasing finished work alone, the site documents the process of bu
 - pnpm
 - next-themes
 - Lucide React
+- React Icons
 - ESLint
 - Vitest
-- Vercel
 
 ---
 
@@ -77,13 +89,48 @@ src
 ├── hooks
 ├── lib
 ├── providers
+├── services
 ├── styles
 └── types
 ```
 
-The project follows a feature-oriented architecture where routing, presentation, domain logic, and structured content remain clearly separated.
+The project follows a feature-first architecture where routing, UI, content, business logic, and SEO remain cleanly separated.
 
-For a more detailed overview, see **ARCHITECTURE.md**.
+For a complete overview see **ARCHITECTURE.md**.
+
+---
+
+# SEO
+
+The website includes:
+
+- Metadata generation
+- Open Graph
+- Twitter Cards
+- JSON-LD
+- Person Schema
+- Organization Schema
+- Website Schema
+- BlogPosting Schema
+- SoftwareSourceCode Schema
+- Breadcrumb Schema
+- RSS feed
+- XML Sitemap
+- robots.txt
+- llms.txt
+
+---
+
+# Performance
+
+Current Lighthouse scores:
+
+| Category | Score |
+|----------|------:|
+| Performance | 99 Desktop / 97 Mobile |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 100 |
 
 ---
 
@@ -95,7 +142,7 @@ Install dependencies:
 pnpm install
 ```
 
-Start the development server:
+Run locally:
 
 ```bash
 pnpm dev
@@ -107,7 +154,7 @@ Run the complete verification pipeline:
 pnpm check
 ```
 
-Individual commands:
+Or individually:
 
 ```bash
 pnpm lint
@@ -119,14 +166,13 @@ pnpm build
 
 # Engineering Principles
 
-This project follows a few simple principles:
-
-- Build software intended to last.
-- Keep content separate from presentation.
+- Build software that lasts.
 - Prefer composition over duplication.
+- Keep content separate from presentation.
 - Optimize for maintainability.
 - Ship continuously.
-- Choose clarity over unnecessary complexity.
+- Design systems before pages.
+- Keep architecture boring and predictable.
 
 ---
 
@@ -134,32 +180,42 @@ This project follows a few simple principles:
 
 ## Completed
 
+- ✅ Feature-first architecture
 - ✅ Design system
-- ✅ Feature-based architecture
-- ✅ Typed content model
-- ✅ Project platform
+- ✅ Typed content layer
 - ✅ Engineering journal
+- ✅ Project platform
 - ✅ Reading progress
-- ✅ Responsive design
 - ✅ Theme support
-- ✅ SEO foundation
-- ✅ Testing foundation
+- ✅ Responsive design
+- ✅ SEO architecture
+- ✅ Structured data
+- ✅ RSS feed
+- ✅ llms.txt
+- ✅ Dynamic Open Graph images
+- ✅ Lighthouse optimization
 
-## Planned
+## Next
 
-- 🔍 Search
-- 📰 RSS feed
-- 🖼️ Dynamic Open Graph images
-- 📊 Analytics
-- ✨ Enhanced article components
+- 🔍 Full-text search
+- 📊 Privacy-friendly analytics
+- 📝 MDX-powered articles
+- 🎨 Additional article components
+- 🚀 More engineering case studies
 
 ---
 
 # Deployment
 
-The site is automatically deployed through **Vercel**.
+The site is deployed to **Namecheap** and built with **Next.js 16**.
 
-Every change merged into `main` is verified before deployment.
+Every change is validated locally through:
+
+```bash
+pnpm check
+```
+
+before deployment.
 
 ---
 
@@ -171,8 +227,12 @@ See the **LICENSE** file for details.
 
 ---
 
-## Author
+# Author
 
 **Edvard Pasz**
 
 🌐 https://paszed.me
+
+GitHub: https://github.com/paszed
+
+LinkedIn: https://www.linkedin.com/in/paszed/
