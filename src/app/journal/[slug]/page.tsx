@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { ArticleHeader } from "@/components/article";
+import {
+  ArticleHeader,
+  ArticleNavigation,
+} from "@/components/article";
 import { Prose } from "@/components/ui/prose";
-import { getArticle } from "@/lib/journal";
+import {
+  getArticle,
+  getNextArticle,
+  getPreviousArticle,
+} from "@/lib/journal";
 
 interface Props {
   params: Promise<{
@@ -39,6 +46,9 @@ export default async function JournalArticlePage({
     notFound();
   }
 
+  const previous = getPreviousArticle(slug);
+  const next = getNextArticle(slug);
+
   return (
     <article className="mx-auto max-w-3xl px-6 py-24">
       <ArticleHeader article={article} />
@@ -54,6 +64,11 @@ export default async function JournalArticlePage({
           </section>
         ))}
       </Prose>
+
+      <ArticleNavigation
+        previous={previous}
+        next={next}
+      />
     </article>
   );
 }
