@@ -1,7 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import type { KeyboardEvent } from "react";
+import {
+  useMemo,
+  useState,
+  type KeyboardEvent,
+  type RefObject,
+} from "react";
 import { useRouter } from "next/navigation";
 
 import { Panel } from "@/components/ui";
@@ -13,7 +17,13 @@ import {
 import { SearchInput } from "./search-input";
 import { SearchResults } from "./search-results";
 
-export function SearchBox() {
+interface SearchBoxProps {
+  inputRef?: RefObject<HTMLInputElement | null>;
+}
+
+export function SearchBox({
+  inputRef,
+}: SearchBoxProps) {
   const router = useRouter();
 
   const [query, setQuery] = useState("");
@@ -77,6 +87,7 @@ export function SearchBox() {
   return (
     <Panel className="p-6">
       <SearchInput
+        ref={inputRef}
         value={query}
         onChange={(value) => {
           setQuery(value);

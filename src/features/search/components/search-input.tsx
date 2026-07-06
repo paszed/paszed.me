@@ -1,4 +1,9 @@
-import type { KeyboardEventHandler } from "react";
+"use client";
+
+import {
+  forwardRef,
+  type KeyboardEventHandler,
+} from "react";
 
 interface SearchInputProps {
   value: string;
@@ -6,13 +11,20 @@ interface SearchInputProps {
   onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 }
 
-export function SearchInput({
-  value,
-  onChange,
-  onKeyDown,
-}: SearchInputProps) {
+export const SearchInput = forwardRef<
+  HTMLInputElement,
+  SearchInputProps
+>(function SearchInput(
+  {
+    value,
+    onChange,
+    onKeyDown,
+  },
+  ref,
+) {
   return (
     <input
+      ref={ref}
       type="search"
       placeholder="Search articles, projects, and pages..."
       value={value}
@@ -20,8 +32,7 @@ export function SearchInput({
         onChange(event.target.value)
       }
       onKeyDown={onKeyDown}
-      autoFocus
       className="w-full border-0 bg-transparent text-lg outline-none placeholder:text-fg-muted"
     />
   );
-}
+});

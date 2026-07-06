@@ -1,8 +1,12 @@
 "use client";
 
-import { SearchBox } from "@/features/search/components/search-box";
-import { SearchDialog } from "@/features/search/components/search-dialog";
-import { useCommandPalette } from "@/features/search/hooks/use-command-palette";
+import { useEffect, useRef } from "react";
+
+import {
+  SearchBox,
+  SearchDialog,
+  useCommandPalette,
+} from "@/features/search";
 
 export function GlobalSearch() {
   const {
@@ -10,12 +14,22 @@ export function GlobalSearch() {
     setOpen,
   } = useCommandPalette();
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (open) {
+      requestAnimationFrame(() => {
+        inputRef.current?.focus();
+      });
+    }
+  }, [open]);
+
   return (
     <SearchDialog
       open={open}
       onClose={() => setOpen(false)}
     >
-      <SearchBox />
+      <SearchBox inputRef={inputRef} />
     </SearchDialog>
   );
 }
