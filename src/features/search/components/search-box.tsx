@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { KeyboardEvent } from "react";
+import { useRouter } from "next/navigation";
 
 import { Panel } from "@/components/ui";
 import {
@@ -13,6 +14,8 @@ import { SearchInput } from "./search-input";
 import { SearchResults } from "./search-results";
 
 export function SearchBox() {
+  const router = useRouter();
+
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] =
     useState(0);
@@ -34,6 +37,10 @@ export function SearchBox() {
       case "ArrowDown":
         event.preventDefault();
 
+        if (results.length === 0) {
+          return;
+        }
+
         setSelectedIndex((index) =>
           Math.min(index + 1, results.length - 1),
         );
@@ -43,11 +50,27 @@ export function SearchBox() {
       case "ArrowUp":
         event.preventDefault();
 
+        if (results.length === 0) {
+          return;
+        }
+
         setSelectedIndex((index) =>
           Math.max(index - 1, 0),
         );
 
         break;
+
+      case "Enter": {
+        event.preventDefault();
+
+        const selected = results[selectedIndex];
+
+        if (selected) {
+          router.push(selected.href);
+        }
+
+        break;
+      }
     }
   }
 
