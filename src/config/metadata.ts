@@ -1,3 +1,5 @@
+paszed.me on  main via  v26.4.0 on ☁️
+❯ cat src/config/metadata.ts
 import type { Metadata } from "next";
 
 import { site } from "./site";
@@ -85,3 +87,4 @@ export const metadata: Metadata = {
   //   google: "YOUR_GOOGLE_SITE_VERIFICATION",
   // },
 };
+
