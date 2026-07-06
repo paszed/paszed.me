@@ -1,5 +1,5 @@
 import { H2 } from "@/components/ui/heading";
-import { about } from "@/content/about";
+import { about } from "@/content";
 
 export function AboutStory() {
   return (

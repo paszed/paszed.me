@@ -4,7 +4,7 @@ import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { H2 } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
-import { profiles } from "@/content/profiles";
+import { profiles } from "@/content";
 import { site } from "@/config/site";
 
 export function ContactCTA() {

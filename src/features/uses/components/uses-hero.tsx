@@ -1,5 +1,5 @@
 import { H1 } from "@/components/ui/heading";
-import { uses } from "@/content/uses";
+import { uses } from "@/content";
 
 export function UsesHero() {
   return (

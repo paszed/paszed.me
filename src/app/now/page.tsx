@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { Page } from "@/components/layout/page";
-import { now } from "@/content/now";
+import { now } from "@/content";
 import {
   NowHero,
   NowSection,

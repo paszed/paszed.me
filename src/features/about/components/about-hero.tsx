@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { H1 } from "@/components/ui/heading";
-import { about } from "@/content/about";
+import { about } from "@/content";
 
 export function AboutHero() {
   return (

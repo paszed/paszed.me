@@ -2,7 +2,7 @@ import { Container } from "@/components/layout/container";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
-import { home } from "@/content/home";
+import { home } from "@/content";
 
 export function CurrentFocus() {
   return (

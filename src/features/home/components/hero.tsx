@@ -6,7 +6,7 @@ import { ThemedLion } from "@/components/theme/themed-lion";
 import { Button } from "@/components/ui/button";
 import { H1 } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
-import { home } from "@/content/home";
+import { home } from "@/content";
 import { site } from "@/config/site";
 
 export function Hero() {

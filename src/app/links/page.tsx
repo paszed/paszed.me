@@ -13,7 +13,7 @@ import { SocialIcon } from "@/components/icons/social-icon";
 import { Page } from "@/components/layout/page";
 import { Card } from "@/components/ui/card";
 import { SectionHeader } from "@/components/ui/section-header";
-import { profiles } from "@/content/profiles";
+import { profiles } from "@/content";
 import { cn } from "@/lib/cn";
 
 type Profile = (typeof profiles)[keyof typeof profiles];

@@ -5,7 +5,7 @@ import { ProjectCard } from "@/components/shared/project-card";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
-import { home } from "@/content/home";
+import { home } from "@/content";
 import { getFeaturedProjects } from "@/lib/projects";
 
 export function FeaturedProjects() {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Page } from "@/components/layout/page";
 import { Card } from "@/components/ui/card";
 import { SectionHeader } from "@/components/ui/section-header";
-import { journal } from "@/content/journal";
+import { journal } from "@/content";
 
 export default function JournalPage() {
   return (

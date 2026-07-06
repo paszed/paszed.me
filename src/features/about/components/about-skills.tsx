@@ -20,7 +20,7 @@ import { TbApi, TbBrandGit, TbDatabase } from "react-icons/tb";
 import type { IconType } from "react-icons";
 
 import { H2 } from "@/components/ui/heading";
-import { about } from "@/content/about";
+import { about } from "@/content";
 
 const icons: Record<string, IconType> = {
   TypeScript: SiTypescript,

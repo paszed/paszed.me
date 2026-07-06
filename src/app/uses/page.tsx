@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
+import { Page } from "@/components/layout/page";
+import { uses } from "@/content";
+import {
+  UsesHero,
+  UsesSection,
+} from "@/features/uses";
+
 export const metadata: Metadata = {
   title: "Uses",
   description:
     "The hardware, software, terminal tools, AI, and development workflow I use every day.",
 };
-
-import { Page } from "@/components/layout/page";
-import { uses } from "@/content/uses";
-import {
-  UsesHero,
-  UsesSection,
-} from "@/features/uses";
 
 export default function UsesPage() {
   return (
