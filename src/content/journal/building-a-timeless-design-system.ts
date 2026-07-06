@@ -18,6 +18,23 @@ const article: JournalEntry = {
 
   readingTime: "8 min read",
 
+  sections: [
+  {
+    heading: "Why another design system?",
+    paragraphs: [
+      "Software changes rapidly, but principles tend to outlive frameworks.",
+      "A design system should capture enduring decisions rather than visual trends.",
+    ],
+  },
+  {
+    heading: "Timelessness",
+    paragraphs: [
+      "The goal is not to imitate the past.",
+      "The goal is to build interfaces that continue to feel intentional years from now.",
+    ],
+  },
+],
+
   tags: [
     "Design System",
     "Architecture",

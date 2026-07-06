@@ -23,6 +23,8 @@ const article: JournalEntry = {
     "Source Serif 4",
     "Design",
   ],
+
+  sections: [],
 };
 
 export default article;

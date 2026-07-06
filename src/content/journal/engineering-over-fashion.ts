@@ -23,6 +23,8 @@ const article: JournalEntry = {
     "Engineering",
     "Software",
   ],
+
+  sections: [],
 };
 
 export default article;

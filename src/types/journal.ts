@@ -1,3 +1,5 @@
+import type { ArticleSection } from "./article";
+
 export interface JournalEntry {
   slug: string;
 
@@ -21,4 +23,6 @@ export interface JournalEntry {
   readingTime: string;
 
   tags: string[];
+
+  sections: ArticleSection[];
 }
