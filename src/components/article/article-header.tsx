@@ -4,6 +4,20 @@ interface ArticleHeaderProps {
   article: JournalEntry;
 }
 
+function formatPublishedDate(
+  date: Date | null,
+): string {
+  if (!date) {
+    return "Draft";
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date);
+}
+
 export function ArticleHeader({
   article,
 }: ArticleHeaderProps) {
@@ -26,7 +40,7 @@ export function ArticleHeader({
 
         <span>•</span>
 
-        <span>{article.publishedAt}</span>
+        <span>{formatPublishedDate(article.publishedAt)}</span>
 
         <span>•</span>
 

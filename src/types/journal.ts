@@ -15,7 +15,7 @@ export interface JournalEntry {
 
   published: boolean;
 
-  publishedAt: string;
+  publishedAt: Date | null;
   updatedAt?: string;
 
   author: string;

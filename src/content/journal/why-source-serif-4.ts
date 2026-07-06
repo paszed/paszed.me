@@ -12,7 +12,7 @@ const article: JournalEntry = {
 
   published: false,
 
-  publishedAt: "Coming Soon",
+  publishedAt: null,
 
   author: "Edvard Pasz",
 
