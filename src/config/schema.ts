@@ -19,6 +19,24 @@ export const personSchema = {
   ],
 
   jobTitle: "Software Engineer",
+
+  knowsAbout: [
+    "Software Engineering",
+    "Software Architecture",
+    "Developer Tools",
+    "Developer Experience",
+    "Artificial Intelligence",
+    "AI Engineering",
+    "TypeScript",
+    "Go",
+    "Next.js",
+    "React",
+  ],
+
+  worksFor: {
+    "@type": "Organization",
+    name: site.name,
+  },
 };
 
 export const websiteSchema = {
@@ -37,12 +55,6 @@ export const websiteSchema = {
     "@type": "Person",
     name: site.owner,
   },
-
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${site.url}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export const organizationSchema = {
@@ -52,6 +64,8 @@ export const organizationSchema = {
   name: site.name,
 
   url: site.url,
+
+  description: site.description,
 
   logo: `${site.url}${site.ogImage}`,
 };

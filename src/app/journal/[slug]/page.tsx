@@ -7,7 +7,9 @@ import {
   ArticleRelated,
   ReadingProgress,
 } from "@/components/article";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Prose } from "@/components/ui/prose";
+import { site } from "@/config/site";
 import {
   getArticle,
   getNextArticle,
@@ -53,8 +55,39 @@ export default async function JournalArticlePage({
   const next = getNextArticle(slug);
   const related = getRelatedArticles(slug);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+
+    headline: article.title,
+    description: article.description,
+
+    author: {
+      "@type": "Person",
+      name: article.author,
+    },
+
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
+
+    mainEntityOfPage: `${site.url}/journal/${article.slug}`,
+
+    url: `${site.url}/journal/${article.slug}`,
+
+    image: `${site.url}${site.ogImage}`,
+
+    datePublished: article.publishedAt?.toISOString(),
+
+    inLanguage: site.language,
+  };
+
   return (
     <>
+      <JsonLd data={articleSchema} />
+
       <ReadingProgress />
 
       <article className="mx-auto max-w-3xl px-6 py-24">
