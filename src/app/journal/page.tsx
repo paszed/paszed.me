@@ -1,9 +1,11 @@
 import { Page } from "@/components/layout/page";
 import { JournalCard } from "@/components/journal";
 import { SectionHeader } from "@/components/ui/section-header";
-import { journal } from "@/content";
+import { getPublishedArticles } from "@/lib/journal";
 
 export default function JournalPage() {
+  const articles = getPublishedArticles();
+
   return (
     <Page className="space-y-20">
       <SectionHeader
@@ -14,7 +16,7 @@ export default function JournalPage() {
       />
 
       <section className="mx-auto grid max-w-4xl gap-8">
-        {journal.map((article) => (
+        {articles.map((article) => (
           <JournalCard
             key={article.slug}
             article={article}

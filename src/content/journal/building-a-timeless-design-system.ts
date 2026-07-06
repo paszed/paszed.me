@@ -10,9 +10,9 @@ const article: JournalEntry = {
 
   category: "Engineering",
 
-  published: false,
+  published: true,
 
-  publishedAt: null,
+  publishedAt: new Date("2026-07-06"),
 
   author: "Edvard Pasz",
 

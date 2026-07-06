@@ -4,12 +4,14 @@ import { notFound } from "next/navigation";
 import {
   ArticleHeader,
   ArticleNavigation,
+  ArticleRelated,
 } from "@/components/article";
 import { Prose } from "@/components/ui/prose";
 import {
   getArticle,
   getNextArticle,
   getPreviousArticle,
+  getRelatedArticles,
 } from "@/lib/journal";
 
 interface Props {
@@ -48,6 +50,7 @@ export default async function JournalArticlePage({
 
   const previous = getPreviousArticle(slug);
   const next = getNextArticle(slug);
+  const related = getRelatedArticles(slug);
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-24">
@@ -64,6 +67,8 @@ export default async function JournalArticlePage({
           </section>
         ))}
       </Prose>
+
+      <ArticleRelated articles={related} />
 
       <ArticleNavigation
         previous={previous}
