@@ -20,9 +20,9 @@ export function FooterSection({
 }: FooterSectionProps) {
   return (
     <div>
-      <h4 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-fg">
+      <h2 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-fg">
         {title}
-      </h4>
+      </h2>
 
       <ul className="space-y-3">
         {items.map((item) => (
@@ -38,7 +38,10 @@ export function FooterSection({
               className="group inline-flex items-center gap-3 text-fg-secondary transition-colors duration-200 hover:text-accent"
             >
               {showIcons && (
-                <span className="flex h-4 w-4 items-center justify-center">
+                <span
+                  aria-hidden="true"
+                  className="flex h-4 w-4 items-center justify-center"
+                >
                   <SocialIcon
                     name={item.label}
                     className="h-3.5 w-3.5 opacity-80 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
