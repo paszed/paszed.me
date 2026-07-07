@@ -36,7 +36,13 @@ test.describe("Search", () => {
     await input.fill("about");
 
     await expect(
-      page.getByText(/about/i),
+      page
+        .getByRole("searchbox")
+        .locator("..")
+        .locator("..")
+        .getByRole("link", {
+          name: /about/i,
+        }),
     ).toBeVisible();
   });
 

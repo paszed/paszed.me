@@ -16,7 +16,14 @@ test.describe("Navigation", () => {
     }) => {
       await page.goto("/");
 
-      await page
+      const navigation = page.getByRole(
+        "navigation",
+        {
+          name: /primary/i,
+        },
+      );
+
+      await navigation
         .getByRole("link", {
           name: route.label,
         })
@@ -25,9 +32,7 @@ test.describe("Navigation", () => {
       await expect(page).toHaveURL(route.href);
 
       await expect(
-        page.getByRole("heading", {
-          level: 1,
-        }),
+        page.getByRole("main"),
       ).toBeVisible();
     });
   }

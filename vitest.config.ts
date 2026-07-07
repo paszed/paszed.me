@@ -11,12 +11,21 @@ export default defineConfig({
 
   test: {
     environment: "jsdom",
+
     globals: true,
 
     setupFiles: ["./vitest.setup.ts"],
 
+    exclude: [
+      "tests/**",
+      "node_modules/**",
+      ".next/**",
+      "dist/**",
+    ],
+
     coverage: {
       provider: "v8",
+
       reporter: [
         "text",
         "html",

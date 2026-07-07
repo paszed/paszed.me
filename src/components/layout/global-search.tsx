@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 import { SearchBox } from "@/features/search";
 import { SearchDialog } from "@/features/search";
-import { useCommandPalette } from "@/features/search/context";
+import { useCommandPalette } from "@/features/search/hooks/use-command-palette";
 
 export function GlobalSearch() {
   const {

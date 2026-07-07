@@ -14,12 +14,12 @@ export function Page({
   className,
 }: PageProps) {
   return (
-    <main className={cn("py-16 sm:py-20 lg:py-24", className)}>
+    <section className={cn("py-16 sm:py-20 lg:py-24", className)}>
       <Container>
         <div className="mx-auto max-w-4xl">
           {children}
         </div>
       </Container>
-    </main>
+    </section>
   );
 }

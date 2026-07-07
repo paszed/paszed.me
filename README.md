@@ -1,3 +1,5 @@
+paszed.me on  main [!] via  v26.4.0 on ☁️   took 17s
+❯ cat README.md
 # paszed.me
 
 > A personal website, engineering journal, and long-term software project documenting software engineering, AI, and developer tooling.
@@ -236,3 +238,4 @@ See the **LICENSE** file for details.
 GitHub: https://github.com/paszed
 
 LinkedIn: https://www.linkedin.com/in/paszed/
+

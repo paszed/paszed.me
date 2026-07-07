@@ -9,6 +9,7 @@ export default function JournalPage() {
   return (
     <Page className="space-y-20">
       <SectionHeader
+        level={1}
         centered
         eyebrow="Engineering Journal"
         title="Journal"

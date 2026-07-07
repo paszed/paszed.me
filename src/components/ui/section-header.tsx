@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { H2 } from "./heading";
+import { H1, H2 } from "./heading";
 
 interface SectionHeaderProps {
   title: string;
@@ -11,6 +11,7 @@ interface SectionHeaderProps {
   actions?: ReactNode;
   centered?: boolean;
   className?: string;
+  level?: 1 | 2;
 }
 
 export function SectionHeader({
@@ -20,7 +21,10 @@ export function SectionHeader({
   actions,
   centered = false,
   className,
+  level = 2,
 }: SectionHeaderProps) {
+  const Heading = level === 1 ? H1 : H2;
+
   return (
     <div
       className={cn(
@@ -43,7 +47,7 @@ export function SectionHeader({
           </p>
         )}
 
-        <H2>{title}</H2>
+        <Heading>{title}</Heading>
 
         {description && (
           <p className="max-w-2xl font-serif text-xl leading-9 text-fg-secondary">

@@ -13,17 +13,27 @@ export function useCommandPalette() {
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
+      console.log("keydown", {
+        key: event.key,
+        metaKey: event.metaKey,
+        ctrlKey: event.ctrlKey,
+      });
+
       const isShortcut =
         (event.metaKey || event.ctrlKey) &&
         event.key.toLowerCase() === "k";
 
       if (isShortcut) {
+        console.log("Search shortcut detected");
+
         event.preventDefault();
         toggle();
+
         return;
       }
 
       if (event.key === "Escape") {
+        console.log("Escape pressed");
         setOpen(false);
       }
     }

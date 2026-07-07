@@ -7,7 +7,9 @@ test.describe("Theme", () => {
     await page.goto("/");
 
     await expect(
-      page.getByRole("button"),
+      page.getByRole("button", {
+        name: "Toggle theme",
+      }),
     ).toBeVisible();
   });
 });
