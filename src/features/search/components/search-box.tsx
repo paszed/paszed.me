@@ -103,6 +103,7 @@ export function SearchBox({
         <SearchResults
           results={results}
           selectedIndex={selectedIndex}
+          query={query}
         />
       </div>
     </Panel>
