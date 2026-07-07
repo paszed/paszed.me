@@ -1,4 +1,4 @@
-import { ProjectSection } from "@/features/projects";
+import { ProjectSection } from "./project-section";
 
 interface ProjectListSectionProps {
   title: string;

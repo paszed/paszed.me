@@ -7,24 +7,38 @@
     "build": "next build",
     "analyze": "ANALYZE=true next build",
     "start": "next start",
+
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
     "e2e:headed": "playwright test --headed",
     "e2e:debug": "playwright test --debug",
+
+    "knip": "knip",
+    "depcruise": "depcruise src --config .dependency-cruiser.cjs",
+
     "audit": "pnpm audit",
     "outdated": "pnpm outdated",
     "dedupe": "pnpm dedupe --check",
-    "check": "pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm e2e && pnpm knip && pnpm depcruise && pnpm dedupe --check",
-    "health": "pnpm check && pnpm audit",
-    "knip": "knip",
-    "depcruise": "depcruise src --config .dependency-cruiser.cjs",
+
     "lighthouse": "lhci autorun",
-    "bundlesize": "bundlesize"
+    "bundlesize": "bundlesize",
+
+    "check": "pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm e2e && pnpm knip && pnpm depcruise && pnpm dedupe --check",
+
+    "health": "pnpm check && pnpm audit",
+
+    "ci": "pnpm health",
+
+    "verify": "pnpm health",
+
+    "clean": "rm -rf .next coverage playwright-report test-results"
   },
   "dependencies": {
     "clsx": "^2.1.1",

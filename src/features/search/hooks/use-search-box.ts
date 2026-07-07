@@ -8,10 +8,10 @@ import {
 import { useRouter } from "next/navigation";
 
 import { useCommandPalette } from "@/features/search/context";
-import {
-  createSearchIndex,
-  search,
-} from "@/features/search";
+
+
+import { createSearchIndex } from "../lib/create-search-index";
+import { search } from "../lib/search";
 
 export function useSearchBox() {
   const router = useRouter();

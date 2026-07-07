@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { H1 } from "@/components/ui/heading";
-import { ProjectMeta } from "@/features/projects";
+import { ProjectMeta } from "./project-meta";
 import type { Project } from "@/types/project";
 
 interface ProjectHeroProps {

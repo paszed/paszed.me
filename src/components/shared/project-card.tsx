@@ -39,7 +39,10 @@ export function ProjectCard({
         <div className="flex h-full flex-col">
           <div className="mb-6 flex flex-wrap items-center gap-4 text-sm">
             <span className="flex items-center gap-2 font-medium text-accent">
-              <span className="h-2 w-2 rounded-full bg-success" />
+              <span
+                aria-hidden="true"
+                className="h-2 w-2 rounded-full bg-success"
+              />
               {STATUS[status]}
             </span>
 
@@ -54,9 +57,9 @@ export function ProjectCard({
             )}
           </div>
 
-          <h3 className="text-3xl font-bold tracking-tight transition-colors group-hover:text-accent">
-            {title}
-          </h3>
+          <h2 className="text-3xl font-bold tracking-tight transition-colors group-hover:text-accent">
+  {title}
+</h2>
 
           <p className="mt-4 leading-8 text-fg-secondary">
             {summary}
@@ -82,18 +85,28 @@ export function ProjectCard({
           <div className="mt-auto flex items-center justify-between pt-10">
             <div className="flex items-center gap-4">
               {github && (
-                <SiGithub className="h-5 w-5 text-fg-muted transition-colors group-hover:text-accent" />
+                <SiGithub
+                  aria-hidden="true"
+                  focusable="false"
+                  className="h-5 w-5 text-fg-muted transition-colors group-hover:text-accent"
+                />
               )}
 
               {website && (
-                <ExternalLink className="h-5 w-5 text-fg-muted transition-colors group-hover:text-accent" />
+                <ExternalLink
+                  aria-hidden="true"
+                  className="h-5 w-5 text-fg-muted transition-colors group-hover:text-accent"
+                />
               )}
             </div>
 
             <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
               Case Study
 
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight
+                aria-hidden="true"
+                className="h-4 w-4"
+              />
             </span>
           </div>
         </div>

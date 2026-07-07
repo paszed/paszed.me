@@ -17,14 +17,14 @@
   /* Foreground */
   --fg: #2b2622;
   --fg-secondary: #5c5247;
-  --fg-muted: #8b7b68;
+  --fg-muted: #6b5d4d;
 
   /* Brand */
   --accent: #a65232;
   --accent-hover: #8b4328;
 
   /* Status */
-  --success: #68764a;
+  --success: #55613b;
   --warning: #c9a24a;
   --danger: #a65232;
 }

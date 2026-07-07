@@ -1,4 +1,4 @@
-import { ProjectSection } from "@/features/projects";
+import { ProjectSection } from "./project-section";
 import type { Project } from "@/types/project";
 
 interface ProjectRoadmapProps {
