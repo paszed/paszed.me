@@ -35,12 +35,18 @@ export function ArticleHeader({
 
         <span>•</span>
 
-        <span>{formatDate(article.publishedAt)}</span>
+        <span>
+          {article.publishedAt
+            ? formatDate(article.publishedAt)
+            : "Draft"}
+        </span>
 
         <span>•</span>
 
         <span>
-          {formatReadingTime(article.readingTimeMinutes)}
+          {formatReadingTime(
+            article.readingTimeMinutes,
+          )}
         </span>
       </div>
     </header>

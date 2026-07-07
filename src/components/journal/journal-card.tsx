@@ -25,7 +25,11 @@ export function JournalCard({
 
           <span>•</span>
 
-          <span>{formatDate(article.publishedAt)}</span>
+          <span>
+            {article.publishedAt
+              ? formatDate(article.publishedAt)
+              : "Draft"}
+          </span>
 
           <span>•</span>
 
