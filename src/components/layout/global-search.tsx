@@ -4,13 +4,13 @@ import { useEffect, useRef } from "react";
 
 import { SearchBox } from "@/features/search";
 import { SearchDialog } from "@/features/search";
-import { useCommandPalette } from "@/features/search/hooks/use-command-palette";
+import { useCommandPaletteShortcuts } from "@/features/search/hooks/use-command-palette-shortcuts";
 
 export function GlobalSearch() {
   const {
     open,
     setOpen,
-  } = useCommandPalette();
+  } = useCommandPaletteShortcuts();
 
   const inputRef =
     useRef<HTMLInputElement>(null);

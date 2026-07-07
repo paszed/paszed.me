@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import { useCommandPalette as useCommandPaletteContext } from "@/features/search/context";
 
-export function useCommandPalette() {
+export function useCommandPaletteShortcuts() {
   const {
     open,
     setOpen,
