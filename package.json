@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "analyze": "ANALYZE=true next build",
+    "check": "pnpm lint && pnpm test && pnpm build && pnpm e2e",
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run --passWithNoTests",
