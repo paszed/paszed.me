@@ -64,10 +64,28 @@ Topics include:
 
 ---
 
+# Engineering Standards
+
+This repository follows a quality-first engineering workflow.
+
+- 100% automated test coverage
+- Accessibility tested with axe-core
+- End-to-end tested with Playwright
+- Continuous Integration with GitHub Actions
+- CodeQL security analysis
+- Lighthouse CI
+- Dependency analysis with Knip
+- Architecture validation with Dependency Cruiser
+- Strict TypeScript
+- ESLint
+
+---
+
 # Tech Stack
 
 - Next.js 16
 - React 19
+- React Compiler
 - TypeScript
 - Tailwind CSS v4
 - Motion
@@ -78,6 +96,8 @@ Topics include:
 - ESLint
 - Vitest
 - Playwright
+- axe-core
+- Lighthouse CI
 
 ---
 
@@ -113,10 +133,15 @@ The project is continuously verified with:
 - TypeScript
 - Vitest
 - 100% test coverage
-- Playwright E2E
-- Accessibility tests
+- Playwright end-to-end tests
+- axe accessibility testing
+- Lighthouse CI
 - Production builds
-- Dependency deduplication
+- Knip
+- Dependency Cruiser
+- pnpm dedupe
+- GitHub Actions CI
+- CodeQL security scanning
 
 ---
 
@@ -178,9 +203,12 @@ The pipeline performs:
 
 - ESLint
 - TypeScript
-- Coverage tests
+- 100% coverage tests
 - Production build
 - Playwright end-to-end tests
+- Accessibility tests (axe)
+- Knip
+- Dependency Cruiser
 - Dependency deduplication
 
 Useful commands:
@@ -193,6 +221,7 @@ pnpm test:coverage
 pnpm build
 pnpm e2e
 pnpm analyze
+pnpm check
 ```
 
 ---
@@ -218,7 +247,7 @@ pnpm analyze
 - ✅ Typed content layer
 - ✅ Engineering journal
 - ✅ Project platform
-- ✅ Reading progress
+- ✅ Reading progress indicator
 - ✅ Theme support
 - ✅ Responsive design
 - ✅ SEO architecture
@@ -231,19 +260,24 @@ pnpm analyze
 - ✅ Playwright E2E testing
 - ✅ Accessibility testing
 - ✅ Engineering quality pipeline
+- ✅ GitHub Actions CI
+- ✅ CodeQL security scanning
+- ✅ Dependabot automation
+- ✅ Lighthouse CI
+- ✅ Knip
+- ✅ Dependency Cruiser
 - ✅ SECURITY.md
 
 ## Next
 
-- 🔍 Configure Pagefind search indexing
-- 📊 Privacy-friendly analytics
+- 🔍 Full-text Pagefind search
 - 📝 MDX-powered articles
-- 🎨 Additional article components
-- 🚀 More engineering case studies
-- 🤖 GitHub Actions CI
-- 🛡️ CodeQL
-- 📦 Dependabot
-- 💡 Lighthouse CI
+- 📊 Privacy-friendly analytics
+- 🎨 Interactive article components
+- 🌍 Internationalization (i18n)
+- 📈 Search analytics
+- 🚀 Additional engineering case studies
+- 📚 More long-form engineering articles
 
 ---
 
@@ -251,13 +285,13 @@ pnpm analyze
 
 The site is deployed to **Namecheap** and built with **Next.js 16**.
 
-Every change is validated locally through:
+Every change is automatically validated through GitHub Actions and locally via:
 
 ```bash
 pnpm check
 ```
 
-before deployment.
+The verification pipeline includes linting, type checking, unit testing, accessibility testing, end-to-end testing, dependency analysis, and production builds before deployment.
 
 ---
 
