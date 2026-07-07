@@ -5,15 +5,24 @@ node_modules/
 .next/
 out/
 
+# Turbopack
+.turbo/
+
 # Production
 build/
 
-# Logs
-*.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Coverage
+coverage/
+
+# Playwright
+playwright-report/
+test-results/
+
+# TypeScript
+*.tsbuildinfo
+
+# Vercel
+.vercel/
 
 # Environment variables
 .env
@@ -22,6 +31,13 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 # macOS
 .DS_Store
 
@@ -29,20 +45,7 @@ yarn-error.log*
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
-
 .idea/
-
-# TypeScript
-*.tsbuildinfo
-
-# Coverage
-coverage/
-
-# Turbopack
-.turbo/
-
-# Vercel
-.vercel/
 
 # Temporary files
 tmp/
