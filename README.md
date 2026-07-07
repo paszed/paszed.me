@@ -7,6 +7,9 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8)
 ![pnpm](https://img.shields.io/badge/pnpm-10-F69220)
+
+![CI](https://github.com/paszed/paszed.me/actions/workflows/ci.yml/badge.svg)
+
 ![Coverage](https://img.shields.io/badge/Coverage-100%25-success)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
