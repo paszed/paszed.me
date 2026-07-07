@@ -19,7 +19,11 @@
     "audit": "pnpm audit",
     "outdated": "pnpm outdated",
     "dedupe": "pnpm dedupe --check",
+
+
     "check": "pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm e2e && pnpm dedupe --check",
+
+
     "health": "pnpm check && pnpm audit"
   },
   "dependencies": {

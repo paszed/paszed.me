@@ -1,5 +1,3 @@
-paszed.me on  main [!] via  v26.4.0 on ☁️   took 17s
-❯ cat README.md
 # paszed.me
 
 > A personal website, engineering journal, and long-term software project documenting software engineering, AI, and developer tooling.
@@ -9,6 +7,7 @@ paszed.me on  main [!] via  v26.4.0 on ☁️   took 17s
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8)
 ![pnpm](https://img.shields.io/badge/pnpm-10-F69220)
+![Coverage](https://img.shields.io/badge/Coverage-100%25-success)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
@@ -58,7 +57,10 @@ Topics include:
 - SEO-first metadata
 - Accessibility focused
 - Lighthouse optimized
-- Automated testing foundation
+- Full test suite
+- 100% test coverage
+- End-to-end testing
+- Type-safe codebase
 
 ---
 
@@ -75,6 +77,7 @@ Topics include:
 - React Icons
 - ESLint
 - Vitest
+- Playwright
 
 ---
 
@@ -99,6 +102,21 @@ src
 The project follows a feature-first architecture where routing, UI, content, business logic, and SEO remain cleanly separated.
 
 For a complete overview see **ARCHITECTURE.md**.
+
+---
+
+# Quality
+
+The project is continuously verified with:
+
+- ESLint
+- TypeScript
+- Vitest
+- 100% test coverage
+- Playwright E2E
+- Accessibility tests
+- Production builds
+- Dependency deduplication
 
 ---
 
@@ -150,18 +168,31 @@ Run locally:
 pnpm dev
 ```
 
-Run the complete verification pipeline:
+Run the complete engineering verification pipeline:
 
 ```bash
 pnpm check
 ```
 
-Or individually:
+The pipeline performs:
+
+- ESLint
+- TypeScript
+- Coverage tests
+- Production build
+- Playwright end-to-end tests
+- Dependency deduplication
+
+Useful commands:
 
 ```bash
 pnpm lint
+pnpm typecheck
 pnpm test
+pnpm test:coverage
 pnpm build
+pnpm e2e
+pnpm analyze
 ```
 
 ---
@@ -196,14 +227,23 @@ pnpm build
 - ✅ llms.txt
 - ✅ Dynamic Open Graph images
 - ✅ Lighthouse optimization
+- ✅ 100% automated test coverage
+- ✅ Playwright E2E testing
+- ✅ Accessibility testing
+- ✅ Engineering quality pipeline
+- ✅ SECURITY.md
 
 ## Next
 
-- 🔍 Full-text search
+- 🔍 Configure Pagefind search indexing
 - 📊 Privacy-friendly analytics
 - 📝 MDX-powered articles
 - 🎨 Additional article components
 - 🚀 More engineering case studies
+- 🤖 GitHub Actions CI
+- 🛡️ CodeQL
+- 📦 Dependabot
+- 💡 Lighthouse CI
 
 ---
 
@@ -238,4 +278,3 @@ See the **LICENSE** file for details.
 GitHub: https://github.com/paszed
 
 LinkedIn: https://www.linkedin.com/in/paszed/
-
