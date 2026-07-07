@@ -1,39 +1,39 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
+
+async function openSearch(page: Page) {
+  await page.goto("/");
+
+  await expect(
+    page.getByRole("navigation"),
+  ).toBeVisible();
+
+  const modifier =
+    process.platform === "darwin"
+      ? "Meta"
+      : "Control";
+
+  await page.keyboard.press(`${modifier}+K`);
+
+  await expect(
+    page.getByRole("searchbox"),
+  ).toBeVisible();
+}
 
 test.describe("Search", () => {
   test("opens with keyboard shortcut", async ({
     page,
   }) => {
-    await page.goto("/");
-
-    const modifier =
-      process.platform === "darwin"
-        ? "Meta"
-        : "Control";
-
-    await page.keyboard.press(`${modifier}+K`);
-
-    await expect(
-      page.getByRole("searchbox"),
-    ).toBeVisible();
+    await openSearch(page);
   });
 
   test("filters results", async ({
     page,
   }) => {
-    await page.goto("/");
+    await openSearch(page);
 
-    const modifier =
-      process.platform === "darwin"
-        ? "Meta"
-        : "Control";
-
-    await page.keyboard.press(`${modifier}+K`);
-
-    const input =
-      page.getByRole("searchbox");
-
-    await input.fill("about");
+    await page
+      .getByRole("searchbox")
+      .fill("about");
 
     await expect(
       page
@@ -49,14 +49,7 @@ test.describe("Search", () => {
   test("closes on Escape", async ({
     page,
   }) => {
-    await page.goto("/");
-
-    const modifier =
-      process.platform === "darwin"
-        ? "Meta"
-        : "Control";
-
-    await page.keyboard.press(`${modifier}+K`);
+    await openSearch(page);
 
     await page.keyboard.press("Escape");
 
