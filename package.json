@@ -11,6 +11,10 @@
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:headed": "playwright test --headed",
+    "e2e:debug": "playwright test --debug",
     "check": "pnpm lint && pnpm test && pnpm build",
     "search:index": "pagefind"
   },
@@ -28,6 +32,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^16.2.10",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -44,7 +49,6 @@
     "prettier": "^3.9.4",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.10"
   }
 }
