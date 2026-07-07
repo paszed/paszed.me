@@ -30,6 +30,11 @@ export default defineConfig({
         "text",
         "html",
       ],
+
+      exclude: [
+        "**/*.d.ts",
+        "**/index.ts",
+      ],
     },
   },
 });

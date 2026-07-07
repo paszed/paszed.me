@@ -1,3 +1,5 @@
+import { createRef } from "react";
+
 import {
   fireEvent,
   render,
@@ -82,8 +84,7 @@ describe("SearchInput", () => {
   });
 
   it("forwards the ref", () => {
-    const ref =
-      { current: null } as React.RefObject<HTMLInputElement>;
+    const ref = createRef<HTMLInputElement>();
 
     render(
       <SearchInput
