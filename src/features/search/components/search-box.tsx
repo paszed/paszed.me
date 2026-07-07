@@ -9,6 +9,7 @@ import {
 import { useRouter } from "next/navigation";
 
 import { Panel } from "@/components/ui";
+import { useCommandPalette } from "@/features/search/context";
 import {
   createSearchIndex,
   search,
@@ -25,6 +26,7 @@ export function SearchBox({
   inputRef,
 }: SearchBoxProps) {
   const router = useRouter();
+  const { setOpen } = useCommandPalette();
 
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] =
@@ -76,6 +78,7 @@ export function SearchBox({
         const selected = results[selectedIndex];
 
         if (selected) {
+          setOpen(false);
           router.push(selected.href);
         }
 

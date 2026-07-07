@@ -1,17 +1,15 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { useEffect } from "react";
+
+import { useCommandPalette as useCommandPaletteContext } from "@/features/search/context";
 
 export function useCommandPalette() {
-  const [open, setOpen] = useState(false);
-
-  const toggle = useCallback(() => {
-    setOpen((value) => !value);
-  }, []);
+  const {
+    open,
+    setOpen,
+    toggle,
+  } = useCommandPaletteContext();
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -22,6 +20,7 @@ export function useCommandPalette() {
       if (isShortcut) {
         event.preventDefault();
         toggle();
+        return;
       }
 
       if (event.key === "Escape") {
@@ -39,7 +38,7 @@ export function useCommandPalette() {
         "keydown",
         handleKeyDown,
       );
-  }, [toggle]);
+  }, [setOpen, toggle]);
 
   return {
     open,

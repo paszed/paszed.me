@@ -2,11 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-import {
-  SearchBox,
-  SearchDialog,
-  useCommandPalette,
-} from "@/features/search";
+import { SearchBox } from "@/features/search";
+import { SearchDialog } from "@/features/search";
+import { useCommandPalette } from "@/features/search/context";
 
 export function GlobalSearch() {
   const {
@@ -14,14 +12,17 @@ export function GlobalSearch() {
     setOpen,
   } = useCommandPalette();
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef =
+    useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (open) {
-      requestAnimationFrame(() => {
-        inputRef.current?.focus();
-      });
+    if (!open) {
+      return;
     }
+
+    requestAnimationFrame(() => {
+      inputRef.current?.focus();
+    });
   }, [open]);
 
   return (

@@ -2,12 +2,22 @@
 
 import type { ReactNode } from "react";
 
+import { CommandPaletteProvider } from "@/features/search/context";
+
 import { ThemeProvider } from "./theme-provider";
 
 interface ProvidersProps {
   children: ReactNode;
 }
 
-export function Providers({ children }: ProvidersProps) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+export function Providers({
+  children,
+}: ProvidersProps) {
+  return (
+    <ThemeProvider>
+      <CommandPaletteProvider>
+        {children}
+      </CommandPaletteProvider>
+    </ThemeProvider>
+  );
 }
