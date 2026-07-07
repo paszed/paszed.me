@@ -25,6 +25,7 @@ export const SearchInput = forwardRef<
   return (
     <input
       ref={ref}
+      aria-label="Search"
       type="search"
       placeholder="Search articles, projects, and pages..."
       value={value}
@@ -32,6 +33,8 @@ export const SearchInput = forwardRef<
         onChange(event.target.value)
       }
       onKeyDown={onKeyDown}
+      autoComplete="off"
+      spellCheck={false}
       className="w-full border-0 bg-transparent text-lg outline-none placeholder:text-fg-muted"
     />
   );
