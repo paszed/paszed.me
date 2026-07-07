@@ -30,26 +30,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 26
+          node-version: 24
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Typecheck
-        run: pnpm typecheck
-
-      - name: Run tests
-        run: pnpm test:coverage
-
-      - name: Build
-        run: pnpm build
-
-      - name: End-to-end tests
-        run: pnpm e2e
-
-      - name: Verify lockfile dedupe
-        run: pnpm dedupe --check
+      - name: Verify project
+        run: pnpm check

@@ -19,16 +19,15 @@
     "audit": "pnpm audit",
     "outdated": "pnpm outdated",
     "dedupe": "pnpm dedupe --check",
-
-
-    "check": "pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm e2e && pnpm dedupe --check",
-
-
-    "health": "pnpm check && pnpm audit"
+    "check": "pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm e2e && pnpm knip && pnpm depcruise && pnpm dedupe --check",
+    "health": "pnpm check && pnpm audit",
+    "knip": "knip",
+    "depcruise": "depcruise src --config .dependency-cruiser.cjs",
+    "lighthouse": "lhci autorun",
+    "bundlesize": "bundlesize"
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "geist": "^1.7.2",
     "lucide-react": "^1.23.0",
     "motion": "^12.42.2",
     "next": "16.2.10",
@@ -39,21 +38,24 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@lhci/cli": "^0.15.1",
     "@next/bundle-analyzer": "^16.2.10",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/coverage-v8": "^4.1.10",
     "babel-plugin-react-compiler": "1.0.0",
+    "bundlesize": "^0.18.2",
+    "dependency-cruiser": "^18.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "jsdom": "^29.1.1",
-    "prettier": "^3.9.4",
+    "knip": "^6.25.0",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.10"

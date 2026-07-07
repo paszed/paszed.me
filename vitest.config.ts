@@ -23,18 +23,23 @@ export default defineConfig({
       "dist/**",
     ],
 
+
+
     coverage: {
-      provider: "v8",
+  provider: "v8",
 
-      reporter: [
-        "text",
-        "html",
-      ],
+  reporter: [
+    "text",
+    "html",
+  ],
 
-      exclude: [
-        "**/*.d.ts",
-        "**/index.ts",
-      ],
-    },
+  thresholds: {
+    lines: 100,
+    branches: 100,
+    functions: 100,
+    statements: 100,
+  },
+},
+
   },
 });
