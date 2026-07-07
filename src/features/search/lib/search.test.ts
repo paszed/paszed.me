@@ -1,53 +1,56 @@
 import { describe, expect, it } from "vitest";
 
 import { search } from "./search";
-import type { SearchItem } from "../types/search";
 
-const items: SearchItem[] = [
+const index = [
   {
     id: "1",
-    title: "React",
-    description: "Frontend library",
-    href: "/react",
-    category: "Article",
-    keywords: ["react", "frontend"],
+    title: "About",
+    description: "About page",
+    href: "/about",
+    category: "Page" as const,
+    keywords: ["bio"],
   },
   {
     id: "2",
-    title: "Next.js",
-    description: "React framework",
-    href: "/next",
-    category: "Project",
-    keywords: ["nextjs", "react"],
+    title: "Dev Toolbox",
+    description: "Developer tools",
+    href: "/projects/dev-toolbox",
+    category: "Project" as const,
+    keywords: ["terminal", "cli"],
   },
   {
     id: "3",
-    title: "Docker",
-    description: "Containers",
-    href: "/docker",
-    category: "Page",
-    keywords: ["containers"],
+    title: "Building a Timeless Design System",
+    description: "Design systems",
+    href: "/journal/design-system",
+    category: "Article" as const,
+    keywords: ["design"],
   },
 ];
 
-describe("search()", () => {
-  it("returns all items for an empty query", () => {
-    expect(search(items, "")).toHaveLength(3);
+describe("search", () => {
+  it("returns every item for an empty query", () => {
+    expect(search(index, "")).toEqual(index);
   });
 
   it("matches titles", () => {
-    expect(search(items, "docker")[0].title).toBe("Docker");
+    expect(search(index, "toolbox")).toHaveLength(1);
   });
 
   it("matches descriptions", () => {
-    expect(search(items, "framework")[0].title).toBe("Next.js");
+    expect(search(index, "developer")).toHaveLength(1);
   });
 
   it("matches keywords", () => {
-    expect(search(items, "frontend")[0].title).toBe("React");
+    expect(search(index, "terminal")).toHaveLength(1);
   });
 
-  it("returns an empty array for no matches", () => {
-    expect(search(items, "rust")).toEqual([]);
+  it("is case insensitive", () => {
+    expect(search(index, "ABOUT")).toHaveLength(1);
+  });
+
+  it("returns an empty array when nothing matches", () => {
+    expect(search(index, "xxxxxxxx")).toEqual([]);
   });
 });

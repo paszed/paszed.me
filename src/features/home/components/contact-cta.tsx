@@ -21,15 +21,17 @@ export function ContactCTA() {
             gap="lg"
             className="mx-auto max-w-2xl items-center"
           >
-            <H2>{"Let's build something great."}</H2>
+
+
+            <H2>Let&apos;s build something great.</H2>
 
             <Text
-              size="lg"
-              muted
-            >
-              Whether it's a product, developer tool, or AI project, I'm always
-              interested in solving interesting problems.
-            </Text>
+  size="lg"
+  muted
+>
+  Whether it&apos;s a product, developer tool, or AI project, I&apos;m
+  always interested in solving interesting problems.
+</Text>
 
             <div className="flex flex-wrap justify-center gap-4">
               <Link href={`mailto:${site.email}`}>
