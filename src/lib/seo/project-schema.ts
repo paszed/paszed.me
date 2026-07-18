@@ -1,11 +1,24 @@
-import type { Project } from "@/types/project";
-import type { Schema } from "./types";
-
 import { site } from "@/config/site";
+
+import type { Project } from "@/types/project";
+
+import type { Schema } from "./types";
 
 export function createProjectSchema(
   project: Project,
 ): Schema {
+  const website = project.links.find(
+    (link) =>
+      link.label.toLowerCase().includes("website") ||
+      link.label.toLowerCase().includes("demo"),
+  )?.href;
+
+  const repository = project.links.find(
+    (link) =>
+      link.label.toLowerCase().includes("github") ||
+      link.label.toLowerCase().includes("repository"),
+  )?.href;
+
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
@@ -13,7 +26,7 @@ export function createProjectSchema(
     name: project.title,
     description: project.summary,
 
-    url: project.website ?? `${site.url}/projects/${project.slug}`,
+    url: website ?? `${site.url}/projects/${project.slug}`,
 
     author: {
       "@type": "Person",
@@ -27,17 +40,22 @@ export function createProjectSchema(
       url: site.url,
     },
 
-    programmingLanguage: project.technologies,
-    keywords: project.technologies,
+    programmingLanguage: project.technologies.map(
+      (technology) => technology.name,
+    ),
+
+    keywords: project.technologies.map(
+      (technology) => technology.name,
+    ),
 
     image: `${site.url}${site.ogImage}`,
 
-    ...(project.github && {
-      codeRepository: project.github,
+    ...(repository && {
+      codeRepository: repository,
     }),
 
-    ...(project.website && {
-      sameAs: project.website,
+    ...(website && {
+      sameAs: website,
     }),
   };
 }

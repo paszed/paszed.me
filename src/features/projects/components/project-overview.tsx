@@ -1,7 +1,7 @@
 import { ProjectSection } from "./project-section";
 
 interface ProjectOverviewProps {
-  overview: string;
+  overview: readonly string[];
 }
 
 export function ProjectOverview({
@@ -9,9 +9,16 @@ export function ProjectOverview({
 }: ProjectOverviewProps) {
   return (
     <ProjectSection title="Overview">
-      <p className="leading-8 text-fg-secondary">
-        {overview}
-      </p>
+      <div className="max-w-3xl space-y-6">
+        {overview.map((paragraph) => (
+          <p
+            key={paragraph}
+            className="text-lg leading-relaxed text-fg-secondary"
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
     </ProjectSection>
   );
 }

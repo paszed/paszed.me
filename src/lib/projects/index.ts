@@ -7,8 +7,8 @@ export function getProjects(): readonly Project[] {
       return Number(b.featured) - Number(a.featured);
     }
 
-    if (a.year !== b.year) {
-      return b.year - a.year;
+    if (a.started !== b.started) {
+      return b.started - a.started;
     }
 
     return a.title.localeCompare(b.title);

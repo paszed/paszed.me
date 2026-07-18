@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
+
 import { ProjectSection } from "./project-section";
 
 interface ProjectListSectionProps {
-  title: string;
+  title: ReactNode;
   items: readonly string[];
 }
 
@@ -15,18 +17,25 @@ export function ProjectListSection({
 
   return (
     <ProjectSection title={title}>
-      <ul className="space-y-3">
-        {items.map((item) => (
-          <li
-            key={item}
-            className="flex gap-3 text-fg-secondary"
-          >
-            <span className="mt-2 h-2 w-2 rounded-full bg-success" />
+      <div className="max-w-3xl">
+        <ul className="space-y-4">
+          {items.map((item) => (
+            <li
+              key={item}
+              className="flex items-start gap-4"
+            >
+              <span
+                aria-hidden="true"
+                className="mt-2 size-2 shrink-0 rounded-full bg-success"
+              />
 
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+              <p className="leading-relaxed text-fg-secondary">
+                {item}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </ProjectSection>
   );
 }

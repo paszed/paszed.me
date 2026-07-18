@@ -1,4 +1,3 @@
-export * from "./components/project-content";
 export * from "./components/project-gallery";
 export * from "./components/project-hero";
 export * from "./components/project-links";

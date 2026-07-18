@@ -17,18 +17,16 @@ import { site } from "@/config/site";
 
 export function Hero() {
   return (
-    <Section className="relative overflow-hidden py-32 lg:min-h-[calc(100vh-4.5rem)] lg:py-0">
-      <>
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.18),transparent_42%)] dark:bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.22),transparent_42%)]"
-        />
+    <Section className="relative overflow-hidden py-24 lg:min-h-[calc(100vh-4.5rem)] lg:py-0">
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.18),transparent_42%)] dark:bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.22),transparent_42%)]"
+      />
 
-        <ThemedLion />
-      </>
+      <ThemedLion />
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-20 lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-16 lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]">
           <Stack
             gap="xl"
             className="max-w-2xl"
@@ -63,7 +61,7 @@ export function Hero() {
           </Stack>
 
           <div className="flex justify-center lg:justify-end lg:pl-12">
-            <div className="border border-border bg-card p-3">
+            <div className="border border-border bg-card p-3 shadow-sm">
               <div className="relative aspect-[4/5] w-[19rem] overflow-hidden rounded-sm lg:w-[22rem]">
                 <Image
                   src="/images/profile.jpg"

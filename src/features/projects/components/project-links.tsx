@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+
+import { ProjectSection } from "./project-section";
+
 import type { Project } from "@/types/project";
 
 interface ProjectLinksProps {
@@ -10,28 +13,32 @@ interface ProjectLinksProps {
 export function ProjectLinks({
   project,
 }: ProjectLinksProps) {
-  return (
-    <div className="flex flex-wrap gap-4">
-      {project.website && (
-        <Link
-          href={project.website}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button>Live Site</Button>
-        </Link>
-      )}
+  if (project.links.length === 0) {
+    return null;
+  }
 
-      {project.github && (
-        <Link
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-sm font-medium transition-colors hover:underline"
-        >
-          GitHub →
-        </Link>
-      )}
-    </div>
+  return (
+    <ProjectSection title="Links">
+      <div className="flex flex-wrap gap-4">
+        {project.links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              className={
+                link.primary
+                  ? undefined
+                  : "border border-border bg-transparent text-fg hover:bg-muted"
+              }
+            >
+              {link.label}
+            </Button>
+          </Link>
+        ))}
+      </div>
+    </ProjectSection>
   );
 }

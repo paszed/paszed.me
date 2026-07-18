@@ -16,14 +16,15 @@ export function Philosophy() {
           <SectionHeader
             eyebrow="Philosophy"
             title={home.philosophy.title}
-            description="The principles that guide how I design, build, and ship software."
+            description="The principles that shape how I approach software design, engineering, and long-term maintainability."
           />
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3">
             {home.philosophy.items.map((principle) => (
               <Card
                 key={principle.title}
                 variant="interactive"
+                className="h-full"
               >
                 <Stack gap="sm">
                   <h3 className="text-lg font-semibold text-fg">

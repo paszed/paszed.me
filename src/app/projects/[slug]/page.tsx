@@ -22,11 +22,11 @@ import {
   createProjectSchema,
 } from "@/lib/seo";
 
-interface ProjectPageProps {
+type ProjectPageProps = {
   params: Promise<{
     slug: string;
   }>;
-}
+};
 
 export async function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({
@@ -81,59 +81,72 @@ export default async function ProjectPage({
     },
   ]);
 
+  const sections = [
+    {
+      title: "Problem",
+      items: project.problem,
+    },
+    {
+      title: "Goals",
+      items: project.goals,
+    },
+    {
+      title: "Features",
+      items: project.features,
+    },
+    {
+      title: "Architecture",
+      items: project.architecture,
+    },
+    {
+      title: "Engineering Decisions",
+      items: project.engineering,
+    },
+    {
+      title: "Challenges",
+      items: project.challenges,
+    },
+    {
+      title: "Lessons Learned",
+      items: project.lessons,
+    },
+  ];
+
   return (
     <>
       <JsonLd data={projectSchema} />
       <JsonLd data={breadcrumbSchema} />
 
       <Page>
-        <div className="space-y-16">
+        <div className="space-y-20">
           <ProjectHero project={project} />
 
-          <ProjectGallery project={project} />
+          {project.gallery.length > 0 && (
+            <ProjectGallery project={project} />
+          )}
 
+          <ProjectOverview overview={project.overview} />
 
-        <ProjectOverview overview={project.overview} />
+          {sections.map(
+            ({ title, items }) =>
+              items.length > 0 && (
+                <ProjectListSection
+                  key={title}
+                  title={title}
+                  items={items}
+                />
+              ),
+          )}
 
-<ProjectListSection
-  title="Problem"
-  items={project.problem}
-/>
+          <ProjectTech project={project} />
 
-<ProjectListSection
-  title="Goals"
-  items={project.goals}
-/>
+          {project.roadmap.length > 0 && (
+            <ProjectRoadmap project={project} />
+          )}
 
-<ProjectListSection
-  title="Architecture"
-  items={project.architecture}
-/>
-
-<ProjectListSection
-  title="Features"
-  items={project.features}
-/>
-
-<ProjectListSection
-  title="Engineering Decisions"
-  items={project.engineering}
-/>
-
-<ProjectListSection
-  title="Challenges"
-  items={project.challenges}
-/>
-
-<ProjectListSection
-  title="Lessons Learned"
-  items={project.lessons}
-/>
-
-<ProjectRoadmap project={project} />
-
-<ProjectTech project={project} />
-          <ProjectLinks project={project} />
+          {project.links.length > 0 && (
+            <ProjectLinks project={project} />
+          )}
         </div>
       </Page>
     </>

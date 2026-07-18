@@ -12,18 +12,21 @@ export function AboutPhilosophy() {
       <Stack gap="lg">
         <H2>How I Build Software</H2>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2">
           {about.philosophy.map((principle) => (
             <Panel
               key={principle.title}
               className="h-full p-6"
             >
               <Stack gap="sm">
-                <h3 className="text-lg font-semibold text-fg">
+                <h3 className="text-xl font-semibold tracking-tight text-fg">
                   {principle.title}
                 </h3>
 
-                <Text muted>
+                <Text
+                  muted
+                  className="leading-relaxed"
+                >
                   {principle.description}
                 </Text>
               </Stack>

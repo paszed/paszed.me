@@ -1,5 +1,6 @@
-import { getPublishedArticles } from "@/lib/journal";
 import { projects } from "@/content";
+import { getPublishedArticles } from "@/lib/journal";
+
 import type { SearchItem } from "../types/search";
 
 export function createSearchIndex(): SearchItem[] {
@@ -20,7 +21,9 @@ export function createSearchIndex(): SearchItem[] {
       description: project.summary,
       href: `/projects/${project.slug}`,
       category: "Project",
-      keywords: project.technologies,
+      keywords: project.technologies.map(
+        (technology) => technology.name,
+      ),
     }));
 
   const pages: SearchItem[] = [

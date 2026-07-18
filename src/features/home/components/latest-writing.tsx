@@ -7,6 +7,7 @@ import {
   Section,
   SectionHeader,
   Stack,
+  Text,
 } from "@/components/ui";
 import { home } from "@/content";
 import { getPublishedArticles } from "@/lib/journal";
@@ -14,32 +15,39 @@ import { getPublishedArticles } from "@/lib/journal";
 export function LatestWriting() {
   const articles = getPublishedArticles().slice(0, 2);
 
-  if (articles.length === 0) {
-    return null;
-  }
-
   return (
     <Section>
       <Container>
         <Stack gap="xl">
           <SectionHeader
+            eyebrow="Journal"
             title={home.latestWriting.title}
             description={home.latestWriting.description}
             actions={
               <Link href="/journal">
-                <Button>View Journal</Button>
+                <Button>
+                  View Journal
+                </Button>
               </Link>
             }
           />
 
-          <div className="grid gap-8">
-            {articles.map((article) => (
-              <JournalCard
-                key={article.slug}
-                article={article}
-              />
-            ))}
-          </div>
+          {articles.length > 0 ? (
+            <div className="grid gap-8">
+              {articles.map((article) => (
+                <JournalCard
+                  key={article.slug}
+                  article={article}
+                />
+              ))}
+            </div>
+          ) : (
+            <Text muted>
+              I&apos;m currently writing new engineering notes. Check back soon
+              for articles on software architecture, developer tooling, AI, and
+              the lessons I learn while building.
+            </Text>
+          )}
         </Stack>
       </Container>
     </Section>

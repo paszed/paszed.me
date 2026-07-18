@@ -21,17 +21,16 @@ export function ContactCTA() {
             gap="lg"
             className="mx-auto max-w-2xl items-center"
           >
-
-
-            <H2>Let&apos;s build something great.</H2>
+            <H2>Let&apos;s build something meaningful.</H2>
 
             <Text
-  size="lg"
-  muted
->
-  Whether it&apos;s a product, developer tool, or AI project, I&apos;m
-  always interested in solving interesting problems.
-</Text>
+              size="lg"
+              muted
+            >
+              Whether you&apos;re building developer tools, AI-powered software,
+              or scalable systems, I&apos;d be happy to connect, exchange ideas,
+              or explore potential collaborations.
+            </Text>
 
             <div className="flex flex-wrap justify-center gap-4">
               <Link href={`mailto:${site.email}`}>
@@ -43,7 +42,7 @@ export function ContactCTA() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {profiles.github.label}
+                View GitHub
               </TextLink>
             </div>
           </Stack>

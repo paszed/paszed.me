@@ -1,6 +1,18 @@
+export interface ProjectTechnology {
+  name: string;
+  purpose?: string;
+}
+
 export interface ProjectGalleryItem {
   src: string;
   alt: string;
+  caption?: string;
+}
+
+export interface ProjectLink {
+  label: string;
+  href: string;
+  primary?: boolean;
 }
 
 export type ProjectStatus =
@@ -17,35 +29,35 @@ export interface Project {
 
   description: string;
 
-  technologies: readonly string[];
-
-  github?: string;
-
-  website?: string;
-
   featured: boolean;
 
   status: ProjectStatus;
 
-  year: number;
+  started: number;
 
-  overview: string;
+  overview: readonly string[];
 
   problem: readonly string[];
 
   goals: readonly string[];
 
-  architecture: readonly string[];
-
   features: readonly string[];
+
+  architecture: readonly string[];
 
   engineering: readonly string[];
 
   challenges: readonly string[];
 
+  results: readonly string[];
+
   lessons: readonly string[];
 
   roadmap: readonly string[];
 
+  technologies: readonly ProjectTechnology[];
+
   gallery: readonly ProjectGalleryItem[];
+
+  links: readonly ProjectLink[];
 }

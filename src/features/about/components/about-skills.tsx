@@ -1,7 +1,6 @@
 import {
   SiCss,
   SiDocker,
-  SiFigma,
   SiGithub,
   SiHtml5,
   SiJavascript,
@@ -15,7 +14,11 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { TbApi, TbBrandGit, TbDatabase } from "react-icons/tb";
+import {
+  TbApi,
+  TbBrandGit,
+  TbDatabase,
+} from "react-icons/tb";
 
 import type { IconType } from "react-icons";
 
@@ -46,7 +49,6 @@ const icons: Record<string, IconType> = {
   Git: TbBrandGit,
   Docker: SiDocker,
   GitHub: SiGithub,
-  Figma: SiFigma,
   Linux: SiLinux,
 };
 
@@ -54,43 +56,41 @@ export function AboutSkills() {
   return (
     <section>
       <Stack gap="2xl">
-        <H2>Technologies I Enjoy Working With</H2>
+        <H2>Tools & Technologies</H2>
 
         <Stack gap="xl">
           {about.skills.map((group) => (
-            <div
+            <section
               key={group.category}
               className="border-b border-border-muted pb-8 last:border-none"
             >
-              <Eyebrow className="mb-5">
+              <Eyebrow className="mb-6">
                 {group.category}
               </Eyebrow>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-4">
                 {group.items.map((item) => {
                   const Icon = icons[item];
 
                   return (
                     <div
                       key={item}
-                      className="group inline-flex items-center gap-2 rounded-full border border-border-muted bg-card px-4 py-2 text-sm font-medium text-fg-secondary transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:bg-surface hover:text-accent"
+                      className="inline-flex items-center gap-2 rounded-full border border-border-muted bg-card px-4 py-2 text-sm font-medium text-fg-secondary transition-colors hover:border-border hover:text-fg"
                     >
-
-
-                     {Icon && (
-  <Icon
-    aria-hidden="true"
-    focusable="false"
-    className="h-4 w-4 flex-shrink-0 transition-colors duration-200"
-  />
-)}
+                      {Icon && (
+                        <Icon
+                          aria-hidden="true"
+                          focusable="false"
+                          className="size-4 shrink-0"
+                        />
+                      )}
 
                       <span>{item}</span>
                     </div>
                   );
                 })}
               </div>
-            </div>
+            </section>
           ))}
         </Stack>
       </Stack>

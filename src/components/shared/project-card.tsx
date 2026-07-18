@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  ExternalLink,
-} from "lucide-react";
-import { SiGithub } from "react-icons/si";
+import { ArrowUpRight } from "lucide-react";
 
 import { Card } from "@/components/ui";
 import type { Project } from "@/types/project";
@@ -11,9 +7,18 @@ import type { Project } from "@/types/project";
 type ProjectCardProps = Project;
 
 const STATUS = {
-  building: "Building",
-  completed: "Completed",
-  archived: "Archived",
+  building: {
+    label: "Building",
+    dot: "bg-blue-500",
+  },
+  completed: {
+    label: "Completed",
+    dot: "bg-green-500",
+  },
+  archived: {
+    label: "Archived",
+    dot: "bg-zinc-500",
+  },
 } as const;
 
 export function ProjectCard({
@@ -22,11 +27,10 @@ export function ProjectCard({
   summary,
   technologies,
   status,
-  year,
-  featured,
-  github,
-  website,
+  started,
 }: ProjectCardProps) {
+  const statusConfig = STATUS[status];
+
   return (
     <Link
       href={`/projects/${slug}`}
@@ -34,81 +38,49 @@ export function ProjectCard({
     >
       <Card
         variant="interactive"
-        className="h-full"
+        className="flex h-full flex-col"
       >
-        <div className="flex h-full flex-col">
-          <div className="mb-6 flex flex-wrap items-center gap-4 text-sm">
-            <span className="flex items-center gap-2 font-medium text-accent">
-              <span
-                aria-hidden="true"
-                className="h-2 w-2 rounded-full bg-success"
-              />
-              {STATUS[status]}
+        <div className="flex items-center gap-3 text-sm">
+          <span className="flex items-center gap-2 font-medium text-accent">
+            <span
+              aria-hidden="true"
+              className={`h-2 w-2 rounded-full ${statusConfig.dot}`}
+            />
+            {statusConfig.label}
+          </span>
+
+          <span className="text-fg-muted">
+            {started}
+          </span>
+        </div>
+
+        <h2 className="mt-6 text-3xl font-bold tracking-tight transition-colors group-hover:text-accent">
+          {title}
+        </h2>
+
+        <p className="mt-4 leading-8 text-fg-secondary">
+          {summary}
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-2">
+          {technologies.slice(0, 4).map((technology) => (
+            <span
+              key={technology.name}
+              className="rounded-full bg-muted px-3 py-1 text-sm text-fg-secondary"
+            >
+              {technology.name}
             </span>
+          ))}
+        </div>
 
-            <span className="text-fg-muted">
-              {year}
-            </span>
-
-            {featured && (
-              <span className="rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
-                Featured
-              </span>
-            )}
-          </div>
-
-          <h2 className="text-3xl font-bold tracking-tight transition-colors group-hover:text-accent">
-  {title}
-</h2>
-
-          <p className="mt-4 leading-8 text-fg-secondary">
-            {summary}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {technologies.slice(0, 4).map((technology) => (
-              <span
-                key={technology}
-                className="rounded-full bg-muted px-3 py-1 text-sm text-fg-secondary"
-              >
-                {technology}
-              </span>
-            ))}
-
-            {technologies.length > 4 && (
-              <span className="rounded-full bg-muted px-3 py-1 text-sm text-fg-muted">
-                +{technologies.length - 4}
-              </span>
-            )}
-          </div>
-
-          <div className="mt-auto flex items-center justify-between pt-10">
-            <div className="flex items-center gap-4">
-              {github && (
-                <SiGithub
-                  aria-hidden="true"
-                  focusable="false"
-                  className="h-5 w-5 text-fg-muted transition-colors group-hover:text-accent"
-                />
-              )}
-
-              {website && (
-                <ExternalLink
-                  aria-hidden="true"
-                  className="h-5 w-5 text-fg-muted transition-colors group-hover:text-accent"
-                />
-              )}
-            </div>
-
-            <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
-              Case Study
-
-              <ArrowUpRight
-                aria-hidden="true"
-                className="h-4 w-4"
-              />
-            </span>
-          </div>
+        <div className="mt-auto pt-10">
+          <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
+            Case Study
+            <ArrowUpRight
+              aria-hidden="true"
+              className="h-4 w-4"
+            />
+          </span>
         </div>
       </Card>
     </Link>

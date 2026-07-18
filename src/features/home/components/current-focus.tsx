@@ -14,25 +14,24 @@ export function CurrentFocus() {
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Current"
+            eyebrow="Current Focus"
             title={home.currentFocus.title}
-            description="What I'm actively building, learning, and exploring right now."
+            description="The areas I'm actively investing time in as I build software and continue growing as an engineer."
           />
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3">
             {home.currentFocus.items.map((item) => (
               <Card
                 key={item.title}
                 variant="interactive"
+                className="h-full"
               >
                 <Stack gap="sm">
                   <h3 className="text-lg font-semibold text-fg">
                     {item.title}
                   </h3>
 
-                  <Text muted>
-                    {item.description}
-                  </Text>
+                  <Text muted>{item.description}</Text>
                 </Stack>
               </Card>
             ))}

@@ -7,7 +7,7 @@ export function ProjectsHero() {
 
       <p className="max-w-3xl text-lg leading-8 text-fg-secondary">
         {
-          "A collection of software, experiments, and products I've built. Every project documents the architecture, technical decisions, and lessons learned throughout the development process."
+          "A collection of software platforms exploring developer experience, AI systems, software architecture, and long-term maintainability. Each project documents the problem it solves, the architectural decisions behind it, and the lessons learned throughout its evolution."
         }
       </p>
     </header>

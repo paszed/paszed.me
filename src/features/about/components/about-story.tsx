@@ -8,15 +8,19 @@ import { about } from "@/content";
 export function AboutStory() {
   return (
     <section>
-      <Stack gap="md">
+      <Stack gap="lg">
         <H2>My Story</H2>
 
-        <Stack gap="sm">
+        <Stack
+          gap="lg"
+          className="max-w-3xl"
+        >
           {about.story.map((paragraph) => (
             <Text
               key={paragraph}
               size="lg"
               muted
+              className="leading-relaxed"
             >
               {paragraph}
             </Text>
