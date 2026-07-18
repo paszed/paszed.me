@@ -5,11 +5,11 @@ export const bootstrapper: Project = {
 
   title: "Bootstrapper",
 
+  tagline:
+    "Opinionated tooling and shared engineering practices for starting production-ready TypeScript projects.",
+
   summary:
     "A reusable development platform for bootstrapping modern TypeScript projects.",
-
-  description:
-    "A reusable development platform that standardizes tooling, project structure, automation, and engineering practices to create consistent, maintainable software.",
 
   featured: true,
 
@@ -32,7 +32,7 @@ export const bootstrapper: Project = {
     "Developer onboarding lacked consistency between projects.",
   ],
 
-  goals: [
+  principles: [
     "Provide a consistent developer experience across repositories.",
     "Create repositories that are easy for both developers and AI assistants to understand and navigate.",
     "Centralize engineering standards and tooling.",
@@ -40,7 +40,17 @@ export const bootstrapper: Project = {
     "Reduce project setup from hours to minutes.",
   ],
 
-  features: [
+  architecture: {
+    description: [
+      "TypeScript-first monorepo architecture built with Turborepo.",
+      "Composable packages encapsulate shared tooling, configuration, and development workflows.",
+      "Convention-driven project structures reduce cognitive overhead and improve consistency.",
+      "Projects consume shared capabilities instead of duplicating configuration.",
+      "Each repository remains independent while benefiting from a common engineering foundation.",
+    ],
+  },
+
+  capabilities: [
     "Shared TypeScript configuration.",
     "Shared Biome and ESLint configuration.",
     "Shared architectural conventions.",
@@ -50,14 +60,6 @@ export const bootstrapper: Project = {
     "GitHub Actions automation.",
     "Documentation standards.",
     "Monorepo-friendly architecture.",
-  ],
-
-  architecture: [
-    "TypeScript-first monorepo architecture built with Turborepo.",
-    "Composable packages encapsulate shared tooling, configuration, and development workflows.",
-    "Convention-driven project structures reduce cognitive overhead and improve consistency.",
-    "Projects consume shared capabilities instead of duplicating configuration.",
-    "Each repository remains independent while benefiting from a common engineering foundation.",
   ],
 
   engineering: [
@@ -73,13 +75,6 @@ export const bootstrapper: Project = {
     "Balancing opinionated defaults with enough flexibility for different projects.",
     "Avoiding premature abstractions while still promoting reuse.",
     "Designing tooling that remains simple despite supporting multiple repository types.",
-  ],
-
-  results: [
-    "Provides a consistent engineering foundation across personal projects.",
-    "Eliminates repetitive repository setup for new work.",
-    "Encourages shared engineering practices and documentation standards.",
-    "Acts as the engineering foundation for the broader platform ecosystem.",
   ],
 
   lessons: [

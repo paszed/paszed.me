@@ -1,0 +1,130 @@
+[
+  {
+    "name": "minScore",
+    "expected": 0.95,
+    "actual": 0.9,
+    "values": [
+      0.89,
+      0.89,
+      0.9
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/"
+  },
+  {
+    "name": "minScore",
+    "expected": 1,
+    "actual": 0.96,
+    "values": [
+      0.96,
+      0.96,
+      0.96
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "best-practices",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.95,
+    "actual": 0.93,
+    "values": [
+      0.93,
+      0.93,
+      0.92
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/about"
+  },
+  {
+    "name": "minScore",
+    "expected": 1,
+    "actual": 0.96,
+    "values": [
+      0.96,
+      0.96,
+      0.96
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "best-practices",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/about"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.95,
+    "actual": 0.93,
+    "values": [
+      0.87,
+      0.92,
+      0.93
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/projects"
+  },
+  {
+    "name": "minScore",
+    "expected": 1,
+    "actual": 0.96,
+    "values": [
+      0.96,
+      0.96,
+      0.96
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "best-practices",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/projects"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.95,
+    "actual": 0.92,
+    "values": [
+      0.92,
+      0.92,
+      0.92
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/journal"
+  },
+  {
+    "name": "minScore",
+    "expected": 1,
+    "actual": 0.96,
+    "values": [
+      0.96,
+      0.96,
+      0.96
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "best-practices",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/journal"
+  }
+]

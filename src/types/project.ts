@@ -16,45 +16,46 @@ export interface ProjectLink {
 }
 
 export type ProjectStatus =
+  | "research"
   | "building"
-  | "completed"
+  | "production"
   | "archived";
 
 export interface Project {
+  // Identity
   slug: string;
-
   title: string;
-
+  tagline: string;
   summary: string;
 
-  description: string;
-
+  // Metadata
   featured: boolean;
-
   status: ProjectStatus;
-
   started: number;
 
+  // Story
   overview: readonly string[];
 
   problem: readonly string[];
 
-  goals: readonly string[];
+  principles: readonly string[];
 
-  features: readonly string[];
+  architecture: {
+    description: readonly string[];
+    diagram?: string;
+  };
 
-  architecture: readonly string[];
+  capabilities: readonly string[];
 
   engineering: readonly string[];
 
   challenges: readonly string[];
 
-  results: readonly string[];
-
   lessons: readonly string[];
 
   roadmap: readonly string[];
 
+  // Technical
   technologies: readonly ProjectTechnology[];
 
   gallery: readonly ProjectGalleryItem[];
