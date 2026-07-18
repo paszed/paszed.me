@@ -31,7 +31,15 @@ export interface Project {
 
   overview: string;
 
+  problem: readonly string[];
+
+  goals: readonly string[];
+
   architecture: readonly string[];
+
+  features: readonly string[];
+
+  engineering: readonly string[];
 
   challenges: readonly string[];
 

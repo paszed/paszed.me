@@ -92,27 +92,47 @@ export default async function ProjectPage({
 
           <ProjectGallery project={project} />
 
-          <ProjectOverview overview={project.overview} />
 
-          <ProjectListSection
-            title="Architecture"
-            items={project.architecture}
-          />
+        <ProjectOverview overview={project.overview} />
 
-          <ProjectListSection
-            title="Challenges"
-            items={project.challenges}
-          />
+<ProjectListSection
+  title="Problem"
+  items={project.problem}
+/>
 
-          <ProjectListSection
-            title="Lessons Learned"
-            items={project.lessons}
-          />
+<ProjectListSection
+  title="Goals"
+  items={project.goals}
+/>
 
-          <ProjectRoadmap project={project} />
+<ProjectListSection
+  title="Architecture"
+  items={project.architecture}
+/>
 
-          <ProjectTech project={project} />
+<ProjectListSection
+  title="Features"
+  items={project.features}
+/>
 
+<ProjectListSection
+  title="Engineering Decisions"
+  items={project.engineering}
+/>
+
+<ProjectListSection
+  title="Challenges"
+  items={project.challenges}
+/>
+
+<ProjectListSection
+  title="Lessons Learned"
+  items={project.lessons}
+/>
+
+<ProjectRoadmap project={project} />
+
+<ProjectTech project={project} />
           <ProjectLinks project={project} />
         </div>
       </Page>

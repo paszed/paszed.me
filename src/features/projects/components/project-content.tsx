@@ -1,4 +1,5 @@
-import { ProjectSection } from "./project-section";
+import { ProjectListSection } from "./project-list-section";
+import { ProjectOverview } from "./project-overview";
 import type { Project } from "@/types/project";
 
 interface ProjectContentProps {
@@ -10,33 +11,52 @@ export function ProjectContent({
 }: ProjectContentProps) {
   return (
     <div className="space-y-16">
-      <ProjectSection title="Overview">
-        <p>{project.overview}</p>
-      </ProjectSection>
+      <ProjectOverview overview={project.overview} />
 
-      <ProjectSection title="Architecture">
-        <ul className="list-disc space-y-2 pl-6">
-          {project.architecture.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </ProjectSection>
+      <ProjectListSection
+        title="Problem"
+        items={project.problem}
+      />
 
-      <ProjectSection title="Challenges">
-        <ul className="list-disc space-y-2 pl-6">
-          {project.challenges.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </ProjectSection>
+      <ProjectListSection
+        title="Goals"
+        items={project.goals}
+      />
 
-      <ProjectSection title="Lessons Learned">
-        <ul className="list-disc space-y-2 pl-6">
-          {project.lessons.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </ProjectSection>
+      <ProjectListSection
+        title="Architecture"
+        items={project.architecture}
+      />
+
+      <ProjectListSection
+        title="Features"
+        items={project.features}
+      />
+
+      <ProjectListSection
+        title="Engineering Decisions"
+        items={project.engineering}
+      />
+
+      <ProjectListSection
+        title="Challenges"
+        items={project.challenges}
+      />
+
+      <ProjectListSection
+        title="Lessons Learned"
+        items={project.lessons}
+      />
+
+      <ProjectListSection
+        title="Roadmap"
+        items={project.roadmap}
+      />
+
+      <ProjectListSection
+        title="Technologies"
+        items={project.technologies}
+      />
     </div>
   );
 }

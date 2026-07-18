@@ -5,41 +5,15 @@ export const bootstrapper: Project = {
 
   title: "Bootstrapper",
 
-  tagline: "Opinionated foundation for modern TypeScript monorepos.",
+  summary:
+    "Opinionated foundation for modern TypeScript monorepos.",
 
   description:
-    "Bootstrapper is the foundation of my development ecosystem. It provides a production-ready monorepo with shared tooling, reusable configurations, templates, generators, and engineering standards that accelerate new projects while keeping every repository consistent.",
-
-  overview: [
-    "Bootstrapper was created after repeatedly rebuilding the same development environment for every new project. Repository setup, tooling, documentation, testing, CI/CD, and configuration consumed valuable time before solving any real business problem.",
-    "Instead of recreating that foundation over and over, I began extracting the common patterns into a reusable bootstrap project. Today it serves as the starting point for nearly every application I build.",
-  ],
-
-  problem: [
-    "Every new repository started with the same repetitive work.",
-    "Tooling drift caused projects to slowly become inconsistent.",
-    "Engineering standards had to be maintained independently across repositories.",
-    "Developer onboarding required understanding a different structure every time.",
-  ],
-
-  goals: [
-    "Start new projects in minutes instead of hours.",
-    "Maintain one consistent developer experience.",
-    "Centralize tooling and shared configuration.",
-    "Automate repetitive engineering tasks.",
-    "Create repositories that are understandable by both developers and AI assistants.",
-  ],
-
-  architecture: [
-    "TypeScript-first monorepo architecture.",
-    "Shared packages for reusable tooling and configuration.",
-    "Separation between applications, tooling, generators and templates.",
-    "Convention-driven project structure with minimal configuration.",
-  ],
+    "A reusable development foundation that standardizes tooling, project structure, automation, and engineering practices across repositories.",
 
   technologies: [
     "TypeScript",
-    "pnpm Workspaces",
+    "pnpm",
     "Turborepo",
     "Biome",
     "ESLint",
@@ -48,40 +22,78 @@ export const bootstrapper: Project = {
     "GitHub Actions",
   ],
 
+  github: "https://github.com/paszed/bootstrapper",
+
+  featured: true,
+
+  status: "building",
+
+  year: 2026,
+
+  overview:
+    "Bootstrapper was created after repeatedly rebuilding the same development environment for every new project. Rather than configuring tooling, documentation, CI, and repository structure from scratch every time, I began extracting those patterns into a reusable foundation. Today it serves as the starting point for nearly every project I build.",
+
+  problem: [
+    "Every new repository required hours of repetitive setup.",
+    "Tooling and project structures slowly diverged over time.",
+    "Engineering standards had to be maintained independently across repositories.",
+    "Developer onboarding was inconsistent between projects.",
+  ],
+
+  goals: [
+    "Start projects in minutes instead of hours.",
+    "Provide a consistent developer experience.",
+    "Centralize engineering standards.",
+    "Reduce repetitive setup work.",
+    "Create repositories that are understandable by both developers and AI assistants.",
+  ],
+
+  architecture: [
+    "TypeScript-first monorepo architecture.",
+    "Reusable packages for tooling and shared configuration.",
+    "Convention-driven project structure.",
+    "Composable packages rather than a monolithic template.",
+  ],
+
   features: [
-    "Reusable project templates",
     "Shared TypeScript configuration",
-    "Shared linting configuration",
+    "Shared ESLint configuration",
+    "Shared Biome configuration",
+    "Reusable project templates",
     "Project generators",
     "Development toolkit",
-    "Consistent repository standards",
-    "Automation-ready workflows",
+    "GitHub automation",
+    "Documentation standards",
   ],
 
   engineering: [
     "Convention over configuration.",
-    "Automation before manual processes.",
+    "Automation before repetition.",
     "Documentation treated as infrastructure.",
-    "Composable packages rather than a monolithic template.",
-    "Consistency across every repository.",
+    "Consistency across repositories.",
+    "Extract patterns only after they prove useful.",
+  ],
+
+  challenges: [
+    "Finding the right balance between flexibility and opinionated defaults.",
+    "Avoiding premature abstractions.",
+    "Designing reusable tooling without creating unnecessary complexity.",
   ],
 
   lessons: [
     "Good tooling should disappear into the background.",
-    "A small investment in engineering infrastructure compounds across every future project.",
-    "Consistency reduces cognitive overhead far more than endless customization.",
-    "Real-world projects should shape the tooling instead of designing abstractions prematurely.",
+    "Small engineering investments compound over time.",
+    "Consistency reduces cognitive overhead.",
+    "Frameworks should emerge from experience rather than prediction.",
   ],
 
   roadmap: [
-    "CLI for project generation.",
-    "Additional reusable templates.",
-    "Shared internal packages.",
-    "Improved automation.",
+    "Interactive CLI.",
+    "Additional project generators.",
+    "More reusable internal packages.",
     "Expanded documentation.",
+    "Improved automation.",
   ],
 
-  links: {
-    github: "https://github.com/paszed/bootstrapper",
-  },
+  gallery: [],
 };
