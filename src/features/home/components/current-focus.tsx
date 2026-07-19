@@ -1,11 +1,11 @@
-import { Container } from "@/components/layout/container";
 import {
   Card,
+  Container,
   Section,
   SectionHeader,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
 import { home } from "@/content";
 
 export function CurrentFocus() {

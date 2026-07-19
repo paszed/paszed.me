@@ -11,7 +11,7 @@ export function Divider({
   return (
     <hr
       className={cn(
-        "border-0 border-t border-border-muted",
+        "w-full border-0 border-t border-border-muted",
         className,
       )}
       {...props}

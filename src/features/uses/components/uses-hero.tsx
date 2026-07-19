@@ -1,4 +1,4 @@
-import { H1 } from "@/components/ui/heading";
+import { H1 } from "@/design-system";
 import { uses } from "@/content";
 
 export function UsesHero() {

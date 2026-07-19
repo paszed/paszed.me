@@ -5,12 +5,12 @@ import { usePathname } from "next/navigation";
 import { Search } from "lucide-react";
 
 import { BrandLogo } from "@/brand";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { navigation } from "@/config/navigation";
 import { useCommandPalette } from "@/features/search/context";
 import { cn } from "@/lib/utils";
 
-import { Container } from "./container";
+import { Container } from "../layout";
+import { ThemeToggle } from "../providers";
 import { MobileMenu } from "./mobile-menu";
 
 export function Navbar() {
@@ -47,7 +47,7 @@ export function Navbar() {
 
                       {active && (
                         <span
-                          aria-hidden="true"
+                          aria-hidden
                           className="absolute -bottom-2 left-0 h-px w-full bg-accent"
                         />
                       )}

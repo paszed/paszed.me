@@ -1,8 +1,9 @@
 import { BrandLogo } from "@/brand/components/logo";
-import { Container } from "@/components/layout/container";
-import { FooterSection } from "@/components/layout/footer-section";
 import { footer } from "@/content/footer";
 import { site } from "@/config/site";
+
+import { Container } from "../layout";
+import { FooterSection } from "./footer-section";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -53,9 +54,7 @@ export function Footer() {
             © {year} {site.owner}. All rights reserved.
           </p>
 
-          <p>
-            Built with Next.js, TypeScript & Tailwind CSS.
-          </p>
+          <p>Built with Next.js, TypeScript & Tailwind CSS.</p>
         </div>
       </Container>
     </footer>

@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
 
-import { H2 } from "@/components/ui/heading";
+import {
+  Divider,
+  H2,
+} from "@/design-system";
 
 interface ProjectSectionProps {
   title: ReactNode;
@@ -16,7 +19,7 @@ export function ProjectSection({
       <div className="space-y-3">
         <H2>{title}</H2>
 
-        <div className="h-px bg-border" />
+        <Divider />
       </div>
 
       {children}

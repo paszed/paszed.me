@@ -1,5 +1,7 @@
-import { H1 } from "@/components/ui/heading";
-import { Page } from "@/components/layout/page";
+import {
+  H1,
+  Page,
+} from "@/design-system";
 
 import { SearchBox } from "./search-box";
 

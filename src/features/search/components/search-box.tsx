@@ -2,7 +2,7 @@
 
 import type { RefObject } from "react";
 
-import { Panel } from "@/components/ui";
+import { Panel } from "@/design-system";
 import { useSearchBox } from "@/features/search/hooks/use-search-box";
 
 import { SearchInput } from "./search-input";

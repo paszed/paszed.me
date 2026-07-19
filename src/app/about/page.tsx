@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Page } from "@/components/layout/page";
+import { Page } from "@/design-system";
 import {
   AboutHero,
   AboutPhilosophy,

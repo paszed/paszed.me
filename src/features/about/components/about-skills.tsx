@@ -26,7 +26,7 @@ import {
   Eyebrow,
   H2,
   Stack,
-} from "@/components/ui";
+} from "@/design-system";
 import { about } from "@/content";
 
 const icons: Record<string, IconType> = {
@@ -79,7 +79,7 @@ export function AboutSkills() {
                     >
                       {Icon && (
                         <Icon
-                          aria-hidden="true"
+                          aria-hidden
                           focusable="false"
                           className="size-4 shrink-0"
                         />

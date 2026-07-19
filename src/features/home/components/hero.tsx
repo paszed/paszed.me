@@ -1,17 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Container } from "@/components/layout/container";
-import { ThemedLion } from "@/components/theme/themed-lion";
 import {
   Button,
+  Container,
   Eyebrow,
   H1,
+  Section,
   Stack,
   Text,
   TextLink,
-} from "@/components/ui";
-import { Section } from "@/components/ui/section";
+} from "@/design-system";
+import { ThemedLion } from "@/components/theme/themed-lion";
 import { home } from "@/content";
 import { site } from "@/config/site";
 
@@ -27,10 +27,7 @@ export function Hero() {
 
       <Container className="relative z-10">
         <div className="grid items-center gap-16 lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]">
-          <Stack
-            gap="xl"
-            className="max-w-2xl"
-          >
+          <Stack gap="xl" className="max-w-2xl">
             <Eyebrow>{home.hero.eyebrow}</Eyebrow>
 
             <Stack gap="md">

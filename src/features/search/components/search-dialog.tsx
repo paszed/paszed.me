@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 
-import { Panel } from "@/components/ui";
+import { Panel } from "@/design-system";
 
 interface SearchDialogProps {
   open: boolean;

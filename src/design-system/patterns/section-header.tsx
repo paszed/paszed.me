@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { H1, H2 } from "./heading";
+import { H1, H2 } from "../typography";
 
 interface SectionHeaderProps {
   title: string;
@@ -29,8 +29,7 @@ export function SectionHeader({
     <div
       className={cn(
         "flex flex-col gap-8",
-        !centered &&
-          "md:flex-row md:items-end md:justify-between",
+        !centered && "md:flex-row md:items-end md:justify-between",
         centered && "items-center text-center",
         className,
       )}
@@ -57,9 +56,7 @@ export function SectionHeader({
       </div>
 
       {!centered && actions && (
-        <div className="shrink-0">
-          {actions}
-        </div>
+        <div className="shrink-0">{actions}</div>
       )}
     </div>
   );

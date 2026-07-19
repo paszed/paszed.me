@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-import { Container } from "@/components/layout/container";
-import { ProjectCard } from "@/components/shared/project-card";
 import {
   Button,
+  Container,
   Section,
   SectionHeader,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
+import { ProjectCard } from "@/components/shared/project-card";
 import { home } from "@/content";
 import { getFeaturedProjects } from "@/lib/projects";
 
@@ -25,9 +25,7 @@ export function FeaturedProjects() {
             description={home.featuredProjects.description}
             actions={
               <Link href="/projects">
-                <Button>
-                  View All Projects
-                </Button>
+                <Button>View All Projects</Button>
               </Link>
             }
           />
@@ -42,9 +40,7 @@ export function FeaturedProjects() {
               ))}
             </div>
           ) : (
-            <Text muted>
-              Featured projects are coming soon.
-            </Text>
+            <Text muted>Featured projects are coming soon.</Text>
           )}
         </Stack>
       </Container>

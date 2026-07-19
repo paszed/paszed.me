@@ -2,7 +2,7 @@ import {
   Eyebrow,
   H1,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
 import {
   formatDate,
   formatReadingTime,

@@ -1,4 +1,4 @@
-import { H1 } from "@/components/ui/heading";
+import { H1 } from "@/design-system";
 
 export function BlogHero() {
   return (
@@ -6,9 +6,8 @@ export function BlogHero() {
       <H1>Blog</H1>
 
       <p className="max-w-3xl text-lg leading-8 text-fg-secondary">
-        {
-          "A collection of engineering notes, tutorials, project write-ups, and lessons learned while building software."
-        }
+        A collection of engineering notes, tutorials, project write-ups, and
+        lessons learned while building software.
       </p>
     </section>
   );

@@ -1,7 +1,9 @@
 import type { Project } from "@/types/project";
 
-import { Badge } from "@/components/ui/badge";
-import { H1 } from "@/components/ui/heading";
+import {
+  Badge,
+  H1,
+} from "@/design-system";
 
 import { ProjectMeta } from "./project-meta";
 

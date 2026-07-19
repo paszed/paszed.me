@@ -4,7 +4,7 @@ import {
   Card,
   Label,
   Stack,
-} from "@/components/ui";
+} from "@/design-system";
 import type { JournalEntry } from "@/types/journal";
 
 interface ArticleNavigationProps {

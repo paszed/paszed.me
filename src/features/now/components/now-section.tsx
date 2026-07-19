@@ -1,4 +1,4 @@
-import { H2 } from "@/components/ui/heading";
+import { H2 } from "@/design-system";
 
 interface NowSectionProps {
   title: string;

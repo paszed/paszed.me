@@ -6,7 +6,7 @@ import {
   Label,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
 import type { JournalEntry } from "@/types/journal";
 
 interface ArticleRelatedProps {

@@ -2,7 +2,7 @@ import {
   H2,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
 import { about } from "@/content";
 
 export function AboutStory() {

@@ -1,11 +1,11 @@
-import { Container } from "@/components/layout/container";
 import {
   Card,
+  Container,
   Section,
   SectionHeader,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
 import { home } from "@/content";
 
 export function Philosophy() {
@@ -31,9 +31,7 @@ export function Philosophy() {
                     {principle.title}
                   </h3>
 
-                  <Text muted>
-                    {principle.description}
-                  </Text>
+                  <Text muted>{principle.description}</Text>
                 </Stack>
               </Card>
             ))}

@@ -3,13 +3,13 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { SocialIcon } from "@/components/icons/social-icon";
-import { Page } from "@/components/layout/page";
 import {
   Card,
+  Page,
   SectionHeader,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
 import { profiles } from "@/content";
 import { cn } from "@/lib/utils";
 
@@ -79,10 +79,10 @@ function ProfileGroup({
               className="group flex items-center justify-between px-6 py-4"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-fg-muted transition-colors group-hover:text-accent">
+                <div className="flex size-11 items-center justify-center rounded-full border border-border bg-background text-fg-muted transition-colors group-hover:text-accent">
                   <SocialIcon
                     name={profile.label}
-                    className="h-5 w-5"
+                    className="size-5"
                   />
                 </div>
 
@@ -91,13 +91,19 @@ function ProfileGroup({
                     {profile.label}
                   </h3>
 
-                  <Text size="sm" muted>
+                  <Text
+                    size="sm"
+                    muted
+                  >
                     {profile.description}
                   </Text>
                 </div>
               </div>
 
-              <ArrowUpRight className="h-4 w-4 text-fg-muted transition-all duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent" />
+              <ArrowUpRight
+                aria-hidden
+                className="size-4 text-fg-muted transition-all duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent"
+              />
             </Card>
           </Link>
         ))}

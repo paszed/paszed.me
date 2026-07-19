@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-import { Container } from "@/components/layout/container";
 import {
   Button,
+  Container,
   H2,
   Section,
   Stack,
   Text,
   TextLink,
-} from "@/components/ui";
+} from "@/design-system";
 import { profiles } from "@/content";
 import { site } from "@/config/site";
 

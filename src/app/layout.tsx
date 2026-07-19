@@ -7,9 +7,11 @@ import type { ReactNode } from "react";
 
 import "./globals.css";
 
-import { Footer } from "@/components/layout/footer";
+import {
+  Footer,
+  Navbar,
+} from "@/design-system";
 import { GlobalSearch } from "@/components/layout/global-search";
-import { Navbar } from "@/components/layout/navbar";
 import { JsonLd } from "@/components/seo/json-ld";
 import { metadata } from "@/config/metadata";
 import {

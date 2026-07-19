@@ -3,7 +3,7 @@ import {
   Stack,
   Text,
   TextLink,
-} from "@/components/ui";
+} from "@/design-system";
 import {
   formatDate,
   formatReadingTime,

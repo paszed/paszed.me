@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-import { Page } from "@/components/layout/page";
-import { ProjectCard } from "@/components/shared/project-card";
 import {
   Button,
+  Page,
   Section,
   SectionHeader,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
+import { ProjectCard } from "@/components/shared/project-card";
 import { projects } from "@/content/projects";
 
 export default function ProjectsPage() {
@@ -45,9 +45,7 @@ export default function ProjectsPage() {
               </Text>
 
               <Link href="/">
-                <Button>
-                  Back to Home
-                </Button>
+                <Button>Back to Home</Button>
               </Link>
             </Stack>
           )}

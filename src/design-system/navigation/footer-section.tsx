@@ -39,7 +39,7 @@ export function FooterSection({
             >
               {showIcons && (
                 <span
-                  aria-hidden="true"
+                  aria-hidden
                   className="flex h-4 w-4 items-center justify-center"
                 >
                   <SocialIcon

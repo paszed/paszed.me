@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import {
+  Prose,
+} from "@/design-system";
+import {
   ArticleHeader,
   ArticleNavigation,
   ArticleRelated,
   ReadingProgress,
 } from "@/components/article";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Prose } from "@/components/ui/prose";
 import {
   getArticle,
   getNextArticle,

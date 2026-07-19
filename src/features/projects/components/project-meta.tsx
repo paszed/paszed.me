@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/design-system";
 
 import type { Project } from "@/types/project";
 
@@ -7,12 +7,16 @@ interface ProjectMetaProps {
 }
 
 const STATUS = {
+  research: {
+    label: "Research",
+    dot: "bg-sky-500",
+  },
   building: {
     label: "Building",
     dot: "bg-yellow-500",
   },
-  completed: {
-    label: "Completed",
+  production: {
+    label: "Production",
     dot: "bg-green-500",
   },
   archived: {
@@ -29,7 +33,10 @@ export function ProjectMeta({
   return (
     <div className="flex flex-wrap items-center gap-3 text-sm text-fg-muted">
       <Badge>
-        <span className={`size-2 rounded-full ${status.dot}`} />
+        <span
+          aria-hidden
+          className={`size-2 rounded-full ${status.dot}`}
+        />
 
         {status.label}
       </Badge>

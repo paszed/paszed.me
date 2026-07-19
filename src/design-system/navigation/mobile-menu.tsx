@@ -20,11 +20,7 @@ export function MobileMenu() {
         onClick={() => setOpen((value) => !value)}
         className="relative z-[70] rounded-xl border border-border bg-surface p-2 transition-colors hover:bg-card"
       >
-        {open ? (
-          <X className="h-5 w-5" />
-        ) : (
-          <Menu className="h-5 w-5" />
-        )}
+        {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
       {open && (
@@ -39,17 +35,13 @@ export function MobileMenu() {
       <div
         className={cn(
           "absolute inset-x-0 top-full z-50 mt-2 md:hidden",
-          open
-            ? "pointer-events-auto"
-            : "pointer-events-none",
+          open ? "pointer-events-auto" : "pointer-events-none",
         )}
       >
         <div
           className={cn(
             "mx-4 overflow-hidden rounded-2xl border border-border bg-background shadow-2xl transition-all duration-200",
-            open
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-2 opacity-0",
+            open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
           )}
         >
           <nav className="flex flex-col p-2">

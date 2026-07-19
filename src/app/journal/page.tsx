@@ -1,6 +1,8 @@
-import { Page } from "@/components/layout/page";
+import {
+  Page,
+  SectionHeader,
+} from "@/design-system";
 import { JournalCard } from "@/components/journal";
-import { SectionHeader } from "@/components/ui/section-header";
 import { getPublishedArticles } from "@/lib/journal";
 
 export default function JournalPage() {

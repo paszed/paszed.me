@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { Page } from "@/components/layout/page";
+import { Page } from "@/design-system";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   ProjectGallery,
@@ -12,10 +12,7 @@ import {
   ProjectRoadmap,
   ProjectTech,
 } from "@/features/projects";
-import {
-  getProjectBySlug,
-  getProjectSlugs,
-} from "@/lib/projects";
+import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 import {
   createBreadcrumbSchema,
   createMetadata,
@@ -87,16 +84,16 @@ export default async function ProjectPage({
       items: project.problem,
     },
     {
-      title: "Goals",
-      items: project.goals,
+      title: "Principles",
+      items: project.principles,
     },
     {
-      title: "Features",
-      items: project.features,
+      title: "Capabilities",
+      items: project.capabilities,
     },
     {
       title: "Architecture",
-      items: project.architecture,
+      items: project.architecture.description,
     },
     {
       title: "Engineering Decisions",

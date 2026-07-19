@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-import { Container } from "@/components/layout/container";
-import { JournalCard } from "@/components/journal";
 import {
   Button,
+  Container,
   Section,
   SectionHeader,
   Stack,
   Text,
-} from "@/components/ui";
+} from "@/design-system";
+import { JournalCard } from "@/components/journal";
 import { home } from "@/content";
 import { getPublishedArticles } from "@/lib/journal";
 
@@ -25,9 +25,7 @@ export function LatestWriting() {
             description={home.latestWriting.description}
             actions={
               <Link href="/journal">
-                <Button>
-                  View Journal
-                </Button>
+                <Button>View Journal</Button>
               </Link>
             }
           />

@@ -1,4 +1,4 @@
-import { H1 } from "@/components/ui/heading";
+import { H1 } from "@/design-system";
 
 export function ProjectsHero() {
   return (
@@ -6,9 +6,10 @@ export function ProjectsHero() {
       <H1>Projects</H1>
 
       <p className="max-w-3xl text-lg leading-8 text-fg-secondary">
-        {
-          "A collection of software platforms exploring developer experience, AI systems, software architecture, and long-term maintainability. Each project documents the problem it solves, the architectural decisions behind it, and the lessons learned throughout its evolution."
-        }
+        A collection of software platforms exploring developer experience, AI
+        systems, software architecture, and long-term maintainability. Each
+        project documents the problem it solves, the architectural decisions
+        behind it, and the lessons learned throughout its evolution.
       </p>
     </header>
   );

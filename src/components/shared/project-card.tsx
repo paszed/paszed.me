@@ -1,18 +1,22 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import { Card } from "@/components/ui";
+import { Card } from "@/design-system";
 import type { Project } from "@/types/project";
 
 type ProjectCardProps = Project;
 
 const STATUS = {
+  research: {
+    label: "Research",
+    dot: "bg-sky-500",
+  },
   building: {
     label: "Building",
-    dot: "bg-blue-500",
+    dot: "bg-yellow-500",
   },
-  completed: {
-    label: "Completed",
+  production: {
+    label: "Production",
     dot: "bg-green-500",
   },
   archived: {
@@ -43,9 +47,10 @@ export function ProjectCard({
         <div className="flex items-center gap-3 text-sm">
           <span className="flex items-center gap-2 font-medium text-accent">
             <span
-              aria-hidden="true"
-              className={`h-2 w-2 rounded-full ${statusConfig.dot}`}
+              aria-hidden
+              className={`size-2 rounded-full ${statusConfig.dot}`}
             />
+
             {statusConfig.label}
           </span>
 
@@ -76,9 +81,10 @@ export function ProjectCard({
         <div className="mt-auto pt-10">
           <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
             Case Study
+
             <ArrowUpRight
-              aria-hidden="true"
-              className="h-4 w-4"
+              aria-hidden
+              className="size-4"
             />
           </span>
         </div>
