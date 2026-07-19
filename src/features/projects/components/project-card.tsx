@@ -4,6 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 import { Card } from "@/design-system";
 import type { Project } from "@/types/project";
 
+import { Badge } from "@/design-system";
+
 type ProjectCardProps = Project;
 
 const STATUS = {
@@ -69,12 +71,10 @@ export function ProjectCard({
 
         <div className="mt-8 flex flex-wrap gap-2">
           {technologies.slice(0, 4).map((technology) => (
-            <span
-              key={technology.name}
-              className="rounded-full bg-muted px-3 py-1 text-sm text-fg-secondary"
-            >
-              {technology.name}
-            </span>
+
+            <Badge key={technology.name}>
+  {technology.name}
+</Badge>
           ))}
         </div>
 
