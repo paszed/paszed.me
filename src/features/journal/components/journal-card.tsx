@@ -1,4 +1,5 @@
 import {
+  Badge,
   Card,
   Stack,
   Text,
@@ -55,12 +56,7 @@ export function JournalCard({
 
         <div className="flex flex-wrap gap-2">
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-border px-3 py-1 text-xs text-fg-muted"
-            >
-              {tag}
-            </span>
+            <Badge key={tag}>{tag}</Badge>
           ))}
         </div>
 
