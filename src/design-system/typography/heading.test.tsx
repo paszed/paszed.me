@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import {
-  H1,
-  H2,
-  H3,
-} from "./heading";
+import { Heading } from "./heading";
 
 describe("Heading", () => {
-  it("renders H1", () => {
-    render(<H1>Main heading</H1>);
+  it("renders an h1", () => {
+    render(
+      <Heading as="h1">
+        Main heading
+      </Heading>,
+    );
 
     const heading = screen.getByRole("heading", {
       level: 1,
@@ -20,8 +20,12 @@ describe("Heading", () => {
     expect(heading.tagName).toBe("H1");
   });
 
-  it("renders H2", () => {
-    render(<H2>Section heading</H2>);
+  it("renders an h2", () => {
+    render(
+      <Heading as="h2">
+        Section heading
+      </Heading>,
+    );
 
     const heading = screen.getByRole("heading", {
       level: 2,
@@ -32,8 +36,12 @@ describe("Heading", () => {
     expect(heading.tagName).toBe("H2");
   });
 
-  it("renders H3", () => {
-    render(<H3>Subsection heading</H3>);
+  it("renders an h3", () => {
+    render(
+      <Heading as="h3">
+        Subsection heading
+      </Heading>,
+    );
 
     const heading = screen.getByRole("heading", {
       level: 3,
@@ -44,11 +52,29 @@ describe("Heading", () => {
     expect(heading.tagName).toBe("H3");
   });
 
+  it("defaults to h2", () => {
+    render(
+      <Heading>
+        Default heading
+      </Heading>,
+    );
+
+    const heading = screen.getByRole("heading", {
+      level: 2,
+      name: "Default heading",
+    });
+
+    expect(heading.tagName).toBe("H2");
+  });
+
   it("merges custom class names", () => {
     render(
-      <H1 className="custom-heading">
+      <Heading
+        as="h1"
+        className="custom-heading"
+      >
         Custom
-      </H1>,
+      </Heading>,
     );
 
     expect(
@@ -59,7 +85,11 @@ describe("Heading", () => {
   });
 
   it("includes its base styling", () => {
-    render(<H2>Styled heading</H2>);
+    render(
+      <Heading as="h2">
+        Styled heading
+      </Heading>,
+    );
 
     expect(
       screen.getByRole("heading", {

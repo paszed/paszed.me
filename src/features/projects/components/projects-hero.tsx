@@ -1,9 +1,9 @@
-import { H1 } from "@/design-system";
+import { Heading } from "@/design-system";
 
 export function ProjectsHero() {
   return (
     <header className="space-y-6">
-      <H1>Projects</H1>
+      <Heading as="h1">Projects</Heading>
 
       <p className="max-w-3xl text-lg leading-8 text-fg-secondary">
         A collection of software platforms exploring developer experience, AI

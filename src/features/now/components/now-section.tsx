@@ -1,4 +1,4 @@
-import { H2 } from "@/design-system";
+import { Heading } from "@/design-system";
 
 interface NowSectionProps {
   title: string;
@@ -11,7 +11,7 @@ export function NowSection({
 }: NowSectionProps) {
   return (
     <section className="space-y-6">
-      <H2>{title}</H2>
+      <Heading as="h2">{title}</Heading>
 
       <ul className="space-y-3">
         {items.map((item) => (

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import {
   Card,
-  H2,
+  Heading,
   Label,
   Stack,
   Text,
@@ -23,7 +23,11 @@ export function ArticleRelated({
   return (
     <aside className="mt-24 border-t border-border pt-12">
       <Stack gap="lg">
-        <H2>Related Articles</H2>
+
+
+        <Heading as="h2">
+  Related Articles
+</Heading>
 
         <div className="grid gap-6">
           {articles.map((article) => (

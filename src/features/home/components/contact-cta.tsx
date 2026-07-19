@@ -3,12 +3,13 @@ import Link from "next/link";
 import {
   Button,
   Container,
-  H2,
+  Heading,
   Section,
   Stack,
   Text,
   TextLink,
 } from "@/design-system";
+
 import { profiles } from "@/content";
 import { site } from "@/config/site";
 
@@ -21,8 +22,10 @@ export function ContactCTA() {
             gap="lg"
             className="mx-auto max-w-2xl items-center"
           >
-            <H2>Let&apos;s build something meaningful.</H2>
 
+            <Heading as="h2">
+  Let&apos;s build something meaningful.
+</Heading>
             <Text
               size="lg"
               muted

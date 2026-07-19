@@ -1,16 +1,21 @@
 import {
-  H2,
+  Heading,
   Panel,
   Stack,
   Text,
 } from "@/design-system";
+
 import { about } from "@/content";
 
 export function AboutPhilosophy() {
   return (
     <section>
       <Stack gap="lg">
-        <H2>How I Build Software</H2>
+
+
+        <Heading as="h2">
+  How I Build Software
+</Heading>
 
         <div className="grid gap-8 md:grid-cols-2">
           {about.philosophy.map((principle) => (

@@ -2,7 +2,7 @@ import type { Project } from "@/types/project";
 
 import {
   Badge,
-  H1,
+  Heading,
 } from "@/design-system";
 
 import { ProjectMeta } from "./project-meta";
@@ -19,7 +19,7 @@ export function ProjectHero({
       <ProjectMeta project={project} />
 
       <div className="space-y-6">
-        <H1>{project.title}</H1>
+        <Heading as="h1">{project.title}</Heading>
 
         <p className="max-w-3xl text-xl leading-relaxed text-fg-secondary">
           {project.summary}

@@ -5,12 +5,13 @@ import {
   Button,
   Container,
   Eyebrow,
-  H1,
+  Heading,
   Section,
   Stack,
   Text,
   TextLink,
 } from "@/design-system";
+
 import { ThemedLion } from "@/components/theme/themed-lion";
 import { home } from "@/content";
 import { site } from "@/config/site";
@@ -31,8 +32,10 @@ export function Hero() {
             <Eyebrow>{home.hero.eyebrow}</Eyebrow>
 
             <Stack gap="md">
-              <H1>{home.hero.title}</H1>
 
+              <Heading as="h1">
+  {home.hero.title}
+</Heading>
               <Text
                 size="lead"
                 muted

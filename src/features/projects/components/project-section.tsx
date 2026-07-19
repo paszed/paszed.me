@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import {
   Divider,
-  H2,
+  Heading,
 } from "@/design-system";
 
 interface ProjectSectionProps {
@@ -17,7 +17,7 @@ export function ProjectSection({
   return (
     <section className="space-y-8">
       <div className="space-y-3">
-        <H2>{title}</H2>
+        <Heading as="h2">{title}</Heading>
 
         <Divider />
       </div>

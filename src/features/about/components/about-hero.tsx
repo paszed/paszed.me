@@ -1,10 +1,11 @@
 import Image from "next/image";
 
 import {
-  H1,
+  Heading,
   Stack,
   Text,
 } from "@/design-system";
+
 import { about } from "@/content";
 
 export function AboutHero() {
@@ -28,8 +29,10 @@ export function AboutHero() {
           gap="md"
           className="max-w-2xl"
         >
-          <H1>{about.hero.title}</H1>
 
+        <Heading as="h1">
+  {about.hero.title}
+</Heading>
           <Text
             size="lg"
             muted

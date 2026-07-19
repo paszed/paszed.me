@@ -1,6 +1,6 @@
 import {
   Eyebrow,
-  H1,
+  Heading,
   Text,
 } from "@/design-system";
 import {
@@ -20,7 +20,9 @@ export function ArticleHeader({
     <header className="mb-20 space-y-6">
       <Eyebrow>{article.category}</Eyebrow>
 
-      <H1>{article.title}</H1>
+      <Heading as="h1">
+        {article.title}
+      </Heading>
 
       <Text
         size="lg"

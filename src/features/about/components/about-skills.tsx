@@ -22,11 +22,13 @@ import {
 
 import type { IconType } from "react-icons";
 
+
 import {
   Eyebrow,
-  H2,
+  Heading,
   Stack,
 } from "@/design-system";
+
 import { about } from "@/content";
 
 const icons: Record<string, IconType> = {
@@ -56,7 +58,11 @@ export function AboutSkills() {
   return (
     <section>
       <Stack gap="2xl">
-        <H2>Tools & Technologies</H2>
+
+
+        <Heading as="h2">
+  Tools & Technologies
+</Heading>
 
         <Stack gap="xl">
           {about.skills.map((group) => (

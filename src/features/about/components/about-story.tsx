@@ -1,5 +1,5 @@
 import {
-  H2,
+  Heading,
   Stack,
   Text,
 } from "@/design-system";
@@ -9,7 +9,10 @@ export function AboutStory() {
   return (
     <section>
       <Stack gap="lg">
-        <H2>My Story</H2>
+
+        <Heading as="h2">
+  My Story
+</Heading>
 
         <Stack
           gap="lg"
