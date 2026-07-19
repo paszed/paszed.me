@@ -2,7 +2,7 @@ import {
   Page,
   SectionHeader,
 } from "@/design-system";
-import { JournalCard } from "@/components/journal";
+import { JournalCard } from "@/features/journal";
 import { getPublishedArticles } from "@/lib/journal";
 
 export default function JournalPage() {

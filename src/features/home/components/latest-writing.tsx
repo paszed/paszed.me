@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
 } from "@/design-system";
-import { JournalCard } from "@/components/journal";
+import { JournalCard } from "@/features/journal";
 import { home } from "@/content";
 import { getPublishedArticles } from "@/lib/journal";
 
