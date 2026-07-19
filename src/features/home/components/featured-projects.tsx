@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
 } from "@/design-system";
-import { ProjectCard } from "@/components/shared/project-card";
+import { ProjectCard } from "@/features/projects/components/project-card";
 import { home } from "@/content";
 import { getFeaturedProjects } from "@/lib/projects";
 
