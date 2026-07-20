@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-import { Button } from "@/design-system";
+import {
+  Button,
+  Cluster,
+} from "@/design-system";
 
 import { ProjectSection } from "./project-section";
 
@@ -19,7 +22,7 @@ export function ProjectLinks({
 
   return (
     <ProjectSection title="Links">
-      <div className="flex flex-wrap gap-4">
+      <Cluster gap="md">
         {project.links.map((link) => (
           <Link
             key={link.href}
@@ -38,7 +41,7 @@ export function ProjectLinks({
             </Button>
           </Link>
         ))}
-      </div>
+      </Cluster>
     </ProjectSection>
   );
 }

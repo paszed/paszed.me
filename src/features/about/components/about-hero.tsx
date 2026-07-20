@@ -2,7 +2,9 @@ import Image from "next/image";
 
 import {
   Heading,
+  Section,
   Stack,
+  Surface,
   Text,
 } from "@/design-system";
 
@@ -10,9 +12,9 @@ import { about } from "@/content";
 
 export function AboutHero() {
   return (
-    <section>
+    <Section>
       <div className="flex flex-col items-start gap-12 md:flex-row md:items-center">
-        <div className="shrink-0 rounded-full border border-border bg-card p-2 shadow-sm">
+        <Surface className="shrink-0 rounded-full p-2 shadow-sm">
           <div className="relative size-36 overflow-hidden rounded-full">
             <Image
               src="/images/profile.jpg"
@@ -23,25 +25,16 @@ export function AboutHero() {
               className="object-cover"
             />
           </div>
-        </div>
+        </Surface>
 
-        <Stack
-          gap="md"
-          className="max-w-2xl"
-        >
+        <Stack gap="md" className="max-w-2xl">
+          <Heading as="h1">{about.hero.title}</Heading>
 
-        <Heading as="h1">
-  {about.hero.title}
-</Heading>
-          <Text
-            size="lg"
-            muted
-            className="leading-relaxed"
-          >
+          <Text size="lg" muted className="leading-relaxed">
             {about.hero.intro}
           </Text>
         </Stack>
       </div>
-    </section>
+    </Section>
   );
 }

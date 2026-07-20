@@ -22,10 +22,11 @@ import {
 
 import type { IconType } from "react-icons";
 
-
 import {
+  Cluster,
   Eyebrow,
   Heading,
+  Section,
   Stack,
 } from "@/design-system";
 
@@ -56,13 +57,9 @@ const icons: Record<string, IconType> = {
 
 export function AboutSkills() {
   return (
-    <section>
+    <Section>
       <Stack gap="2xl">
-
-
-        <Heading as="h2">
-  Tools & Technologies
-</Heading>
+        <Heading as="h2">Tools & Technologies</Heading>
 
         <Stack gap="xl">
           {about.skills.map((group) => (
@@ -74,7 +71,7 @@ export function AboutSkills() {
                 {group.category}
               </Eyebrow>
 
-              <div className="flex flex-wrap gap-4">
+              <Cluster gap="md">
                 {group.items.map((item) => {
                   const Icon = icons[item];
 
@@ -95,11 +92,11 @@ export function AboutSkills() {
                     </div>
                   );
                 })}
-              </div>
+              </Cluster>
             </section>
           ))}
         </Stack>
       </Stack>
-    </section>
+    </Section>
   );
 }

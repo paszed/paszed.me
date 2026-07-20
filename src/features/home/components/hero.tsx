@@ -3,11 +3,15 @@ import Link from "next/link";
 
 import {
   Button,
+  Center,
+  Cluster,
   Container,
   Eyebrow,
+  Grid,
   Heading,
   Section,
   Stack,
+  Surface,
   Text,
   TextLink,
 } from "@/design-system";
@@ -27,15 +31,16 @@ export function Hero() {
       <ThemedLion />
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-16 lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]">
+        <Grid
+          gap="lg"
+          className="items-center lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]"
+        >
           <Stack gap="xl" className="max-w-2xl">
             <Eyebrow>{home.hero.eyebrow}</Eyebrow>
 
             <Stack gap="md">
+              <Heading as="h1">{home.hero.title}</Heading>
 
-              <Heading as="h1">
-  {home.hero.title}
-</Heading>
               <Text
                 size="lead"
                 muted
@@ -49,7 +54,7 @@ export function Hero() {
               {home.hero.description}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 pt-2">
+            <Cluster gap="lg" className="pt-2">
               <Link href={home.hero.primaryCta.href}>
                 <Button>{home.hero.primaryCta.label}</Button>
               </Link>
@@ -57,11 +62,11 @@ export function Hero() {
               <TextLink href={home.hero.secondaryCta.href}>
                 {home.hero.secondaryCta.label} →
               </TextLink>
-            </div>
+            </Cluster>
           </Stack>
 
-          <div className="flex justify-center lg:justify-end lg:pl-12">
-            <div className="border border-border bg-card p-3 shadow-sm">
+          <Center className="lg:justify-end lg:pl-12">
+            <Surface className="border p-3 shadow-sm">
               <div className="relative aspect-[4/5] w-[19rem] overflow-hidden rounded-sm lg:w-[22rem]">
                 <Image
                   src="/images/profile.jpg"
@@ -72,9 +77,9 @@ export function Hero() {
                   className="object-cover"
                 />
               </div>
-            </div>
-          </div>
-        </div>
+            </Surface>
+          </Center>
+        </Grid>
       </Container>
     </Section>
   );

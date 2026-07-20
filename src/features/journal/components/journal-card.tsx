@@ -1,6 +1,8 @@
 import {
   Badge,
   Card,
+  Cluster,
+  Heading,
   Stack,
   Text,
   TextLink,
@@ -21,7 +23,10 @@ export function JournalCard({
   return (
     <Card variant="interactive">
       <Stack gap="lg">
-        <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-fg-muted">
+        <Cluster
+          gap="sm"
+          className="text-xs font-medium uppercase tracking-[0.3em] text-fg-muted"
+        >
           <span>{article.category}</span>
 
           <span>•</span>
@@ -39,12 +44,12 @@ export function JournalCard({
               article.readingTimeMinutes,
             )}
           </span>
-        </div>
+        </Cluster>
 
         <Stack gap="sm">
-          <h2 className="font-serif text-3xl font-semibold tracking-tight text-fg">
+          <Heading as="h2">
             {article.title}
-          </h2>
+          </Heading>
 
           <Text
             size="lg"
@@ -54,11 +59,11 @@ export function JournalCard({
           </Text>
         </Stack>
 
-        <div className="flex flex-wrap gap-2">
+        <Cluster gap="sm">
           {article.tags.map((tag) => (
             <Badge key={tag}>{tag}</Badge>
           ))}
-        </div>
+        </Cluster>
 
         {article.published ? (
           <TextLink href={`/journal/${article.slug}`}>

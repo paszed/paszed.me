@@ -1,5 +1,10 @@
 import type { ReactNode } from "react";
 
+import {
+  Stack,
+  Text,
+} from "@/design-system";
+
 import { ProjectSection } from "./project-section";
 
 interface ProjectListSectionProps {
@@ -25,13 +30,16 @@ export function ProjectListSection({
               className="flex items-start gap-4"
             >
               <span
-                aria-hidden="true"
+                aria-hidden
                 className="mt-2 size-2 shrink-0 rounded-full bg-success"
               />
 
-              <p className="leading-relaxed text-fg-secondary">
+              <Text
+                muted
+                className="leading-relaxed"
+              >
                 {item}
-              </p>
+              </Text>
             </li>
           ))}
         </ul>

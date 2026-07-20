@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 
-import { Page } from "@/design-system";
+import {
+  Page,
+  Stack,
+} from "@/design-system";
+
 import {
   AboutHero,
   AboutPhilosophy,
@@ -17,15 +21,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <Page>
-      <div className="space-y-24">
+      <Stack gap="2xl">
         <AboutHero />
-
         <AboutStory />
-
         <AboutPhilosophy />
-
         <AboutSkills />
-      </div>
+      </Stack>
     </Page>
   );
 }

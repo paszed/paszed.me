@@ -1,4 +1,8 @@
-import { Badge } from "@/design-system";
+import {
+  Badge,
+  Cluster,
+  Text,
+} from "@/design-system";
 
 import type { Project } from "@/types/project";
 
@@ -31,7 +35,10 @@ export function ProjectMeta({
   const status = STATUS[project.status];
 
   return (
-    <div className="flex flex-wrap items-center gap-3 text-sm text-fg-muted">
+    <Cluster
+      gap="sm"
+      className="text-sm"
+    >
       <Badge>
         <span
           aria-hidden
@@ -41,7 +48,12 @@ export function ProjectMeta({
         {status.label}
       </Badge>
 
-      <span>Started {project.started}</span>
-    </div>
+      <Text
+        size="sm"
+        muted
+      >
+        Started {project.started}
+      </Text>
+    </Cluster>
   );
 }

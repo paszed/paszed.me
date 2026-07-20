@@ -2,7 +2,11 @@ import type { Project } from "@/types/project";
 
 import {
   Badge,
+  Cluster,
+  Divider,
   Heading,
+  Stack,
+  Text,
 } from "@/design-system";
 
 import { ProjectMeta } from "./project-meta";
@@ -15,28 +19,34 @@ export function ProjectHero({
   project,
 }: ProjectHeroProps) {
   return (
-    <header className="space-y-12">
-      <ProjectMeta project={project} />
+    <header>
+      <Stack gap="2xl">
+        <ProjectMeta project={project} />
 
-      <div className="space-y-6">
-        <Heading as="h1">{project.title}</Heading>
+        <Stack gap="md">
+          <Heading as="h1">{project.title}</Heading>
 
-        <p className="max-w-3xl text-xl leading-relaxed text-fg-secondary">
-          {project.summary}
-        </p>
-      </div>
+          <Text
+            size="lg"
+            muted
+            className="max-w-3xl leading-relaxed"
+          >
+            {project.summary}
+          </Text>
+        </Stack>
 
-      {project.technologies.length > 0 && (
-        <div className="flex flex-wrap gap-3">
-          {project.technologies.map((technology) => (
-            <Badge key={technology.name}>
-              {technology.name}
-            </Badge>
-          ))}
-        </div>
-      )}
+        {project.technologies.length > 0 && (
+          <Cluster gap="sm">
+            {project.technologies.map((technology) => (
+              <Badge key={technology.name}>
+                {technology.name}
+              </Badge>
+            ))}
+          </Cluster>
+        )}
 
-      <div className="h-px bg-border" />
+        <Divider />
+      </Stack>
     </header>
   );
 }

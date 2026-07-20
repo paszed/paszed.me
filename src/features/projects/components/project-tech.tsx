@@ -1,5 +1,7 @@
 import type { Project } from "@/types/project";
 
+import { Surface } from "@/design-system";
+
 import { ProjectSection } from "./project-section";
 
 interface ProjectTechProps {
@@ -15,7 +17,7 @@ export function ProjectTech({
 
   return (
     <ProjectSection title="Technologies">
-      <div className="max-w-3xl overflow-hidden rounded-lg border border-border">
+      <Surface className="max-w-3xl overflow-hidden rounded-lg">
         <table className="w-full border-collapse text-left">
           <tbody>
             {project.technologies.map((technology) => (
@@ -34,7 +36,7 @@ export function ProjectTech({
             ))}
           </tbody>
         </table>
-      </div>
+      </Surface>
     </ProjectSection>
   );
 }

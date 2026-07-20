@@ -1,10 +1,16 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import { Card } from "@/design-system";
-import type { Project } from "@/types/project";
+import {
+  Badge,
+  Card,
+  Cluster,
+  Heading,
+  Stack,
+  Text,
+} from "@/design-system";
 
-import { Badge } from "@/design-system";
+import type { Project } from "@/types/project";
 
 type ProjectCardProps = Project;
 
@@ -46,48 +52,65 @@ export function ProjectCard({
         variant="interactive"
         className="flex h-full flex-col"
       >
-        <div className="flex items-center gap-3 text-sm">
-          <span className="flex items-center gap-2 font-medium text-accent">
-            <span
-              aria-hidden
-              className={`size-2 rounded-full ${statusConfig.dot}`}
-            />
+        <Stack
+          gap="lg"
+          className="h-full"
+        >
+          <Cluster
+            gap="sm"
+            className="text-sm"
+          >
+            <span className="flex items-center gap-2 font-medium text-accent">
+              <span
+                aria-hidden
+                className={`size-2 rounded-full ${statusConfig.dot}`}
+              />
 
-            {statusConfig.label}
-          </span>
+              {statusConfig.label}
+            </span>
 
-          <span className="text-fg-muted">
-            {started}
-          </span>
-        </div>
+            <Text
+              size="sm"
+              muted
+            >
+              {started}
+            </Text>
+          </Cluster>
 
-        <h2 className="mt-6 text-3xl font-bold tracking-tight transition-colors group-hover:text-accent">
-          {title}
-        </h2>
+          <Heading
+            as="h2"
+            className="transition-colors group-hover:text-accent"
+          >
+            {title}
+          </Heading>
 
-        <p className="mt-4 leading-8 text-fg-secondary">
-          {summary}
-        </p>
+          <Text
+            size="lg"
+            muted
+            className="leading-relaxed"
+          >
+            {summary}
+          </Text>
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {technologies.slice(0, 4).map((technology) => (
+          <Cluster gap="sm">
+            {technologies.slice(0, 4).map((technology) => (
+              <Badge key={technology.name}>
+                {technology.name}
+              </Badge>
+            ))}
+          </Cluster>
 
-            <Badge key={technology.name}>
-  {technology.name}
-</Badge>
-          ))}
-        </div>
+          <div className="mt-auto">
+            <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
+              Case Study
 
-        <div className="mt-auto pt-10">
-          <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
-            Case Study
-
-            <ArrowUpRight
-              aria-hidden
-              className="size-4"
-            />
-          </span>
-        </div>
+              <ArrowUpRight
+                aria-hidden
+                className="size-4"
+              />
+            </span>
+          </div>
+        </Stack>
       </Card>
     </Link>
   );

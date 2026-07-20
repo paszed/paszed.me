@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import {
   Divider,
   Heading,
+  Section,
+  Stack,
 } from "@/design-system";
 
 interface ProjectSectionProps {
@@ -15,14 +17,16 @@ export function ProjectSection({
   children,
 }: ProjectSectionProps) {
   return (
-    <section className="space-y-8">
-      <div className="space-y-3">
-        <Heading as="h2">{title}</Heading>
+    <Section>
+      <Stack gap="lg">
+        <Stack gap="sm">
+          <Heading as="h2">{title}</Heading>
 
-        <Divider />
-      </div>
+          <Divider />
+        </Stack>
 
-      {children}
-    </section>
+        {children}
+      </Stack>
+    </Section>
   );
 }

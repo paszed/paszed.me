@@ -1,6 +1,8 @@
 import {
+  Grid,
   Heading,
   Panel,
+  Section,
   Stack,
   Text,
 } from "@/design-system";
@@ -9,24 +11,18 @@ import { about } from "@/content";
 
 export function AboutPhilosophy() {
   return (
-    <section>
+    <Section>
       <Stack gap="lg">
+        <Heading as="h2">How I Build Software</Heading>
 
-
-        <Heading as="h2">
-  How I Build Software
-</Heading>
-
-        <div className="grid gap-8 md:grid-cols-2">
+        <Grid className="gap-8 md:grid-cols-2">
           {about.philosophy.map((principle) => (
             <Panel
               key={principle.title}
               className="h-full p-6"
             >
               <Stack gap="sm">
-                <h3 className="text-xl font-semibold tracking-tight text-fg">
-                  {principle.title}
-                </h3>
+                <Heading as="h3">{principle.title}</Heading>
 
                 <Text
                   muted
@@ -37,8 +33,8 @@ export function AboutPhilosophy() {
               </Stack>
             </Panel>
           ))}
-        </div>
+        </Grid>
       </Stack>
-    </section>
+    </Section>
   );
 }

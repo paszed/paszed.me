@@ -1,3 +1,9 @@
+import {
+  Heading,
+  Section,
+  Stack,
+} from "@/design-system";
+
 interface UsesSectionProps {
   title: string;
   items: readonly string[];
@@ -8,21 +14,21 @@ export function UsesSection({
   items,
 }: UsesSectionProps) {
   return (
-    <section className="space-y-6">
-      <h2 className="text-2xl font-semibold tracking-tight text-fg">
-        {title}
-      </h2>
+    <Section>
+      <Stack gap="md">
+        <Heading as="h2">{title}</Heading>
 
-      <ul className="space-y-3">
-        {items.map((item) => (
-          <li
-            key={item}
-            className="text-fg-secondary"
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-    </section>
+        <ul className="space-y-3">
+          {items.map((item) => (
+            <li
+              key={item}
+              className="text-fg-secondary"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </Stack>
+    </Section>
   );
 }

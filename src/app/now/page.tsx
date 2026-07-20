@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
-import { Page } from "@/design-system";
+import {
+  Page,
+  Stack,
+} from "@/design-system";
 import { now } from "@/content";
 import {
   NowHero,
@@ -16,7 +19,7 @@ export const metadata: Metadata = {
 export default function NowPage() {
   return (
     <Page>
-      <div className="space-y-20">
+      <Stack gap="2xl">
         <NowHero />
 
         {now.map((section) => (
@@ -26,7 +29,7 @@ export default function NowPage() {
             items={section.items}
           />
         ))}
-      </div>
+      </Stack>
     </Page>
   );
 }

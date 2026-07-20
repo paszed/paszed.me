@@ -2,14 +2,15 @@ import Link from "next/link";
 
 import {
   Button,
+  Grid,
   Page,
   Section,
   SectionHeader,
   Stack,
   Text,
 } from "@/design-system";
-import { ProjectCard } from "@/features/projects/components/project-card";
 import { projects } from "@/content/projects";
+import { ProjectCard } from "@/features/projects/components/project-card";
 
 export default function ProjectsPage() {
   return (
@@ -24,14 +25,14 @@ export default function ProjectsPage() {
           />
 
           {projects.length > 0 ? (
-            <div className="grid gap-8">
+            <Grid gap="lg">
               {projects.map((project) => (
                 <ProjectCard
                   key={project.slug}
                   {...project}
                 />
               ))}
-            </div>
+            </Grid>
           ) : (
             <Stack
               gap="lg"

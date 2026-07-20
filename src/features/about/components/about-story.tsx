@@ -1,5 +1,6 @@
 import {
   Heading,
+  Section,
   Stack,
   Text,
 } from "@/design-system";
@@ -7,17 +8,11 @@ import { about } from "@/content";
 
 export function AboutStory() {
   return (
-    <section>
+    <Section>
       <Stack gap="lg">
+        <Heading as="h2">My Story</Heading>
 
-        <Heading as="h2">
-  My Story
-</Heading>
-
-        <Stack
-          gap="lg"
-          className="max-w-3xl"
-        >
+        <Stack gap="lg" className="max-w-3xl">
           {about.story.map((paragraph) => (
             <Text
               key={paragraph}
@@ -30,6 +25,6 @@ export function AboutStory() {
           ))}
         </Stack>
       </Stack>
-    </section>
+    </Section>
   );
 }

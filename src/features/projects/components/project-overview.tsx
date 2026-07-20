@@ -1,3 +1,8 @@
+import {
+  Stack,
+  Text,
+} from "@/design-system";
+
 import { ProjectSection } from "./project-section";
 
 interface ProjectOverviewProps {
@@ -9,16 +14,21 @@ export function ProjectOverview({
 }: ProjectOverviewProps) {
   return (
     <ProjectSection title="Overview">
-      <div className="max-w-3xl space-y-6">
+      <Stack
+        gap="lg"
+        className="max-w-3xl"
+      >
         {overview.map((paragraph) => (
-          <p
+          <Text
             key={paragraph}
-            className="text-lg leading-relaxed text-fg-secondary"
+            size="lg"
+            muted
+            className="leading-relaxed"
           >
             {paragraph}
-          </p>
+          </Text>
         ))}
-      </div>
+      </Stack>
     </ProjectSection>
   );
 }

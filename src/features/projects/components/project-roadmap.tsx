@@ -1,3 +1,7 @@
+import {
+  Text,
+} from "@/design-system";
+
 import type { Project } from "@/types/project";
 
 import { ProjectSection } from "./project-section";
@@ -23,13 +27,16 @@ export function ProjectRoadmap({
               className="flex items-start gap-4"
             >
               <span
-                aria-hidden="true"
+                aria-hidden
                 className="mt-2 size-2 shrink-0 rounded-full bg-success"
               />
 
-              <p className="leading-relaxed text-fg-secondary">
+              <Text
+                muted
+                className="leading-relaxed"
+              >
                 {item}
-              </p>
+              </Text>
             </li>
           ))}
         </ul>
