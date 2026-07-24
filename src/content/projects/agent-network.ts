@@ -18,25 +18,26 @@ export const agentNetwork: Project = {
   started: 2026,
 
   overview: [
-    "Agent Network explores how specialized AI agents can collaborate instead of relying on a single general-purpose model. Rather than creating one increasingly complex assistant, the platform coordinates multiple agents with distinct responsibilities through a shared orchestration layer.",
+    "Agent Network is an orchestration platform for building modular AI systems composed of specialized agents instead of a single general-purpose assistant.",
 
-    "The project focuses on routing, memory, tool execution and structured communication between agents. Each agent remains intentionally focused while the network coordinates planning, delegation and execution to solve larger tasks.",
+    "Rather than increasing the complexity of one model, the platform coordinates independent agents through shared workflows, structured communication and common infrastructure. Each agent owns a specific responsibility while the orchestration layer manages planning, delegation and execution.",
 
-    "Although still in active research, the project establishes the architectural foundation for building modular AI systems that are easier to extend, observe and maintain than monolithic assistants.",
+    "The project investigates how principles from distributed systems—such as message passing, service boundaries and orchestration—can be applied to modern AI applications. The result is a modular architecture that is easier to understand, extend and operate as capabilities continue to grow.",
   ],
 
   problem: [
-    "Single AI agents become increasingly difficult to scale as responsibilities grow.",
-    "Prompt complexity increases when one model is expected to solve every task.",
+    "General-purpose assistants accumulate unrelated responsibilities over time.",
+    "Prompt engineering cannot replace software architecture.",
     "Tool integrations become tightly coupled to individual agents.",
-    "Observability and debugging are difficult without structured orchestration.",
-    "Knowledge and execution logic are often mixed together.",
+    "Shared context becomes increasingly difficult to manage as capabilities grow.",
+    "Without orchestration, autonomous systems become difficult to observe, test and maintain.",
   ],
 
   principles: [
     "Specialization over generalization.",
     "Composition over monolithic assistants.",
     "Clear responsibilities for every agent.",
+    "Communication through explicit interfaces.",
     "Tools should be reusable across the network.",
     "Memory should be shared where appropriate and isolated where necessary.",
     "Observability is a first-class concern.",
@@ -44,74 +45,78 @@ export const agentNetwork: Project = {
 
   architecture: {
     description: [
-      "A central orchestrator receives requests and delegates work to specialized agents.",
-      "Agents communicate through structured messages rather than direct dependencies.",
-      "Shared services provide memory, tools and execution capabilities.",
-      "The platform supports adding new agents without changing the orchestration model.",
+      "The orchestrator accepts incoming work and decomposes it into smaller tasks.",
+      "Specialized agents receive work through structured messages instead of direct dependencies.",
+      "Shared infrastructure provides memory, tools, execution and observability.",
+      "Every component communicates through stable interfaces, allowing new agents to be introduced without changing existing workflows.",
     ],
+
     diagram: `
-User
-  │
-  ▼
-Orchestrator
-  │
- ├─────────────┐
- ▼             ▼
-Planner     Research
-Agent         Agent
- │             │
- └──────┬──────┘
-        ▼
- Tool Layer
-        │
-        ▼
- Shared Memory
+                    User
+                      │
+                      ▼
+              Orchestrator
+                      │
+      ┌───────────────┼───────────────┐
+      ▼               ▼               ▼
+ Planner Agent   Research Agent   Coding Agent
+      │               │               │
+      └───────────────┼───────────────┘
+                      ▼
+                 Tool Layer
+                      │
+      ┌───────────────┼───────────────┐
+      ▼               ▼               ▼
+    Memory         Providers      Observability
 `,
   },
 
   capabilities: [
-    "Task orchestration.",
-    "Specialized AI agents.",
+    "Task routing.",
+    "Workflow orchestration.",
+    "Context management.",
     "Shared memory.",
     "Tool execution.",
-    "Workflow delegation.",
-    "Agent communication.",
-    "Extensible plugin architecture.",
+    "Message passing.",
     "Execution tracing.",
-    "Modular runtime.",
-    "Composable AI workflows.",
+    "Plugin architecture.",
+    "Agent lifecycle management.",
+    "Distributed workflows.",
   ],
 
   engineering: [
-    "The platform separates orchestration from agent implementation.",
-    "Agents remain small and focused to reduce complexity.",
-    "Tools are reusable services rather than agent-specific integrations.",
-    "Structured communication improves observability and debugging.",
-    "The architecture is designed for extensibility as new agent types emerge.",
+    "Agent behavior is separated from orchestration logic.",
+    "Communication occurs through explicit contracts rather than shared implementation.",
+    "Infrastructure services remain independent from individual agents.",
+    "The runtime prioritizes observability and deterministic execution where possible.",
+    "New agent types can be introduced without modifying the orchestration layer.",
   ],
 
   challenges: [
-    "Coordinating multiple autonomous agents efficiently.",
-    "Preventing duplicated work between agents.",
-    "Managing shared context without unnecessary coupling.",
-    "Balancing autonomy with deterministic orchestration.",
+    "Maintaining consistent shared context across multiple agents.",
+    "Coordinating parallel execution without unnecessary synchronization.",
+    "Avoiding duplicated work between collaborating agents.",
+    "Balancing autonomous decision-making with deterministic workflows.",
+    "Providing meaningful observability across distributed execution.",
   ],
 
   lessons: [
-    "The complexity of AI systems lies in coordination rather than model selection.",
+    "The hardest problem in AI systems is coordination, not intelligence.",
     "Smaller specialized agents are easier to reason about than one large assistant.",
-    "Well-defined interfaces become increasingly important as networks grow.",
-    "Observability is essential for building reliable AI platforms.",
+    "Well-defined interfaces become increasingly valuable as systems grow.",
+    "Shared infrastructure simplifies collaboration across independent agents.",
+    "Reliable orchestration matters more than adding additional models.",
   ],
 
   roadmap: [
     "Implement the orchestration runtime.",
-    "Develop the planner and routing agents.",
-    "Add persistent shared memory.",
-    "Expand the tool ecosystem.",
+    "Develop planner and routing agents.",
+    "Introduce persistent shared memory.",
+    "Build a reusable tool registry.",
+    "Expand the execution engine.",
+    "Add execution tracing and observability.",
     "Support distributed execution.",
-    "Introduce execution monitoring and visualization.",
-    "Publish SDKs for custom agents.",
+    "Publish SDKs for building custom agents.",
   ],
 
   technologies: [
@@ -121,7 +126,7 @@ Agent         Agent
     },
     {
       name: "OpenAI",
-      purpose: "LLM-powered agents.",
+      purpose: "LLM-powered reasoning.",
     },
     {
       name: "Model Context Protocol",
@@ -129,11 +134,11 @@ Agent         Agent
     },
     {
       name: "Redis",
-      purpose: "State and message coordination.",
+      purpose: "Shared state and message coordination.",
     },
     {
       name: "Docker",
-      purpose: "Containerized execution.",
+      purpose: "Containerized execution environments.",
     },
   ],
 

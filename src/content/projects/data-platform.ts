@@ -6,134 +6,120 @@ export const dataPlatform: Project = {
   title: "Data Platform",
 
   tagline:
-    "A unified data layer for connecting, transforming and serving information across distributed systems.",
+    "Unified APIs, integrations and automation for external services.",
 
   summary:
-    "Infrastructure for ingesting, normalizing and exposing data through a consistent platform.",
+    "A reusable integration platform that connects applications to external providers through consistent APIs, events and automation while abstracting provider-specific implementations.",
 
-  featured: true,
+  featured: false,
 
-  status: "research",
+  status: "building",
 
   started: 2026,
 
   overview: [
-    "Data Platform explores how applications can consume information from multiple systems without becoming tightly coupled to individual APIs or storage technologies. Instead of allowing each application to implement its own integrations, the platform provides a unified layer for ingestion, transformation and distribution.",
+    "Data Platform provides a consistent way to integrate with external services.",
 
-    "The platform is designed around reusable data pipelines that normalize information before making it available to downstream services. This approach improves consistency, simplifies integrations and creates a single source of truth for applications consuming shared data.",
+    "Rather than allowing every application to communicate directly with third-party APIs, it centralizes authentication, synchronization, events and automation into reusable infrastructure.",
 
-    "Although currently in the research phase, the project establishes the architectural foundation for scalable data integration across multiple platforms and services.",
+    "Applications interact with a unified interface while provider-specific implementations remain isolated behind adapters.",
   ],
 
   problem: [
-    "Applications repeatedly integrate with the same external services.",
-    "Data formats differ between providers.",
-    "Business logic becomes tightly coupled to third-party APIs.",
-    "Synchronization and consistency become increasingly difficult as systems grow.",
-    "There is often no single source of truth across applications.",
+    "External services evolve constantly.",
+    "APIs change over time.",
+    "Authentication flows differ between providers.",
+    "Rate limits and operational constraints vary.",
+    "Without an abstraction layer, applications become tightly coupled to individual providers.",
   ],
 
   principles: [
-    "Normalize data before consumption.",
-    "Separate ingestion from business logic.",
-    "Prefer event-driven synchronization where appropriate.",
-    "Design integrations as reusable platform capabilities.",
-    "Treat data quality as a platform responsibility.",
-    "Build observable pipelines from day one.",
+    "Provide stable unified APIs.",
+    "Reduce provider-specific code.",
+    "Keep external dependencies behind explicit boundaries.",
+    "Prefer reusable integrations over application-specific implementations.",
+    "Use events to reduce coupling.",
+    "Treat automation as infrastructure.",
   ],
 
   architecture: {
     description: [
-      "Data is collected from external and internal sources through dedicated connectors.",
-      "Transformation pipelines normalize and enrich incoming data.",
-      "Validated datasets are stored and exposed through stable APIs.",
-      "Applications consume the platform instead of integrating directly with individual providers.",
+      "Applications communicate with stable platform interfaces rather than directly with external services.",
+      "Providers implement standardized contracts while the platform manages authentication, synchronization, events and automation.",
+      "New integrations can be introduced without changing consuming applications.",
     ],
-    diagram: `
-External Sources
-        │
-        ▼
- Connectors
-        │
-        ▼
-Transformation
-        │
-        ▼
- Storage Layer
-        │
-        ▼
- Platform APIs
-        │
-        ▼
- Applications
-`,
   },
 
   capabilities: [
-    "Data ingestion.",
-    "Normalization pipelines.",
-    "Data transformation.",
-    "Provider connectors.",
-    "Synchronization workflows.",
-    "Unified APIs.",
-    "Schema validation.",
-    "Data quality monitoring.",
-    "Event-driven processing.",
-    "Reusable integration framework.",
+    "Provider abstraction.",
+    "OAuth management.",
+    "Event processing.",
+    "Automation workflows.",
+    "Data synchronization.",
+    "Webhook processing.",
+    "Plugin architecture.",
+    "Unified SDK.",
+    "Search integration.",
+    "Typed APIs.",
   ],
 
   engineering: [
-    "Connectors remain isolated from application logic.",
-    "Transformation pipelines are composable and reusable.",
-    "Platform APIs provide stable contracts regardless of underlying providers.",
-    "Observability is integrated throughout the ingestion lifecycle.",
-    "The architecture favors extensibility as new data sources are introduced.",
+    "Plugin-based architecture.",
+    "Type-safe APIs.",
+    "Event-driven design.",
+    "Provider abstraction.",
+    "Reusable SDKs.",
+    "Extensible integrations.",
+    "Automation-first infrastructure.",
   ],
 
   challenges: [
-    "Supporting heterogeneous data sources.",
-    "Maintaining consistency across asynchronous pipelines.",
-    "Balancing flexibility with standardized schemas.",
-    "Designing resilient synchronization strategies.",
+    "Normalizing inconsistent APIs without hiding important provider behavior.",
+    "Maintaining reliable synchronization across external systems.",
+    "Handling provider-specific authentication and rate limits.",
+    "Designing stable contracts while upstream APIs continue to evolve.",
+    "Keeping event processing reliable as integration volume grows.",
   ],
 
   lessons: [
-    "Applications become simpler when integration complexity is centralized.",
-    "Normalized data enables faster product development.",
-    "Stable interfaces are more valuable than provider-specific optimizations.",
-    "Observability is essential for reliable data platforms.",
+    "External APIs should be treated as dependencies, not foundations.",
+    "Stable interfaces reduce long-term maintenance.",
+    "Events create loosely coupled systems.",
+    "Automation belongs in infrastructure.",
+    "Abstraction should hide complexity, not introduce it.",
   ],
 
   roadmap: [
-    "Implement connector framework.",
-    "Build transformation pipeline engine.",
-    "Develop synchronization services.",
-    "Add monitoring and alerting.",
-    "Introduce schema versioning.",
-    "Expand supported providers.",
-    "Publish developer SDKs.",
+    "Expand the provider library.",
+    "Improve synchronization.",
+    "Add additional automation workflows.",
+    "Improve developer tooling.",
+    "Introduce distributed event processing.",
+    "Develop advanced workflow orchestration.",
+    "Support cross-provider synchronization.",
+    "Explore self-hosted deployment options.",
   ],
 
   technologies: [
     {
       name: "TypeScript",
-      purpose: "Platform implementation.",
+      purpose: "Type-safe platform APIs and integration contracts.",
     },
     {
-      name: "PostgreSQL",
-      purpose: "Persistent data storage.",
+      name: "Node.js",
+      purpose: "Runtime for integrations, events and automation.",
     },
     {
-      name: "Redis",
-      purpose: "Caching and event processing.",
+      name: "REST APIs",
+      purpose: "Communication with external providers.",
     },
     {
-      name: "Docker",
-      purpose: "Containerized services.",
+      name: "Webhooks",
+      purpose: "Event-driven updates from external services.",
     },
     {
-      name: "OpenAPI",
-      purpose: "API contracts and documentation.",
+      name: "OAuth",
+      purpose: "Provider authentication and authorization.",
     },
   ],
 

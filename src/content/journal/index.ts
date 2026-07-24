@@ -1,11 +1,21 @@
-import type { JournalEntry } from "@/types/journal";
+import ai from "./ai";
+import architecture from "./architecture";
+import career from "./career";
+import design from "./design";
+import development from "./development";
+import engineering from "./engineering";
+import infrastructure from "./infrastructure";
+import philosophy from "./philosophy";
+import systems from "./systems";
 
-import designSystem from "./building-a-timeless-design-system";
-import engineeringOverFashion from "./engineering-over-fashion";
-import sourceSerif from "./why-source-serif-4";
-
-export const journal: JournalEntry[] = [
-  designSystem,
-  sourceSerif,
-  engineeringOverFashion,
+export const journal = [
+  ...engineering,
+  ...architecture,
+  ...development,
+  ...design,
+  ...infrastructure,
+  ...philosophy,
+  ...ai,
+  ...systems,
+  ...career,
 ];

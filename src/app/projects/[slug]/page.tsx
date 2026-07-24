@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Page } from "@/design-system";
-import { JsonLd } from "@/components/seo/json-ld";
+import { JsonLd } from "@/lib/seo/components/json-ld";
 import {
   ProjectGallery,
   ProjectHero,

@@ -11,8 +11,8 @@ import {
   Footer,
   Navbar,
 } from "@/design-system";
-import { GlobalSearch } from "@/components/layout/global-search";
-import { JsonLd } from "@/components/seo/json-ld";
+import { GlobalSearch } from "@/features/search/layout/global-search";
+import { JsonLd } from "@/lib/seo/components/json-ld";
 import { metadata } from "@/config/metadata";
 import {
   createOrganizationSchema,

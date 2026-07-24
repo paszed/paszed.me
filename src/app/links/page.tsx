@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import { SocialIcon } from "@/components/icons/social-icon";
+import { SocialIcon } from "@/design-system/icons/social-icon";
 import {
   Card,
   Page,

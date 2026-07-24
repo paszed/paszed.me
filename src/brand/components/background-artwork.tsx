@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemedLion } from "@/components/theme/themed-lion";
+import { ThemedLion } from "@/brand/components/themed-lion";
 
 export function BrandBackground() {
   return (

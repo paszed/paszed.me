@@ -1,9 +1,6 @@
 import type { ReactNode } from "react";
 
-import {
-  Stack,
-  Text,
-} from "@/design-system";
+import { Text } from "@/design-system";
 
 import { ProjectSection } from "./project-section";
 

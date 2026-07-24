@@ -2,13 +2,40 @@ import type { ButtonHTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
+export type ButtonVariant =
+  | "default"
+  | "outline"
+  | "ghost";
+
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
 }
+
+const variantClasses: Record<ButtonVariant, string> = {
+  default: [
+    "border-transparent",
+    "bg-accent text-background",
+    "hover:bg-accent-hover",
+  ].join(" "),
+
+  outline: [
+    "border-border",
+    "bg-transparent text-foreground",
+    "hover:bg-surface",
+  ].join(" "),
+
+  ghost: [
+    "border-transparent",
+    "bg-transparent text-foreground",
+    "hover:bg-surface",
+  ].join(" "),
+};
 
 export function Button({
   className,
   type = "button",
+  variant = "default",
   ...props
 }: ButtonProps) {
   return (
@@ -17,13 +44,10 @@ export function Button({
       className={cn(
         [
           "inline-flex items-center justify-center",
-          "rounded-md",
-          "border border-transparent",
-          "bg-accent text-background",
+          "rounded-md border",
           "px-5 py-2.5",
           "font-sans text-sm font-medium tracking-[0.015em]",
           "transition-colors duration-200",
-          "hover:bg-accent-hover",
           "focus-visible:outline-none",
           "focus-visible:ring-2",
           "focus-visible:ring-accent",
@@ -32,6 +56,7 @@ export function Button({
           "disabled:pointer-events-none",
           "disabled:opacity-50",
         ],
+        variantClasses[variant],
         className,
       )}
       {...props}

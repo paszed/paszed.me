@@ -6,137 +6,137 @@ export const designSystem: Project = {
   title: "Design System",
 
   tagline:
-    "A composable frontend platform for building consistent, accessible user interfaces.",
+    "A reusable component library and design language for building consistent, accessible user interfaces.",
 
   summary:
-    "A reusable design system that provides the foundations for building modern web applications.",
+    "A production-focused design system containing reusable UI primitives, patterns, layouts, accessibility utilities and design tokens used across multiple applications.",
 
-  featured: true,
+  featured: false,
 
   status: "building",
 
   started: 2026,
 
   overview: [
-    "The Design System is a reusable frontend platform that standardizes the way interfaces are designed and implemented across projects. Rather than creating isolated components for individual applications, it provides a shared foundation of tokens, primitives, layouts and composable patterns.",
+    "The Design System provides a shared visual language for every application in the ecosystem.",
 
-    "The project began after repeatedly solving the same interface problems across multiple repositories. Every application required typography, layout primitives, forms, navigation, feedback components and accessibility improvements. Consolidating these patterns into a shared platform reduced duplication while improving consistency.",
-
-    "Today the Design System continues to evolve alongside my applications, serving as the interface foundation for larger platforms while remaining independent of any single product.",
+    "Instead of rebuilding interface components for each project, it centralizes reusable primitives, patterns and layout components into a single library that prioritizes consistency, accessibility and long-term maintainability.",
   ],
 
   problem: [
-    "User interfaces became inconsistent across projects.",
-    "Common components were repeatedly reimplemented.",
-    "Accessibility varied between applications.",
-    "Visual changes required updates in multiple repositories.",
-    "Developers spent time rebuilding infrastructure instead of product functionality.",
+    "Every application eventually develops the same buttons, cards, dialogs and navigation components.",
+    "Duplicating interface components across projects creates inconsistent experiences.",
+    "Repeated implementations increase maintenance costs and make improvements harder to propagate.",
+    "Without shared foundations, accessibility and interaction patterns can drift between applications.",
   ],
 
   principles: [
-    "Composition over inheritance.",
-    "Accessibility by default.",
-    "Design tokens as the single source of truth.",
-    "Small primitives compose into larger patterns.",
-    "Consistency before customization.",
-    "Stable APIs with predictable behavior.",
-    "Testing is part of every reusable component.",
+    "Maintain visual consistency.",
+    "Encourage component reuse.",
+    "Build accessibility into every component.",
+    "Reduce duplicated UI code.",
+    "Prefer composition over specialization.",
+    "Use semantic HTML.",
+    "Create a scalable design language.",
   ],
 
   architecture: {
     description: [
-      "Design tokens define the visual language of the system.",
-      "Primitive components provide reusable building blocks.",
-      "Layout and typography establish consistent structure.",
-      "Patterns compose primitives into reusable application features.",
-      "Applications consume the platform without duplicating interface logic.",
+      "Components are organized by capability rather than visual appearance.",
+      "Primitives form the foundation of the system.",
+      "Patterns combine primitives into reusable building blocks.",
+      "Application-specific interfaces compose those patterns into complete user experiences.",
+      "This layered architecture keeps responsibilities clearly separated while maximizing reuse.",
     ],
-    diagram: `
-Applications
-        │
-        ▼
-Patterns
-        │
-        ▼
-Layout & Typography
-        │
-        ▼
-Primitives
-        │
-        ▼
-Design Tokens
-`,
   },
 
   capabilities: [
-    "Design tokens for colors, spacing, typography and motion.",
-    "Reusable primitive components.",
-    "Responsive layout primitives.",
-    "Typography system.",
-    "Accessible navigation patterns.",
-    "Form building blocks.",
-    "Feedback and status components.",
-    "Motion utilities.",
-    "Composable application patterns.",
-    "Comprehensive unit testing for shared components.",
+    "Reusable UI primitives.",
+    "Layout components.",
+    "Design tokens.",
+    "Motion components.",
+    "Accessibility utilities.",
+    "Navigation patterns.",
+    "Form components.",
+    "Charts.",
+    "Data display.",
+    "Media components.",
+    "Testing utilities.",
+    "Dark mode support.",
   ],
 
   engineering: [
-    "The platform favors composition instead of large opinionated components.",
-    "Visual consistency is maintained through shared design tokens rather than duplicated styles.",
-    "Reusable primitives remain intentionally small to maximize flexibility.",
-    "Shared abstractions are introduced only after repeated use across projects.",
-    "Testing focuses on the foundation to reduce regressions throughout consuming applications.",
+    "Strict TypeScript.",
+    "Component testing.",
+    "Accessibility-first development.",
+    "Reusable component architecture.",
+    "Consistent design tokens.",
+    "Composition over inheritance.",
+    "Semantic HTML.",
+    "Responsive design.",
   ],
 
   challenges: [
-    "Balancing flexibility with consistency.",
-    "Avoiding unnecessary abstractions.",
-    "Determining which components belong in the shared platform versus individual applications.",
-    "Maintaining backwards compatibility while evolving APIs.",
+    "Keeping component APIs flexible without making them unnecessarily complex.",
+    "Maintaining visual consistency as the component library expands.",
+    "Providing reusable abstractions without coupling components to individual applications.",
+    "Preserving accessibility across increasingly complex interaction patterns.",
   ],
 
   lessons: [
-    "A design system is primarily an architectural exercise rather than a visual one.",
-    "Simple, composable primitives scale better than complex all-in-one components.",
-    "Developer experience is just as important as user experience.",
-    "Well-designed APIs reduce cognitive overhead across an entire codebase.",
+    "Good design systems reduce decision fatigue.",
+    "Accessibility should be built into every component.",
+    "Composition scales better than specialization.",
+    "Consistency is more valuable than novelty.",
+    "Reusable foundations accelerate development.",
   ],
 
   roadmap: [
-    "Interactive documentation website.",
-    "Visual regression testing.",
-    "Theme customization.",
-    "Expanded pattern library.",
-    "Package distribution.",
-    "Accessibility auditing within CI.",
-    "Automatic design token generation.",
+    "Expand chart components.",
+    "Improve documentation.",
+    "Increase component coverage.",
+    "Add additional reusable patterns.",
+    "Introduce visual regression testing.",
+    "Develop framework adapters.",
+    "Expand theming capabilities.",
+    "Investigate cross-platform support.",
   ],
 
   technologies: [
     {
       name: "React",
-      purpose: "Composable component architecture.",
+      purpose: "Component architecture and interface composition.",
     },
     {
       name: "TypeScript",
-      purpose: "Type-safe component APIs.",
+      purpose: "Type-safe component APIs and implementation.",
     },
     {
       name: "Tailwind CSS",
-      purpose: "Implementation of the design language.",
+      purpose: "Utility-driven styling and design token integration.",
+    },
+    {
+      name: "Radix UI",
+      purpose: "Accessible interaction primitives.",
     },
     {
       name: "Vitest",
-      purpose: "Component unit testing.",
+      purpose: "Component and utility testing.",
     },
     {
-      name: "Playwright",
-      purpose: "Accessibility and integration testing.",
+      name: "Storybook",
+      purpose: "Component development and documentation.",
     },
   ],
 
   gallery: [],
 
-  links: [],
+  links: [
+    {
+      label: "GitHub",
+      href: "https://github.com/paszed/design-system",
+      primary: true,
+    },
+  ],
 };
+

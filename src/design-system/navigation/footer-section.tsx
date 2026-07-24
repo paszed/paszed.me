@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { SocialIcon } from "@/components/icons/social-icon";
+import { SocialIcon } from "@/design-system/icons/social-icon";
 
 interface FooterItem {
   label: string;

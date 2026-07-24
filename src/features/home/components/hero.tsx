@@ -16,7 +16,7 @@ import {
   TextLink,
 } from "@/design-system";
 
-import { ThemedLion } from "@/components/theme/themed-lion";
+import { ThemedLion } from "@/brand/components/themed-lion";
 import { home } from "@/content";
 import { site } from "@/config/site";
 

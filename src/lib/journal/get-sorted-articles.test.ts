@@ -1,13 +1,20 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 
-import { getSortedArticles } from "./get-sorted-articles";
 import { getAllArticles } from "./get-all-articles";
+import { getSortedArticles } from "./get-sorted-articles";
 
 vi.mock("./get-all-articles", () => ({
   getAllArticles: vi.fn(),
 }));
 
-const mockedGetAllArticles = vi.mocked(getAllArticles);
+const mockedGetAllArticles =
+  vi.mocked(getAllArticles);
 
 describe("getSortedArticles", () => {
   beforeEach(() => {
@@ -26,7 +33,11 @@ describe("getSortedArticles", () => {
       },
     ] as never);
 
-    expect(getSortedArticles().map((a) => a.title)).toEqual([
+    expect(
+      getSortedArticles().map(
+        (article) => article.title,
+      ),
+    ).toEqual([
       "Newer",
       "Older",
     ]);
@@ -43,7 +54,32 @@ describe("getSortedArticles", () => {
       },
     ] as never);
 
-    expect(getSortedArticles().map((a) => a.title)).toEqual([
+    expect(
+      getSortedArticles().map(
+        (article) => article.title,
+      ),
+    ).toEqual([
+      "Published",
+      "Draft",
+    ]);
+  });
+
+  it("keeps published articles before unpublished ones", () => {
+    mockedGetAllArticles.mockReturnValue([
+      {
+        title: "Published",
+        publishedAt: new Date("2025-01-01"),
+      },
+      {
+        title: "Draft",
+      },
+    ] as never);
+
+    expect(
+      getSortedArticles().map(
+        (article) => article.title,
+      ),
+    ).toEqual([
       "Published",
       "Draft",
     ]);
@@ -59,7 +95,11 @@ describe("getSortedArticles", () => {
       },
     ] as never);
 
-    expect(getSortedArticles().map((a) => a.title)).toEqual([
+    expect(
+      getSortedArticles().map(
+        (article) => article.title,
+      ),
+    ).toEqual([
       "Alpha",
       "Zulu",
     ]);

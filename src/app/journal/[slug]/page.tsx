@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import {
-  Prose,
-} from "@/design-system";
+import { Prose } from "@/design-system";
 import {
   ArticleHeader,
   ArticleNavigation,
   ArticleRelated,
   ReadingProgress,
-} from "@/components/article";
-import { JsonLd } from "@/components/seo/json-ld";
+} from "@/features/journal/components/article";
 import {
   getArticle,
   getNextArticle,
@@ -22,6 +19,7 @@ import {
   createBreadcrumbSchema,
   createMetadata,
 } from "@/lib/seo";
+import { JsonLd } from "@/lib/seo/components/json-ld";
 
 interface Props {
   params: Promise<{
@@ -92,12 +90,15 @@ export default async function JournalArticlePage({
 
         <Prose>
           {article.sections.map((section) => (
-            <section key={section.heading}>
-              <h2>{section.heading}</h2>
+            <section key={section.title}>
+              <h2>{section.title}</h2>
 
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+              {section.content
+                .trim()
+                .split(/\n\s*\n/)
+                .map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
             </section>
           ))}
         </Prose>

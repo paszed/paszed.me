@@ -1,11 +1,19 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 
-import { useMounted } from "@/hooks/use-mounted";
+import { useTheme } from "@/design-system/hooks/use-theme";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
+import { useMounted } from "@/design-system/hooks/use-mounted";
+
+export interface ThemeToggleProps {
+  className?: string;
+}
+
+export function ThemeToggle({
+  className,
+}: ThemeToggleProps) {
   const mounted = useMounted();
 
   const { resolvedTheme, setTheme } = useTheme();
@@ -15,7 +23,7 @@ export function ThemeToggle() {
       <button
         type="button"
         aria-label="Toggle theme"
-        className="rounded-lg p-2"
+        className={cn("rounded-lg p-2", className)}
       >
         <div className="h-4 w-4" />
       </button>
@@ -29,7 +37,10 @@ export function ThemeToggle() {
       type="button"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="rounded-lg p-2 transition-colors hover:bg-muted"
+      className={cn(
+        "rounded-lg p-2 transition-colors hover:bg-muted",
+        className,
+      )}
     >
       {isDark ? (
         <Sun className="h-4 w-4" />

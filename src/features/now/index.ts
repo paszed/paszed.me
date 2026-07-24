@@ -1,2 +1,4 @@
-export * from "./components/now-hero";
-export * from "./components/now-section";
+export * from "./components";
+export * from "./hooks";
+export * from "./lib";
+export * from "./types";

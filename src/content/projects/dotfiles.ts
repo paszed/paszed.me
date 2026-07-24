@@ -6,121 +6,131 @@ export const dotfiles: Project = {
   title: "Dotfiles",
 
   tagline:
-    "A reproducible development environment designed for consistency, automation and developer productivity.",
+    "A reproducible development environment for building software consistently across machines.",
 
   summary:
-    "Configuration and tooling that power my daily software engineering workflow.",
+    "A version-controlled development environment that standardizes tooling, shell configuration and workflows for reliable software engineering.",
 
   featured: false,
 
-  status: "production",
+  status: "building",
 
-  started: 2025,
+  started: 2026,
 
   overview: [
-    "Dotfiles capture the development environment I use every day, bringing together editor configuration, shell tooling, terminal customization and development utilities into a single reproducible system.",
+    "Dotfiles provides a reproducible development environment that ensures every machine behaves consistently. Rather than manually configuring editors, shells and development tools, the repository captures the entire engineering environment as code.",
 
-    "Rather than treating configuration as personal preference, the repository approaches the development environment as engineering infrastructure. A consistent setup reduces cognitive overhead, improves reliability across machines and makes experimentation easier without sacrificing stability.",
+    "The project focuses on productivity, automation and consistency. Every configuration is version controlled, documented and designed to minimize setup time while creating a predictable development experience.",
 
-    "The repository evolves alongside my workflow, incorporating new tools and automation as they prove valuable while remaining focused on simplicity, maintainability and developer experience.",
+    "Beyond editor preferences, the repository represents an evolving engineering workflow that emphasizes reproducibility, maintainability and continuous refinement.",
   ],
 
   problem: [
-    "Development environments often become difficult to reproduce.",
-    "Important tooling is scattered across multiple configuration files.",
-    "Switching machines frequently requires manual setup.",
-    "Small inconsistencies accumulate and interrupt developer flow.",
+    "Development environments often drift over time.",
+    "Manual setup is slow, repetitive and error-prone.",
+    "Tooling differs between machines, creating inconsistent workflows.",
+    "Configuration changes are rarely documented or version controlled.",
+    "Rebuilding a workstation should not require rediscovering previous decisions.",
   ],
 
   principles: [
-    "Reproducibility over manual configuration.",
-    "Automation before repetition.",
-    "Keep tooling discoverable and documented.",
-    "Optimize for long-term maintainability.",
-    "Reduce friction in everyday development.",
+    "Everything should be reproducible.",
+    "Automation over manual configuration.",
+    "Version control every meaningful change.",
+    "Terminal-first development.",
+    "Small improvements compound over time.",
+    "Consistency reduces cognitive load.",
   ],
 
   architecture: {
     description: [
-      "Configuration is organized into focused modules rather than one large setup.",
-      "Shell, editor, Git and terminal tooling remain independent while sharing common conventions.",
-      "Bootstrap scripts automate installation and onboarding.",
-      "Documentation explains not only how the environment works, but why particular decisions were made.",
+      "Configuration is organized into small, independent modules with clear responsibilities.",
+      "Bootstrap scripts automate installation and environment setup.",
+      "Tool-specific configuration remains isolated while sharing common conventions.",
+      "The repository serves as the single source of truth for the development environment.",
     ],
+
     diagram: `
-Bootstrap
-     │
-     ▼
-Shell Configuration
-     │
- ┌───┼────┐
- ▼   ▼    ▼
-Git Neovim Terminal
-     │
-     ▼
-Developer Workflow
+           Dotfiles
+               │
+   ┌───────────┼───────────┐
+   ▼           ▼           ▼
+ Shell      Editors      Git
+   │           │           │
+   ├───────────┼───────────┤
+   ▼           ▼           ▼
+ CLI Tools   Scripts   Packages
+               │
+               ▼
+      Reproducible Environment
 `,
   },
 
   capabilities: [
-    "Neovim configuration.",
-    "Zsh environment.",
-    "Git aliases and workflow improvements.",
-    "Terminal customization.",
-    "Development automation.",
-    "Bootstrap scripts.",
-    "Shared CLI tooling.",
-    "Consistent development environment across machines.",
+    "Automated environment setup.",
+    "Shell configuration.",
+    "Editor configuration.",
+    "Git configuration.",
+    "Terminal tooling.",
+    "Package management.",
+    "Development scripts.",
+    "Consistent aliases.",
+    "Workflow automation.",
+    "Machine provisioning.",
   ],
 
   engineering: [
-    "Configuration is modular to simplify maintenance and experimentation.",
-    "Automation replaces repetitive setup wherever possible.",
-    "Tools are selected based on long-term productivity rather than novelty.",
-    "Documentation is treated as part of the development environment.",
+    "Configuration as code.",
+    "Modular organization.",
+    "Cross-machine reproducibility.",
+    "Automation-first workflows.",
+    "Version-controlled tooling.",
   ],
 
   challenges: [
-    "Keeping configuration portable across machines.",
-    "Balancing customization with simplicity.",
-    "Managing evolving tooling without introducing unnecessary complexity.",
+    "Balancing portability with platform-specific customization.",
+    "Keeping configurations simple as the toolchain grows.",
+    "Maintaining compatibility across operating system updates.",
+    "Avoiding unnecessary customization while preserving productivity.",
   ],
 
   lessons: [
-    "Small workflow improvements compound over time.",
-    "A reliable development environment increases focus by reducing unnecessary friction.",
-    "Well-documented tooling is easier to maintain than clever configuration.",
-    "Developer experience begins long before writing application code.",
+    "A good development environment removes friction instead of adding features.",
+    "Automation is an investment that compounds every day.",
+    "Configuration deserves the same engineering discipline as software.",
+    "Small workflow improvements become significant over thousands of hours.",
+    "Reproducibility is one of the foundations of professional engineering.",
   ],
 
   roadmap: [
     "Improve bootstrap automation.",
     "Expand development scripts.",
+    "Document engineering workflows.",
+    "Add machine validation.",
+    "Improve onboarding experience.",
     "Support additional operating systems.",
-    "Increase environment validation.",
-    "Publish setup documentation and workflow guides.",
   ],
 
   technologies: [
     {
-      name: "Neovim",
-      purpose: "Primary development environment.",
+      name: "Fish",
+      purpose: "Interactive shell and command-line environment.",
     },
     {
-      name: "Zsh",
-      purpose: "Interactive shell.",
+      name: "Neovim",
+      purpose: "Primary development editor.",
     },
     {
       name: "Git",
-      purpose: "Version control workflow.",
+      purpose: "Version control configuration.",
     },
     {
       name: "Homebrew",
       purpose: "Package management.",
     },
     {
-      name: "Lua",
-      purpose: "Neovim configuration.",
+      name: "Shell Scripts",
+      purpose: "Environment automation and provisioning.",
     },
   ],
 

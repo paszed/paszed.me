@@ -6,133 +6,121 @@ export const trustPlatform: Project = {
   title: "Trust Platform",
 
   tagline:
-    "An event-driven Trust & Safety platform for building transparent, explainable moderation systems.",
+    "Infrastructure for identity, verification, moderation and trust.",
 
   summary:
-    "Infrastructure for moderation, reputation and trust in modern online communities.",
+    "A reusable platform that provides verification workflows, reputation systems, moderation tools and policy enforcement for applications that depend on user trust.",
 
   featured: true,
 
-  status: "research",
+  status: "building",
 
   started: 2026,
 
   overview: [
-    "Trust Platform explores how modern online communities can build safer, more transparent moderation systems without relying on opaque decision making. Rather than treating moderation as a collection of isolated features, the project approaches Trust & Safety as a dedicated platform with reusable services, policies and workflows.",
+    "Trust Platform centralizes the systems responsible for identity, verification, moderation and reputation.",
 
-    "The architecture is event-driven, allowing moderation decisions, investigations and policy enforcement to evolve independently while maintaining a complete audit trail. Every decision is supported by evidence and designed to be explainable to both moderators and users.",
+    "Rather than implementing these concerns independently within every application, it provides reusable infrastructure that helps establish trust between users while remaining flexible enough to support different business domains.",
 
-    "Although still in the research and design phase, the project establishes the architectural foundation for scalable Trust & Safety systems that can be adapted to different communities and products.",
+    "The platform is designed around transparency, auditability and long-term maintainability.",
   ],
 
   problem: [
-    "Moderation systems are often tightly coupled to individual products.",
-    "Automated decisions frequently lack transparency and explainability.",
-    "Evidence is fragmented across different services.",
-    "Policy changes become difficult as platforms grow.",
-    "Human moderation workflows are rarely treated as first-class engineering problems.",
+    "Trust cannot be added effectively after an application has already grown.",
+    "Verification, moderation and permissions become increasingly difficult to introduce once data and workflows are established.",
+    "Implementing trust systems independently across applications duplicates complex infrastructure.",
+    "Trust capabilities need stable foundations while allowing policies to evolve over time.",
   ],
 
   principles: [
-    "Transparency over black-box automation.",
-    "Evidence before enforcement.",
-    "Humans remain part of high-impact decisions.",
-    "Policies should be versioned and independently deployable.",
-    "Every moderation action should be auditable.",
-    "The platform should remain extensible through events and plugins.",
+    "Trust should be designed into the platform.",
+    "Transparency builds confidence.",
+    "Permissions should be explicit.",
+    "Auditability is a first-class requirement.",
+    "Policies should remain configurable.",
+    "Trust infrastructure should be reusable across applications.",
+    "Security-conscious development by default.",
   ],
 
   architecture: {
     description: [
-      "An event-driven architecture separates moderation workflows into independent services.",
-      "Evidence, policies, investigations and risk assessment communicate through events rather than direct dependencies.",
-      "Plugins allow products to extend the platform without modifying its core.",
-      "Complete audit trails improve transparency and operational insight.",
+      "Trust Platform separates verification, moderation, permissions and reputation into independent services with clearly defined responsibilities.",
+      "Applications consume these capabilities through stable interfaces rather than implementing trust logic independently.",
+      "Policies remain configurable so trust requirements can evolve without requiring major architectural changes.",
+      "Audit trails provide visibility into decisions and state transitions across trust workflows.",
     ],
-    diagram: `
-User Activity
-      │
-      ▼
-Event Bus
-      │
- ┌────┼────┐
- ▼    ▼    ▼
-Risk Policy Evidence
-Engine Engine Store
-      │
-      ▼
-Investigation
-      │
-      ▼
-Moderator Decision
-`,
   },
 
   capabilities: [
-    "Event-driven moderation workflows.",
-    "Policy evaluation.",
-    "Evidence collection.",
-    "Risk assessment.",
-    "Investigation management.",
-    "Plugin architecture.",
-    "Moderator cockpit.",
-    "Audit history.",
-    "Explainable decision making.",
-    "AI-assisted moderation.",
+    "Identity verification.",
+    "Moderation workflows.",
+    "Trust scoring.",
+    "Role-based access control.",
+    "Permission management.",
+    "Audit logging.",
+    "Reporting systems.",
+    "Policy enforcement.",
+    "Reputation models.",
+    "Review workflows.",
   ],
 
   engineering: [
-    "The platform treats Trust & Safety as infrastructure rather than application logic.",
-    "Event-driven communication reduces coupling between moderation services.",
-    "Policies remain independent from implementation details.",
-    "Evidence is preserved to improve accountability and future investigations.",
-    "AI assists moderators without replacing human judgment.",
+    "Policy-driven architecture.",
+    "Role-based permissions.",
+    "Audit-first design.",
+    "Reusable workflows.",
+    "Type-safe APIs.",
+    "Event-driven integration.",
+    "Security-conscious development.",
   ],
 
   challenges: [
-    "Balancing automation with human oversight.",
-    "Designing explainable AI-assisted workflows.",
-    "Supporting diverse moderation policies across different communities.",
-    "Maintaining scalability while preserving complete auditability.",
+    "Designing trust policies that remain configurable across different application domains.",
+    "Maintaining complete and useful audit trails without excessive operational complexity.",
+    "Balancing automated enforcement with workflow[118;1:3us requiring human judgment.",
+    "Keeping permissions explicit as roles and capabilities expand.",
+    "Evolving reputation and trust models without destabilizing existing integrations.",
   ],
 
   lessons: [
-    "Trust cannot be treated as a single feature—it emerges from consistent, explainable systems.",
-    "Transparent architecture improves both developer experience and user confidence.",
-    "Event-driven systems naturally support evolving moderation policies.",
-    "The most valuable moderation platforms augment human decision making rather than replacing it.",
+    "Trust should be designed into a platform, not added later.",
+    "Transparency builds confidence.",
+    "Permissions should be explicit.",
+    "Audit trails simplify accountability.",
+    "Reusable trust systems reduce duplicated effort.",
   ],
 
   roadmap: [
-    "Build the event infrastructure.",
-    "Implement the policy engine.",
-    "Develop the evidence store.",
-    "Create the moderator cockpit.",
-    "Integrate AI-assisted investigations.",
-    "Support reputation and trust scoring.",
-    "Publish architectural documentation.",
+    "Expand verification workflows.",
+    "Develop advanced moderation tooling.",
+    "Introduce configurable trust policies.",
+    "Improve audit reporting.",
+    "Develop risk analysis capabilities.",
+    "Investigate adaptive trust scoring.",
+    "Support cross-application identity.",
+    "Explore distributed trust services.",
   ],
 
   technologies: [
     {
       name: "TypeScript",
-      purpose: "Platform implementation.",
+      purpose: "Type-safe platform services and APIs.",
+    },
+    {
+      name: "Node.js",
+      purpose: "Server-side trust and workflow infrastructure.",
     },
     {
       name: "PostgreSQL",
-      purpose: "Persistent storage and audit history.",
+      purpose: "Persistent trust, identity and audit data.",
     },
     {
-      name: "Redis",
-      purpose: "Event processing and caching.",
+      name: "OAuth",
+      purpose: "Identity and authorization integration.",
     },
     {
-      name: "OpenAI",
-      purpose: "AI-assisted moderation workflows.",
-    },
-    {
-      name: "Docker",
-      purpose: "Local development and deployment.",
+      name: "REST APIs",
+      purpose: "Stable interfaces for consuming trust capabilities.",
     },
   ],
 
@@ -146,3 +134,4 @@ Moderator Decision
     },
   ],
 };
+
