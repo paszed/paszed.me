@@ -27,23 +27,46 @@ export function JournalCard({
           gap="sm"
           className="text-xs font-medium uppercase tracking-[0.3em] text-fg-muted"
         >
-          <span>{article.category}</span>
+          <Text
+            as="span"
+            size="xs"
+          >
+            {article.category}
+          </Text>
 
-          <span>•</span>
+          <Text
+            as="span"
+            size="xs"
+            aria-hidden
+          >
+            •
+          </Text>
 
-          <span>
+          <Text
+            as="span"
+            size="xs"
+          >
             {article.publishedAt
               ? formatDate(article.publishedAt)
               : "Draft"}
-          </span>
+          </Text>
 
-          <span>•</span>
+          <Text
+            as="span"
+            size="xs"
+            aria-hidden
+          >
+            •
+          </Text>
 
-          <span>
+          <Text
+            as="span"
+            size="xs"
+          >
             {formatReadingTime(
               article.readingTimeMinutes,
             )}
-          </span>
+          </Text>
         </Cluster>
 
         <Stack gap="sm">

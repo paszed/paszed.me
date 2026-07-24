@@ -1,6 +1,7 @@
 import {
   Page,
   SectionHeader,
+  Stack,
 } from "@/design-system";
 import { JournalCard } from "@/features/journal";
 import { getPublishedArticles } from "@/lib/journal";
@@ -18,14 +19,17 @@ export default function JournalPage() {
         description="Essays, notes, and long-form writing on software engineering, architecture, developer tools, AI, and building software intended to last."
       />
 
-      <section className="mx-auto grid max-w-4xl gap-8">
+      <Stack
+        as="section"
+        gap="lg"
+      >
         {articles.map((article) => (
           <JournalCard
             key={article.slug}
             article={article}
           />
         ))}
-      </section>
+      </Stack>
     </Page>
   );
 }

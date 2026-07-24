@@ -1,5 +1,7 @@
 import {
   Heading,
+  List,
+  ListItem,
   Section,
   Stack,
 } from "@/design-system";
@@ -18,16 +20,16 @@ export function UsesSection({
       <Stack gap="md">
         <Heading as="h2">{title}</Heading>
 
-        <ul className="space-y-3">
+        <List>
           {items.map((item) => (
-            <li
+            <ListItem
               key={item}
-              className="text-fg-secondary"
+              muted
             >
               {item}
-            </li>
+            </ListItem>
           ))}
-        </ul>
+        </List>
       </Stack>
     </Section>
   );

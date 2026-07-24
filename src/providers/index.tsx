@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 
-import { CommandPaletteProvider } from "@/features/search/context";
+import { CommandPaletteProvider } from "@/features/search";
 
 import { ThemeProvider } from "./theme-provider";
 

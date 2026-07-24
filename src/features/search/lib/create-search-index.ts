@@ -1,7 +1,7 @@
 import { projects } from "@/content";
 import { getPublishedArticles } from "@/lib/journal";
 
-import type { SearchItem } from "@/features/search/types";
+import type { SearchItem } from "../types/search";
 
 export function createSearchIndex(): SearchItem[] {
   const articles: SearchItem[] =

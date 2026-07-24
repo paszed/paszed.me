@@ -1,6 +1,8 @@
 import Image from "next/image";
 
 import {
+  Avatar,
+  Cluster,
   Heading,
   Section,
   Stack,
@@ -13,9 +15,12 @@ import { about } from "@/content";
 export function AboutHero() {
   return (
     <Section>
-      <div className="flex flex-col items-start gap-12 md:flex-row md:items-center">
+      <Cluster
+        gap="lg"
+        className="flex-col items-start gap-12 md:flex-row md:items-center"
+      >
         <Surface className="shrink-0 rounded-full p-2 shadow-sm">
-          <div className="relative size-36 overflow-hidden rounded-full">
+          <Avatar className="relative size-36 overflow-hidden border-0">
             <Image
               src="/images/profile.jpg"
               alt="Portrait of Edvard Pasz"
@@ -24,17 +29,26 @@ export function AboutHero() {
               sizes="144px"
               className="object-cover"
             />
-          </div>
+          </Avatar>
         </Surface>
 
-        <Stack gap="md" className="max-w-2xl">
-          <Heading as="h1">{about.hero.title}</Heading>
+        <Stack
+          gap="md"
+          className="max-w-2xl"
+        >
+          <Heading as="h1">
+            {about.hero.title}
+          </Heading>
 
-          <Text size="lg" muted className="leading-relaxed">
+          <Text
+            size="lg"
+            muted
+            className="leading-relaxed"
+          >
             {about.hero.intro}
           </Text>
         </Stack>
-      </div>
+      </Cluster>
     </Section>
   );
 }

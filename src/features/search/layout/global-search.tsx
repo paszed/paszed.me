@@ -2,9 +2,11 @@
 
 import { useEffect, useRef } from "react";
 
-import { SearchBox } from "@/features/search/components/search-box";
-import { SearchDialog } from "@/features/search/components/search-dialog";
-import { useCommandPaletteShortcuts } from "@/features/search/hooks/use-command-palette-shortcuts";
+import {
+  SearchBox,
+  SearchDialog,
+} from "../components";
+import { useCommandPaletteShortcuts } from "../hooks";
 
 export function GlobalSearch() {
   const {

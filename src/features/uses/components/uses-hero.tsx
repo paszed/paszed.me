@@ -1,9 +1,11 @@
 import {
   Heading,
+  Measure,
   Section,
   Stack,
   Text,
 } from "@/design-system";
+
 import { uses } from "@/content";
 
 export function UsesHero() {
@@ -12,13 +14,11 @@ export function UsesHero() {
       <Stack gap="md">
         <Heading as="h1">Uses</Heading>
 
-        <Text
-          size="lg"
-          muted
-          className="max-w-3xl leading-8"
-        >
-          {uses.description}
-        </Text>
+        <Measure size="3xl">
+          <Text size="lg" muted>
+            {uses.description}
+          </Text>
+        </Measure>
       </Stack>
     </Section>
   );

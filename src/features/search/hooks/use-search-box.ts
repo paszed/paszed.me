@@ -7,12 +7,9 @@ import {
 } from "react";
 import { useRouter } from "next/navigation";
 
-import { useCommandPalette } from "@/features/search/context";
+import { createSearchIndex, search } from "../lib";
 
-
-import { createSearchIndex } from "@/services/search-index";
-
-import { search } from "../lib/search";
+import { useCommandPalette } from "../context";
 
 export function useSearchBox() {
   const router = useRouter();

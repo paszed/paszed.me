@@ -53,20 +53,23 @@ vi.mock("@/config/navigation", () => ({
   ],
 }));
 
-vi.mock(
-  "@/features/search/context",
-  () => ({
-    useCommandPalette: () => ({
-      toggle: mockToggle,
-    }),
+vi.mock("@/features/search", () => ({
+  useCommandPalette: () => ({
+    toggle: mockToggle,
   }),
-);
-
-vi.mock("../providers", () => ({
-  ThemeToggle: () => (
-    <div data-testid="theme-toggle" />
-  ),
 }));
+
+vi.mock("@/design-system", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("@/design-system")>();
+
+  return {
+    ...actual,
+    ThemeToggle: () => (
+      <div data-testid="theme-toggle" />
+    ),
+  };
+});
 
 vi.mock("./mobile-menu", () => ({
   MobileMenu: () => (

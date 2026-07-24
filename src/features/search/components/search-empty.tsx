@@ -1,7 +1,9 @@
+import { Text } from "@/design-system";
+
 export function SearchEmpty() {
   return (
-    <p className="text-fg-muted">
+    <Text muted>
       No results found.
-    </p>
+    </Text>
   );
 }

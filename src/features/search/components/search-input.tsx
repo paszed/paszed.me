@@ -5,6 +5,8 @@ import {
   type KeyboardEventHandler,
 } from "react";
 
+import { Input } from "@/design-system";
+
 interface SearchInputProps {
   value: string;
   onChange(value: string): void;
@@ -23,7 +25,7 @@ export const SearchInput = forwardRef<
   ref,
 ) {
   return (
-    <input
+    <Input
       ref={ref}
       aria-label="Search"
       type="search"
@@ -35,7 +37,7 @@ export const SearchInput = forwardRef<
       onKeyDown={onKeyDown}
       autoComplete="off"
       spellCheck={false}
-      className="w-full border-0 bg-transparent text-lg outline-none placeholder:text-fg-muted"
+      className="h-auto border-0 bg-transparent px-0 py-0 text-lg shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
     />
   );
 });

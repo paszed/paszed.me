@@ -9,7 +9,7 @@ import {
   Stack,
   Text,
 } from "@/design-system";
-import { ProjectCard } from "@/features/projects/components/project-card";
+import { ProjectCard } from "@/features/projects";
 import { getArchivedProjects } from "@/features/archive";
 
 export default function ArchivePage() {

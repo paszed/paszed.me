@@ -1,6 +1,9 @@
 import {
   Heading,
+  Measure,
   Page,
+  Stack,
+  Text,
 } from "@/design-system";
 
 import { SearchBox } from "./search-box";
@@ -8,19 +11,19 @@ import { SearchBox } from "./search-box";
 export function SearchPage() {
   return (
     <Page>
-      <div className="mx-auto max-w-3xl py-24">
-        <header className="space-y-6">
-          <Heading as="h1">Search</Heading>
+      <Measure size="3xl">
+        <Stack gap="2xl">
+          <Stack gap="md">
+            <Heading as="h1">Search</Heading>
 
-          <p className="text-fg-secondary">
-            Search across projects, journal articles, and pages.
-          </p>
-        </header>
+            <Text muted>
+              Search across projects, journal articles, and pages.
+            </Text>
+          </Stack>
 
-        <div className="mt-12">
           <SearchBox />
-        </div>
-      </div>
+        </Stack>
+      </Measure>
     </Page>
   );
 }

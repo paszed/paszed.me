@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import {
   Card,
+  Grid,
+  Heading,
   Label,
   Stack,
 } from "@/design-system";
@@ -21,9 +23,15 @@ export function ArticleNavigation({
   }
 
   return (
-    <nav className="mt-24 border-t border-border pt-10">
-      <div className="grid gap-6 md:grid-cols-2">
-        <div>
+    <Stack
+      as="nav"
+      className="mt-24 border-t border-border pt-10"
+    >
+      <Grid
+        gap="lg"
+        className="md:grid-cols-2"
+      >
+        <Stack>
           {previous && (
             <Link
               href={`/journal/${previous.slug}`}
@@ -36,16 +44,19 @@ export function ArticleNavigation({
                 <Stack gap="sm">
                   <Label>Previous</Label>
 
-                  <h3 className="font-serif text-xl font-semibold text-fg transition-colors group-hover:text-accent">
+                  <Heading
+                    as="h3"
+                    className="text-xl transition-colors group-hover:text-accent"
+                  >
                     {previous.title}
-                  </h3>
+                  </Heading>
                 </Stack>
               </Card>
             </Link>
           )}
-        </div>
+        </Stack>
 
-        <div className="text-left md:text-right">
+        <Stack className="text-left md:text-right">
           {next && (
             <Link
               href={`/journal/${next.slug}`}
@@ -58,15 +69,18 @@ export function ArticleNavigation({
                 <Stack gap="sm">
                   <Label>Next</Label>
 
-                  <h3 className="font-serif text-xl font-semibold text-fg transition-colors group-hover:text-accent">
+                  <Heading
+                    as="h3"
+                    className="text-xl transition-colors group-hover:text-accent"
+                  >
                     {next.title}
-                  </h3>
+                  </Heading>
                 </Stack>
               </Card>
             </Link>
           )}
-        </div>
-      </div>
-    </nav>
+        </Stack>
+      </Grid>
+    </Stack>
   );
 }

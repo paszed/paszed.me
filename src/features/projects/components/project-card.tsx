@@ -1,37 +1,20 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 import {
+  ActionIcon,
   Badge,
   Card,
   Cluster,
   Heading,
   Stack,
+  StatusBadge,
   Text,
 } from "@/design-system";
-
 import type { Project } from "@/types/project";
 
-type ProjectCardProps = Project;
+import { PROJECT_STATUS } from "../lib";
 
-const STATUS = {
-  research: {
-    label: "Research",
-    dot: "bg-sky-500",
-  },
-  building: {
-    label: "Building",
-    dot: "bg-yellow-500",
-  },
-  production: {
-    label: "Production",
-    dot: "bg-green-500",
-  },
-  archived: {
-    label: "Archived",
-    dot: "bg-zinc-500",
-  },
-} as const;
+type ProjectCardProps = Project;
 
 export function ProjectCard({
   slug,
@@ -41,7 +24,7 @@ export function ProjectCard({
   status,
   started,
 }: ProjectCardProps) {
-  const statusConfig = STATUS[status];
+  const statusConfig = PROJECT_STATUS[status];
 
   return (
     <Link
@@ -60,14 +43,9 @@ export function ProjectCard({
             gap="sm"
             className="text-sm"
           >
-            <span className="flex items-center gap-2 font-medium text-accent">
-              <span
-                aria-hidden
-                className={`size-2 rounded-full ${statusConfig.dot}`}
-              />
-
+            <StatusBadge tone={statusConfig.tone}>
               {statusConfig.label}
-            </span>
+            </StatusBadge>
 
             <Text
               size="sm"
@@ -100,16 +78,19 @@ export function ProjectCard({
             ))}
           </Cluster>
 
-          <div className="mt-auto">
-            <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
+          <Cluster
+            gap="sm"
+            className="mt-auto font-medium text-accent transition-all group-hover:gap-3"
+          >
+            <Text
+              as="span"
+              size="base"
+            >
               Case Study
+            </Text>
 
-              <ArrowUpRight
-                aria-hidden
-                className="size-4"
-              />
-            </span>
-          </div>
+            <ActionIcon name="open" />
+          </Cluster>
         </Stack>
       </Card>
     </Link>

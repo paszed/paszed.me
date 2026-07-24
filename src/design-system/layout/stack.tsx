@@ -1,10 +1,15 @@
-import type { HTMLAttributes, ReactNode } from "react";
+import type {
+  ElementType,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
 import { cn } from "@/lib/utils";
 
 type StackGap = "sm" | "md" | "lg" | "xl" | "2xl";
 
-interface StackProps extends HTMLAttributes<HTMLDivElement> {
+interface StackProps extends HTMLAttributes<HTMLElement> {
+  as?: ElementType;
   children?: ReactNode;
   gap?: StackGap;
 }
@@ -18,17 +23,18 @@ const gaps: Record<StackGap, string> = {
 };
 
 export function Stack({
+  as: Component = "div",
   children,
   className,
   gap = "lg",
   ...props
 }: StackProps) {
   return (
-    <div
+    <Component
       className={cn(gaps[gap], className)}
       {...props}
     >
       {children}
-    </div>
+    </Component>
   );
 }

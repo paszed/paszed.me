@@ -5,6 +5,7 @@ import {
   Cluster,
   Divider,
   Heading,
+  Hero,
   Stack,
   Text,
 } from "@/design-system";
@@ -19,34 +20,34 @@ export function ProjectHero({
   project,
 }: ProjectHeroProps) {
   return (
-    <header>
-      <Stack gap="2xl">
-        <ProjectMeta project={project} />
+    <Hero>
+      <ProjectMeta project={project} />
 
-        <Stack gap="md">
-          <Heading as="h1">{project.title}</Heading>
+      <Stack gap="md">
+        <Heading as="h1">
+          {project.title}
+        </Heading>
 
-          <Text
-            size="lg"
-            muted
-            className="max-w-3xl leading-relaxed"
-          >
-            {project.summary}
-          </Text>
-        </Stack>
-
-        {project.technologies.length > 0 && (
-          <Cluster gap="sm">
-            {project.technologies.map((technology) => (
-              <Badge key={technology.name}>
-                {technology.name}
-              </Badge>
-            ))}
-          </Cluster>
-        )}
-
-        <Divider />
+        <Text
+          size="lg"
+          muted
+          className="max-w-3xl leading-relaxed"
+        >
+          {project.summary}
+        </Text>
       </Stack>
-    </header>
+
+      {project.technologies.length > 0 && (
+        <Cluster gap="sm">
+          {project.technologies.map((technology) => (
+            <Badge key={technology.name}>
+              {technology.name}
+            </Badge>
+          ))}
+        </Cluster>
+      )}
+
+      <Divider />
+    </Hero>
   );
 }

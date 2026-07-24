@@ -2,7 +2,10 @@
 
 import type { ReactNode } from "react";
 
-import { Panel } from "@/design-system";
+import {
+  Dialog,
+  DialogContent,
+} from "@/design-system";
 
 interface SearchDialogProps {
   open: boolean;
@@ -15,25 +18,18 @@ export function SearchDialog({
   onClose,
   children,
 }: SearchDialogProps) {
-  if (!open) {
-    return null;
-  }
-
   return (
-    <div
-      className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
-      onClick={onClose}
+    <Dialog
+      open={open}
+      onOpenChange={(nextOpen) => {
+        if (!nextOpen) {
+          onClose();
+        }
+      }}
     >
-      <div className="mx-auto mt-24 max-w-2xl px-6">
-        <Panel
-          className="p-6"
-          onClick={(event) =>
-            event.stopPropagation()
-          }
-        >
-          {children}
-        </Panel>
-      </div>
-    </div>
+      <DialogContent className="top-24 max-w-2xl translate-y-0">
+        {children}
+      </DialogContent>
+    </Dialog>
   );
 }

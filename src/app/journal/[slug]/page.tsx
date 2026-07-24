@@ -7,7 +7,7 @@ import {
   ArticleNavigation,
   ArticleRelated,
   ReadingProgress,
-} from "@/features/journal/components/article";
+} from "@/features/journal";
 import {
   getArticle,
   getNextArticle,
@@ -15,11 +15,11 @@ import {
   getRelatedArticles,
 } from "@/lib/journal";
 import {
+  JsonLd,
   createArticleSchema,
   createBreadcrumbSchema,
   createMetadata,
 } from "@/lib/seo";
-import { JsonLd } from "@/lib/seo/components/json-ld";
 
 interface Props {
   params: Promise<{

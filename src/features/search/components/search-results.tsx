@@ -1,8 +1,9 @@
 import {
-  FileText,
-  FolderGit2,
-  LayoutGrid,
-} from "lucide-react";
+  ContentIcon,
+  Eyebrow,
+  List,
+  Stack,
+} from "@/design-system";
 
 import { groupSearchResults } from "../lib/group-search-results";
 import type {
@@ -19,20 +20,18 @@ interface SearchResultsProps {
   query: string;
 }
 
-function CategoryIcon({
-  category,
-}: {
-  category: SearchCategory;
-}) {
+function getCategoryIcon(
+  category: SearchCategory,
+): "article" | "page" | "project" {
   switch (category) {
     case "Project":
-      return <FolderGit2 className="h-4 w-4" />;
+      return "project";
 
     case "Article":
-      return <FileText className="h-4 w-4" />;
+      return "article";
 
     case "Page":
-      return <LayoutGrid className="h-4 w-4" />;
+      return "page";
   }
 }
 
@@ -50,16 +49,21 @@ export function SearchResults({
   let currentIndex = 0;
 
   return (
-    <div className="space-y-8">
+    <Stack gap="lg">
       {groups.map((group) => (
-        <section key={group.category}>
-          <div className="mb-3 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.3em] text-fg-muted">
-            <CategoryIcon category={group.category} />
+        <Stack
+          key={group.category}
+          gap="sm"
+        >
+          <Eyebrow className="flex items-center gap-2 text-fg-muted">
+            <ContentIcon
+              name={getCategoryIcon(group.category)}
+            />
 
-            <span>{group.category}</span>
-          </div>
+            {group.category}
+          </Eyebrow>
 
-          <ul className="space-y-3">
+          <List gap="md">
             {group.items.map((item) => {
               const selected =
                 currentIndex === selectedIndex;
@@ -75,9 +79,9 @@ export function SearchResults({
                 />
               );
             })}
-          </ul>
-        </section>
+          </List>
+        </Stack>
       ))}
-    </div>
+    </Stack>
   );
 }

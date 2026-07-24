@@ -7,19 +7,25 @@ import {
 
 import { Footer } from "./footer";
 
-vi.mock("../layout", () => ({
-  Container: ({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) => (
-    <div data-testid="container">
-      {children}
-    </div>
-  ),
-}));
+vi.mock("@/design-system", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("@/design-system")>();
 
-vi.mock("@/brand/components/logo", () => ({
+  return {
+    ...actual,
+    Container: ({
+      children,
+    }: {
+      children: React.ReactNode;
+    }) => (
+      <div data-testid="container">
+        {children}
+      </div>
+    ),
+  };
+});
+
+vi.mock("@/brand", () => ({
   BrandLogo: () => (
     <div data-testid="brand-logo" />
   ),

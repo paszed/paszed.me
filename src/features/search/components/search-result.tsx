@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-import { cn } from "@/lib/utils";
+import {
+  Card,
+  Eyebrow,
+  Heading,
+  ListItem,
+  Stack,
+  Text,
+} from "@/design-system";
 
 import { highlightMatch } from "../lib/highlight-match";
 import type { SearchItem } from "../types/search";
@@ -27,50 +34,60 @@ export function SearchResult({
   );
 
   return (
-    <li>
+    <ListItem>
       <Link
         href={item.href}
-        className={cn(
-          "block rounded-lg border border-border p-4 transition-colors",
-          selected
-            ? "border-accent bg-surface"
-            : "hover:border-accent",
-        )}
+        className="group block"
       >
-        <div className="mb-1 text-xs font-medium uppercase tracking-[0.3em] text-accent">
-          {item.category}
-        </div>
+        <Card
+          variant="interactive"
+          className={
+            selected
+              ? "border-accent bg-surface"
+              : undefined
+          }
+        >
+          <Stack gap="sm">
+            <Eyebrow>{item.category}</Eyebrow>
 
-        <h3 className="font-semibold text-fg">
-          {title.map((part, index) => (
-            <span
-              key={index}
-              className={
-                part.highlighted
-                  ? "rounded bg-accent/15 text-accent"
-                  : undefined
-              }
+            <Heading
+              as="h3"
+              className="text-lg"
             >
-              {part.text}
-            </span>
-          ))}
-        </h3>
+              {title.map((part, index) => (
+                <mark
+                  key={index}
+                  className={
+                    part.highlighted
+                      ? "rounded bg-accent/15 text-accent"
+                      : "bg-transparent text-inherit"
+                  }
+                >
+                  {part.text}
+                </mark>
+              ))}
+            </Heading>
 
-        <p className="mt-1 text-sm text-fg-secondary">
-          {description.map((part, index) => (
-            <span
-              key={index}
-              className={
-                part.highlighted
-                  ? "rounded bg-accent/15 text-accent"
-                  : undefined
-              }
+            <Text
+              size="sm"
+              muted
             >
-              {part.text}
-            </span>
-          ))}
-        </p>
+              {description.map((part, index) => (
+                <mark
+                  key={index}
+                  className={
+                    part.highlighted
+                      ? "rounded bg-accent/15 text-accent"
+                      : "bg-transparent text-inherit"
+                  }
+                >
+                  {part.text}
+                </mark>
+              ))}
+            </Text>
+          </Stack>
+        </Card>
       </Link>
-    </li>
+    </ListItem>
   );
 }

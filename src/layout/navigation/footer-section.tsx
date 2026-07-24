@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-import { SocialIcon } from "@/design-system/icons/social-icon";
+import {
+  Heading,
+  List,
+  ListItem,
+  SocialIcon,
+  Stack,
+  Text,
+} from "@/design-system";
 
 interface FooterItem {
   label: string;
@@ -19,17 +26,24 @@ export function FooterSection({
   showIcons = false,
 }: FooterSectionProps) {
   return (
-    <div>
-      <h2 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-fg">
+    <Stack gap="sm">
+      <Heading
+        as="h2"
+        className="text-sm uppercase tracking-[0.2em]"
+      >
         {title}
-      </h2>
+      </Heading>
 
-      <ul className="space-y-3">
+      <List>
         {items.map((item) => (
-          <li key={item.label}>
+          <ListItem key={item.label}>
             <Link
               href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
+              target={
+                item.href.startsWith("http")
+                  ? "_blank"
+                  : undefined
+              }
               rel={
                 item.href.startsWith("http")
                   ? "noopener noreferrer"
@@ -38,7 +52,8 @@ export function FooterSection({
               className="group inline-flex items-center gap-3 text-fg transition-colors duration-200 hover:text-accent"
             >
               {showIcons && (
-                <span
+                <Text
+                  as="span"
                   aria-hidden
                   className="flex h-4 w-4 items-center justify-center"
                 >
@@ -46,14 +61,16 @@ export function FooterSection({
                     name={item.label}
                     className="h-3.5 w-3.5 opacity-80 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
                   />
-                </span>
+                </Text>
               )}
 
-              <span>{item.label}</span>
+              <Text as="span">
+                {item.label}
+              </Text>
             </Link>
-          </li>
+          </ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Stack>
   );
 }

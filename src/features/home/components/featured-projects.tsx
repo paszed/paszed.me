@@ -3,12 +3,13 @@ import Link from "next/link";
 import {
   Button,
   Container,
+  Grid,
   Section,
   SectionHeader,
   Stack,
   Text,
 } from "@/design-system";
-import { ProjectCard } from "@/features/projects/components/project-card";
+import { ProjectCard } from "@/features/projects";
 import { home } from "@/content";
 import { getFeaturedProjects } from "@/lib/projects";
 
@@ -31,16 +32,18 @@ export function FeaturedProjects() {
           />
 
           {projects.length > 0 ? (
-            <div className="grid gap-8 xl:grid-cols-2">
+            <Grid gap="lg" className="xl:grid-cols-2">
               {projects.map((project) => (
                 <ProjectCard
                   key={project.slug}
                   {...project}
                 />
               ))}
-            </div>
+            </Grid>
           ) : (
-            <Text muted>Featured projects are coming soon.</Text>
+            <Text muted>
+              Featured projects are coming soon.
+            </Text>
           )}
         </Stack>
       </Container>

@@ -1,6 +1,13 @@
+import {
+  Measure,
+  Surface,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@/design-system";
 import type { Project } from "@/types/project";
-
-import { Surface } from "@/design-system";
 
 import { ProjectSection } from "./project-section";
 
@@ -17,26 +24,25 @@ export function ProjectTech({
 
   return (
     <ProjectSection title="Technologies">
-      <Surface className="max-w-3xl overflow-hidden rounded-lg">
-        <table className="w-full border-collapse text-left">
-          <tbody>
-            {project.technologies.map((technology) => (
-              <tr
-                key={technology.name}
-                className="border-b border-border last:border-b-0"
-              >
-                <th className="w-40 px-4 py-3 align-top font-medium text-fg">
-                  {technology.name}
-                </th>
+      <Measure size="3xl">
+        <Surface className="overflow-hidden rounded-lg">
+          <Table>
+            <TableBody>
+              {project.technologies.map((technology) => (
+                <TableRow key={technology.name}>
+                  <TableHead className="w-40">
+                    {technology.name}
+                  </TableHead>
 
-                <td className="px-4 py-3 text-fg-secondary">
-                  {technology.purpose ?? "—"}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Surface>
+                  <TableCell>
+                    {technology.purpose ?? "—"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Surface>
+      </Measure>
     </ProjectSection>
   );
 }

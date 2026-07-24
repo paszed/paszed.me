@@ -6,6 +6,8 @@ export * from "./divider";
 export * from "./icon";
 export * from "./icon-button";
 export * from "./label";
+export * from "./list";
 export * from "./panel";
 export * from "./spinner";
+export * from "./status-badge";
 export * from "./surface";

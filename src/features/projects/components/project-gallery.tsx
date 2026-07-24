@@ -1,16 +1,22 @@
 import Image from "next/image";
 
-import { Grid, Surface, Text } from "@/design-system";
+import {
+  Figure,
+  Grid,
+  Surface,
+  Text,
+} from "@/design-system";
+import type { Project } from "@/types/project";
 
 import { ProjectSection } from "./project-section";
-
-import type { Project } from "@/types/project";
 
 interface ProjectGalleryProps {
   project: Project;
 }
 
-export function ProjectGallery({ project }: ProjectGalleryProps) {
+export function ProjectGallery({
+  project,
+}: ProjectGalleryProps) {
   if (project.gallery.length === 0) {
     return null;
   }
@@ -19,7 +25,16 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
     <ProjectSection title="Gallery">
       <Grid gap="lg">
         {project.gallery.map((image) => (
-          <figure key={image.src}>
+          <Figure
+            key={image.src}
+            caption={
+              image.caption ? (
+                <Text size="sm" muted>
+                  {image.caption}
+                </Text>
+              ) : undefined
+            }
+          >
             <Surface className="overflow-hidden rounded-2xl">
               <Image
                 src={image.src}
@@ -30,15 +45,7 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
                 sizes="(max-width: 768px) 100vw, 768px"
               />
             </Surface>
-
-            {image.caption && (
-              <figcaption className="border-t border-border px-5 py-4">
-                <Text size="sm" muted>
-                  {image.caption}
-                </Text>
-              </figcaption>
-            )}
-          </figure>
+          </Figure>
         ))}
       </Grid>
     </ProjectSection>

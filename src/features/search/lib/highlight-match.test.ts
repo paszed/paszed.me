@@ -71,4 +71,17 @@ describe("highlightMatch", () => {
       },
     ]);
   });
+
+  it("treats regular expression characters literally", () => {
+    expect(highlightMatch("React [beta]", "[beta]")).toEqual([
+      {
+        text: "React ",
+        highlighted: false,
+      },
+      {
+        text: "[beta]",
+        highlighted: true,
+      },
+    ]);
+  });
 });

@@ -1,6 +1,8 @@
 import {
   Card,
   Container,
+  Grid,
+  Heading,
   Section,
   SectionHeader,
   Stack,
@@ -19,7 +21,11 @@ export function CurrentFocus() {
             description="The areas I'm actively investing time in as I build software and continue growing as an engineer."
           />
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <Grid
+            columns={3}
+            gap="lg"
+            className="md:grid-cols-3"
+          >
             {home.currentFocus.items.map((item) => (
               <Card
                 key={item.title}
@@ -27,15 +33,15 @@ export function CurrentFocus() {
                 className="h-full"
               >
                 <Stack gap="sm">
-                  <h3 className="text-lg font-semibold text-fg">
+                  <Heading as="h3" className="text-lg">
                     {item.title}
-                  </h3>
+                  </Heading>
 
                   <Text muted>{item.description}</Text>
                 </Stack>
               </Card>
             ))}
-          </div>
+          </Grid>
         </Stack>
       </Container>
     </Section>

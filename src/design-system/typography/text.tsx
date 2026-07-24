@@ -1,10 +1,15 @@
-import type { HTMLAttributes, ReactNode } from "react";
+import type {
+  ElementType,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
 import { cn } from "@/lib/utils";
 
 type TextSize = "xs" | "sm" | "base" | "lg" | "lead";
 
-interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
+interface TextProps extends HTMLAttributes<HTMLElement> {
+  as?: ElementType;
   children?: ReactNode;
   size?: TextSize;
   muted?: boolean;
@@ -19,6 +24,7 @@ const sizes: Record<TextSize, string> = {
 };
 
 export function Text({
+  as: Component = "p",
   children,
   className,
   size = "base",
@@ -26,7 +32,7 @@ export function Text({
   ...props
 }: TextProps) {
   return (
-    <p
+    <Component
       className={cn(
         sizes[size],
         muted ? "text-fg-secondary" : "text-fg",
@@ -35,6 +41,6 @@ export function Text({
       {...props}
     >
       {children}
-    </p>
+    </Component>
   );
 }

@@ -1,6 +1,8 @@
 import {
   Card,
   Container,
+  Grid,
+  Heading,
   Section,
   SectionHeader,
   Stack,
@@ -19,7 +21,7 @@ export function Philosophy() {
             description="The principles that shape how I approach software design, engineering, and long-term maintainability."
           />
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <Grid gap="lg" className="md:grid-cols-3">
             {home.philosophy.items.map((principle) => (
               <Card
                 key={principle.title}
@@ -27,15 +29,17 @@ export function Philosophy() {
                 className="h-full"
               >
                 <Stack gap="sm">
-                  <h3 className="text-lg font-semibold text-fg">
+                  <Heading as="h3" className="text-lg">
                     {principle.title}
-                  </h3>
+                  </Heading>
 
-                  <Text muted>{principle.description}</Text>
+                  <Text muted>
+                    {principle.description}
+                  </Text>
                 </Stack>
               </Card>
             ))}
-          </div>
+          </Grid>
         </Stack>
       </Container>
     </Section>

@@ -2,30 +2,22 @@
 
 import { useEffect } from "react";
 
-import { useCommandPalette as useCommandPaletteContext } from "@/features/search/context";
+import { useCommandPalette } from "../context";
 
 export function useCommandPaletteShortcuts() {
   const {
     open,
     setOpen,
     toggle,
-  } = useCommandPaletteContext();
+  } = useCommandPalette();
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      console.log("keydown", {
-        key: event.key,
-        metaKey: event.metaKey,
-        ctrlKey: event.ctrlKey,
-      });
-
       const isShortcut =
         (event.metaKey || event.ctrlKey) &&
         event.key.toLowerCase() === "k";
 
       if (isShortcut) {
-        console.log("Search shortcut detected");
-
         event.preventDefault();
         toggle();
 
@@ -33,7 +25,6 @@ export function useCommandPaletteShortcuts() {
       }
 
       if (event.key === "Escape") {
-        console.log("Escape pressed");
         setOpen(false);
       }
     }

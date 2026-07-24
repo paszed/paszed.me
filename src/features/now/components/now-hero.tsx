@@ -1,5 +1,6 @@
 import {
   Heading,
+  Measure,
   Section,
   Stack,
   Text,
@@ -11,15 +12,13 @@ export function NowHero() {
       <Stack gap="md">
         <Heading as="h1">Now</Heading>
 
-        <Text
-          size="lg"
-          muted
-          className="max-w-3xl leading-8"
-        >
-          This page captures what I&rsquo;m currently focused on. Inspired by
-          Derek Sivers&rsquo; now page, it&rsquo;s a snapshot of what I&rsquo;m
-          building, learning, and exploring at this moment.
-        </Text>
+        <Measure size="3xl">
+          <Text size="lg" muted>
+            This page captures what I&rsquo;m currently focused on. Inspired by
+            Derek Sivers&rsquo; now page, it&rsquo;s a snapshot of what I&rsquo;m
+            building, learning, and exploring at this moment.
+          </Text>
+        </Measure>
       </Stack>
     </Section>
   );

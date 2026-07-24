@@ -1,3 +1,4 @@
+export { createSearchIndex } from "./create-search-index";
 export { createCommandActions } from "./create-command-actions";
 
 export { groupSearchResults } from "./group-search-results";

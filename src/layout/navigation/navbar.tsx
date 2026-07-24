@@ -2,15 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search } from "lucide-react";
 
 import { BrandLogo } from "@/brand";
 import { navigation } from "@/config/navigation";
-import { useCommandPalette } from "@/features/search/context";
+import {
+  ActionIcon,
+  Button,
+  Container,
+  ThemeToggle,
+} from "@/design-system";
+import { useCommandPalette } from "@/features/search";
 import { cn } from "@/lib/utils";
 
-import { Container } from "../layout";
-import { ThemeToggle } from "../providers";
 import { MobileMenu } from "./mobile-menu";
 
 export function Navbar() {
@@ -35,7 +38,11 @@ export function Navbar() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      aria-current={active ? "page" : undefined}
+                      aria-current={
+                        active
+                          ? "page"
+                          : undefined
+                      }
                       className={cn(
                         "relative font-sans text-sm font-medium tracking-[0.015em] transition-colors duration-200",
                         active
@@ -58,21 +65,21 @@ export function Navbar() {
             </ul>
 
             <div className="hidden items-center gap-2 md:flex">
-              <button
-                type="button"
+              <Button
+                variant="outline"
                 onClick={toggle}
                 aria-label="Open search"
                 aria-keyshortcuts="Meta+K Control+K"
-                className="flex items-center gap-3 rounded-xl border border-border bg-surface px-3 py-2 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-accent"
+                className="gap-3 rounded-xl bg-surface px-3 py-2 text-fg-secondary hover:border-accent hover:text-accent"
               >
-                <Search className="h-4 w-4" />
+                <ActionIcon name="search" />
 
                 <span>Search</span>
 
                 <kbd className="rounded border border-border px-2 py-0.5 text-xs text-fg-muted">
                   ⌘K
                 </kbd>
-              </button>
+              </Button>
 
               <div className="rounded-xl border border-border bg-surface p-1">
                 <ThemeToggle />

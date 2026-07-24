@@ -7,14 +7,11 @@ import type { ReactNode } from "react";
 
 import "./globals.css";
 
-import {
-  Footer,
-  Navbar,
-} from "@/design-system";
-import { GlobalSearch } from "@/features/search/layout/global-search";
-import { JsonLd } from "@/lib/seo/components/json-ld";
+import { Footer, Navbar } from "@/layout";
+import { GlobalSearch } from "@/features/search";
 import { metadata } from "@/config/metadata";
 import {
+  JsonLd,
   createOrganizationSchema,
   createPersonSchema,
   createWebsiteSchema,

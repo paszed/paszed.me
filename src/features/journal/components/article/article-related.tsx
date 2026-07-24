@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import {
   Card,
+  Grid,
   Heading,
   Label,
   Stack,
@@ -21,41 +22,44 @@ export function ArticleRelated({
   }
 
   return (
-    <aside className="mt-24 border-t border-border pt-12">
-      <Stack gap="lg">
+    <Stack
+      as="aside"
+      gap="lg"
+      className="mt-24 border-t border-border pt-12"
+    >
+      <Heading as="h2">
+        Related Articles
+      </Heading>
 
-
-        <Heading as="h2">
-  Related Articles
-</Heading>
-
-        <div className="grid gap-6">
-          {articles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/journal/${article.slug}`}
-              className="group block"
+      <Grid gap="lg">
+        {articles.map((article) => (
+          <Link
+            key={article.slug}
+            href={`/journal/${article.slug}`}
+            className="group block"
+          >
+            <Card
+              variant="interactive"
+              className="h-full"
             >
-              <Card
-                variant="interactive"
-                className="h-full"
-              >
-                <Stack gap="sm">
-                  <Label>{article.category}</Label>
+              <Stack gap="sm">
+                <Label>{article.category}</Label>
 
-                  <h3 className="font-serif text-2xl font-semibold text-fg transition-colors group-hover:text-accent">
-                    {article.title}
-                  </h3>
+                <Heading
+                  as="h3"
+                  className="text-2xl transition-colors group-hover:text-accent"
+                >
+                  {article.title}
+                </Heading>
 
-                  <Text muted>
-                    {article.description}
-                  </Text>
-                </Stack>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </Stack>
-    </aside>
+                <Text muted>
+                  {article.description}
+                </Text>
+              </Stack>
+            </Card>
+          </Link>
+        ))}
+      </Grid>
+    </Stack>
   );
 }

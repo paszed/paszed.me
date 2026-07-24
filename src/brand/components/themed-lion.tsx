@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTheme } from "next-themes";
 
-import { useMounted } from "@/design-system/hooks/use-mounted";
+import { useMounted } from "@/design-system";
 
 export function ThemedLion() {
   const mounted = useMounted();

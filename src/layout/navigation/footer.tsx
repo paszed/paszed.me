@@ -1,8 +1,12 @@
-import { BrandLogo } from "@/brand/components/logo";
-import { footer } from "@/content/footer";
+import { BrandLogo } from "@/brand";
 import { site } from "@/config/site";
+import { footer } from "@/content/footer";
+import {
+  Container,
+  Stack,
+  Text,
+} from "@/design-system";
 
-import { Container } from "../layout";
 import { FooterSection } from "./footer-section";
 
 export function Footer() {
@@ -12,18 +16,24 @@ export function Footer() {
     <footer className="mt-24 border-t border-border">
       <Container>
         <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
-          <div className="space-y-5">
+          <Stack gap="sm">
             <BrandLogo />
 
-            <p className="max-w-sm leading-7 text-fg-secondary">
+            <Text
+              muted
+              className="max-w-sm leading-7"
+            >
               Building developer tools, AI applications, and modern web
               products.
-            </p>
+            </Text>
 
-            <p className="text-sm font-medium text-accent">
+            <Text
+              size="sm"
+              className="font-medium text-accent"
+            >
               Build. Learn. Ship.
-            </p>
-          </div>
+            </Text>
+          </Stack>
 
           <FooterSection
             title="Navigation"
@@ -50,11 +60,19 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 border-t border-border py-6 text-sm text-fg-secondary md:flex-row md:items-center md:justify-between">
-          <p>
+          <Text
+            size="sm"
+            muted
+          >
             © {year} {site.owner}. All rights reserved.
-          </p>
+          </Text>
 
-          <p>Built with Next.js, TypeScript & Tailwind CSS.</p>
+          <Text
+            size="sm"
+            muted
+          >
+            Built with Next.js, TypeScript & Tailwind CSS.
+          </Text>
         </div>
       </Container>
     </footer>

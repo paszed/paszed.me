@@ -85,7 +85,7 @@ describe("SearchResult", () => {
   });
 
   it("applies selected styling", () => {
-    render(
+    const { container } = render(
       <SearchResult
         item={item}
         selected
@@ -94,12 +94,15 @@ describe("SearchResult", () => {
     );
 
     expect(
-      screen.getByRole("link"),
-    ).toHaveClass("border-accent");
+      container.querySelector(".border-accent"),
+    ).toHaveClass(
+      "border-accent",
+      "bg-surface",
+    );
   });
 
-  it("applies hover styling when not selected", () => {
-    render(
+  it("uses an interactive card when not selected", () => {
+    const { container } = render(
       <SearchResult
         item={item}
         selected={false}
@@ -108,8 +111,10 @@ describe("SearchResult", () => {
     );
 
     expect(
-      screen.getByRole("link"),
-    ).toHaveClass("hover:border-accent");
+      container.querySelector(
+        ".hover\\:-translate-y-1",
+      ),
+    ).toBeInTheDocument();
   });
 
   it("highlights matching title text", () => {
@@ -123,9 +128,7 @@ describe("SearchResult", () => {
 
     expect(
       screen.getByText("Toolbox"),
-    ).toHaveClass(
-      "bg-accent/15",
-    );
+    ).toHaveClass("bg-accent/15");
   });
 
   it("highlights matching description text", () => {
@@ -139,8 +142,6 @@ describe("SearchResult", () => {
 
     expect(
       screen.getByText("Developer"),
-    ).toHaveClass(
-      "bg-accent/15",
-    );
+    ).toHaveClass("bg-accent/15");
   });
 });

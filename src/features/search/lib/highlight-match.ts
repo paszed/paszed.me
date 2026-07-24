@@ -3,6 +3,10 @@ export interface HighlightPart {
   highlighted: boolean;
 }
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 export function highlightMatch(
   text: string,
   query: string,
@@ -19,7 +23,7 @@ export function highlightMatch(
   }
 
   const regex = new RegExp(
-    `(${normalizedQuery})`,
+    `(${escapeRegExp(normalizedQuery)})`,
     "gi",
   );
 

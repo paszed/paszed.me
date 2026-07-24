@@ -1,16 +1,23 @@
-import { Heading } from "@/design-system";
+import {
+  Heading,
+  Measure,
+  PageHeader,
+  Text,
+} from "@/design-system";
 
 export function BlogHero() {
   return (
-    <section className="space-y-6">
+    <PageHeader>
       <Heading as="h1">
         Blog
       </Heading>
 
-      <p className="max-w-3xl text-lg leading-8 text-fg-secondary">
-        A collection of engineering notes, tutorials, project write-ups, and
-        lessons learned while building software.
-      </p>
-    </section>
+      <Measure size="3xl">
+        <Text size="lg" muted>
+          A collection of engineering notes, tutorials, project write-ups, and
+          lessons learned while building software.
+        </Text>
+      </Measure>
+    </PageHeader>
   );
 }

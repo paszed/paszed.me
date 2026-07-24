@@ -10,7 +10,7 @@ import {
   Text,
 } from "@/design-system";
 import { projects } from "@/content/projects";
-import { ProjectCard } from "@/features/projects/components/project-card";
+import { ProjectCard } from "@/features/projects";
 
 export default function ProjectsPage() {
   return (

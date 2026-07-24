@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { Page } from "@/design-system";
-import { JsonLd } from "@/lib/seo/components/json-ld";
+import {
+  Page,
+  Stack,
+} from "@/design-system";
 import {
   ProjectGallery,
   ProjectHero,
@@ -14,6 +16,7 @@ import {
 } from "@/features/projects";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 import {
+  JsonLd,
   createBreadcrumbSchema,
   createMetadata,
   createProjectSchema,
@@ -115,7 +118,7 @@ export default async function ProjectPage({
       <JsonLd data={breadcrumbSchema} />
 
       <Page>
-        <div className="space-y-20">
+        <Stack className="space-y-20">
           <ProjectHero project={project} />
 
           {project.gallery.length > 0 && (
@@ -144,7 +147,7 @@ export default async function ProjectPage({
           {project.links.length > 0 && (
             <ProjectLinks project={project} />
           )}
-        </div>
+        </Stack>
       </Page>
     </>
   );

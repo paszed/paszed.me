@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import {
   Button,
+  Grid,
   Container,
   Section,
   SectionHeader,
@@ -31,14 +32,14 @@ export function LatestWriting() {
           />
 
           {articles.length > 0 ? (
-            <div className="grid gap-8">
+            <Grid gap="lg">
               {articles.map((article) => (
                 <JournalCard
                   key={article.slug}
                   article={article}
                 />
               ))}
-            </div>
+            </Grid>
           ) : (
             <Text muted>
               I&apos;m currently writing new engineering notes. Check back soon

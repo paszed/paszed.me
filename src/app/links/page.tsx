@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
-import { SocialIcon } from "@/design-system/icons/social-icon";
 import {
+  ActionIcon,
   Card,
+  Cluster,
+  Icon,
   Page,
   SectionHeader,
+  SocialIcon,
   Stack,
   Text,
 } from "@/design-system";
+
 import { profiles } from "@/content";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Links",
@@ -55,60 +57,69 @@ function ProfileGroup({
   }
 
   return (
-    <section className={cn("space-y-8", className)}>
+    <Stack
+      as="section"
+      gap="lg"
+      className={className}
+    >
       <SectionHeader title={title} />
 
       <Stack gap="sm">
-        {profiles.map((profile) => (
-          <Link
-            key={profile.id}
-            href={profile.href}
-            target={
-              profile.href.startsWith("http")
-                ? "_blank"
-                : undefined
-            }
-            rel={
-              profile.href.startsWith("http")
-                ? "noopener noreferrer"
-                : undefined
-            }
-          >
-            <Card
-              variant="interactive"
-              className="group flex items-center justify-between px-6 py-4"
+        {profiles.map((profile) => {
+          const external =
+            profile.href.startsWith("http");
+
+          return (
+            <Link
+              key={profile.id}
+              href={profile.href}
+              target={external ? "_blank" : undefined}
+              rel={
+                external
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+              className="group"
             >
-              <div className="flex items-center gap-4">
-                <div className="flex size-11 items-center justify-center rounded-full border border-border bg-background text-fg-muted transition-colors group-hover:text-accent">
-                  <SocialIcon
-                    name={profile.label}
-                    className="size-5"
-                  />
-                </div>
+              <Card
+                variant="interactive"
+                className="flex items-center justify-between px-6 py-4"
+              >
+                <Cluster gap="md">
+                  <Icon className="size-11 rounded-full border border-border bg-background text-fg-muted transition-colors group-hover:text-accent">
+                    <SocialIcon
+                      name={profile.label}
+                      className="size-5"
+                    />
+                  </Icon>
 
-                <div>
-                  <h3 className="font-semibold text-fg transition-colors group-hover:text-accent">
-                    {profile.label}
-                  </h3>
+                  <Stack gap="sm">
+                    <Text
+                      as="h3"
+                      className="font-semibold transition-colors group-hover:text-accent"
+                    >
+                      {profile.label}
+                    </Text>
 
-                  <Text
-                    size="sm"
-                    muted
-                  >
-                    {profile.description}
-                  </Text>
-                </div>
-              </div>
+                    <Text
+                      size="sm"
+                      muted
+                    >
+                      {profile.description}
+                    </Text>
+                  </Stack>
+                </Cluster>
 
-              <ArrowUpRight
-                aria-hidden
-                className="size-4 text-fg-muted transition-all duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent"
-              />
-            </Card>
-          </Link>
-        ))}
+                <ActionIcon
+                  name="open"
+                  className="text-fg-muted transition-all duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent"
+                />
+              </Card>
+            </Link>
+          );
+        })}
       </Stack>
-    </section>
+    </Stack>
   );
 }
 

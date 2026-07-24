@@ -1,6 +1,8 @@
 import {
+  Cluster,
   Eyebrow,
   Heading,
+  Stack,
   Text,
 } from "@/design-system";
 import {
@@ -17,7 +19,11 @@ export function ArticleHeader({
   article,
 }: ArticleHeaderProps) {
   return (
-    <header className="mb-20 space-y-6">
+    <Stack
+      as="header"
+      gap="md"
+      className="mb-20"
+    >
       <Eyebrow>{article.category}</Eyebrow>
 
       <Heading as="h1">
@@ -32,25 +38,51 @@ export function ArticleHeader({
         {article.description}
       </Text>
 
-      <div className="flex flex-wrap items-center gap-3 text-sm text-fg-muted">
-        <span>{article.author}</span>
+      <Cluster
+        gap="sm"
+        className="text-sm text-fg-muted"
+      >
+        <Text
+          as="span"
+          size="sm"
+        >
+          {article.author}
+        </Text>
 
-        <span>•</span>
+        <Text
+          as="span"
+          size="sm"
+          aria-hidden
+        >
+          •
+        </Text>
 
-        <span>
+        <Text
+          as="span"
+          size="sm"
+        >
           {article.publishedAt
             ? formatDate(article.publishedAt)
             : "Draft"}
-        </span>
+        </Text>
 
-        <span>•</span>
+        <Text
+          as="span"
+          size="sm"
+          aria-hidden
+        >
+          •
+        </Text>
 
-        <span>
+        <Text
+          as="span"
+          size="sm"
+        >
           {formatReadingTime(
             article.readingTimeMinutes,
           )}
-        </span>
-      </div>
-    </header>
+        </Text>
+      </Cluster>
+    </Stack>
   );
 }

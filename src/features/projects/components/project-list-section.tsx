@@ -1,6 +1,10 @@
 import type { ReactNode } from "react";
 
-import { Text } from "@/design-system";
+import {
+  Measure,
+  Stack,
+  Text,
+} from "@/design-system";
 
 import { ProjectSection } from "./project-section";
 
@@ -19,28 +23,19 @@ export function ProjectListSection({
 
   return (
     <ProjectSection title={title}>
-      <div className="max-w-3xl">
-        <ul className="space-y-4">
+      <Measure size="3xl">
+        <Stack gap="sm">
           {items.map((item) => (
-            <li
+            <Text
               key={item}
-              className="flex items-start gap-4"
+              muted
+              className="flex items-start gap-4 leading-relaxed before:mt-2 before:size-2 before:shrink-0 before:rounded-full before:bg-success before:content-['']"
             >
-              <span
-                aria-hidden
-                className="mt-2 size-2 shrink-0 rounded-full bg-success"
-              />
-
-              <Text
-                muted
-                className="leading-relaxed"
-              >
-                {item}
-              </Text>
-            </li>
+              {item}
+            </Text>
           ))}
-        </ul>
-      </div>
+        </Stack>
+      </Measure>
     </ProjectSection>
   );
 }

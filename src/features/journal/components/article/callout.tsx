@@ -1,15 +1,25 @@
+import type { ReactNode } from "react";
+
+import {
+  Stack,
+  Text,
+} from "@/design-system";
+
 interface CalloutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function Callout({
   children,
 }: CalloutProps) {
   return (
-    <aside className="my-8 rounded-2xl border border-border bg-card px-6 py-5">
-      <p className="leading-8 text-fg-secondary">
+    <Stack
+      as="aside"
+      className="my-8 rounded-2xl border border-border bg-card px-6 py-5"
+    >
+      <Text muted>
         {children}
-      </p>
-    </aside>
+      </Text>
+    </Stack>
   );
 }
