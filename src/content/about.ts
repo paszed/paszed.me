@@ -2,15 +2,17 @@ export const about = {
   hero: {
     title: "About",
     intro:
-      "I'm Edvard, a software engineer focused on building composable platforms for developers, AI systems, and modern software.",
+      "I'm Edvard, a software engineer focused on developer tooling, platform infrastructure, reusable software systems, and practical AI.",
   },
 
   story: [
-    "I enjoy solving recurring engineering problems. Many of my projects begin with friction I encounter while building software—a repetitive workflow, missing tooling, or an architectural challenge that deserves a reusable solution rather than another one-off implementation.",
+    "I enjoy solving recurring engineering problems. Many of my projects begin with friction I encounter while building software—a repetitive workflow, missing capability, or architectural problem that should be solved once rather than repeatedly worked around.",
 
-    "Over time, that approach has naturally evolved into building platforms instead of isolated applications. Whether it's developer tooling, AI infrastructure, trust systems, or data integration, I'm interested in creating foundations that make future software easier to build, maintain, and extend.",
+    "That approach has gradually moved my work from individual applications toward reusable systems. Developer tooling, identity, events, observability, search, data infrastructure, design systems, and AI orchestration are different problems, but they share the same underlying goal: create dependable foundations that make the software built on top of them simpler.",
 
-    "This website serves as my engineering journal. Every project documents not only what I built, but why it exists, the architectural decisions behind it, the trade-offs I made, and the lessons I learned along the way. I believe good engineering comes from continuous iteration, thoughtful abstractions, and sharing knowledge openly.",
+    "I use projects as a way to explore those ideas in practice. Some become standalone tools, others become reusable capabilities or platform infrastructure, and each one provides another opportunity to refine how I think about architecture, developer experience, reliability, and long-term maintainability.",
+
+    "This website is the public record of that work. The project library documents what I build and the decisions behind it, while the engineering journal develops the broader principles, trade-offs, and lessons that emerge along the way.",
   ],
 
   philosophy: [
@@ -22,17 +24,17 @@ export const about = {
     {
       title: "Design for evolution",
       description:
-        "Software should be easy to understand today and adaptable to tomorrow's requirements.",
+        "Software should be understandable today while remaining adaptable to requirements that have not appeared yet.",
     },
     {
       title: "Prefer composition over complexity",
       description:
-        "Small, focused building blocks create systems that are easier to maintain than large, tightly coupled solutions.",
+        "Small, focused building blocks create systems that are easier to understand, combine, replace, and maintain.",
     },
     {
       title: "Learn by building",
       description:
-        "Real understanding comes from designing, shipping, measuring, and continuously refining software.",
+        "Engineering judgment develops through designing, shipping, testing assumptions, and refining systems over time.",
     },
   ],
 
@@ -44,35 +46,39 @@ export const about = {
         "JavaScript",
         "Python",
         "SQL",
+        "Go",
+        "Rust",
       ],
     },
     {
-      category: "Frontend",
+      category: "Application Engineering",
       items: [
         "React",
         "Next.js",
-        "Tailwind CSS",
-        "HTML",
-        "CSS",
-      ],
-    },
-    {
-      category: "Backend",
-      items: [
         "Node.js",
-        "REST APIs",
+        "Tailwind CSS",
         "PostgreSQL",
-        "Prisma",
       ],
     },
     {
-      category: "Developer Tools",
+      category: "Platform & Infrastructure",
+      items: [
+        "Docker",
+        "GitHub Actions",
+        "REST APIs",
+        "Webhooks",
+        "OAuth",
+      ],
+    },
+    {
+      category: "Engineering Tooling",
       items: [
         "Git",
-        "Docker",
-        "Linux",
-        "Terminal",
-        "GitHub",
+        "Neovim",
+        "Fish",
+        "pnpm",
+        "Vitest",
+        "Playwright",
       ],
     },
   ],
