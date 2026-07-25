@@ -17,24 +17,6 @@ export const profiles = {
     featured: true,
   },
 
-  x: {
-  id: "x",
-  label: "X",
-  href: "https://x.com/paszed_",
-  description: "Building in public and sharing ideas.",
-  category: "social",
-  featured: false,
-},
-
-  reddit: {
-    id: "reddit",
-    label: "Reddit",
-    href: "https://reddit.com/u/paszed",
-    description: "Community discussions and learning.",
-    category: "social",
-    featured: false,
-  },
-
   email: {
     id: "email",
     label: "Email",
@@ -44,57 +26,30 @@ export const profiles = {
     featured: true,
   },
 
-  discord: {
-    id: "discord",
-    label: "Discord",
-    href: "#",
-    description: "Developer community.",
+  npm: {
+    id: "npm",
+    label: "npm",
+    href: "https://www.npmjs.com/~paszed",
+    description: "JavaScript and TypeScript packages.",
+    category: "developer",
+    featured: false,
+  },
+
+  x: {
+    id: "x",
+    label: "X",
+    href: "https://x.com/paszed_",
+    description: "Building in public and sharing ideas.",
     category: "social",
     featured: false,
   },
 
-  npm: {
-  id: "npm",
-  label: "npm",
-  href: "https://www.npmjs.com/~paszed",
-  description: "JavaScript and TypeScript packages.",
-  category: "developer",
-  featured: false,
-},
-
-  pypi: {
-    id: "pypi",
-    label: "PyPI",
-    href: "#",
-    description: "Python packages.",
-    category: "developer",
-    featured: false,
-  },
-
-  docker: {
-    id: "docker",
-    label: "Docker Hub",
-    href: "#",
-    description: "Container images.",
-    category: "developer",
-    featured: false,
-  },
-
-  huggingFace: {
-    id: "huggingface",
-    label: "Hugging Face",
-    href: "#",
-    description: "Models and AI experiments.",
-    category: "developer",
-    featured: false,
-  },
-
-  stackOverflow: {
-    id: "stackoverflow",
-    label: "Stack Overflow",
-    href: "#",
-    description: "Questions and technical answers.",
-    category: "developer",
+  reddit: {
+    id: "reddit",
+    label: "Reddit",
+    href: "https://reddit.com/u/paszed",
+    description: "Community discussions and learning.",
+    category: "social",
     featured: false,
   },
 } as const;

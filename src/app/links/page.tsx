@@ -18,7 +18,7 @@ import { profiles } from "@/content";
 export const metadata: Metadata = {
   title: "Links",
   description:
-    "Find Edvard Pasz across GitHub, LinkedIn, Reddit, X, and other developer platforms.",
+    "Find Edvard Pasz across GitHub, npm, LinkedIn, X, Reddit, and the web.",
 };
 
 type Profile = (typeof profiles)[keyof typeof profiles];

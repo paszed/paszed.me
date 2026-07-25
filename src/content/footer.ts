@@ -8,17 +8,12 @@ export const footer = {
   developer: [
     profiles.github,
     profiles.npm,
-    profiles.pypi,
-    profiles.docker,
-    profiles.huggingFace,
-    profiles.stackOverflow,
   ],
 
   social: [
     profiles.linkedin,
     profiles.x,
     profiles.reddit,
-    profiles.discord,
   ],
 
   contact: [
