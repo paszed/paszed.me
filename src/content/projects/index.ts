@@ -31,19 +31,22 @@ export { testkit } from "./testkit";
 export { trustPlatform } from "./trust-platform";
 
 export const projects = [
-  agentNetwork,
+  paszedMe,
   bootstrapper,
-  cli,
+  agentNetwork,
+  trustPlatform,
+
+  designSystem,
+  search,
   contentEngine,
   dataPlatform,
-  designSystem,
-  dotfiles,
-  engineering,
+
   eventPlatform,
   identity,
   observability,
-  paszedMe,
-  search,
   testkit,
-  trustPlatform,
+
+  engineering,
+  cli,
+  dotfiles,
 ] as const;
