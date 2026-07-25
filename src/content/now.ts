@@ -2,26 +2,26 @@ export const now = [
   {
     title: "Currently Building",
     items: [
-      "Growing paszed.me into my engineering journal.",
-      "Developer tools focused on improving engineering workflows.",
-      "Projects I use myself before sharing publicly.",
+      "Expanding paszed.me as an engineering journal and public record of my work.",
+      "Building reusable developer tooling, platform infrastructure, and shared software capabilities.",
+      "Exploring infrastructure for composable and governed AI systems.",
     ],
   },
   {
     title: "Currently Learning",
     items: [
-      "AI agents and Model Context Protocol",
-      "Software architecture",
-      "Go",
-      "Terminal workflows",
+      "Distributed systems and event-driven architecture.",
+      "Platform engineering and developer infrastructure.",
+      "AI agents, orchestration, and Model Context Protocol.",
+      "Go and systems-oriented software design.",
     ],
   },
   {
     title: "Current Goals",
     items: [
-      "Ship consistently.",
-      "Write about what I build.",
-      "Create software that earns a permanent place in my workflow.",
+      "Turn recurring engineering problems into reusable infrastructure.",
+      "Document the reasoning, trade-offs, and lessons behind what I build.",
+      "Develop a coherent ecosystem of tools and platforms that compound over time.",
     ],
   },
   {
