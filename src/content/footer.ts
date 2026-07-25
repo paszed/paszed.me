@@ -5,6 +5,17 @@ import { profiles } from "./profiles";
 export const footer = {
   navigation,
 
+  resources: [
+    {
+      label: "Uses",
+      href: "/uses",
+    },
+    {
+      label: "Links",
+      href: "/links",
+    },
+  ],
+
   developer: [
     profiles.github,
     profiles.npm,

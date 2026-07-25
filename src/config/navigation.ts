@@ -1,9 +1,5 @@
 export const navigation = [
   {
-    label: "Home",
-    href: "/",
-  },
-  {
     label: "Projects",
     href: "/projects",
   },
@@ -12,20 +8,12 @@ export const navigation = [
     href: "/journal",
   },
   {
-    label: "Links",
-    href: "/links",
-  },
-  {
     label: "About",
     href: "/about",
   },
   {
     label: "Now",
     href: "/now",
-  },
-  {
-    label: "Uses",
-    href: "/uses",
   },
 ] as const;
 

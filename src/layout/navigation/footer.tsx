@@ -41,6 +41,11 @@ export function Footer() {
           />
 
           <FooterSection
+  title="Resources"
+  items={footer.resources}
+/>
+
+          <FooterSection
             title="Developer"
             items={footer.developer}
             showIcons
