@@ -11,7 +11,10 @@ export function createSearchIndex(): SearchItem[] {
       description: article.description,
       href: `/journal/${article.slug}`,
       category: "Article",
-      keywords: article.tags,
+      keywords: [
+        ...article.tags,
+        article.category,
+      ],
     }));
 
   const projectItems: SearchItem[] =
@@ -21,9 +24,13 @@ export function createSearchIndex(): SearchItem[] {
       description: project.summary,
       href: `/projects/${project.slug}`,
       category: "Project",
-      keywords: project.technologies.map(
-        (technology) => technology.name,
-      ),
+      keywords: [
+        project.category,
+        project.tagline,
+        ...project.technologies.map(
+          (technology) => technology.name,
+        ),
+      ],
     }));
 
   const pages: SearchItem[] = [
@@ -33,7 +40,39 @@ export function createSearchIndex(): SearchItem[] {
       description: "Learn more about Edvard Pasz.",
       href: "/about",
       category: "Page",
-      keywords: ["about", "bio", "engineering"],
+      keywords: [
+        "about",
+        "bio",
+        "engineering",
+      ],
+    },
+    {
+      id: "projects",
+      title: "Projects",
+      description:
+        "Browse software projects and engineering case studies.",
+      href: "/projects",
+      category: "Page",
+      keywords: [
+        "projects",
+        "portfolio",
+        "software",
+        "engineering",
+      ],
+    },
+    {
+      id: "journal",
+      title: "Journal",
+      description:
+        "Read engineering articles and technical writing.",
+      href: "/journal",
+      category: "Page",
+      keywords: [
+        "journal",
+        "writing",
+        "articles",
+        "blog",
+      ],
     },
     {
       id: "uses",
@@ -41,15 +80,37 @@ export function createSearchIndex(): SearchItem[] {
       description: "Tools, hardware and software.",
       href: "/uses",
       category: "Page",
-      keywords: ["tools", "setup", "gear"],
+      keywords: [
+        "tools",
+        "setup",
+        "gear",
+      ],
     },
     {
       id: "now",
       title: "Now",
-      description: "What I'm currently working on.",
+      description:
+        "What I'm currently working on.",
       href: "/now",
       category: "Page",
-      keywords: ["current", "focus", "now"],
+      keywords: [
+        "current",
+        "focus",
+        "now",
+      ],
+    },
+    {
+      id: "links",
+      title: "Links",
+      description:
+        "Find external profiles and platforms.",
+      href: "/links",
+      category: "Page",
+      keywords: [
+        "social",
+        "github",
+        "contact",
+      ],
     },
   ];
 
