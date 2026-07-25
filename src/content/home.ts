@@ -5,10 +5,10 @@ export const home = {
     title: "Building software with longevity in mind.",
 
     subtitle:
-      "Developer tools, AI, and software architecture guided by clarity, restraint, and long-term thinking.",
+      "Developer infrastructure, software platforms, and AI systems guided by clarity, composition, and long-term thinking.",
 
     description:
-      "I'm Edvard, a software engineer focused on building dependable software, developer tooling, and scalable systems. This site is my engineering journal—a place to document projects, share ideas, and reflect on what I learn while building.",
+      "I'm Edvard, a software engineer focused on building reusable foundations for modern software. I work across developer tooling, platform infrastructure, distributed systems, and AI while documenting the architecture, trade-offs, and lessons behind what I build.",
 
     primaryCta: {
       label: "View Projects",
@@ -16,8 +16,8 @@ export const home = {
     },
 
     secondaryCta: {
-      label: "About",
-      href: "/about",
+      label: "Read Journal",
+      href: "/journal",
     },
   },
 
@@ -28,17 +28,17 @@ export const home = {
       {
         title: "🟢 Building",
         description:
-          "Developer tools while continuously improving paszed.me as my engineering journal.",
+          "Reusable developer tooling, platform infrastructure, and shared software capabilities.",
       },
       {
         title: "📚 Learning",
         description:
-          "AI agents, software architecture, Model Context Protocol, and Go.",
+          "Distributed systems, platform engineering, AI orchestration, and Go.",
       },
       {
         title: "🔬 Exploring",
         description:
-          "Developer experience, terminal workflows, automation, and practical AI.",
+          "Composable AI systems, event-driven architecture, and infrastructure that compounds across projects.",
       },
     ],
   },
@@ -47,14 +47,14 @@ export const home = {
     title: "Featured Projects",
 
     description:
-      "A selection of projects exploring developer tools, software architecture, and practical AI.",
+      "Selected work across developer infrastructure, reusable platform capabilities, AI systems, and applications.",
   },
 
   latestWriting: {
     title: "Latest Writing",
 
     description:
-      "Essays and engineering notes documenting what I'm learning while building software.",
+      "Essays on software engineering, architecture, infrastructure, distributed systems, AI, and engineering practice.",
   },
 
   philosophy: {
@@ -65,19 +65,19 @@ export const home = {
         title: "Solve recurring problems",
 
         description:
-          "If I find myself repeating the same task, I'd rather improve the workflow than repeat the process.",
+          "Recurring friction is usually a signal to improve the underlying system rather than repeat the work.",
       },
       {
-        title: "Keep systems simple",
+        title: "Design for evolution",
 
         description:
-          "Clear architecture and maintainable code outperform unnecessary complexity over the long term.",
+          "Good software should remain understandable today while leaving room for tomorrow's requirements.",
       },
       {
-        title: "Build, use, improve",
+        title: "Build foundations that compound",
 
         description:
-          "The best feedback comes from using your own software. I prefer shipping, learning, and iterating over chasing perfection.",
+          "Reusable tools, platforms, and knowledge create leverage far beyond the problem that originally produced them.",
       },
     ],
   },

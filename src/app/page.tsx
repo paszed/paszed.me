@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: site.title,
   description:
-    "Personal website of Edvard Pasz. I build developer tools, explore practical AI workflows, and document software engineering, architecture, and engineering projects.",
+    "Personal website of Edvard Pasz. Software engineering, developer infrastructure, distributed systems, AI, projects, and long-form engineering writing.",
 };
 
 export default function HomePage() {
