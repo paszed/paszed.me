@@ -1,26 +1,30 @@
 export const uses = {
   description:
-    "My development environment is intentionally simple. I prefer dependable tools that remove friction from everyday engineering work over large, heavily customized setups. Every tool on this page has earned its place by solving a real problem in my workflow.",
+    "My development environment is built around a terminal-first workflow. I prefer fast, composable tools with clear responsibilities, minimal friction, and configuration I can understand and maintain.",
 
   sections: [
     {
       title: "Hardware",
       items: [
-        "MacBook Pro",
-        "External Monitor",
-        "Mechanical Keyboard",
-        "Logitech MX Master 3S",
+        "Mac mini M4",
+        "iPad Pro M4",
+        "iPhone 17 Pro",
+        "External monitor",
+        "Mechanical keyboard",
       ],
     },
 
     {
       title: "Development",
       items: [
-        "VS Code",
+        "Neovim",
         "Ghostty",
+        "Fish",
         "Git",
+        "GitHub",
         "Docker",
         "Node.js",
+        "pnpm",
         "TypeScript",
         "ripgrep (rg)",
         "fd",
@@ -46,12 +50,13 @@ export const uses = {
     },
 
     {
-      title: "Philosophy",
+      title: "Workflow",
       items: [
-        "Keep the workflow simple.",
-        "Automate repetitive tasks.",
-        "Adopt tools only after they've proven useful.",
-        "Prefer maintainable systems over clever ones.",
+        "Keep the terminal at the center of development.",
+        "Automate repetitive work instead of documenting manual steps.",
+        "Prefer small, composable tools over monolithic environments.",
+        "Keep configuration version-controlled and reproducible.",
+        "Adopt tools when they solve recurring problems.",
       ],
     },
   ],
