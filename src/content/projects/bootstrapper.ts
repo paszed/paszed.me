@@ -17,6 +17,8 @@ export const bootstrapper: Project = {
 
   started: 2026,
 
+  category: "engineering-environment",
+
   overview: [
     "Bootstrapper began as a response to a recurring problem: every new project started with the same hours of configuring tooling, establishing repository structure, writing documentation, and creating development workflows. While each repository solved a different problem, the engineering foundation was almost always identical.",
 

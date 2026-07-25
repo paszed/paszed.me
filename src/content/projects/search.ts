@@ -17,6 +17,8 @@ export const search: Project = {
 
   started: 2026,
 
+  category: "reusable-capabilities",
+
   overview: [
     "Search is designed as reusable infrastructure rather than a feature tied to a single application.",
 

@@ -17,6 +17,8 @@ export const contentEngine: Project = {
 
   started: 2026,
 
+  category: "reusable-capabilities",
+
   overview: [
     "Content Engine treats content as structured data rather than static pages.",
 

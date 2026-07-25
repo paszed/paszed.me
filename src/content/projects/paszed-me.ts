@@ -17,6 +17,8 @@ export const paszedMe: Project = {
 
   started: 2026,
 
+  category: "applications",
+
   overview: [
     "paszed.me is my primary engineering platform.",
 

@@ -17,6 +17,8 @@ export const designSystem: Project = {
 
   started: 2026,
 
+  category: "reusable-capabilities",
+
   overview: [
     "The Design System provides a shared visual language for every application in the ecosystem.",
 

@@ -21,6 +21,13 @@ export type ProjectStatus =
   | "production"
   | "archived";
 
+export type ProjectCategory =
+  | "engineering-environment"
+  | "platform-infrastructure"
+  | "reusable-capabilities"
+  | "ai-orchestration"
+  | "applications";
+
 export interface Project {
   // Identity
   slug: string;
@@ -32,6 +39,7 @@ export interface Project {
   featured: boolean;
   status: ProjectStatus;
   started: number;
+  category: ProjectCategory;
 
   // Story
   overview: readonly string[];

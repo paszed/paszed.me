@@ -17,6 +17,8 @@ export const trustPlatform: Project = {
 
   started: 2026,
 
+  category: "reusable-capabilities",
+
   overview: [
     "Trust Platform centralizes the systems responsible for identity, verification, moderation and reputation.",
 

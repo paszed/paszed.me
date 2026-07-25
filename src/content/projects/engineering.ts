@@ -17,6 +17,8 @@ export const engineering: Project = {
 
   started: 2026,
 
+  category: "engineering-environment",
+
   overview: [
     "Engineering is the foundation that connects every repository.",
 

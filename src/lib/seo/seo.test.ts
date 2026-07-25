@@ -243,6 +243,7 @@ describe("SEO", () => {
       featured: true,
       status: "production",
       started: 2026,
+      category: "engineering-environment",
 
       overview: [],
       problem: [],

@@ -17,6 +17,8 @@ export const agentNetwork: Project = {
 
   started: 2026,
 
+  category: "ai-orchestration",
+
   overview: [
     "Agent Network is an orchestration platform for building modular AI systems composed of specialized agents instead of a single general-purpose assistant.",
 

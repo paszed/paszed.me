@@ -17,6 +17,8 @@ export const dotfiles: Project = {
 
   started: 2026,
 
+  category: "engineering-environment",
+
   overview: [
     "Dotfiles provides a reproducible development environment that ensures every machine behaves consistently. Rather than manually configuring editors, shells and development tools, the repository captures the entire engineering environment as code.",
 

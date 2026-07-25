@@ -17,6 +17,8 @@ export const dataPlatform: Project = {
 
   started: 2026,
 
+  category: "reusable-capabilities",
+
   overview: [
     "Data Platform provides a consistent way to integrate with external services.",
 
