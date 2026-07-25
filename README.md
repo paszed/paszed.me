@@ -1,90 +1,266 @@
 # paszed.me
 
-> A personal website, engineering journal, and long-term software project documenting software engineering, AI, and developer tooling.
+> **A personal engineering platform for technical writing, software projects, and long-term knowledge.**
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8)
 ![pnpm](https://img.shields.io/badge/pnpm-10-F69220)
-
 ![CI](https://github.com/paszed/paszed.me/actions/workflows/ci.yml/badge.svg)
-
 ![Coverage](https://img.shields.io/badge/Coverage-100%25-success)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-# Live
+## Live
 
-🌐 **https://paszed.me**
+**https://paszed.me**
 
 ---
 
-# About
+## Overview
 
 **paszed.me** is my personal engineering platform.
 
-It combines a portfolio, engineering journal, project showcase, and long-term knowledge base into a single website focused on thoughtful software engineering.
+It combines technical writing, project documentation, engineering case studies, and long-term knowledge into a single application.
 
-Rather than acting as a static portfolio, the site documents how software is designed, built, maintained, and improved over time.
+Rather than functioning as a static portfolio, the site is designed as a continuously evolving software project in its own right: with explicit architecture, reusable systems, automated verification, accessibility standards, structured content, and production-grade engineering practices.
 
-Topics include:
+The platform focuses on subjects including:
 
-- Software Engineering
-- Software Architecture
-- Artificial Intelligence
-- AI Engineering
-- Developer Experience
-- Developer Tools
-- Modern Web Development
+- Software engineering
+- Software architecture
+- Platform engineering
+- AI systems
+- Developer experience
+- Developer tooling
+- Modern web development
 
 ---
 
-# Features
+## Architecture
 
-- Engineering journal
+The application follows a feature-first architecture with explicit boundaries between routing, interface components, content, application capabilities, infrastructure, and shared utilities.
+
+```text
+src/
+├── app/
+├── brand/
+├── components/
+├── config/
+├── content/
+├── features/
+├── hooks/
+├── lib/
+├── providers/
+├── services/
+├── styles/
+└── types/
+```
+
+The architecture is designed around several principles:
+
+- Features own feature-specific behavior
+- Shared components remain domain-independent
+- Content remains separate from presentation
+- Infrastructure concerns remain isolated
+- Dependencies flow through intentional boundaries
+- Public APIs are explicit
+- Cross-feature coupling is minimized
+
+Architectural constraints are validated automatically rather than relying entirely on convention.
+
+See `ARCHITECTURE.md` for the complete architectural model.
+
+---
+
+## Platform Capabilities
+
+### Content
+
+The site includes infrastructure for:
+
+- Technical articles
+- Engineering journals
 - Project case studies
-- Feature-first architecture
-- Typed content system
-- Reusable design system
-- Responsive layout
-- Light & dark mode
-- Reading progress indicator
-- RSS feed
+- Structured content
+- Typed metadata
+- Reading-time calculation
+- Content navigation
+- RSS generation
+
+Content infrastructure is designed to evolve independently from the presentation layer.
+
+### SEO and Discovery
+
+Search-engine and machine-readable discovery are treated as platform capabilities.
+
+The site supports:
+
+- Metadata generation
+- Canonical metadata
+- Open Graph metadata
+- Twitter Cards
 - Dynamic Open Graph images
-- Structured data (JSON-LD)
 - XML sitemap
-- robots.txt
-- llms.txt
-- SEO-first metadata
-- Accessibility focused
-- Lighthouse optimized
-- Full test suite
-- 100% test coverage
-- End-to-end testing
-- Type-safe codebase
+- `robots.txt`
+- `llms.txt`
+- RSS
+- Structured data
+
+Structured data includes:
+
+- Person
+- Organization
+- WebSite
+- BlogPosting
+- SoftwareSourceCode
+- BreadcrumbList
+
+Schema generation is implemented as reusable typed infrastructure rather than embedded directly into individual pages.
+
+### Interface
+
+The interface is built from reusable primitives and application patterns with support for:
+
+- Responsive layouts
+- Light and dark themes
+- Reading progress
+- Accessible interactions
+- Motion
+- Consistent typography
+- Shared design tokens
+- Reusable layout primitives
+
+The application increasingly consumes the same design-system philosophy used throughout the broader ecosystem.
+
+### Accessibility
+
+Accessibility is part of the engineering pipeline rather than a final manual review.
+
+The project uses:
+
+- Semantic HTML
+- Keyboard-accessible interaction
+- Automated axe testing
+- Playwright accessibility coverage
+- Lighthouse accessibility verification
+- Accessible component primitives
+
+### Performance
+
+Performance is continuously measured rather than treated as a one-time optimization exercise.
+
+Current Lighthouse results:
+
+| Category | Desktop | Mobile |
+| --- | ---: | ---: |
+| Performance | 99 | 97 |
+| Accessibility | 100 | 100 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
+
+Performance characteristics will continue to be measured as the content and interface layers expand.
 
 ---
 
-# Engineering Standards
+## Engineering Quality
 
-This repository follows a quality-first engineering workflow.
+The repository uses an automated verification pipeline covering correctness, architecture, accessibility, dependencies, and production behavior.
 
-- 100% automated test coverage
-- Accessibility tested with axe-core
-- End-to-end tested with Playwright
-- Continuous Integration with GitHub Actions
-- CodeQL security analysis
-- Lighthouse CI
-- Dependency analysis with Knip
-- Architecture validation with Dependency Cruiser
+```text
+Source
+  │
+  ▼
+Lint
+  │
+  ▼
+Typecheck
+  │
+  ▼
+Unit Tests
+  │
+  ▼
+Coverage
+  │
+  ▼
+Production Build
+  │
+  ▼
+End-to-End Tests
+  │
+  ▼
+Accessibility
+  │
+  ▼
+Dependency Analysis
+  │
+  ▼
+Architecture Validation
+```
+
+The current quality system includes:
+
 - Strict TypeScript
 - ESLint
+- Vitest
+- 100% automated test coverage
+- Playwright
+- axe-core
+- Lighthouse CI
+- Knip
+- Dependency Cruiser
+- pnpm dependency validation
+- GitHub Actions
+- CodeQL
+- Dependabot
+
+The complete local verification pipeline is exposed through:
+
+```bash
+pnpm check
+```
+
+A change should be able to pass the same engineering checks locally that protect the repository in CI.
 
 ---
 
-# Tech Stack
+## Testing
+
+Testing is divided across multiple levels.
+
+### Unit and Integration
+
+Vitest verifies application logic, utilities, components, content infrastructure, and shared capabilities.
+
+Coverage is enforced at:
+
+```text
+100%
+```
+
+### End-to-End
+
+Playwright validates critical application behavior in a production-like browser environment.
+
+### Accessibility
+
+Automated axe checks detect common accessibility regressions as part of browser-level testing.
+
+### Architecture
+
+Dependency Cruiser validates architectural boundaries and detects prohibited dependency relationships.
+
+### Dependency Health
+
+Knip and pnpm tooling detect unused code, unused dependencies, and dependency inconsistencies.
+
+---
+
+## Technology
+
+### Application
 
 - Next.js 16
 - React 19
@@ -92,97 +268,33 @@ This repository follows a quality-first engineering workflow.
 - TypeScript
 - Tailwind CSS v4
 - Motion
-- pnpm
-- next-themes
+
+### Interface
+
 - Lucide React
 - React Icons
+- next-themes
+
+### Engineering
+
+- pnpm
 - ESLint
 - Vitest
 - Playwright
 - axe-core
 - Lighthouse CI
-
----
-
-# Architecture
-
-```text
-src
-├── app
-├── brand
-├── components
-├── config
-├── content
-├── features
-├── hooks
-├── lib
-├── providers
-├── services
-├── styles
-└── types
-```
-
-The project follows a feature-first architecture where routing, UI, content, business logic, and SEO remain cleanly separated.
-
-For a complete overview see **ARCHITECTURE.md**.
-
----
-
-# Quality
-
-The project is continuously verified with:
-
-- ESLint
-- TypeScript
-- Vitest
-- 100% test coverage
-- Playwright end-to-end tests
-- axe accessibility testing
-- Lighthouse CI
-- Production builds
 - Knip
 - Dependency Cruiser
-- pnpm dedupe
-- GitHub Actions CI
-- CodeQL security scanning
+
+### Automation and Security
+
+- GitHub Actions
+- CodeQL
+- Dependabot
 
 ---
 
-# SEO
-
-The website includes:
-
-- Metadata generation
-- Open Graph
-- Twitter Cards
-- JSON-LD
-- Person Schema
-- Organization Schema
-- Website Schema
-- BlogPosting Schema
-- SoftwareSourceCode Schema
-- Breadcrumb Schema
-- RSS feed
-- XML Sitemap
-- robots.txt
-- llms.txt
-
----
-
-# Performance
-
-Current Lighthouse scores:
-
-| Category | Score |
-|----------|------:|
-| Performance | 99 Desktop / 97 Mobile |
-| Accessibility | 100 |
-| Best Practices | 100 |
-| SEO | 100 |
-
----
-
-# Development
+## Development
 
 Install dependencies:
 
@@ -190,31 +302,19 @@ Install dependencies:
 pnpm install
 ```
 
-Run locally:
+Start the development server:
 
 ```bash
 pnpm dev
 ```
 
-Run the complete engineering verification pipeline:
+Run the complete verification pipeline:
 
 ```bash
 pnpm check
 ```
 
-The pipeline performs:
-
-- ESLint
-- TypeScript
-- 100% coverage tests
-- Production build
-- Playwright end-to-end tests
-- Accessibility tests (axe)
-- Knip
-- Dependency Cruiser
-- Dependency deduplication
-
-Useful commands:
+Individual checks are also available:
 
 ```bash
 pnpm lint
@@ -224,94 +324,127 @@ pnpm test:coverage
 pnpm build
 pnpm e2e
 pnpm analyze
-pnpm check
 ```
 
 ---
 
-# Engineering Principles
+## Engineering Principles
 
-- Build software that lasts.
-- Prefer composition over duplication.
-- Keep content separate from presentation.
-- Optimize for maintainability.
-- Ship continuously.
-- Design systems before pages.
-- Keep architecture boring and predictable.
+The project follows a small set of durable engineering principles:
 
----
-
-# Roadmap
-
-## Completed
-
-- ✅ Feature-first architecture
-- ✅ Design system
-- ✅ Typed content layer
-- ✅ Engineering journal
-- ✅ Project platform
-- ✅ Reading progress indicator
-- ✅ Theme support
-- ✅ Responsive design
-- ✅ SEO architecture
-- ✅ Structured data
-- ✅ RSS feed
-- ✅ llms.txt
-- ✅ Dynamic Open Graph images
-- ✅ Lighthouse optimization
-- ✅ 100% automated test coverage
-- ✅ Playwright E2E testing
-- ✅ Accessibility testing
-- ✅ Engineering quality pipeline
-- ✅ GitHub Actions CI
-- ✅ CodeQL security scanning
-- ✅ Dependabot automation
-- ✅ Lighthouse CI
-- ✅ Knip
-- ✅ Dependency Cruiser
-- ✅ SECURITY.md
-
-## Next
-
-- 🔍 Full-text Pagefind search
-- 📝 MDX-powered articles
-- 📊 Privacy-friendly analytics
-- 🎨 Interactive article components
-- 🌍 Internationalization (i18n)
-- 📈 Search analytics
-- 🚀 Additional engineering case studies
-- 📚 More long-form engineering articles
+- Build software that can evolve
+- Prefer composition over duplication
+- Keep architecture explicit
+- Keep content separate from presentation
+- Automate enforceable standards
+- Treat accessibility as architecture
+- Treat developer experience as part of the system
+- Prefer predictable abstractions
+- Optimize for maintainability
+- Measure rather than assume
 
 ---
 
-# Deployment
+## Ecosystem
 
-The site is deployed to **Namecheap** and built with **Next.js 16**.
+`paszed.me` is an application within a broader collection of composable engineering infrastructure.
 
-Every change is automatically validated through GitHub Actions and locally via:
-
-```bash
-pnpm check
+```text
+Engineering Environment
+        │
+        ▼
+Shared Infrastructure
+        │
+        ▼
+Reusable Capabilities
+        │
+        ▼
+     paszed.me
 ```
 
-The verification pipeline includes linting, type checking, unit testing, accessibility testing, end-to-end testing, dependency analysis, and production builds before deployment.
+The application provides a concrete environment in which shared architectural ideas and infrastructure can be exercised against real product requirements.
+
+Relevant ecosystem capabilities include:
+
+- **engineering** — Engineering standards and architectural principles
+- **bootstrapper** — Project scaffolding and development automation
+- **design-system** — Shared interface architecture
+- **content-engine** — Structured content and publishing infrastructure
+- **search** — Search, retrieval, ranking, and discovery
+- **observability** — Shared telemetry and diagnostics
+- **testkit** — Reusable testing infrastructure
+
+The application remains independently deployable while reusable capabilities can progressively move behind explicit shared boundaries.
 
 ---
 
-# License
+## Roadmap
+
+The foundational engineering infrastructure is largely established.
+
+Current work is increasingly focused on the product surface and content experience.
+
+### Content Experience
+
+- Dedicated article pages
+- Improved article discovery
+- Article browsing and filtering
+- Long-form technical writing
+- Additional engineering case studies
+- Rich interactive article components
+- Improved content navigation
+
+### Search
+
+- Full-text search
+- Pagefind integration
+- Search interface
+- Search analytics
+- Improved content discovery
+
+### Internationalization
+
+- Internationalized routing
+- Localized metadata
+- Translated interface content
+- Localized article infrastructure
+- Language-aware SEO
+
+### Interface Polish
+
+- Refined transitions
+- Intentional entrance animations
+- Section-level motion
+- Improved loading states
+- Navigation polish
+- Responsive refinements
+- Additional interaction details
+
+Motion should support hierarchy and orientation rather than exist for decoration.
+
+### Platform
+
+- Privacy-friendly analytics
+- Content analytics
+- Expanded structured data
+- Additional content tooling
+- Continued performance monitoring
+- Continued accessibility validation
+
+---
+
+## Status
+
+🚧 **Active development.**
+
+The core architecture, quality infrastructure, testing system, SEO foundation, content model, and application shell are established.
+
+Current development is focused on expanding the content experience, internationalization, search, article discovery, and V2 interface polish while maintaining the existing engineering quality bar.
+
+---
+
+## License
 
 Released under the **MIT License**.
 
-See the **LICENSE** file for details.
-
----
-
-# Author
-
-**Edvard Pasz**
-
-🌐 https://paszed.me
-
-GitHub: https://github.com/paszed
-
-LinkedIn: https://www.linkedin.com/in/paszed/
+See `LICENSE` for details.
