@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import { ThemedLion } from "@/brand";
+import { home } from "@/content";
 import {
   Button,
-  Center,
   Cluster,
   Container,
   Eyebrow,
@@ -11,21 +11,16 @@ import {
   Heading,
   Section,
   Stack,
-  Surface,
   Text,
   TextLink,
 } from "@/design-system";
 
-import { ThemedLion } from "@/brand";
-import { home } from "@/content";
-import { site } from "@/config/site";
-
 export function Hero() {
   return (
-    <Section className="relative overflow-hidden py-24 lg:min-h-[calc(100vh-4.5rem)] lg:py-0">
-      <Surface
+    <Section className="relative isolate overflow-hidden pt-12 pb-24 lg:min-h-[calc(100vh-4.5rem)] lg:py-0">
+      <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.18),transparent_42%)] dark:bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.22),transparent_42%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.18),transparent_42%)] dark:bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.22),transparent_42%)]"
       />
 
       <ThemedLion />
@@ -79,20 +74,12 @@ export function Hero() {
             </Cluster>
           </Stack>
 
-          <Center className="lg:justify-end lg:pl-12">
-            <Surface className="border p-3 shadow-sm">
-              <Surface className="relative aspect-[4/5] w-[19rem] overflow-hidden rounded-sm lg:w-[22rem]">
-                <Image
-                  src="/images/profile.jpg"
-                  alt={site.owner}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 304px, 352px"
-                  className="object-cover"
-                />
-              </Surface>
-            </Surface>
-          </Center>
+          <div className="relative flex justify-center lg:justify-end lg:pl-12">
+            <div
+              aria-hidden
+              className="h-[22rem] w-[19rem] rounded-sm bg-muted lg:w-[22rem]"
+            />
+          </div>
         </Grid>
       </Container>
     </Section>

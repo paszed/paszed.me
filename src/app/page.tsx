@@ -12,13 +12,12 @@ import {
 
 export const metadata: Metadata = {
   title: site.title,
-  description:
-    "Personal website of Edvard Pasz. Software engineering, developer infrastructure, distributed systems, AI, projects, and long-form engineering writing.",
+  description: site.description,
 };
 
 export default function HomePage() {
   return (
-    <>
+    <div className="overflow-hidden">
       <Hero />
 
       <CurrentFocus />
@@ -30,6 +29,6 @@ export default function HomePage() {
       <Philosophy />
 
       <ContactCTA />
-    </>
+    </div>
   );
 }

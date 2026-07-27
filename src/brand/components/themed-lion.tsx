@@ -17,11 +17,8 @@ export function ThemedLion() {
 
   return (
     <div
-      className={
-        isDark
-          ? "absolute inset-0"
-          : "absolute inset-0 translate-y-8 lg:translate-y-12"
-      }
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-0 overflow-hidden select-none"
     >
       <Image
         src={
@@ -32,12 +29,11 @@ export function ThemedLion() {
         alt=""
         fill
         priority
-        aria-hidden
         sizes="(max-width: 1024px) 100vw, 40vw"
         className={
           isDark
-            ? "pointer-events-none select-none object-contain object-center opacity-30 transition-opacity duration-500"
-            : "pointer-events-none select-none object-contain object-center opacity-10 transition-opacity duration-500"
+            ? "object-contain object-center opacity-30 transition-opacity duration-500"
+            : "translate-y-8 object-contain object-center opacity-10 transition-opacity duration-500 lg:translate-y-12"
         }
       />
     </div>

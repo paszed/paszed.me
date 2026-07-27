@@ -11,9 +11,32 @@ interface HeadingProps
 }
 
 const styles: Record<HeadingLevel, string> = {
-  h1: "font-serif text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-fg sm:text-6xl lg:text-7xl",
-  h2: "font-serif text-4xl font-semibold leading-tight tracking-[-0.02em] text-fg sm:text-5xl",
-  h3: "font-serif text-3xl font-semibold leading-tight tracking-[-0.02em] text-fg",
+  h1: [
+    "font-serif",
+    "text-5xl font-semibold",
+    "leading-[1.05]",
+    "tracking-[-0.04em]",
+    "text-fg",
+    "sm:text-6xl",
+    "lg:text-7xl",
+  ].join(" "),
+
+  h2: [
+    "font-serif",
+    "text-4xl font-semibold",
+    "leading-[1.1]",
+    "tracking-[-0.03em]",
+    "text-fg",
+    "sm:text-5xl",
+  ].join(" "),
+
+  h3: [
+    "font-serif",
+    "text-3xl font-semibold",
+    "leading-[1.15]",
+    "tracking-[-0.025em]",
+    "text-fg",
+  ].join(" "),
 };
 
 export function Heading({
@@ -25,6 +48,7 @@ export function Heading({
   return (
     <Component
       className={cn(
+        "font-serif",
         styles[Component],
         className,
       )}

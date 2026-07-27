@@ -12,7 +12,14 @@ export function Avatar({
   return (
     <div
       className={cn(
-        "flex size-10 items-center justify-center rounded-full border border-border bg-card",
+        [
+          "flex size-10 shrink-0",
+          "items-center justify-center",
+          "overflow-hidden",
+          "rounded-full",
+          "border border-border",
+          "bg-card",
+        ],
         className,
       )}
       {...props}

@@ -17,11 +17,13 @@ const variantClasses: Record<ButtonVariant, string> = {
     "border-transparent",
     "bg-accent text-background",
     "hover:bg-accent-hover",
+    "shadow-sm",
   ].join(" "),
 
   outline: [
     "border-border",
     "bg-transparent text-foreground",
+    "hover:border-accent/50",
     "hover:bg-surface",
   ].join(" "),
 
@@ -44,7 +46,7 @@ export function Button({
       className={cn(
         [
           "inline-flex items-center justify-center",
-          "rounded-md border",
+          "rounded-lg border",
           "px-5 py-2.5",
           "font-sans text-sm font-medium tracking-[0.015em]",
           "transition-colors duration-200",

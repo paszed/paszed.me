@@ -2,7 +2,8 @@ import type { HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
+interface LabelProps
+  extends HTMLAttributes<HTMLSpanElement> {
   children?: ReactNode;
 }
 
@@ -14,7 +15,12 @@ export function Label({
   return (
     <span
       className={cn(
-        "text-xs font-medium uppercase tracking-[0.3em] text-fg-muted",
+        [
+          "font-sans text-xs font-medium",
+          "uppercase tracking-[0.3em]",
+          "leading-5",
+          "text-fg-muted",
+        ],
         className,
       )}
       {...props}

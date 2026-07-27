@@ -27,9 +27,11 @@ export const Checkbox = forwardRef<
       field?.hasDescription
         ? field.descriptionId
         : undefined,
+
       field?.hasError
         ? field.errorId
         : undefined,
+
       ariaDescribedBy,
     ]
       .filter(Boolean)
@@ -47,15 +49,21 @@ export const Checkbox = forwardRef<
           props["aria-invalid"]
         }
         className={cn(
-          "h-4 w-4 shrink-0 rounded border border-input",
-          "text-primary",
-          "ring-offset-background",
-          "focus-visible:outline-none",
-          "focus-visible:ring-2",
-          "focus-visible:ring-ring",
-          "focus-visible:ring-offset-2",
-          "disabled:cursor-not-allowed",
-          "disabled:opacity-50",
+          [
+            "h-4 w-4 shrink-0",
+            "rounded",
+            "border border-border",
+            "text-accent",
+
+            "focus-visible:outline-none",
+            "focus-visible:ring-2",
+            "focus-visible:ring-accent",
+            "focus-visible:ring-offset-2",
+            "focus-visible:ring-offset-background",
+
+            "disabled:cursor-not-allowed",
+            "disabled:opacity-50",
+          ],
           className,
         )}
         {...props}

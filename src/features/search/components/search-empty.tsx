@@ -1,9 +1,12 @@
-import { Text } from "@/design-system";
+import {
+  EmptyState,
+} from "@/design-system";
 
 export function SearchEmpty() {
   return (
-    <Text muted>
-      No results found.
-    </Text>
+    <EmptyState
+      title="No results found"
+      description="Try searching for a different term, project, article, or page."
+    />
   );
 }

@@ -2,9 +2,17 @@ import type { HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-type MeasureSize = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+type MeasureSize =
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "3xl"
+  | "4xl";
 
-interface MeasureProps extends HTMLAttributes<HTMLDivElement> {
+interface MeasureProps
+  extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   size?: MeasureSize;
 }
@@ -27,7 +35,11 @@ export function Measure({
 }: MeasureProps) {
   return (
     <div
-      className={cn(sizes[size], className)}
+      className={cn(
+        "w-full",
+        sizes[size],
+        className,
+      )}
       {...props}
     >
       {children}

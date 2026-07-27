@@ -4,7 +4,10 @@ export interface HighlightPart {
 }
 
 function escapeRegExp(value: string): string {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return value.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    "\\$&",
+  );
 }
 
 export function highlightMatch(
@@ -33,7 +36,12 @@ export function highlightMatch(
     .map((part) => ({
       text: part,
       highlighted:
-        part.toLowerCase() ===
-        normalizedQuery.toLowerCase(),
+        part.localeCompare(
+          normalizedQuery,
+          undefined,
+          {
+            sensitivity: "accent",
+          },
+        ) === 0,
     }));
 }

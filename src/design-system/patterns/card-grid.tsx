@@ -1,13 +1,27 @@
 import type { HTMLAttributes } from "react";
 
-import { Grid } from "../layout";
-type CardGridProps = HTMLAttributes<HTMLDivElement>;
+import { cn } from "@/lib";
 
-export function CardGrid(props: CardGridProps) {
+import { Grid } from "../layout";
+
+interface CardGridProps
+  extends HTMLAttributes<HTMLDivElement> {
+  columns?: 1 | 2 | 3;
+}
+
+export function CardGrid({
+  className,
+  columns = 2,
+  ...props
+}: CardGridProps) {
   return (
     <Grid
-      columns={2}
+      columns={columns}
       gap="lg"
+      className={cn(
+        "items-stretch",
+        className,
+      )}
       {...props}
     />
   );

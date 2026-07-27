@@ -16,11 +16,11 @@ interface TextProps extends HTMLAttributes<HTMLElement> {
 }
 
 const sizes: Record<TextSize, string> = {
-  xs: "text-xs",
-  sm: "text-sm",
+  xs: "text-xs leading-5",
+  sm: "text-sm leading-6",
   base: "text-base leading-8",
   lg: "text-lg leading-8",
-  lead: "text-xl leading-9 lg:text-2xl",
+  lead: "text-xl leading-9 lg:text-2xl lg:leading-10",
 };
 
 export function Text({
@@ -34,6 +34,7 @@ export function Text({
   return (
     <Component
       className={cn(
+        "font-sans",
         sizes[size],
         muted ? "text-fg-secondary" : "text-fg",
         className,

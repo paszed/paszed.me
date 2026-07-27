@@ -2,12 +2,22 @@ import { expect, test } from "@playwright/test";
 
 test.describe("Navigation", () => {
   const pages = [
-    { label: "About", href: "/about" },
-    { label: "Projects", href: "/projects" },
-    { label: "Journal", href: "/journal" },
-    { label: "Uses", href: "/uses" },
-    { label: "Now", href: "/now" },
-    { label: "Links", href: "/links" },
+    {
+      label: "About",
+      href: "/about",
+    },
+    {
+      label: "Projects",
+      href: "/projects",
+    },
+    {
+      label: "Journal",
+      href: "/journal",
+    },
+    {
+      label: "Now",
+      href: "/now",
+    },
   ];
 
   for (const route of pages) {
@@ -19,7 +29,7 @@ test.describe("Navigation", () => {
       const navigation = page.getByRole(
         "navigation",
         {
-          name: /primary/i,
+          name: "Primary navigation",
         },
       );
 
@@ -27,9 +37,12 @@ test.describe("Navigation", () => {
         .getByRole("link", {
           name: route.label,
         })
+        .first()
         .click();
 
-      await expect(page).toHaveURL(route.href);
+      await expect(page).toHaveURL(
+        route.href,
+      );
 
       await expect(
         page.getByRole("main"),

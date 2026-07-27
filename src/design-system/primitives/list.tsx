@@ -5,18 +5,22 @@ import type {
 
 import { cn } from "@/lib";
 
-interface ListProps extends HTMLAttributes<HTMLUListElement> {
-  gap?: "sm" | "md" | "lg";
+type ListGap = "sm" | "md" | "lg";
+
+interface ListProps
+  extends HTMLAttributes<HTMLUListElement> {
+  gap?: ListGap;
 }
 
-interface ListItemProps extends LiHTMLAttributes<HTMLLIElement> {
+interface ListItemProps
+  extends LiHTMLAttributes<HTMLLIElement> {
   muted?: boolean;
 }
 
-const gaps = {
-  sm: "space-y-2",
-  md: "space-y-3",
-  lg: "space-y-4",
+const gaps: Record<ListGap, string> = {
+  sm: "gap-2 space-y-2",
+  md: "gap-3 space-y-3",
+  lg: "gap-4 space-y-4",
 };
 
 export function List({
@@ -26,7 +30,11 @@ export function List({
 }: ListProps) {
   return (
     <ul
-      className={cn(gaps[gap], className)}
+      className={cn(
+        "flex flex-col",
+        gaps[gap],
+        className,
+      )}
       {...props}
     />
   );
@@ -40,6 +48,7 @@ export function ListItem({
   return (
     <li
       className={cn(
+        "font-sans",
         muted ? "text-fg-secondary" : "text-fg",
         className,
       )}

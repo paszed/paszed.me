@@ -1,14 +1,13 @@
 import {
-  Card,
   Container,
   Grid,
-  Heading,
   Section,
   SectionHeader,
   Stack,
-  Text,
 } from "@/design-system";
 import { home } from "@/content";
+
+import { FeatureCard } from "./feature-card";
 
 export function Philosophy() {
   return (
@@ -21,24 +20,21 @@ export function Philosophy() {
             description="The principles that shape how I approach software design, engineering, and long-term maintainability."
           />
 
-          <Grid gap="lg" className="md:grid-cols-3">
-            {home.philosophy.items.map((principle) => (
-              <Card
-                key={principle.title}
-                variant="interactive"
-                className="h-full"
-              >
-                <Stack gap="sm">
-                  <Heading as="h3" className="text-lg">
-                    {principle.title}
-                  </Heading>
-
-                  <Text muted>
-                    {principle.description}
-                  </Text>
-                </Stack>
-              </Card>
-            ))}
+          <Grid
+            columns={3}
+            gap="lg"
+          >
+            {home.philosophy.items.map(
+              (principle) => (
+                <FeatureCard
+                  key={principle.title}
+                  title={principle.title}
+                  description={
+                    principle.description
+                  }
+                />
+              ),
+            )}
           </Grid>
         </Stack>
       </Container>

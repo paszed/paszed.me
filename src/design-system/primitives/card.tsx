@@ -6,9 +6,14 @@ type CardVariant = "default" | "interactive";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  className?: string;
   variant?: CardVariant;
 }
+
+const variants: Record<CardVariant, string> = {
+  default: "",
+  interactive:
+    "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg",
+};
 
 export function Card({
   children,
@@ -21,18 +26,12 @@ export function Card({
       className={cn(
         [
           "rounded-xl",
-          "border",
-          "border-border-muted",
+          "border border-border-muted",
           "bg-card",
           "p-8",
-          "transition-all",
-          "duration-300",
+          "transition-all duration-300",
         ],
-        variant === "interactive" && [
-          "hover:-translate-y-1",
-          "hover:border-accent/30",
-          "hover:shadow-lg",
-        ],
+        variants[variant],
         className,
       )}
       {...props}

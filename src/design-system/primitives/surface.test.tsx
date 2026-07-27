@@ -11,11 +11,15 @@ describe("Surface", () => {
   it("renders its children", () => {
     renderWithProviders(
       <Surface>
-        <div>Content</div>
+        <div>
+          Content
+        </div>
       </Surface>,
     );
 
-    expect(screen.getByText("Content")).toBeInTheDocument();
+    expect(
+      screen.getByText("Content"),
+    ).toBeInTheDocument();
   });
 
   it("uses the default variant", () => {
@@ -73,12 +77,35 @@ describe("Surface", () => {
       />,
     );
 
-    const surface = screen.getByTestId("surface");
+    const surface =
+      screen.getByTestId("surface");
 
-    expect(surface).toHaveAttribute("id", "card");
+    expect(surface).toHaveAttribute(
+      "id",
+      "card",
+    );
+
     expect(surface).toHaveAttribute(
       "aria-label",
       "Card surface",
+    );
+  });
+
+  it("applies interactive styles when enabled", () => {
+    renderWithProviders(
+      <Surface
+        data-testid="surface"
+        interactive
+      />,
+    );
+
+    expect(
+      screen.getByTestId("surface"),
+    ).toHaveClass(
+      "cursor-pointer",
+      "border",
+      "border-border",
+      "hover:border-accent/60",
     );
   });
 

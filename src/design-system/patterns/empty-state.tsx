@@ -1,5 +1,7 @@
 import type { HTMLAttributes } from "react";
 
+import { cn } from "@/lib";
+
 import {
   Center,
   Stack,
@@ -8,8 +10,6 @@ import {
   Heading,
   Text,
 } from "../typography";
-
-import { cn } from "@/lib";
 
 interface EmptyStateProps
   extends HTMLAttributes<HTMLDivElement> {
@@ -26,16 +26,27 @@ export function EmptyState({
 }: EmptyStateProps) {
   return (
     <Center
-      className={cn("py-16", className)}
+      className={cn(
+        "min-h-64 py-16 text-center",
+        className,
+      )}
       {...props}
     >
-      <Stack gap="md">
+      <Stack
+        gap="md"
+        className="items-center"
+      >
         <Heading as="h2">
           {title}
         </Heading>
 
         {description && (
-          <Text muted>{description}</Text>
+          <Text
+            muted
+            className="max-w-md"
+          >
+            {description}
+          </Text>
         )}
 
         {children}

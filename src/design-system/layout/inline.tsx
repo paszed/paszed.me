@@ -2,30 +2,34 @@ import type { HTMLAttributes } from "react";
 
 import { cn } from "@/lib";
 
+type InlineGap = "sm" | "md" | "lg";
+type InlineAlign = "start" | "center" | "end";
+type InlineJustify =
+  | "start"
+  | "center"
+  | "end"
+  | "between";
+
 interface InlineProps
   extends HTMLAttributes<HTMLDivElement> {
-  gap?: "sm" | "md" | "lg";
-  align?: "start" | "center" | "end";
-  justify?:
-    | "start"
-    | "center"
-    | "end"
-    | "between";
+  gap?: InlineGap;
+  align?: InlineAlign;
+  justify?: InlineJustify;
 }
 
-const gaps = {
+const gaps: Record<InlineGap, string> = {
   sm: "gap-2",
   md: "gap-4",
   lg: "gap-6",
 };
 
-const aligns = {
+const aligns: Record<InlineAlign, string> = {
   start: "items-start",
   center: "items-center",
   end: "items-end",
 };
 
-const justifies = {
+const justifies: Record<InlineJustify, string> = {
   start: "justify-start",
   center: "justify-center",
   end: "justify-end",

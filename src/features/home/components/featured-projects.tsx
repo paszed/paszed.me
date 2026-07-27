@@ -9,8 +9,8 @@ import {
   Stack,
   Text,
 } from "@/design-system";
-import { ProjectCard } from "@/features/projects";
 import { home } from "@/content";
+import { ProjectCard } from "@/features/projects";
 import { getFeaturedProjects } from "@/lib/projects";
 
 export function FeaturedProjects() {
@@ -26,13 +26,18 @@ export function FeaturedProjects() {
             description={home.featuredProjects.description}
             actions={
               <Link href="/projects">
-                <Button>View All Projects</Button>
+                <Button>
+                  View All Projects
+                </Button>
               </Link>
             }
           />
 
           {projects.length > 0 ? (
-            <Grid gap="lg" className="xl:grid-cols-2">
+            <Grid
+              columns={2}
+              gap="lg"
+            >
               {projects.map((project) => (
                 <ProjectCard
                   key={project.slug}

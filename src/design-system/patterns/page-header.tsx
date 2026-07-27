@@ -1,22 +1,32 @@
-import type { HTMLAttributes } from "react";
-
-import { Stack } from "../layout";
+import type {
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
 import { cn } from "@/lib";
 
-type PageHeaderProps = HTMLAttributes<HTMLElement>;
+import { Stack } from "../layout";
+
+interface PageHeaderProps
+  extends HTMLAttributes<HTMLElement> {
+  children?: ReactNode;
+}
 
 export function PageHeader({
+  children,
   className,
   ...props
 }: PageHeaderProps) {
   return (
     <header
-      className={cn(className)}
+      className={cn(
+        "relative",
+        className,
+      )}
       {...props}
     >
       <Stack gap="md">
-        {props.children}
+        {children}
       </Stack>
     </header>
   );

@@ -11,7 +11,13 @@ export function Code({
   return (
     <code
       className={cn(
-        "rounded-md bg-muted px-1.5 py-0.5 font-mono text-sm",
+        [
+          "rounded-md",
+          "bg-muted",
+          "px-1.5 py-0.5",
+          "font-mono text-sm",
+          "text-fg",
+        ],
         className,
       )}
       {...props}

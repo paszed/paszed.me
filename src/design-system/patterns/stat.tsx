@@ -1,5 +1,7 @@
 import type { HTMLAttributes, ReactNode } from "react";
 
+import { cn } from "@/lib";
+
 import { Stack } from "../layout";
 import {
   Heading,
@@ -14,11 +16,13 @@ interface StatProps extends HTMLAttributes<HTMLDivElement> {
 export function Stat({
   label,
   value,
+  className,
   ...props
 }: StatProps) {
   return (
     <Stack
       gap="sm"
+      className={cn(className)}
       {...props}
     >
       <Text
@@ -28,7 +32,9 @@ export function Stat({
         {label}
       </Text>
 
-      <Heading as="h3">{value}</Heading>
+      <Heading as="h3">
+        {value}
+      </Heading>
     </Stack>
   );
 }

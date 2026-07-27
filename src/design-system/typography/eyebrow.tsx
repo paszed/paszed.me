@@ -2,7 +2,8 @@ import type { HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface EyebrowProps extends HTMLAttributes<HTMLParagraphElement> {
+interface EyebrowProps
+  extends HTMLAttributes<HTMLParagraphElement> {
   children?: ReactNode;
 }
 
@@ -14,7 +15,12 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "font-sans text-xs font-medium uppercase tracking-[0.35em] text-accent",
+        [
+          "font-sans text-xs font-medium",
+          "uppercase tracking-[0.3em]",
+          "text-accent",
+          "leading-5",
+        ],
         className,
       )}
       {...props}

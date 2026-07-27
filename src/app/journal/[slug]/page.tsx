@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { Prose } from "@/design-system";
 import {
+  ArticleContent,
   ArticleHeader,
   ArticleNavigation,
   ArticleRelated,
@@ -61,47 +61,33 @@ export default async function JournalArticlePage({
   const next = getNextArticle(slug);
   const related = getRelatedArticles(slug);
 
-  const articleSchema = createArticleSchema(article);
-
-  const breadcrumbSchema = createBreadcrumbSchema([
-    {
-      name: "Home",
-      path: "/",
-    },
-    {
-      name: "Journal",
-      path: "/journal",
-    },
-    {
-      name: article.title,
-      path: `/journal/${article.slug}`,
-    },
-  ]);
-
   return (
     <>
-      <JsonLd data={articleSchema} />
-      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={createArticleSchema(article)} />
+
+      <JsonLd
+        data={createBreadcrumbSchema([
+          {
+            name: "Home",
+            path: "/",
+          },
+          {
+            name: "Journal",
+            path: "/journal",
+          },
+          {
+            name: article.title,
+            path: `/journal/${article.slug}`,
+          },
+        ])}
+      />
 
       <ReadingProgress />
 
       <article className="mx-auto max-w-3xl px-6 py-24">
         <ArticleHeader article={article} />
 
-        <Prose>
-          {article.sections.map((section) => (
-            <section key={section.title}>
-              <h2>{section.title}</h2>
-
-              {section.content
-                .trim()
-                .split(/\n\s*\n/)
-                .map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-            </section>
-          ))}
-        </Prose>
+        <ArticleContent article={article} />
 
         <ArticleRelated articles={related} />
 

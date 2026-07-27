@@ -1,14 +1,13 @@
 import {
-  Card,
   Container,
   Grid,
-  Heading,
   Section,
   SectionHeader,
   Stack,
-  Text,
 } from "@/design-system";
 import { home } from "@/content";
+
+import { FeatureCard } from "./feature-card";
 
 export function CurrentFocus() {
   return (
@@ -24,23 +23,16 @@ export function CurrentFocus() {
           <Grid
             columns={3}
             gap="lg"
-            className="md:grid-cols-3"
           >
-            {home.currentFocus.items.map((item) => (
-              <Card
-                key={item.title}
-                variant="interactive"
-                className="h-full"
-              >
-                <Stack gap="sm">
-                  <Heading as="h3" className="text-lg">
-                    {item.title}
-                  </Heading>
-
-                  <Text muted>{item.description}</Text>
-                </Stack>
-              </Card>
-            ))}
+            {home.currentFocus.items.map(
+              (item) => (
+                <FeatureCard
+                  key={item.title}
+                  title={item.title}
+                  description={item.description}
+                />
+              ),
+            )}
           </Grid>
         </Stack>
       </Container>

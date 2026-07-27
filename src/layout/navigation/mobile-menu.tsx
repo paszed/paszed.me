@@ -15,6 +15,10 @@ export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  function closeMenu() {
+    setOpen(false);
+  }
+
   return (
     <>
       <IconButton
@@ -24,6 +28,7 @@ export function MobileMenu() {
             ? "Close navigation menu"
             : "Open navigation menu"
         }
+        aria-expanded={open}
         onClick={() =>
           setOpen((value) => !value)
         }
@@ -46,7 +51,7 @@ export function MobileMenu() {
         <button
           type="button"
           aria-label="Close navigation menu"
-          onClick={() => setOpen(false)}
+          onClick={closeMenu}
           className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
         />
       )}
@@ -67,7 +72,10 @@ export function MobileMenu() {
               : "-translate-y-2 opacity-0",
           )}
         >
-          <nav className="flex flex-col p-2">
+          <nav
+            aria-label="Mobile navigation"
+            className="flex flex-col p-2"
+          >
             {navigation.map((item) => {
               const active =
                 pathname === item.href;
@@ -76,8 +84,11 @@ export function MobileMenu() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() =>
-                    setOpen(false)
+                  onClick={closeMenu}
+                  aria-current={
+                    active
+                      ? "page"
+                      : undefined
                   }
                   className={cn(
                     "rounded-xl px-4 py-3 text-base font-medium transition-all duration-200",

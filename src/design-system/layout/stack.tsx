@@ -15,11 +15,11 @@ interface StackProps extends HTMLAttributes<HTMLElement> {
 }
 
 const gaps: Record<StackGap, string> = {
-  sm: "space-y-4",
-  md: "space-y-6",
-  lg: "space-y-8",
-  xl: "space-y-10",
-  "2xl": "space-y-12",
+  sm: "gap-4 space-y-4",
+  md: "gap-6 space-y-6",
+  lg: "gap-8 space-y-8",
+  xl: "gap-10 space-y-10",
+  "2xl": "gap-12 space-y-12",
 };
 
 export function Stack({
@@ -31,7 +31,11 @@ export function Stack({
 }: StackProps) {
   return (
     <Component
-      className={cn(gaps[gap], className)}
+      className={cn(
+        "flex flex-col",
+        gaps[gap],
+        className,
+      )}
       {...props}
     >
       {children}

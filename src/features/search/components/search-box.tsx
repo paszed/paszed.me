@@ -28,7 +28,7 @@ export function SearchBox({
   } = useSearchBox();
 
   return (
-    <Panel className="p-6">
+    <Panel>
       <Stack gap="md">
         <SearchInput
           ref={inputRef}

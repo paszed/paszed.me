@@ -1,9 +1,11 @@
 import type { HTMLAttributes } from "react";
 
-import { Inline } from "../layout";
 import { cn } from "@/lib";
 
-type ActionBarProps = HTMLAttributes<HTMLDivElement>;
+import { Inline } from "../layout";
+
+type ActionBarProps =
+  HTMLAttributes<HTMLDivElement>;
 
 export function ActionBar({
   className,
@@ -12,7 +14,11 @@ export function ActionBar({
   return (
     <Inline
       justify="between"
-      className={cn(className)}
+      gap="lg"
+      className={cn(
+        "w-full",
+        className,
+      )}
       {...props}
     />
   );

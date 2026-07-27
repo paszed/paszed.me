@@ -2,7 +2,7 @@ import type { HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib";
 
-type StatusTone =
+export type StatusTone =
   | "info"
   | "warning"
   | "success"
@@ -30,7 +30,15 @@ export function StatusBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border-muted bg-card px-3 py-1 text-sm font-medium text-fg-secondary",
+        [
+          "inline-flex items-center gap-2",
+          "rounded-full",
+          "border border-border-muted",
+          "bg-card",
+          "px-3 py-1",
+          "font-sans text-sm font-medium",
+          "text-fg-secondary",
+        ],
         className,
       )}
       {...props}
@@ -38,7 +46,7 @@ export function StatusBadge({
       <span
         aria-hidden
         className={cn(
-          "size-2 rounded-full",
+          "size-2 shrink-0 rounded-full",
           dots[tone],
         )}
       />

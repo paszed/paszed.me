@@ -29,7 +29,7 @@ export function FooterSection({
     <Stack gap="sm">
       <Heading
         as="h2"
-        className="text-sm uppercase tracking-[0.2em]"
+        className="text-sm font-semibold uppercase tracking-[0.2em]"
       >
         {title}
       </Heading>

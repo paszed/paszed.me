@@ -1,20 +1,33 @@
-import type { HTMLAttributes } from "react";
+import type {
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
-import { Stack } from "../layout";
 import { cn } from "@/lib";
 
-type HeroProps = HTMLAttributes<HTMLElement>;
+import { Stack } from "../layout";
+
+interface HeroProps
+  extends HTMLAttributes<HTMLElement> {
+  children?: ReactNode;
+}
 
 export function Hero({
+  children,
   className,
   ...props
 }: HeroProps) {
   return (
     <header
-      className={cn(className)}
+      className={cn(
+        "relative",
+        className,
+      )}
       {...props}
     >
-      <Stack gap="lg">{props.children}</Stack>
+      <Stack gap="lg">
+        {children}
+      </Stack>
     </header>
   );
 }

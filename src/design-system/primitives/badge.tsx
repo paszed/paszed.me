@@ -2,7 +2,8 @@ import type { HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
+interface BadgeProps
+  extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode;
   className?: string;
 }
@@ -16,19 +17,13 @@ export function Badge({
     <span
       className={cn(
         [
-          "inline-flex",
-          "items-center",
+          "inline-flex items-center",
           "rounded-full",
-          "border",
-          "border-border-muted",
+          "border border-border-muted",
           "bg-card",
-          "px-3",
-          "py-1",
-          "text-sm",
-          "font-medium",
+          "px-3 py-1",
+          "font-sans text-sm font-medium",
           "text-fg-secondary",
-          "transition-colors",
-          "duration-200",
         ],
         className,
       )}

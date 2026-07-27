@@ -1,11 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import {
   SearchBox,
   SearchDialog,
 } from "../components";
+
 import { useCommandPaletteShortcuts } from "../hooks";
 
 export function GlobalSearch() {

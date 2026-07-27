@@ -15,7 +15,7 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-border">
       <Container>
-        <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_repeat(5,1fr)]">
           <Stack gap="sm">
             <BrandLogo />
 
@@ -41,9 +41,9 @@ export function Footer() {
           />
 
           <FooterSection
-  title="Resources"
-  items={footer.resources}
-/>
+            title="Resources"
+            items={footer.resources}
+          />
 
           <FooterSection
             title="Developer"

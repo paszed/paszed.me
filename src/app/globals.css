@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/*
+  Global design tokens.
+
+  The site uses semantic tokens rather than direct colors:
+  components should consume:
+  - bg-background
+  - text-foreground
+  - bg-surface
+  - border-border
+  - text-fg-secondary
+  - text-accent
+
+  Theme switching is handled by the `.dark` class.
+*/
+
 :root {
   /* Base */
   --background: #f8f5ef;
@@ -14,10 +29,10 @@
   --border: #b99b73;
   --border-muted: #ddd2bf;
 
-  /* Foreground */
+  /* Text hierarchy */
   --fg: #2b2622;
   --fg-secondary: #5c5247;
-  --fg-muted: #6b5d4d;
+  --fg-muted: #766858;
 
   /* Brand */
   --accent: #a65232;
@@ -27,6 +42,9 @@
   --success: #55613b;
   --warning: #c9a24a;
   --danger: #a65232;
+
+  /* Effects */
+  --shadow-color: rgba(43, 38, 34, 0.08);
 }
 
 .dark {
@@ -43,19 +61,22 @@
   --border: #3b2d1f;
   --border-muted: #56422d;
 
-  /* Foreground */
+  /* Text hierarchy */
   --fg: #e8dfc9;
   --fg-secondary: #b8ae9c;
   --fg-muted: #8e8577;
 
   /* Brand */
   --accent: #c9a24a;
-  --accent-hover: #9b7532;
+  --accent-hover: #e0b85d;
 
   /* Status */
   --success: #68764a;
   --warning: #c9a24a;
-  --danger: #a65232;
+  --danger: #b76545;
+
+  /* Effects */
+  --shadow-color: rgba(0, 0, 0, 0.35);
 }
 
 @theme inline {
@@ -72,7 +93,7 @@
   --color-border: var(--border);
   --color-border-muted: var(--border-muted);
 
-  /* Foreground */
+  /* Text */
   --color-fg: var(--fg);
   --color-fg-secondary: var(--fg-secondary);
   --color-fg-muted: var(--fg-muted);
@@ -86,23 +107,38 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
 
-  /* Fonts */
+  /* Typography */
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
 }
 
-* {
+/*
+  Base reset
+*/
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {
   min-height: 100vh;
-  background: var(--background);
+
+  background:
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--accent) 4%, transparent),
+      transparent 35%
+    ),
+    var(--background);
+
   color: var(--foreground);
 
   font-family: var(--font-sans);
@@ -110,16 +146,76 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
 }
+
+/*
+  Selection
+*/
 
 ::selection {
   background: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--foreground);
+}
+
+/*
+  Media defaults
+*/
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
 }
 
 img {
   user-select: none;
 }
 
+/*
+  Interaction defaults
+*/
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 button {
   cursor: pointer;
+}
+
+/*
+  Accessibility
+*/
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/*
+  Scrollbar
+*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }

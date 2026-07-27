@@ -21,9 +21,8 @@ interface FieldContextValue {
   setHasError: (value: boolean) => void;
 }
 
-const FieldContext = createContext<FieldContextValue | null>(
-  null,
-);
+const FieldContext =
+  createContext<FieldContextValue | null>(null);
 
 export function useFieldContext() {
   const context = useContext(FieldContext);
@@ -41,7 +40,7 @@ export function useOptionalFieldContext() {
   return useContext(FieldContext);
 }
 
-export interface FieldProps {
+interface FieldProps {
   children: ReactNode;
   className?: string;
 }
@@ -51,9 +50,12 @@ export function Field({
   className,
 }: FieldProps) {
   const id = useId();
+
   const [hasDescription, setHasDescription] =
     useState(false);
-  const [hasError, setHasError] = useState(false);
+
+  const [hasError, setHasError] =
+    useState(false);
 
   const value: FieldContextValue = {
     id,
@@ -67,7 +69,12 @@ export function Field({
 
   return (
     <FieldContext.Provider value={value}>
-      <div className={cn("space-y-2", className)}>
+      <div
+        className={cn(
+          "space-y-2",
+          className,
+        )}
+      >
         {children}
       </div>
     </FieldContext.Provider>
@@ -87,7 +94,7 @@ export function FieldLabel({
     <label
       htmlFor={id}
       className={cn(
-        "text-sm font-medium leading-none",
+        "text-sm font-medium leading-none text-fg",
         className,
       )}
       {...props}
@@ -119,7 +126,7 @@ export function FieldDescription({
     <p
       id={descriptionId}
       className={cn(
-        "text-muted-foreground text-sm",
+        "text-fg-muted text-sm",
         className,
       )}
       {...props}
@@ -151,7 +158,7 @@ export function FieldError({
     <p
       id={errorId}
       className={cn(
-        "text-destructive text-sm font-medium",
+        "text-danger text-sm font-medium",
         className,
       )}
       {...props}

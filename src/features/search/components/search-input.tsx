@@ -37,7 +37,7 @@ export const SearchInput = forwardRef<
       onKeyDown={onKeyDown}
       autoComplete="off"
       spellCheck={false}
-      className="h-auto border-0 bg-transparent px-0 py-0 text-lg shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
+      className="h-auto border-0 bg-transparent px-0 py-0 text-lg shadow-none"
     />
   );
 });

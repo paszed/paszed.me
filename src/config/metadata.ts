@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 
   applicationName: site.name,
 
+  generator: "Next.js",
+
   referrer: "origin-when-cross-origin",
 
   authors: [
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     canonical: "/",
 
     types: {
-      "application/rss+xml": `${site.url}/rss.xml`,
+      "application/rss+xml": "/rss.xml",
     },
   },
 
@@ -39,18 +41,20 @@ export const metadata: Metadata = {
     "Edvard Pasz",
     "Paszed",
     "Software Engineer",
-    "Software Engineering",
     "Software Architecture",
     "Developer Experience",
     "Developer Tools",
-    "Engineering Journal",
+    "Engineering",
+    "Technical Writing",
     "TypeScript",
-    "Go",
-    "Next.js",
     "React",
+    "Next.js",
+    "Go",
     "Artificial Intelligence",
     "AI Engineering",
+    "Developer Infrastructure",
     "Terminal Workflow",
+    "Systems Design",
   ],
 
   openGraph: {
@@ -58,24 +62,34 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: site.name,
+
     title: site.title,
     description: site.description,
+
     images: [
       {
         url: site.ogImage,
         width: 1200,
         height: 630,
-        alt: `${site.name} Open Graph Image`,
+        alt: `${site.name} — ${site.owner}`,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
+
     creator: "@paszed_",
+
     title: site.title,
     description: site.description,
-    images: [site.ogImage],
+
+    images: [
+      {
+        url: site.ogImage,
+        alt: `${site.name} — ${site.owner}`,
+      },
+    ],
   },
 
   robots: {
@@ -85,6 +99,7 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
@@ -92,17 +107,25 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      {
+        url: "/favicon.ico",
+      },
+    ],
+
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+      },
+    ],
   },
 
   manifest: "/site.webmanifest",
 
   category: "technology",
 
-  // Uncomment after verifying your site with Google Search Console.
-  // verification: {
-  //   google: "YOUR_GOOGLE_SITE_VERIFICATION",
-  // },
+  /*
+    Add verification tokens after Search Console
+    and other webmaster tools are configured.
+  */
 };

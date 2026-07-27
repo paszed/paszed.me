@@ -11,7 +11,12 @@ export function Icon({
   return (
     <span
       className={cn(
-        "inline-flex items-center justify-center",
+        [
+          "inline-flex",
+          "shrink-0",
+          "items-center",
+          "justify-center",
+        ],
         className,
       )}
       {...props}

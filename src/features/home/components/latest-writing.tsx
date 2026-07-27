@@ -2,15 +2,15 @@ import Link from "next/link";
 
 import {
   Button,
-  Grid,
   Container,
+  Grid,
   Section,
   SectionHeader,
   Stack,
   Text,
 } from "@/design-system";
-import { JournalCard } from "@/features/journal";
 import { home } from "@/content";
+import { JournalCard } from "@/features/journal";
 import { getPublishedArticles } from "@/lib/journal";
 
 export function LatestWriting() {
@@ -26,13 +26,18 @@ export function LatestWriting() {
             description={home.latestWriting.description}
             actions={
               <Link href="/journal">
-                <Button>View Journal</Button>
+                <Button>
+                  View Journal
+                </Button>
               </Link>
             }
           />
 
           {articles.length > 0 ? (
-            <Grid gap="lg">
+            <Grid
+              columns={2}
+              gap="lg"
+            >
               {articles.map((article) => (
                 <JournalCard
                   key={article.slug}

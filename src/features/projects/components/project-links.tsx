@@ -4,10 +4,9 @@ import {
   Button,
   Cluster,
 } from "@/design-system";
+import type { Project } from "@/types/project";
 
 import { ProjectSection } from "./project-section";
-
-import type { Project } from "@/types/project";
 
 interface ProjectLinksProps {
   project: Project;
@@ -31,10 +30,10 @@ export function ProjectLinks({
             rel="noopener noreferrer"
           >
             <Button
-              className={
+              variant={
                 link.primary
-                  ? undefined
-                  : "border border-border bg-transparent text-fg hover:bg-muted"
+                  ? "default"
+                  : "outline"
               }
             >
               {link.label}

@@ -15,6 +15,18 @@ vi.mock("../typography", () => ({
     as?: "h1" | "h2";
     children: React.ReactNode;
   }) => <Tag>{children}</Tag>,
+
+  Eyebrow: ({
+    children,
+  }: {
+    children: React.ReactNode;
+  }) => <span>{children}</span>,
+
+  Text: ({
+    children,
+  }: {
+    children: React.ReactNode;
+  }) => <p>{children}</p>,
 }));
 
 describe("SectionHeader", () => {

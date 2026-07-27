@@ -17,7 +17,18 @@ export function TextLink({
   return (
     <Link
       className={cn(
-        "inline-flex items-center gap-2 text-sm font-medium text-fg transition-colors duration-200 hover:text-accent",
+        [
+          "inline-flex items-center gap-2",
+          "font-sans text-sm font-medium",
+          "text-fg",
+          "transition-colors duration-200",
+          "hover:text-accent",
+          "focus-visible:outline-none",
+          "focus-visible:ring-2",
+          "focus-visible:ring-accent",
+          "focus-visible:ring-offset-2",
+          "focus-visible:ring-offset-background",
+        ],
         className,
       )}
       {...props}

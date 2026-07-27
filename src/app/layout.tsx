@@ -7,9 +7,9 @@ import type { ReactNode } from "react";
 
 import "./globals.css";
 
-import { Footer, Navbar } from "@/layout";
-import { GlobalSearch } from "@/features/search";
 import { metadata } from "@/config/metadata";
+import { GlobalSearch } from "@/features/search";
+import { Footer, Navbar } from "@/layout";
 import {
   JsonLd,
   createOrganizationSchema,
@@ -23,16 +23,19 @@ export { metadata };
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
 const serif = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-serif",
+  display: "swap",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 });
 
 interface RootLayoutProps {
@@ -54,13 +57,15 @@ export default function RootLayout({
         <JsonLd data={createPersonSchema()} />
 
         <Providers>
-          <Navbar />
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
 
-          <GlobalSearch />
+            <GlobalSearch />
 
-          <main>{children}</main>
+            <main className="flex-1">{children}</main>
 
-          <Footer />
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

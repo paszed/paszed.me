@@ -12,6 +12,8 @@ import {
 import { highlightMatch } from "../lib/highlight-match";
 import type { SearchItem } from "../types/search";
 
+import { HighlightedText } from "./highlighted-text";
+
 interface SearchResultProps {
   item: SearchItem;
   selected: boolean;
@@ -48,42 +50,24 @@ export function SearchResult({
           }
         >
           <Stack gap="sm">
-            <Eyebrow>{item.category}</Eyebrow>
+            <Eyebrow>
+              {item.category}
+            </Eyebrow>
 
             <Heading
               as="h3"
               className="text-lg"
             >
-              {title.map((part, index) => (
-                <mark
-                  key={index}
-                  className={
-                    part.highlighted
-                      ? "rounded bg-accent/15 text-accent"
-                      : "bg-transparent text-inherit"
-                  }
-                >
-                  {part.text}
-                </mark>
-              ))}
+              <HighlightedText parts={title} />
             </Heading>
 
             <Text
               size="sm"
               muted
             >
-              {description.map((part, index) => (
-                <mark
-                  key={index}
-                  className={
-                    part.highlighted
-                      ? "rounded bg-accent/15 text-accent"
-                      : "bg-transparent text-inherit"
-                  }
-                >
-                  {part.text}
-                </mark>
-              ))}
+              <HighlightedText
+                parts={description}
+              />
             </Text>
           </Stack>
         </Card>

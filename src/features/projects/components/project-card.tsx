@@ -7,28 +7,20 @@ import {
   Cluster,
   Heading,
   Stack,
-  StatusBadge,
   Text,
 } from "@/design-system";
 import type { Project } from "@/types/project";
 
-import { PROJECT_STATUS } from "../lib";
+import { ProjectMeta } from "./project-meta";
 
 type ProjectCardProps = Project;
 
-export function ProjectCard({
-  slug,
-  title,
-  summary,
-  technologies,
-  status,
-  started,
-}: ProjectCardProps) {
-  const statusConfig = PROJECT_STATUS[status];
-
+export function ProjectCard(
+  project: ProjectCardProps,
+) {
   return (
     <Link
-      href={`/projects/${slug}`}
+      href={`/projects/${project.slug}`}
       className="group block"
     >
       <Card
@@ -39,27 +31,13 @@ export function ProjectCard({
           gap="lg"
           className="h-full"
         >
-          <Cluster
-            gap="sm"
-            className="text-sm"
-          >
-            <StatusBadge tone={statusConfig.tone}>
-              {statusConfig.label}
-            </StatusBadge>
-
-            <Text
-              size="sm"
-              muted
-            >
-              {started}
-            </Text>
-          </Cluster>
+          <ProjectMeta project={project} />
 
           <Heading
             as="h2"
             className="transition-colors group-hover:text-accent"
           >
-            {title}
+            {project.title}
           </Heading>
 
           <Text
@@ -67,25 +45,26 @@ export function ProjectCard({
             muted
             className="leading-relaxed"
           >
-            {summary}
+            {project.summary}
           </Text>
 
           <Cluster gap="sm">
-            {technologies.slice(0, 4).map((technology) => (
-              <Badge key={technology.name}>
-                {technology.name}
-              </Badge>
-            ))}
+            {project.technologies
+              .slice(0, 4)
+              .map((technology) => (
+                <Badge
+                  key={technology.name}
+                >
+                  {technology.name}
+                </Badge>
+              ))}
           </Cluster>
 
           <Cluster
             gap="sm"
             className="mt-auto font-medium text-accent transition-all group-hover:gap-3"
           >
-            <Text
-              as="span"
-              size="base"
-            >
+            <Text as="span">
               Case Study
             </Text>
 

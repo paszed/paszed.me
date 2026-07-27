@@ -1,9 +1,29 @@
-import type { HTMLAttributes } from "react";
+import type {
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
-type SidebarProps = HTMLAttributes<HTMLDivElement>;
+import { cn } from "@/lib";
+
+interface SidebarProps
+  extends HTMLAttributes<HTMLDivElement> {
+  children?: ReactNode;
+}
 
 export function Sidebar({
   children,
+  className,
+  ...props
 }: SidebarProps) {
-  return <>{children}</>;
+  return (
+    <div
+      className={cn(
+        "grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 }

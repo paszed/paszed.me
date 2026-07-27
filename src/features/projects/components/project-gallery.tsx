@@ -23,13 +23,19 @@ export function ProjectGallery({
 
   return (
     <ProjectSection title="Gallery">
-      <Grid gap="lg">
+      <Grid
+        columns={1}
+        gap="lg"
+      >
         {project.gallery.map((image) => (
           <Figure
             key={image.src}
             caption={
               image.caption ? (
-                <Text size="sm" muted>
+                <Text
+                  size="sm"
+                  muted
+                >
                   {image.caption}
                 </Text>
               ) : undefined
