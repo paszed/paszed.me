@@ -20,10 +20,10 @@ export function AboutPhilosophy() {
 
           <Text
             muted
-            className="max-w-3xl"
+            className="max-w-2xl leading-relaxed"
           >
-            The principles that guide how I approach architecture, engineering
-            decisions, and building systems that can evolve over time.
+            The principles I use when designing systems, making technical
+            decisions, and solving engineering problems.
           </Text>
         </Stack>
 

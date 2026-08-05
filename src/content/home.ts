@@ -1,15 +1,15 @@
 export const home = {
   hero: {
-    eyebrow: "ENGINEERING • SYSTEMS • SOFTWARE",
+    eyebrow: "SOFTWARE • SYSTEMS • AUTOMATION",
 
     title:
-      "I build software systems that scale beyond the first version.",
+      "I build reliable software for complex problems.",
 
     subtitle:
-      "Developer tools, modern web platforms, and AI-powered workflows designed with clarity, reliability, and long-term maintainability.",
+      "Modern web applications, internal tools, and developer systems designed to be clear, maintainable, and ready to evolve.",
 
     description:
-      "I'm Edvard, a software engineer focused on turning recurring technical problems into reusable systems. I design and build developer infrastructure, applications, and automation workflows while documenting the architecture, decisions, and lessons behind them.",
+      "I'm Edvard, a software engineer helping turn ideas and technical challenges into dependable software. I design systems from the foundation up — focusing on architecture, developer experience, automation, and long-term maintainability.",
 
     primaryCta: {
       label: "View Projects",
@@ -22,24 +22,52 @@ export const home = {
     },
   },
 
-  currentFocus: {
-    title: "Currently",
+  capabilities: {
+    title: "Capabilities",
+
+    description:
+      "Areas where I help teams design, build, and improve modern software systems.",
 
     items: [
       {
-        title: "🟢 Building",
+        title: "Web Applications",
         description:
-          "Reusable developer tooling, platform infrastructure, and shared software capabilities.",
+          "Modern full-stack applications with thoughtful architecture, reliable foundations, and user-focused experiences.",
       },
       {
-        title: "📚 Learning",
+        title: "Developer Infrastructure",
         description:
-          "Distributed systems, platform engineering, AI orchestration, and Go.",
+          "Internal tools, automation, and workflows that reduce friction and help teams build software more effectively.",
       },
       {
-        title: "🔬 Exploring",
+        title: "AI Workflows",
         description:
-          "Composable AI systems, event-driven architecture, and infrastructure that compounds across projects.",
+          "Practical AI integrations, automation systems, and workflows that improve existing software processes.",
+      },
+    ],
+  },
+
+  howIHelp: {
+    title: "How I Can Help",
+
+    description:
+      "I work with individuals, startups, and teams to design, build, and improve software systems.",
+
+    items: [
+      {
+        title: "Build New Software",
+        description:
+          "From early concepts to production-ready applications, I help turn ideas into reliable software with a strong technical foundation.",
+      },
+      {
+        title: "Improve Existing Systems",
+        description:
+          "I help simplify complex codebases, improve architecture, and create systems that are easier to maintain and extend.",
+      },
+      {
+        title: "Automate Workflows",
+        description:
+          "I build tools and integrations that remove repetitive work and help teams operate more efficiently.",
       },
     ],
   },
@@ -48,14 +76,14 @@ export const home = {
     title: "Featured Projects",
 
     description:
-      "Selected work across developer infrastructure, reusable platform capabilities, AI systems, and applications.",
+      "Selected work across developer tooling, software platforms, AI workflows, and applications.",
   },
 
   latestWriting: {
     title: "Latest Writing",
 
     description:
-      "Essays on software engineering, architecture, infrastructure, distributed systems, AI, and engineering practice.",
+      "Essays and notes on software engineering, architecture, infrastructure, AI, and lessons learned while building real systems.",
   },
 
   philosophy: {

@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import {
   Avatar,
-  Eyebrow,
   Heading,
+  Measure,
   Section,
   Stack,
   Surface,
@@ -15,18 +15,22 @@ import { about } from "@/content";
 export function AboutHero() {
   return (
     <Section>
-      <Stack
-        gap="xl"
-        className="md:flex-row md:items-center"
+      <div
+        className="
+          grid
+          gap-12
+          lg:grid-cols-[auto_minmax(0,1fr)]
+          lg:items-center
+        "
       >
-        <Surface className="shrink-0 rounded-full p-2 shadow-sm">
-          <Avatar className="relative size-36 overflow-hidden border-0 sm:size-44">
+        <Surface className="w-fit rounded-full p-2 shadow-sm">
+          <Avatar className="relative size-28 overflow-hidden border-0 sm:size-36">
             <Image
               src="/images/profile.jpg"
               alt="Portrait of Edvard Pasz"
               fill
               priority
-              sizes="(max-width: 640px) 144px, 176px"
+              sizes="(max-width: 640px) 112px, 144px"
               className="object-cover"
             />
           </Avatar>
@@ -36,30 +40,21 @@ export function AboutHero() {
           gap="md"
           className="max-w-3xl"
         >
-          <Eyebrow>
-            Software Engineer • Systems Builder
-          </Eyebrow>
-
           <Heading as="h1">
             {about.hero.title}
           </Heading>
 
-          <Text
-            size="lead"
-            muted
-          >
-            {about.hero.intro}
-          </Text>
-
-          <Text
-            muted
-            className="max-w-2xl leading-relaxed"
-          >
-            I build software by focusing on strong foundations, clear
-            boundaries, and systems that remain useful as they grow.
-          </Text>
+          <Measure size="3xl">
+            <Text
+              size="lg"
+              muted
+              className="leading-relaxed"
+            >
+              {about.hero.intro}
+            </Text>
+          </Measure>
         </Stack>
-      </Stack>
+      </div>
     </Section>
   );
 }

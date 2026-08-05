@@ -17,12 +17,24 @@ export function FeatureCard({
   return (
     <Card
       variant="interactive"
-      className="h-full p-7"
+      className="
+        group
+        h-full
+        p-6
+        transition-transform
+        duration-200
+        hover:-translate-y-1
+      "
     >
       <Stack gap="md">
         <Heading
           as="h3"
-          className="text-xl"
+          className="
+            text-2xl
+            transition-colors
+            duration-200
+            group-hover:text-accent
+          "
         >
           {title}
         </Heading>
@@ -30,7 +42,7 @@ export function FeatureCard({
         <Text
           muted
           size="sm"
-          className="leading-7"
+          className="leading-relaxed"
         >
           {description}
         </Text>

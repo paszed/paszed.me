@@ -20,7 +20,7 @@ export function ContactCTA() {
   return (
     <Section>
       <Container>
-        <Surface className="rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
+        <Surface className="rounded-3xl border p-8 text-center sm:p-12">
           <Measure
             size="2xl"
             className="mx-auto"
@@ -29,23 +29,19 @@ export function ContactCTA() {
               gap="lg"
               className="items-center"
             >
-              <Stack
-                gap="sm"
-                className="items-center"
-              >
-                <Heading as="h2">
-                  Let&apos;s build something meaningful.
-                </Heading>
+              <Heading as="h2">
+                Need software built properly?
+              </Heading>
 
-                <Text
-                  size="lg"
-                  muted
-                >
-                  Whether you&apos;re building developer tools, AI-powered
-                  software, or scalable systems, I&apos;d be happy to connect,
-                  exchange ideas, or explore potential collaborations.
-                </Text>
-              </Stack>
+              <Text
+                size="lg"
+                muted
+              >
+                I help turn ideas, technical challenges, and recurring
+                workflows into reliable software systems — from web
+                applications and internal tools to developer infrastructure
+                and automation.
+              </Text>
 
               <Cluster
                 gap="md"
@@ -53,7 +49,7 @@ export function ContactCTA() {
               >
                 <Link href={`mailto:${site.email}`}>
                   <Button>
-                    Get in touch
+                    Start a conversation
                   </Button>
                 </Link>
 

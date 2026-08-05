@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 
 import { site } from "@/config/site";
 import {
+  Capabilities,
   ContactCTA,
-  CurrentFocus,
   FeaturedProjects,
   Hero,
+  HowIHelp,
   LatestWriting,
   Philosophy,
 } from "@/features/home";
@@ -20,15 +21,17 @@ export default function HomePage() {
     <div className="overflow-hidden">
       <Hero />
 
-      <CurrentFocus />
+<Capabilities />
 
-      <FeaturedProjects />
+<HowIHelp />
 
-      <LatestWriting />
+<FeaturedProjects />
 
-      <Philosophy />
+<LatestWriting />
 
-      <ContactCTA />
+<Philosophy />
+
+<ContactCTA />
     </div>
   );
 }

@@ -1,40 +1,45 @@
 export const about = {
   hero: {
-    title: "Edvard Pasz",
+    title: "About",
+
     intro:
-      "Software engineer building developer tools, platform infrastructure, and AI-powered systems with a focus on clarity, reliability, and long-term maintainability.",
+      "I'm Edvard, a software engineer focused on building reliable software systems, developer tools, and modern applications with strong technical foundations.",
   },
 
   story: [
-    "I enjoy solving recurring engineering problems. Many of my projects begin with friction I encounter while building software—a repetitive workflow, missing capability, or architectural problem that should be solved once rather than repeatedly worked around.",
+    "I build software by starting with the underlying problem rather than the first implementation. Whether it is an application, internal tool, or reusable system, I focus on creating solutions that remain understandable and maintainable as they grow.",
 
-    "That approach has gradually moved my work from individual applications toward reusable systems. Developer tooling, identity, events, observability, search, data infrastructure, design systems, and AI orchestration are different problems, but they share the same underlying goal: create dependable foundations that make the software built on top of them simpler.",
+    "My work combines product development with engineering foundations: application architecture, developer experience, automation, infrastructure, and practical AI workflows. I enjoy turning repeated problems into systems that make future work simpler.",
 
-    "I use projects as a way to explore those ideas in practice. Some become standalone tools, others become reusable capabilities or platform infrastructure, and each one provides another opportunity to refine how I think about architecture, developer experience, reliability, and long-term maintainability.",
+    "I believe good software is built through iteration. Design decisions become clearer through building, testing assumptions, measuring results, and continuously improving the systems around the product.",
 
-    "This website is the public record of that work. The project library documents what I build and the decisions behind it, while the engineering journal develops the broader principles, trade-offs, and lessons that emerge along the way.",
+    "This website documents that process. The projects show what I build, while the journal explores the technical decisions, trade-offs, and lessons behind the work.",
   ],
 
   philosophy: [
     {
-      title: "Solve recurring problems",
+      title: "Understand before building",
+
       description:
-        "If a problem appears more than once, it's usually an opportunity to improve the system instead of repeating the work.",
+        "The strongest solutions come from understanding the real problem before choosing the technology or implementation.",
     },
     {
-      title: "Design for evolution",
+      title: "Create systems that scale",
+
       description:
-        "Software should be understandable today while remaining adaptable to requirements that have not appeared yet.",
+        "Software should be designed so that future changes improve the system instead of creating unnecessary complexity.",
     },
     {
-      title: "Prefer composition over complexity",
+      title: "Reduce recurring friction",
+
       description:
-        "Small, focused building blocks create systems that are easier to understand, combine, replace, and maintain.",
+        "Repeated manual work and recurring technical problems are opportunities to create better tools and workflows.",
     },
     {
-      title: "Learn by building",
+      title: "Keep improving",
+
       description:
-        "Engineering judgment develops through designing, shipping, testing assumptions, and refining systems over time.",
+        "Engineering skill grows through shipping, feedback, reflection, and continuously refining how software is built.",
     },
   ],
 
@@ -47,7 +52,6 @@ export const about = {
         "Python",
         "SQL",
         "Go",
-        "Rust",
       ],
     },
     {
@@ -61,7 +65,7 @@ export const about = {
       ],
     },
     {
-      category: "Platform & Infrastructure",
+      category: "Infrastructure & Tooling",
       items: [
         "Docker",
         "GitHub Actions",
@@ -71,7 +75,7 @@ export const about = {
       ],
     },
     {
-      category: "Engineering Tooling",
+      category: "Developer Workflow",
       items: [
         "Git",
         "Neovim",

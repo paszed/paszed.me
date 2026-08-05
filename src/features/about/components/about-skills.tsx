@@ -1,12 +1,10 @@
 import {
   Badge,
   Cluster,
-  Eyebrow,
-  Grid,
   Heading,
-  Card,
   Section,
   Stack,
+  TechnologyIcon,
   Text,
 } from "@/design-system";
 
@@ -18,46 +16,69 @@ export function AboutSkills() {
       <Stack gap="xl">
         <Stack gap="sm">
           <Heading as="h2">
-            Engineering Toolkit
+            Tools & Technologies
           </Heading>
 
           <Text
             muted
-            className="max-w-3xl"
+            className="max-w-2xl leading-relaxed"
           >
             Technologies and tools I use to design, build, test, and maintain
-            software systems.
+            modern software systems.
           </Text>
         </Stack>
 
-        <Grid
-          columns={2}
-          gap="lg"
-        >
+        <Stack gap="xl">
           {about.skills.map((group) => (
-            <Card
+            <Stack
               key={group.category}
-              className="h-full p-6"
+              gap="md"
+              className="
+                border-b
+                border-border-muted
+                pb-8
+                last:border-none
+              "
             >
-              <Stack gap="md">
-                <Eyebrow>
-                  {group.category}
-                </Eyebrow>
+              <Text
+                size="sm"
+                className="
+                  font-medium
+                  uppercase
+                  tracking-[0.2em]
+                  text-fg-muted
+                "
+              >
+                {group.category}
+              </Text>
 
-                <Cluster gap="sm">
-                  {group.items.map((item) => (
-                    <Badge
-                      key={item}
-                      className="px-3 py-1.5"
+              <Cluster gap="md">
+                {group.items.map((item) => (
+                  <Badge
+                    key={item}
+                    className="
+                      gap-2
+                      px-4
+                      py-2
+                      transition-colors
+                      hover:border-border
+                      hover:text-fg
+                    "
+                  >
+                    <TechnologyIcon name={item} />
+
+                    <Text
+                      as="span"
+                      size="sm"
                     >
                       {item}
-                    </Badge>
-                  ))}
-                </Cluster>
-              </Stack>
-            </Card>
+                    </Text>
+                  </Badge>
+                ))}
+              </Cluster>
+            </Stack>
           ))}
-        </Grid>
+        </Stack>
       </Stack>
     </Section>
   );

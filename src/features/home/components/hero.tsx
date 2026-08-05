@@ -76,7 +76,7 @@ export function Hero() {
             </Cluster>
           </Stack>
 
-          <div className="relative min-h-[22rem] lg:min-h-[34rem]" />
+          <div className="relative hidden min-h-[28rem] lg:block" />
         </Grid>
       </Container>
     </Section>

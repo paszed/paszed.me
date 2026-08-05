@@ -210,9 +210,10 @@ describe("FooterSection", () => {
       }),
     ).toHaveClass(
       "text-xs",
-      "font-medium",
+      "font-semibold",
       "uppercase",
       "tracking-[0.2em]",
+      "text-fg-muted",
     );
   });
 });

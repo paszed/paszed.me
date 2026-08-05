@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import {
+  Heading,
   List,
   ListItem,
   SocialIcon,
@@ -26,18 +27,18 @@ export function FooterSection({
 }: FooterSectionProps) {
   return (
     <Stack gap="sm">
-      <Text
+      <Heading
         as="h2"
-        size="xs"
         className="
-          font-medium
+          text-xs
+          font-semibold
           uppercase
           tracking-[0.2em]
           text-fg-muted
         "
       >
         {title}
-      </Text>
+      </Heading>
 
       <List>
         {items.map((item) => (
@@ -59,6 +60,8 @@ export function FooterSection({
                 inline-flex
                 items-center
                 gap-2
+                text-sm
+                text-fg-secondary
                 transition-colors
                 hover:text-accent
               "
@@ -75,10 +78,7 @@ export function FooterSection({
                 />
               )}
 
-              <Text
-                as="span"
-                size="sm"
-              >
+              <Text as="span">
                 {item.label}
               </Text>
             </Link>
