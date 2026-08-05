@@ -13,26 +13,16 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-20 border-t border-border sm:mt-24">
+    <footer className="mt-16 border-t border-border sm:mt-20">
       <Container>
-        <div
-          className="
-            grid
-            gap-10
-            py-12
-            sm:grid-cols-2
-            lg:grid-cols-[1.5fr_repeat(4,1fr)]
-            lg:gap-8
-            lg:py-16
-          "
-        >
+        <div className="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_repeat(4,1fr)] lg:gap-6 lg:py-12">
           <Stack gap="sm">
             <BrandLogo />
 
             <Text
-              size="sm"
+              size="xs"
               muted
-              className="max-w-xs leading-6"
+              className="max-w-xs leading-5"
             >
               Building developer tools, AI applications, and modern web
               products.
@@ -40,7 +30,7 @@ export function Footer() {
 
             <Text
               size="xs"
-              className="font-medium uppercase tracking-[0.2em] text-accent"
+              className="font-medium uppercase tracking-[0.16em] text-accent"
             >
               Build. Learn. Ship.
             </Text>
@@ -69,19 +59,7 @@ export function Footer() {
           />
         </div>
 
-        <div
-          className="
-            flex
-            flex-col
-            gap-3
-            border-t
-            border-border
-            py-5
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
-        >
+        <div className="flex flex-col gap-2 border-t border-border py-4 sm:flex-row sm:items-center sm:justify-between">
           <Text
             size="xs"
             muted

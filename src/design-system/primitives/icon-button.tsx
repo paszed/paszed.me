@@ -1,4 +1,7 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type {
+  ButtonHTMLAttributes,
+  ReactNode,
+} from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -19,7 +22,7 @@ export function IconButton({
       className={cn(
         [
           "inline-flex",
-          "size-10",
+          "size-9",
           "shrink-0",
           "items-center",
           "justify-center",

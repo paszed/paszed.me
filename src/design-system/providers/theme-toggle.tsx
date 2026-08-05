@@ -2,10 +2,9 @@
 
 import { Moon, Sun } from "lucide-react";
 
+import { useMounted } from "@/design-system/hooks/use-mounted";
 import { useTheme } from "@/design-system/hooks/use-theme";
 import { cn } from "@/lib/utils";
-
-import { useMounted } from "@/design-system/hooks/use-mounted";
 
 export interface ThemeToggleProps {
   className?: string;
@@ -16,27 +15,40 @@ export function ThemeToggle({
 }: ThemeToggleProps) {
   const mounted = useMounted();
 
-  const { resolvedTheme, setTheme } = useTheme();
+  const {
+    resolvedTheme,
+    setTheme,
+  } = useTheme();
 
   if (!mounted) {
     return (
       <button
         type="button"
         aria-label="Toggle theme"
-        className={cn("rounded-lg p-2", className)}
+        className={cn(
+          "rounded-lg p-2",
+          className,
+        )}
       >
         <div className="h-4 w-4" />
       </button>
     );
   }
 
-  const isDark = resolvedTheme === "dark";
+  const isDark =
+    resolvedTheme === "dark";
 
   return (
     <button
       type="button"
       aria-label="Toggle theme"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={() =>
+        setTheme(
+          isDark
+            ? "light"
+            : "dark",
+        )
+      }
       className={cn(
         "rounded-lg p-2 transition-colors hover:bg-muted",
         className,

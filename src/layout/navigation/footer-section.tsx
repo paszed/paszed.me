@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import {
-  Heading,
   List,
   ListItem,
   SocialIcon,
@@ -27,18 +26,13 @@ export function FooterSection({
 }: FooterSectionProps) {
   return (
     <Stack gap="sm">
-      <Heading
+      <Text
         as="h2"
-        className="
-          text-xs
-          font-semibold
-          uppercase
-          tracking-[0.2em]
-          text-fg-muted
-        "
+        size="xs"
+        className="font-semibold uppercase tracking-[0.2em] text-fg-muted"
       >
         {title}
-      </Heading>
+      </Text>
 
       <List>
         {items.map((item) => (
@@ -55,30 +49,19 @@ export function FooterSection({
                   ? "noopener noreferrer"
                   : undefined
               }
-              className="
-                group
-                inline-flex
-                items-center
-                gap-2
-                text-sm
-                text-fg-secondary
-                transition-colors
-                hover:text-accent
-              "
+              className="group inline-flex items-center gap-2 text-xs text-fg-secondary transition-colors hover:text-fg"
             >
               {showIcons && (
                 <SocialIcon
                   name={item.label}
-                  className="
-                    size-3.5
-                    opacity-70
-                    transition-opacity
-                    group-hover:opacity-100
-                  "
+                  className="size-3 opacity-70 transition-opacity group-hover:opacity-100"
                 />
               )}
 
-              <Text as="span">
+              <Text
+                as="span"
+                size="xs"
+              >
                 {item.label}
               </Text>
             </Link>

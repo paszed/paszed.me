@@ -42,13 +42,7 @@ export function MobileMenu() {
         onClick={() =>
           setOpen((value) => !value)
         }
-        className="
-          relative
-          z-[70]
-          rounded-xl
-          transition-colors
-          hover:bg-surface
-        "
+        className="relative z-[70] rounded-xl transition-colors hover:bg-surface"
       >
         <ActionIcon
           name={open ? "close" : "menu"}
@@ -61,14 +55,7 @@ export function MobileMenu() {
           type="button"
           aria-label="Close navigation menu"
           onClick={closeMenu}
-          className="
-            fixed
-            inset-0
-            z-40
-            bg-background/40
-            backdrop-blur-sm
-            md:hidden
-          "
+          className="fixed inset-0 z-40 bg-background/40 backdrop-blur-sm md:hidden"
         />
       )}
 

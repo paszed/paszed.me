@@ -21,13 +21,7 @@ export function Navbar() {
       <Container>
         <nav
           aria-label="Primary navigation"
-          className="
-            flex
-            h-16
-            items-center
-            justify-between
-            sm:h-[4.25rem]
-          "
+          className="flex h-16 items-center justify-between sm:h-[4.25rem]"
         >
           <BrandLogo />
 

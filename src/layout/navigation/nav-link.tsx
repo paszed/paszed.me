@@ -24,7 +24,6 @@ export function NavLink({
           "group",
           "relative",
           "py-2",
-          "font-sans",
           "text-sm",
           "font-medium",
           "tracking-[0.01em]",

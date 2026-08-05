@@ -22,14 +22,14 @@ const variantClasses: Record<ButtonVariant, string> = {
 
   outline: [
     "border-border",
-    "bg-transparent text-foreground",
+    "bg-transparent text-fg",
     "hover:border-accent/50",
     "hover:bg-surface",
   ].join(" "),
 
   ghost: [
     "border-transparent",
-    "bg-transparent text-foreground",
+    "bg-transparent text-fg",
     "hover:bg-surface",
   ].join(" "),
 };
@@ -47,8 +47,8 @@ export function Button({
         [
           "inline-flex items-center justify-center",
           "rounded-lg border",
-          "px-5 py-2.5",
-          "font-sans text-sm font-medium tracking-[0.015em]",
+          "px-4 py-2",
+          "text-sm font-medium tracking-[0.01em]",
           "transition-colors duration-200",
           "focus-visible:outline-none",
           "focus-visible:ring-2",
