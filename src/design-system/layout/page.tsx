@@ -21,7 +21,7 @@ export function Page({
       )}
     >
       <Container>
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-5xl">
           {children}
         </div>
       </Container>

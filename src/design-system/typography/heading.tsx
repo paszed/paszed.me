@@ -13,7 +13,7 @@ interface HeadingProps
 const styles: Record<HeadingLevel, string> = {
   h1: [
     "font-serif",
-    "text-5xl font-semibold",
+    "text-4xl font-semibold",
     "leading-[1.05]",
     "tracking-[-0.04em]",
     "text-fg",
