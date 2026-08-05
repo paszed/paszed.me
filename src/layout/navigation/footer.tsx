@@ -13,31 +13,34 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-border">
+    <footer className="mt-20 border-t border-border sm:mt-24">
       <Container>
         <div
           className="
             grid
-            gap-12
-            py-16
+            gap-10
+            py-12
             sm:grid-cols-2
             lg:grid-cols-[1.5fr_repeat(4,1fr)]
+            lg:gap-8
+            lg:py-16
           "
         >
           <Stack gap="sm">
             <BrandLogo />
 
             <Text
+              size="sm"
               muted
-              className="max-w-sm leading-7"
+              className="max-w-xs leading-6"
             >
               Building developer tools, AI applications, and modern web
               products.
             </Text>
 
             <Text
-              size="sm"
-              className="font-medium text-accent"
+              size="xs"
+              className="font-medium uppercase tracking-[0.2em] text-accent"
             >
               Build. Learn. Ship.
             </Text>
@@ -70,26 +73,24 @@ export function Footer() {
           className="
             flex
             flex-col
-            gap-2
+            gap-3
             border-t
             border-border
-            py-6
-            text-sm
-            text-fg-secondary
-            md:flex-row
-            md:items-center
-            md:justify-between
+            py-5
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
           "
         >
           <Text
-            size="sm"
+            size="xs"
             muted
           >
             © {year} {site.owner}. All rights reserved.
           </Text>
 
           <Text
-            size="sm"
+            size="xs"
             muted
           >
             Built with Next.js, TypeScript & Tailwind CSS.

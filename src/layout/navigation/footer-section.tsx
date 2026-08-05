@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import {
-  Heading,
   List,
   ListItem,
   SocialIcon,
@@ -27,17 +26,18 @@ export function FooterSection({
 }: FooterSectionProps) {
   return (
     <Stack gap="sm">
-      <Heading
+      <Text
         as="h2"
+        size="xs"
         className="
-          text-sm
-          font-semibold
+          font-medium
           uppercase
           tracking-[0.2em]
+          text-fg-muted
         "
       >
         {title}
-      </Heading>
+      </Text>
 
       <List>
         {items.map((item) => (
@@ -58,41 +58,27 @@ export function FooterSection({
                 group
                 inline-flex
                 items-center
-                gap-3
-                text-fg-secondary
+                gap-2
                 transition-colors
-                duration-200
                 hover:text-accent
               "
             >
               {showIcons && (
-                <Text
-                  as="span"
-                  aria-hidden
+                <SocialIcon
+                  name={item.label}
                   className="
-                    flex
-                    h-4
-                    w-4
-                    items-center
-                    justify-center
+                    size-3.5
+                    opacity-70
+                    transition-opacity
+                    group-hover:opacity-100
                   "
-                >
-                  <SocialIcon
-                    name={item.label}
-                    className="
-                      h-3.5
-                      w-3.5
-                      opacity-80
-                      transition-all
-                      duration-200
-                      group-hover:translate-x-0.5
-                      group-hover:opacity-100
-                    "
-                  />
-                </Text>
+                />
               )}
 
-              <Text as="span">
+              <Text
+                as="span"
+                size="sm"
+              >
                 {item.label}
               </Text>
             </Link>
