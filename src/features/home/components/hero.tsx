@@ -17,7 +17,7 @@ import {
 
 export function Hero() {
   return (
-    <Section className="relative isolate overflow-hidden pt-12 pb-24 lg:min-h-[calc(100vh-4.5rem)] lg:py-0">
+    <Section className="relative isolate overflow-hidden pt-10 pb-20 sm:pt-16 lg:min-h-[calc(100vh-4.5rem)] lg:py-0">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.18),transparent_42%)] dark:bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.22),transparent_42%)]"
@@ -28,13 +28,15 @@ export function Hero() {
       <Container className="relative z-10">
         <Grid
           gap="lg"
-          className="items-center lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]"
+          className="items-center lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.1fr_0.9fr]"
         >
           <Stack
-            gap="xl"
-            className="max-w-2xl"
+            gap="lg"
+            className="max-w-3xl"
           >
-            <Eyebrow>{home.hero.eyebrow}</Eyebrow>
+            <Eyebrow>
+              {home.hero.eyebrow}
+            </Eyebrow>
 
             <Stack gap="md">
               <Heading as="h1">
@@ -44,23 +46,15 @@ export function Hero() {
               <Text
                 size="lead"
                 muted
-                className="max-w-xl"
+                className="max-w-2xl"
               >
                 {home.hero.subtitle}
               </Text>
             </Stack>
 
-            <Text
-              size="lead"
-              muted
-              className="max-w-2xl font-serif leading-10"
-            >
-              {home.hero.description}
-            </Text>
-
             <Cluster
               gap="lg"
-              className="pt-2"
+              className="flex-wrap pt-2"
             >
               <Link href={home.hero.primaryCta.href}>
                 <Button>
@@ -72,13 +66,25 @@ export function Hero() {
                 {home.hero.secondaryCta.label} →
               </TextLink>
             </Cluster>
+
+            <Text
+              size="sm"
+              muted
+              className="max-w-xl pt-4"
+            >
+              {home.hero.description}
+            </Text>
           </Stack>
 
-          <div className="relative flex justify-center lg:justify-end lg:pl-12">
+          <div className="hidden lg:flex lg:justify-end">
             <div
               aria-hidden
-              className="h-[22rem] w-[19rem] rounded-sm bg-muted lg:w-[22rem]"
-            />
+              className="relative h-[28rem] w-[24rem]"
+            >
+              <div className="absolute inset-0 rounded-2xl bg-muted" />
+
+              <div className="absolute inset-6 rounded-xl border border-border" />
+            </div>
           </div>
         </Grid>
       </Container>

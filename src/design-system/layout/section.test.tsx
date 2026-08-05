@@ -15,7 +15,9 @@ describe("Section", () => {
       </Section>,
     );
 
-    expect(screen.getByText("Content")).toBeInTheDocument();
+    expect(
+      screen.getByText("Content"),
+    ).toBeInTheDocument();
   });
 
   it("renders a semantic section element", () => {
@@ -25,7 +27,10 @@ describe("Section", () => {
       </Section>,
     );
 
-    const section = screen.getByText("Content").closest("section");
+    const section =
+      screen
+        .getByText("Content")
+        .closest("section");
 
     expect(section).toBeInTheDocument();
   });
@@ -37,12 +42,15 @@ describe("Section", () => {
       </Section>,
     );
 
-    const section = screen.getByText("Content").closest("section");
+    const section =
+      screen
+        .getByText("Content")
+        .closest("section");
 
     expect(section).toHaveClass(
-      "py-16",
+      "py-14",
       "sm:py-20",
-      "lg:py-24",
+      "lg:py-28",
     );
   });
 
@@ -53,21 +61,27 @@ describe("Section", () => {
       </Section>,
     );
 
-    const section = screen.getByText("Content").closest("section");
+    const section =
+      screen
+        .getByText("Content")
+        .closest("section");
 
     expect(section).toHaveClass(
       "bg-muted",
-      "py-16",
+      "py-14",
     );
   });
 
   it("renders only one section wrapper", () => {
-    const { container } = renderWithProviders(
-      <Section>
-        <div>Content</div>
-      </Section>,
-    );
+    const { container } =
+      renderWithProviders(
+        <Section>
+          <div>Content</div>
+        </Section>,
+      );
 
-    expect(container.querySelectorAll("section")).toHaveLength(1);
+    expect(
+      container.querySelectorAll("section"),
+    ).toHaveLength(1);
   });
 });

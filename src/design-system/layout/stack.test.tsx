@@ -42,7 +42,7 @@ describe("Stack", () => {
 
     expect(
       screen.getByTestId("stack"),
-    ).toHaveClass("space-y-8");
+    ).toHaveClass("gap-8");
   });
 
   it("applies a custom gap", () => {
@@ -57,7 +57,7 @@ describe("Stack", () => {
 
     expect(
       screen.getByTestId("stack"),
-    ).toHaveClass("space-y-4");
+    ).toHaveClass("gap-4");
   });
 
   it("merges custom class names", () => {

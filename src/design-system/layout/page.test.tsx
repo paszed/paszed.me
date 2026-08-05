@@ -57,8 +57,9 @@ describe("Page", () => {
     expect(container).toHaveClass(
       "mx-auto",
       "w-full",
-      "max-w-7xl",
-      "px-6",
+      "max-w-6xl",
+      "px-5",
+      "sm:px-6",
       "lg:px-8",
     );
   });

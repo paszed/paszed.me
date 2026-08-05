@@ -6,6 +6,7 @@ import {
   Stack,
 } from "@/design-system";
 import {
+  ProjectArchitecture,
   ProjectGallery,
   ProjectHero,
   ProjectLinks,
@@ -95,10 +96,6 @@ export default async function ProjectPage({
       items: project.capabilities,
     },
     {
-      title: "Architecture",
-      items: project.architecture.description,
-    },
-    {
       title: "Engineering Decisions",
       items: project.engineering,
     },
@@ -115,6 +112,7 @@ export default async function ProjectPage({
   return (
     <>
       <JsonLd data={projectSchema} />
+
       <JsonLd data={breadcrumbSchema} />
 
       <Page>
@@ -126,6 +124,8 @@ export default async function ProjectPage({
           )}
 
           <ProjectOverview overview={project.overview} />
+
+          <ProjectArchitecture project={project} />
 
           {sections.map(
             ({ title, items }) =>

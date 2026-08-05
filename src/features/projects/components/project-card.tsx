@@ -21,36 +21,48 @@ export function ProjectCard(
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group block"
+      className="group block h-full"
     >
       <Card
         variant="interactive"
         className="flex h-full flex-col"
       >
         <Stack
-          gap="lg"
+          gap="md"
           className="h-full"
         >
           <ProjectMeta project={project} />
 
-          <Heading
-            as="h2"
-            className="transition-colors group-hover:text-accent"
-          >
-            {project.title}
-          </Heading>
+          <Stack gap="sm">
+            <Heading
+              as="h2"
+              className="transition-colors duration-200 group-hover:text-accent"
+            >
+              {project.title}
+            </Heading>
+
+            <Text
+              size="sm"
+              muted
+              className="leading-relaxed"
+            >
+              {project.tagline}
+            </Text>
+          </Stack>
 
           <Text
-            size="lg"
             muted
             className="leading-relaxed"
           >
             {project.summary}
           </Text>
 
-          <Cluster gap="sm">
+          <Cluster
+            gap="sm"
+            className="pt-2"
+          >
             {project.technologies
-              .slice(0, 4)
+              .slice(0, 3)
               .map((technology) => (
                 <Badge
                   key={technology.name}
@@ -62,10 +74,10 @@ export function ProjectCard(
 
           <Cluster
             gap="sm"
-            className="mt-auto font-medium text-accent transition-all group-hover:gap-3"
+            className="mt-auto pt-4 text-sm font-medium text-accent"
           >
             <Text as="span">
-              Case Study
+              Explore project
             </Text>
 
             <ActionIcon name="open" />

@@ -18,11 +18,11 @@ export function Badge({
       className={cn(
         [
           "inline-flex items-center",
-          "rounded-full",
+          "rounded-md",
           "border border-border-muted",
-          "bg-card",
-          "px-3 py-1",
-          "font-sans text-sm font-medium",
+          "bg-muted/40",
+          "px-2.5 py-1",
+          "font-sans text-xs font-medium",
           "text-fg-secondary",
         ],
         className,

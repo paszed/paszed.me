@@ -15,11 +15,11 @@ interface StackProps extends HTMLAttributes<HTMLElement> {
 }
 
 const gaps: Record<StackGap, string> = {
-  sm: "gap-4 space-y-4",
-  md: "gap-6 space-y-6",
-  lg: "gap-8 space-y-8",
-  xl: "gap-10 space-y-10",
-  "2xl": "gap-12 space-y-12",
+  sm: "gap-4",
+  md: "gap-6",
+  lg: "gap-8",
+  xl: "gap-10",
+  "2xl": "gap-12",
 };
 
 export function Stack({

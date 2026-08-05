@@ -1,9 +1,7 @@
 import type { ReactNode } from "react";
 
 import {
-  Divider,
   Heading,
-  Section,
   Stack,
 } from "@/design-system";
 
@@ -17,16 +15,17 @@ export function ProjectSection({
   children,
 }: ProjectSectionProps) {
   return (
-    <Section>
+    <section>
       <Stack gap="lg">
-        <Stack gap="sm">
-          <Heading as="h2">{title}</Heading>
-
-          <Divider />
-        </Stack>
+        <Heading
+          as="h2"
+          className="text-3xl"
+        >
+          {title}
+        </Heading>
 
         {children}
       </Stack>
-    </Section>
+    </section>
   );
 }

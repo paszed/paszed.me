@@ -68,8 +68,10 @@ describe("Badge", () => {
       screen.getByTestId("badge"),
     ).toHaveClass(
       "inline-flex",
-      "rounded-full",
+      "items-center",
+      "rounded-md",
       "border",
+      "bg-muted/40",
     );
   });
 });

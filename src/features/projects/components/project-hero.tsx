@@ -29,6 +29,14 @@ export function ProjectHero({
         </Heading>
 
         <Text
+          size="lead"
+          muted
+          className="max-w-3xl"
+        >
+          {project.tagline}
+        </Text>
+
+        <Text
           size="lg"
           muted
           className="max-w-3xl leading-relaxed"
@@ -37,15 +45,15 @@ export function ProjectHero({
         </Text>
       </Stack>
 
-      {project.technologies.length > 0 && (
-        <Cluster gap="sm">
-          {project.technologies.map((technology) => (
+      <Cluster gap="sm">
+        {project.technologies
+          .slice(0, 5)
+          .map((technology) => (
             <Badge key={technology.name}>
               {technology.name}
             </Badge>
           ))}
-        </Cluster>
-      )}
+      </Cluster>
 
       <Divider />
     </Hero>

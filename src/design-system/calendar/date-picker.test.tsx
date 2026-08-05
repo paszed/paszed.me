@@ -70,7 +70,7 @@ describe("DatePicker", () => {
     );
 
     const day = screen.getByRole("button", {
-      name: /Friday, July 24th, 2026/i,
+      name: /Friday, July 31st, 2026/i,
     });
 
     await user.click(day);
@@ -83,7 +83,7 @@ describe("DatePicker", () => {
     expect(selectedDate).toBeInstanceOf(Date);
 
     expect(selectedDate).toEqual(
-      new Date(2026, 6, 24),
+      new Date(2026, 6, 31),
     );
   });
 

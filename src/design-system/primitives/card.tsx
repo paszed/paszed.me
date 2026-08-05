@@ -2,9 +2,12 @@ import type { HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-type CardVariant = "default" | "interactive";
+type CardVariant =
+  | "default"
+  | "interactive";
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps
+  extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   variant?: CardVariant;
 }
@@ -12,7 +15,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 const variants: Record<CardVariant, string> = {
   default: "",
   interactive:
-    "cursor-pointer hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg",
+    "hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg",
 };
 
 export function Card({
@@ -28,7 +31,7 @@ export function Card({
           "rounded-xl",
           "border border-border-muted",
           "bg-card",
-          "p-8",
+          "p-5 sm:p-6 lg:p-8",
           "transition-all duration-300",
         ],
         variants[variant],

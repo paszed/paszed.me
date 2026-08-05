@@ -33,8 +33,9 @@ describe("Container", () => {
     expect(container).toHaveClass(
       "mx-auto",
       "w-full",
-      "max-w-7xl",
-      "px-6",
+      "max-w-6xl",
+      "px-5",
+      "sm:px-6",
       "lg:px-8",
     );
   });
@@ -50,13 +51,15 @@ describe("Container", () => {
       screen.getByText("Content").parentElement;
 
     expect(container).toHaveClass("bg-red-500");
-    expect(container).toHaveClass("max-w-7xl");
+    expect(container).toHaveClass("max-w-6xl");
   });
 
   it("renders exactly one wrapper element", () => {
     renderWithProviders(
       <Container>
-        <div data-testid="content">Content</div>
+        <div data-testid="content">
+          Content
+        </div>
       </Container>,
     );
 

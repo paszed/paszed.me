@@ -14,12 +14,11 @@ export function ProjectsHero() {
       <Text
         size="lg"
         muted
-        className="max-w-3xl leading-relaxed"
+        className="max-w-2xl leading-relaxed"
       >
-        A collection of software platforms exploring developer experience, AI
-        systems, software architecture, and long-term maintainability. Each
-        project documents the problem it solves, the architectural decisions
-        behind it, and the lessons learned throughout its evolution.
+        Software systems, developer tools, and infrastructure experiments
+        built around one principle: create foundations that remain useful as
+        complexity grows.
       </Text>
     </PageHeader>
   );

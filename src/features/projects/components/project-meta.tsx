@@ -30,7 +30,14 @@ export function ProjectMeta({
         size="sm"
         muted
       >
-        Started {project.started}
+        {project.category}
+      </Text>
+
+      <Text
+        size="sm"
+        muted
+      >
+        {project.started}
       </Text>
     </Cluster>
   );

@@ -15,7 +15,9 @@ describe("Grid", () => {
       </Grid>,
     );
 
-    expect(screen.getByText("Item")).toBeInTheDocument();
+    expect(
+      screen.getByText("Item"),
+    ).toBeInTheDocument();
   });
 
   it("uses the default grid configuration", () => {
@@ -23,7 +25,9 @@ describe("Grid", () => {
       <Grid data-testid="grid" />,
     );
 
-    expect(screen.getByTestId("grid")).toHaveClass(
+    expect(
+      screen.getByTestId("grid"),
+    ).toHaveClass(
       "grid",
       "grid-cols-1",
       "gap-4",
@@ -32,11 +36,11 @@ describe("Grid", () => {
 
   it.each([
     [1, "grid-cols-1"],
-    [2, "grid-cols-2"],
-    [3, "grid-cols-3"],
-    [4, "grid-cols-4"],
+    [2, "sm:grid-cols-2"],
+    [3, "lg:grid-cols-3"],
+    [4, "lg:grid-cols-4"],
   ] as const)(
-    "renders %i columns",
+    "renders %i columns responsively",
     (columns, expectedClass) => {
       renderWithProviders(
         <Grid
@@ -45,9 +49,9 @@ describe("Grid", () => {
         />,
       );
 
-      expect(screen.getByTestId("grid")).toHaveClass(
-        expectedClass,
-      );
+      expect(
+        screen.getByTestId("grid"),
+      ).toHaveClass(expectedClass);
     },
   );
 
@@ -65,9 +69,9 @@ describe("Grid", () => {
         />,
       );
 
-      expect(screen.getByTestId("grid")).toHaveClass(
-        expectedClass,
-      );
+      expect(
+        screen.getByTestId("grid"),
+      ).toHaveClass(expectedClass);
     },
   );
 
@@ -79,7 +83,9 @@ describe("Grid", () => {
       />,
     );
 
-    expect(screen.getByTestId("grid")).toHaveClass(
+    expect(
+      screen.getByTestId("grid"),
+    ).toHaveClass(
       "bg-muted",
       "grid",
       "grid-cols-1",
@@ -96,9 +102,17 @@ describe("Grid", () => {
       />,
     );
 
-    const grid = screen.getByTestId("grid");
+    const grid =
+      screen.getByTestId("grid");
 
-    expect(grid).toHaveAttribute("id", "projects");
-    expect(grid).toHaveAttribute("aria-label", "Projects");
+    expect(grid).toHaveAttribute(
+      "id",
+      "projects",
+    );
+
+    expect(grid).toHaveAttribute(
+      "aria-label",
+      "Projects",
+    );
   });
 });

@@ -17,17 +17,20 @@ export function FeatureCard({
   return (
     <Card
       variant="interactive"
-      className="h-full"
+      className="h-full p-6"
     >
-      <Stack gap="sm">
+      <Stack gap="md">
         <Heading
           as="h3"
-          className="text-lg"
+          className="text-2xl"
         >
           {title}
         </Heading>
 
-        <Text muted>
+        <Text
+          muted
+          size="sm"
+        >
           {description}
         </Text>
       </Stack>
