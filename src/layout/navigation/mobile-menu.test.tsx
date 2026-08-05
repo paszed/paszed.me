@@ -53,9 +53,8 @@ describe("MobileMenu", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
 
-    const { usePathname } = await import(
-      "next/navigation"
-    );
+    const { usePathname } =
+      await import("next/navigation");
 
     vi.mocked(usePathname).mockReturnValue("/");
   });
@@ -195,9 +194,8 @@ describe("MobileMenu", () => {
   });
 
   it("marks the active route", async () => {
-    const { usePathname } = await import(
-      "next/navigation"
-    );
+    const { usePathname } =
+      await import("next/navigation");
 
     vi.mocked(usePathname).mockReturnValue(
       "/projects",
@@ -240,6 +238,51 @@ describe("MobileMenu", () => {
       screen.getByRole("link", {
         name: "Projects",
       }),
+    );
+
+    expect(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.queryByRole("button", {
+        name: "Close navigation menu",
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("closes when the pathname changes", async () => {
+    const { usePathname } =
+      await import("next/navigation");
+
+    const mockPathname =
+      vi.mocked(usePathname);
+
+    const { rerender } =
+      renderWithProviders(
+        <MobileMenu />,
+      );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Projects",
+      }),
+    ).toBeInTheDocument();
+
+    mockPathname.mockReturnValue(
+      "/projects",
+    );
+
+    rerender(
+      <MobileMenu />,
     );
 
     expect(

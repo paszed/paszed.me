@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { navigation } from "@/config/navigation";
 import {
@@ -14,10 +14,20 @@ import { cn } from "@/lib/utils";
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const previousPathname = useRef(pathname);
 
   function closeMenu() {
     setOpen(false);
   }
+
+  useEffect(() => {
+    if (
+      previousPathname.current !== pathname
+    ) {
+      previousPathname.current = pathname;
+      closeMenu();
+    }
+  }, [pathname]);
 
   return (
     <>
@@ -32,19 +42,18 @@ export function MobileMenu() {
         onClick={() =>
           setOpen((value) => !value)
         }
-        className="relative z-[70] rounded-xl hover:bg-card"
+        className="
+          relative
+          z-[70]
+          rounded-xl
+          transition-colors
+          hover:bg-surface
+        "
       >
-        {open ? (
-          <ActionIcon
-            name="close"
-            className="size-5"
-          />
-        ) : (
-          <ActionIcon
-            name="menu"
-            className="size-5"
-          />
-        )}
+        <ActionIcon
+          name={open ? "close" : "menu"}
+          className="size-5"
+        />
       </IconButton>
 
       {open && (
@@ -52,13 +61,27 @@ export function MobileMenu() {
           type="button"
           aria-label="Close navigation menu"
           onClick={closeMenu}
-          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+          className="
+            fixed
+            inset-0
+            z-40
+            bg-background/40
+            backdrop-blur-sm
+            md:hidden
+          "
         />
       )}
 
       <div
         className={cn(
-          "absolute inset-x-0 top-full z-50 mt-2 md:hidden",
+          [
+            "absolute",
+            "inset-x-0",
+            "top-full",
+            "z-50",
+            "mt-2",
+            "md:hidden",
+          ],
           open
             ? "pointer-events-auto"
             : "pointer-events-none",
@@ -66,7 +89,17 @@ export function MobileMenu() {
       >
         <div
           className={cn(
-            "mx-4 overflow-hidden rounded-2xl border border-border bg-background shadow-2xl transition-all duration-200",
+            [
+              "mx-4",
+              "overflow-hidden",
+              "rounded-2xl",
+              "border",
+              "border-border",
+              "bg-background",
+              "shadow-xl",
+              "transition-all",
+              "duration-200",
+            ],
             open
               ? "translate-y-0 opacity-100"
               : "-translate-y-2 opacity-0",
@@ -74,7 +107,7 @@ export function MobileMenu() {
         >
           <nav
             aria-label="Mobile navigation"
-            className="flex flex-col p-2"
+            className="flex flex-col gap-1 p-2"
           >
             {navigation.map((item) => {
               const active =
@@ -91,10 +124,17 @@ export function MobileMenu() {
                       : undefined
                   }
                   className={cn(
-                    "rounded-xl px-4 py-3 text-base font-medium transition-all duration-200",
+                    [
+                      "rounded-xl",
+                      "px-4",
+                      "py-2.5",
+                      "text-sm",
+                      "font-medium",
+                      "transition-colors",
+                    ],
                     active
                       ? "bg-surface text-accent"
-                      : "text-fg hover:bg-surface hover:text-accent",
+                      : "text-fg-secondary hover:bg-surface hover:text-fg",
                   )}
                 >
                   {item.label}
