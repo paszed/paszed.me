@@ -1,4 +1,5 @@
 import {
+  Eyebrow,
   Heading,
   Measure,
   Section,
@@ -10,13 +11,22 @@ export function NowHero() {
   return (
     <Section>
       <Stack gap="md">
-        <Heading as="h1">Now</Heading>
+        <Eyebrow>
+          Current Focus
+        </Eyebrow>
+
+        <Heading as="h1">
+          Now
+        </Heading>
 
         <Measure size="3xl">
-          <Text size="lg" muted>
-            This page captures what I&rsquo;m currently focused on. Inspired by
-            Derek Sivers&rsquo; now page, it&rsquo;s a snapshot of what I&rsquo;m
-            building, learning, and exploring at this moment.
+          <Text
+            size="lg"
+            muted
+          >
+            A snapshot of what I am currently building, learning, and
+            exploring. This page changes as priorities evolve and new ideas
+            become experiments, projects, or systems.
           </Text>
         </Measure>
       </Stack>

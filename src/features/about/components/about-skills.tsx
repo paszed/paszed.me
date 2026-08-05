@@ -2,10 +2,11 @@ import {
   Badge,
   Cluster,
   Eyebrow,
+  Grid,
   Heading,
+  Card,
   Section,
   Stack,
-  TechnologyIcon,
   Text,
 } from "@/design-system";
 
@@ -14,42 +15,49 @@ import { about } from "@/content";
 export function AboutSkills() {
   return (
     <Section>
-      <Stack gap="2xl">
-        <Heading as="h2">
-          Tools & Technologies
-        </Heading>
+      <Stack gap="xl">
+        <Stack gap="sm">
+          <Heading as="h2">
+            Engineering Toolkit
+          </Heading>
 
-        <Stack gap="xl">
+          <Text
+            muted
+            className="max-w-3xl"
+          >
+            Technologies and tools I use to design, build, test, and maintain
+            software systems.
+          </Text>
+        </Stack>
+
+        <Grid
+          columns={2}
+          gap="lg"
+        >
           {about.skills.map((group) => (
-            <Stack
+            <Card
               key={group.category}
-              gap="md"
-              className="border-b border-border-muted pb-8 last:border-none"
+              className="h-full p-6"
             >
-              <Eyebrow>
-                {group.category}
-              </Eyebrow>
+              <Stack gap="md">
+                <Eyebrow>
+                  {group.category}
+                </Eyebrow>
 
-              <Cluster gap="md">
-                {group.items.map((item) => (
-                  <Badge
-                    key={item}
-                    className="gap-2 px-4 py-2 hover:border-border hover:text-fg"
-                  >
-                    <TechnologyIcon name={item} />
-
-                    <Text
-                      as="span"
-                      size="sm"
+                <Cluster gap="sm">
+                  {group.items.map((item) => (
+                    <Badge
+                      key={item}
+                      className="px-3 py-1.5"
                     >
                       {item}
-                    </Text>
-                  </Badge>
-                ))}
-              </Cluster>
-            </Stack>
+                    </Badge>
+                  ))}
+                </Cluster>
+              </Stack>
+            </Card>
           ))}
-        </Stack>
+        </Grid>
       </Stack>
     </Section>
   );

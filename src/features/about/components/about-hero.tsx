@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import {
   Avatar,
-  Cluster,
+  Eyebrow,
   Heading,
   Section,
   Stack,
@@ -15,18 +15,18 @@ import { about } from "@/content";
 export function AboutHero() {
   return (
     <Section>
-      <Cluster
-        gap="lg"
-        className="flex-col items-start gap-12 md:flex-row md:items-center"
+      <Stack
+        gap="xl"
+        className="md:flex-row md:items-center"
       >
         <Surface className="shrink-0 rounded-full p-2 shadow-sm">
-          <Avatar className="relative size-36 overflow-hidden border-0">
+          <Avatar className="relative size-36 overflow-hidden border-0 sm:size-44">
             <Image
               src="/images/profile.jpg"
               alt="Portrait of Edvard Pasz"
               fill
               priority
-              sizes="144px"
+              sizes="(max-width: 640px) 144px, 176px"
               className="object-cover"
             />
           </Avatar>
@@ -34,21 +34,32 @@ export function AboutHero() {
 
         <Stack
           gap="md"
-          className="max-w-2xl"
+          className="max-w-3xl"
         >
+          <Eyebrow>
+            Software Engineer • Systems Builder
+          </Eyebrow>
+
           <Heading as="h1">
             {about.hero.title}
           </Heading>
 
           <Text
-            size="lg"
+            size="lead"
             muted
-            className="leading-relaxed"
           >
             {about.hero.intro}
           </Text>
+
+          <Text
+            muted
+            className="max-w-2xl leading-relaxed"
+          >
+            I build software by focusing on strong foundations, clear
+            boundaries, and systems that remain useful as they grow.
+          </Text>
         </Stack>
-      </Cluster>
+      </Stack>
     </Section>
   );
 }

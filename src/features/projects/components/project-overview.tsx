@@ -1,4 +1,5 @@
 import {
+  Measure,
   Stack,
   Text,
 } from "@/design-system";
@@ -12,23 +13,29 @@ interface ProjectOverviewProps {
 export function ProjectOverview({
   overview,
 }: ProjectOverviewProps) {
+  if (overview.length === 0) {
+    return null;
+  }
+
   return (
     <ProjectSection title="Overview">
-      <Stack
-        gap="lg"
-        className="max-w-3xl"
-      >
-        {overview.map((paragraph) => (
-          <Text
-            key={paragraph}
-            size="lg"
-            muted
-            className="leading-relaxed"
-          >
-            {paragraph}
-          </Text>
-        ))}
-      </Stack>
+      <Measure size="3xl">
+        <Stack gap="lg">
+          {overview.map((paragraph) => (
+            <Text
+              key={paragraph}
+              size="lg"
+              muted
+              className="
+                leading-9
+                tracking-[-0.01em]
+              "
+            >
+              {paragraph}
+            </Text>
+          ))}
+        </Stack>
+      </Measure>
     </ProjectSection>
   );
 }

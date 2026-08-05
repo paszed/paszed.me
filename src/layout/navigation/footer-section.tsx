@@ -29,7 +29,12 @@ export function FooterSection({
     <Stack gap="sm">
       <Heading
         as="h2"
-        className="text-sm font-semibold uppercase tracking-[0.2em]"
+        className="
+          text-sm
+          font-semibold
+          uppercase
+          tracking-[0.2em]
+        "
       >
         {title}
       </Heading>
@@ -49,17 +54,40 @@ export function FooterSection({
                   ? "noopener noreferrer"
                   : undefined
               }
-              className="group inline-flex items-center gap-3 text-fg transition-colors duration-200 hover:text-accent"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-3
+                text-fg-secondary
+                transition-colors
+                duration-200
+                hover:text-accent
+              "
             >
               {showIcons && (
                 <Text
                   as="span"
                   aria-hidden
-                  className="flex h-4 w-4 items-center justify-center"
+                  className="
+                    flex
+                    h-4
+                    w-4
+                    items-center
+                    justify-center
+                  "
                 >
                   <SocialIcon
                     name={item.label}
-                    className="h-3.5 w-3.5 opacity-80 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                    className="
+                      h-3.5
+                      w-3.5
+                      opacity-80
+                      transition-all
+                      duration-200
+                      group-hover:translate-x-0.5
+                      group-hover:opacity-100
+                    "
                   />
                 </Text>
               )}

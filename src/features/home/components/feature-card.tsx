@@ -17,12 +17,12 @@ export function FeatureCard({
   return (
     <Card
       variant="interactive"
-      className="h-full p-6"
+      className="h-full p-7"
     >
       <Stack gap="md">
         <Heading
           as="h3"
-          className="text-2xl"
+          className="text-xl"
         >
           {title}
         </Heading>
@@ -30,6 +30,7 @@ export function FeatureCard({
         <Text
           muted
           size="sm"
+          className="leading-7"
         >
           {description}
         </Text>

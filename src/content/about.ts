@@ -1,8 +1,8 @@
 export const about = {
   hero: {
-    title: "About",
+    title: "Edvard Pasz",
     intro:
-      "I'm Edvard, a software engineer focused on developer tooling, platform infrastructure, reusable software systems, and practical AI.",
+      "Software engineer building developer tools, platform infrastructure, and AI-powered systems with a focus on clarity, reliability, and long-term maintainability.",
   },
 
   story: [

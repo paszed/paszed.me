@@ -34,10 +34,5 @@ export function createPersonSchema(): Schema {
       "Next.js",
       "React",
     ],
-
-    worksFor: {
-      "@type": "Organization",
-      name: site.name,
-    },
   };
 }

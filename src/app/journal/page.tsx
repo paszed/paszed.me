@@ -18,53 +18,64 @@ export default function JournalPage() {
   const categories = journalCategories.map((definition) => ({
     ...definition,
     articles: articles.filter(
-      (article) => article.category === definition.category,
+      (article) =>
+        article.category === definition.category,
     ),
   }));
 
   return (
-    <Page className="space-y-20">
-      <SectionHeader
-        level={1}
-        centered
-        eyebrow="Engineering Journal"
-        title="Journal"
-        description="Essays and notes on software engineering, architecture, infrastructure, systems, AI, and the principles behind building software intended to last."
-      />
+    <Page>
+      <Stack gap="2xl">
+        <SectionHeader
+          level={1}
+          centered
+          eyebrow="Engineering Journal"
+          title="Journal"
+          description="Essays and notes on software engineering, architecture, infrastructure, systems, AI, and the principles behind building software intended to last."
+        />
 
-      <Section>
-        <Stack gap="2xl">
-          <Stack gap="sm">
-            <Text
-              size="sm"
-              muted
-              className="uppercase tracking-[0.3em]"
-            >
-              Contents
-            </Text>
-
-            <Heading as="h2">
-              An index of the journal.
-            </Heading>
-
-            <Text
-              muted
-              className="max-w-2xl leading-relaxed"
-            >
-              {articles.length} essays across{" "}
-              {categories.length} disciplines, organized by
-              the ideas and engineering problems they explore.
-            </Text>
-          </Stack>
-
-          <div>
-            {categories.map((category, index) => (
-              <Link
-                key={category.slug}
-                href={`#${category.slug}`}
-                className="group block border-t border-border py-6 last:border-b"
+        <Section>
+          <Stack gap="xl">
+            <Stack gap="sm">
+              <Text
+                size="sm"
+                muted
+                className="uppercase tracking-[0.25em]"
               >
-                <div className="grid gap-3 md:grid-cols-[3rem_minmax(0,1fr)_auto] md:items-start md:gap-6">
+                Archive
+              </Text>
+
+              <Heading as="h2">
+                Topics and disciplines
+              </Heading>
+
+              <Text
+                muted
+                className="max-w-2xl leading-relaxed"
+              >
+                {articles.length} essays across{" "}
+                {categories.length} engineering disciplines,
+                documenting ideas, decisions, and lessons from
+                building software systems.
+              </Text>
+            </Stack>
+
+            <div className="divide-y divide-border border-y border-border">
+              {categories.map((category, index) => (
+                <Link
+                  key={category.slug}
+                  href={`#${category.slug}`}
+                  className="
+                    group
+                    grid
+                    gap-4
+                    py-6
+                    transition-colors
+                    md:grid-cols-[3rem_minmax(0,1fr)_auto]
+                    md:items-start
+                    md:gap-6
+                  "
+                >
                   <Text
                     size="sm"
                     muted
@@ -95,118 +106,89 @@ export default function JournalPage() {
                   <Text
                     size="sm"
                     muted
-                    className="whitespace-nowrap md:pt-1"
                   >
                     {category.articles.length}{" "}
                     {category.articles.length === 1
                       ? "essay"
                       : "essays"}
                   </Text>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Stack>
-      </Section>
+                </Link>
+              ))}
+            </div>
+          </Stack>
+        </Section>
 
-      {categories.map((category, index) => (
-        <Section key={category.slug}>
-          <div
-            id={category.slug}
-            className="scroll-mt-24"
-          >
-            <Stack gap="xl">
-              <div className="grid gap-4 border-b border-border pb-8 md:grid-cols-[3rem_minmax(0,1fr)_auto] md:items-end md:gap-6">
-                <Text
-                  size="sm"
-                  muted
-                  className="font-mono"
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </Text>
+        {categories.map((category, index) => (
+          <Section key={category.slug}>
+            <div
+              id={category.slug}
+              className="scroll-mt-24"
+            >
+              <Stack gap="xl">
+                <SectionHeader
+                  eyebrow={`Section ${String(index + 1).padStart(2, "0")}`}
+                  title={category.category}
+                  description={category.description}
+                />
 
-                <Stack gap="sm">
-                  <Heading as="h2">
-                    {category.category}
-                  </Heading>
-
-                  <Text
-                    muted
-                    className="max-w-2xl leading-relaxed"
-                  >
-                    {category.description}
-                  </Text>
-                </Stack>
-
-                <Text
-                  size="sm"
-                  muted
-                  className="whitespace-nowrap"
-                >
-                  {category.articles.length}{" "}
-                  {category.articles.length === 1
-                    ? "essay"
-                    : "essays"}
-                </Text>
-              </div>
-
-              <div>
-                {category.articles.map((article) => (
-                  <div
-                    key={article.slug}
-                    className="border-b border-border py-5"
-                  >
-                    <div className="grid gap-2 md:grid-cols-[minmax(0,1fr)_auto] md:items-baseline md:gap-8">
-                      <Link
-                        href={`/journal/${article.slug}`}
-                        className="group"
+                <Stack>
+                  {category.articles.map((article) => (
+                    <Link
+                      key={article.slug}
+                      href={`/journal/${article.slug}`}
+                      className="
+                        group
+                        border-b
+                        border-border
+                        py-5
+                      "
+                    >
+                      <div
+                        className="
+                          grid
+                          gap-3
+                          md:grid-cols-[minmax(0,1fr)_auto]
+                          md:items-baseline
+                          md:gap-8
+                        "
                       >
                         <Text
                           as="span"
-                          className="font-medium transition-colors group-hover:text-accent"
+                          className="
+                            font-medium
+                            transition-colors
+                            group-hover:text-accent
+                          "
                         >
                           {article.title}
                         </Text>
-                      </Link>
 
-                      <Cluster
-                        gap="sm"
-                        className="text-fg-muted"
-                      >
-                        <Text
-                          size="sm"
-                          muted
-                        >
-                          {article.readingTimeMinutes} min
-                        </Text>
+                        <Cluster gap="sm">
+                          <Text
+                            size="sm"
+                            muted
+                          >
+                            {article.readingTimeMinutes} min
+                          </Text>
 
-                        {!article.published && (
-                          <>
-                            <Text
-                              size="sm"
-                              muted
-                              aria-hidden
-                            >
-                              ·
-                            </Text>
-
+                          {!article.published && (
                             <Text
                               size="sm"
                               muted
                             >
                               Draft
                             </Text>
-                          </>
-                        )}
-                      </Cluster>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Stack>
-          </div>
-        </Section>
-      ))}
+                          )}
+                        </Cluster>
+                      </div>
+                    </Link>
+                  ))}
+                </Stack>
+              </Stack>
+            </div>
+          </Section>
+        ))}
+      </Stack>
     </Page>
   );
 }

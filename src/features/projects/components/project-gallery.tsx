@@ -24,7 +24,11 @@ export function ProjectGallery({
   return (
     <ProjectSection title="Gallery">
       <Grid
-        columns={1}
+        columns={
+          project.gallery.length > 1
+            ? 2
+            : 1
+        }
         gap="lg"
       >
         {project.gallery.map((image) => (
@@ -47,8 +51,18 @@ export function ProjectGallery({
                 alt={image.alt}
                 width={1600}
                 height={900}
-                className="h-auto w-full object-cover transition-transform duration-300 hover:scale-[1.01]"
-                sizes="(max-width: 768px) 100vw, 768px"
+                className="
+                  aspect-video
+                  w-full
+                  object-cover
+                  transition-transform
+                  duration-500
+                  hover:scale-[1.02]
+                "
+                sizes="
+                  (max-width: 768px) 100vw,
+                  50vw
+                "
               />
             </Surface>
           </Figure>

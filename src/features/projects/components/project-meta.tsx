@@ -20,21 +20,25 @@ export function ProjectMeta({
   return (
     <Cluster
       gap="sm"
-      className="text-sm"
+      className="
+        text-xs
+        uppercase
+        tracking-wide
+      "
     >
       <StatusBadge tone={status.tone}>
         {status.label}
       </StatusBadge>
 
       <Text
-        size="sm"
+        size="xs"
         muted
       >
-        {project.category}
+        {project.category.replaceAll("-", " ")}
       </Text>
 
       <Text
-        size="sm"
+        size="xs"
         muted
       >
         {project.started}

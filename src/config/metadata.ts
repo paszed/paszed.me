@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
   title: {
     default: site.title,
-    template: `%s • ${site.title}`,
+    template: `%s • ${site.name}`,
   },
 
   description: site.description,
@@ -42,10 +42,8 @@ export const metadata: Metadata = {
     "Paszed",
     "Software Engineer",
     "Software Architecture",
-    "Developer Experience",
     "Developer Tools",
-    "Engineering",
-    "Technical Writing",
+    "Developer Experience",
     "TypeScript",
     "React",
     "Next.js",
@@ -53,8 +51,8 @@ export const metadata: Metadata = {
     "Artificial Intelligence",
     "AI Engineering",
     "Developer Infrastructure",
-    "Terminal Workflow",
     "Systems Design",
+    "Technical Writing",
   ],
 
   openGraph: {
@@ -79,7 +77,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    creator: "@paszed_",
+    creator: site.social.x
+      .replace("https://x.com/", "@"),
 
     title: site.title,
     description: site.description,
@@ -123,9 +122,4 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 
   category: "technology",
-
-  /*
-    Add verification tokens after Search Console
-    and other webmaster tools are configured.
-  */
 };

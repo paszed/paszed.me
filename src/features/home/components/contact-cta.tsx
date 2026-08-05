@@ -20,22 +20,41 @@ export function ContactCTA() {
   return (
     <Section>
       <Container>
-        <Surface className="rounded-3xl border p-12 text-center">
-          <Measure size="2xl" className="mx-auto">
-            <Stack gap="lg" className="items-center">
-              <Heading as="h2">
-                Let&apos;s build something meaningful.
-              </Heading>
+        <Surface className="rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
+          <Measure
+            size="2xl"
+            className="mx-auto"
+          >
+            <Stack
+              gap="lg"
+              className="items-center"
+            >
+              <Stack
+                gap="sm"
+                className="items-center"
+              >
+                <Heading as="h2">
+                  Let&apos;s build something meaningful.
+                </Heading>
 
-              <Text size="lg" muted>
-                Whether you&apos;re building developer tools, AI-powered
-                software, or scalable systems, I&apos;d be happy to connect,
-                exchange ideas, or explore potential collaborations.
-              </Text>
+                <Text
+                  size="lg"
+                  muted
+                >
+                  Whether you&apos;re building developer tools, AI-powered
+                  software, or scalable systems, I&apos;d be happy to connect,
+                  exchange ideas, or explore potential collaborations.
+                </Text>
+              </Stack>
 
-              <Cluster gap="md" className="justify-center">
+              <Cluster
+                gap="md"
+                className="justify-center"
+              >
                 <Link href={`mailto:${site.email}`}>
-                  <Button>Get in touch</Button>
+                  <Button>
+                    Get in touch
+                  </Button>
                 </Link>
 
                 <TextLink

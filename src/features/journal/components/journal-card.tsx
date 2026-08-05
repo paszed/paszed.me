@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   Badge,
   Card,
@@ -5,7 +7,6 @@ import {
   Heading,
   Stack,
   Text,
-  TextLink,
 } from "@/design-system";
 import {
   formatDate,
@@ -21,86 +22,102 @@ export function JournalCard({
   article,
 }: JournalCardProps) {
   return (
-    <Card variant="interactive">
-      <Stack gap="lg">
-        <Cluster
-          gap="sm"
-          className="text-xs font-medium uppercase tracking-[0.3em] text-fg-muted"
+    <Link
+      href={`/journal/${article.slug}`}
+      className="group block h-full"
+    >
+      <Card
+        variant="interactive"
+        className="flex h-full flex-col"
+      >
+        <Stack
+          gap="lg"
+          className="h-full"
         >
-          <Text
-            as="span"
-            size="xs"
+          <Cluster
+            gap="sm"
+            className="
+              text-xs
+              font-medium
+              uppercase
+              tracking-[0.2em]
+              text-fg-muted
+            "
           >
-            {article.category}
-          </Text>
+            <Text as="span" size="xs">
+              {article.category}
+            </Text>
+
+            <span aria-hidden>
+              ·
+            </span>
+
+            <Text as="span" size="xs">
+              {article.publishedAt
+                ? formatDate(article.publishedAt)
+                : "Draft"}
+            </Text>
+
+            <span aria-hidden>
+              ·
+            </span>
+
+            <Text as="span" size="xs">
+              {formatReadingTime(
+                article.readingTimeMinutes,
+              )}
+            </Text>
+          </Cluster>
+
+          <Stack gap="sm">
+            <Heading
+              as="h3"
+              className="
+                transition-colors
+                duration-200
+                group-hover:text-accent
+              "
+            >
+              {article.title}
+            </Heading>
+
+            <Text
+              muted
+              className="
+                line-clamp-3
+                leading-relaxed
+              "
+            >
+              {article.description}
+            </Text>
+          </Stack>
+
+          {article.tags.length > 0 && (
+            <Cluster gap="sm">
+              {article.tags
+                .slice(0, 4)
+                .map((tag) => (
+                  <Badge key={tag}>
+                    {tag}
+                  </Badge>
+                ))}
+            </Cluster>
+          )}
 
           <Text
             as="span"
-            size="xs"
-            aria-hidden
+            size="sm"
+            className="
+              mt-auto
+              pt-4
+              font-medium
+              text-accent
+            "
           >
-            •
-          </Text>
-
-          <Text
-            as="span"
-            size="xs"
-          >
-            {article.publishedAt
-              ? formatDate(article.publishedAt)
-              : "Draft"}
-          </Text>
-
-          <Text
-            as="span"
-            size="xs"
-            aria-hidden
-          >
-            •
-          </Text>
-
-          <Text
-            as="span"
-            size="xs"
-          >
-            {formatReadingTime(
-              article.readingTimeMinutes,
-            )}
-          </Text>
-        </Cluster>
-
-        <Stack gap="sm">
-          <Heading as="h2">
-            {article.title}
-          </Heading>
-
-          <Text
-            size="lg"
-            muted
-          >
-            {article.description}
+            Read essay →
           </Text>
         </Stack>
-
-        <Cluster gap="sm">
-          {article.tags.map((tag) => (
-            <Badge key={tag}>{tag}</Badge>
-          ))}
-        </Cluster>
-
-        {article.published ? (
-          <TextLink href={`/journal/${article.slug}`}>
-            Read article →
-          </TextLink>
-        ) : (
-          <Text
-            size="sm"
-            muted
-          >
-            Draft
-          </Text>
-        )}
-      </Stack>
-    </Card>
+      </Card>
+    </Link>
   );
 }

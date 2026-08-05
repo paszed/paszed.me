@@ -1,31 +1,39 @@
 export const now = [
   {
-    title: "Currently Building",
+    title: "Building",
     items: [
-      "Expanding paszed.me as an engineering journal and public record of my work.",
-      "Building reusable developer tooling, platform infrastructure, and shared software capabilities.",
-      "Exploring infrastructure for composable and governed AI systems.",
+      "Growing paszed.me into a public record of my engineering work, experiments, and lessons learned.",
+      "Building reusable software foundations across developer tooling, platform infrastructure, and AI systems.",
+      "Turning recurring engineering problems into tools, patterns, and systems that compound over time.",
     ],
   },
   {
-    title: "Currently Learning",
+    title: "Learning",
     items: [
-      "Distributed systems and event-driven architecture.",
-      "Platform engineering and developer infrastructure.",
-      "AI agents, orchestration, and Model Context Protocol.",
-      "Go and systems-oriented software design.",
+      "Distributed systems, event-driven architecture, and designing reliable software boundaries.",
+      "Platform engineering and improving developer workflows through better tooling.",
+      "AI systems, orchestration patterns, and practical applications of intelligent software.",
+      "Go and systems-oriented programming.",
     ],
   },
   {
-    title: "Current Goals",
+    title: "Principles",
     items: [
-      "Turn recurring engineering problems into reusable infrastructure.",
-      "Document the reasoning, trade-offs, and lessons behind what I build.",
-      "Develop a coherent ecosystem of tools and platforms that compound over time.",
+      "Build things that solve real problems rather than optimizing for trends.",
+      "Prefer simple, composable systems that remain understandable as they grow.",
+      "Document decisions, trade-offs, and lessons so knowledge compounds.",
+    ],
+  },
+  {
+    title: "Goals",
+    items: [
+      "Create a portfolio of meaningful engineering work.",
+      "Collaborate with people building ambitious software products.",
+      "Continue improving as an engineer through consistent building and shipping.",
     ],
   },
   {
     title: "Last Updated",
-    items: ["July 2026"],
+    items: ["August 2026"],
   },
 ] as const;

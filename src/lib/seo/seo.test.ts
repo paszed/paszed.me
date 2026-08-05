@@ -125,7 +125,7 @@ describe("SEO", () => {
         title: "Home",
         description: "Personal website",
         alternates: {
-          canonical: "/",
+          canonical: site.url,
         },
         openGraph: {
           type: "website",
@@ -135,7 +135,7 @@ describe("SEO", () => {
           description: "Personal website",
           images: [
             {
-              url: site.ogImage,
+              url: `${site.url}${site.ogImage}`,
               width: 1200,
               height: 630,
               alt: "Home",
@@ -146,8 +146,10 @@ describe("SEO", () => {
           card: "summary_large_image",
           title: "Home",
           description: "Personal website",
-          images: [site.ogImage],
-          creator: "@paszed_",
+          images: [
+            `${site.url}${site.ogImage}`,
+          ],
+          creator: site.social.x,
         },
       });
     });
@@ -163,19 +165,23 @@ describe("SEO", () => {
 
       expect(metadata).toMatchObject({
         alternates: {
-          canonical: "/journal/article",
+          canonical:
+            `${site.url}/journal/article`,
         },
         openGraph: {
           type: "article",
           url: `${site.url}/journal/article`,
           images: [
             {
-              url: "/custom-og.png",
+              url:
+                `${site.url}/custom-og.png`,
             },
           ],
         },
         twitter: {
-          images: ["/custom-og.png"],
+          images: [
+            `${site.url}/custom-og.png`,
+          ],
         },
       });
     });
@@ -213,10 +219,6 @@ describe("SEO", () => {
           site.social.x,
         ],
         jobTitle: "Software Engineer",
-        worksFor: {
-          "@type": "Organization",
-          name: site.name,
-        },
       });
 
       expect(schema.knowsAbout).toEqual(

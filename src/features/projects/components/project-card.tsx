@@ -15,9 +15,7 @@ import { ProjectMeta } from "./project-meta";
 
 type ProjectCardProps = Project;
 
-export function ProjectCard(
-  project: ProjectCardProps,
-) {
+export function ProjectCard(project: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -25,7 +23,10 @@ export function ProjectCard(
     >
       <Card
         variant="interactive"
-        className="flex h-full flex-col"
+        className="
+          flex h-full flex-col
+          p-6 sm:p-8
+        "
       >
         <Stack
           gap="md"
@@ -35,8 +36,12 @@ export function ProjectCard(
 
           <Stack gap="sm">
             <Heading
-              as="h2"
-              className="transition-colors duration-200 group-hover:text-accent"
+              as="h3"
+              className="
+                transition-colors
+                duration-200
+                group-hover:text-accent
+              "
             >
               {project.title}
             </Heading>
@@ -52,32 +57,43 @@ export function ProjectCard(
 
           <Text
             muted
-            className="leading-relaxed"
+            className="
+              line-clamp-3
+              leading-relaxed
+            "
           >
             {project.summary}
           </Text>
 
-          <Cluster
-            gap="sm"
-            className="pt-2"
-          >
-            {project.technologies
-              .slice(0, 3)
-              .map((technology) => (
-                <Badge
-                  key={technology.name}
-                >
-                  {technology.name}
-                </Badge>
-              ))}
-          </Cluster>
+          {project.technologies.length > 0 && (
+            <Cluster
+              gap="sm"
+              className="pt-2"
+            >
+              {project.technologies
+                .slice(0, 3)
+                .map((technology) => (
+                  <Badge
+                    key={technology.name}
+                  >
+                    {technology.name}
+                  </Badge>
+                ))}
+            </Cluster>
+          )}
 
           <Cluster
             gap="sm"
-            className="mt-auto pt-4 text-sm font-medium text-accent"
+            className="
+              mt-auto
+              pt-6
+              text-sm
+              font-medium
+              text-accent
+            "
           >
             <Text as="span">
-              Explore project
+              View case study
             </Text>
 
             <ActionIcon name="open" />

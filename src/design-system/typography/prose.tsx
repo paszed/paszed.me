@@ -14,26 +14,38 @@ export function Prose({
       className={cn(
         [
           // Base
-          "font-serif text-lg leading-9 text-fg-secondary",
+          "max-w-none",
+          "font-serif text-lg",
+          "leading-9",
+          "text-fg-secondary",
 
-          // Rhythm
+          // Responsive reading scale
+          "sm:text-xl",
+          "sm:leading-10",
+
+          // Vertical rhythm
           "[&>*+*]:mt-8",
 
           // Paragraphs
           "[&_p]:leading-9",
+          "[&_p]:sm:leading-10",
 
           // Headings
-          "[&_h2]:mt-20",
+          "[&_h2]:mt-24",
+          "[&_h2]:mb-6",
           "[&_h2]:font-serif",
           "[&_h2]:text-3xl",
           "[&_h2]:font-semibold",
+          "[&_h2]:leading-tight",
           "[&_h2]:tracking-[-0.03em]",
           "[&_h2]:text-fg",
 
-          "[&_h3]:mt-14",
+          "[&_h3]:mt-16",
+          "[&_h3]:mb-4",
           "[&_h3]:font-serif",
           "[&_h3]:text-2xl",
           "[&_h3]:font-semibold",
+          "[&_h3]:leading-tight",
           "[&_h3]:tracking-[-0.02em]",
           "[&_h3]:text-fg",
 
@@ -47,23 +59,24 @@ export function Prose({
           // Lists
           "[&_ul]:list-disc",
           "[&_ul]:space-y-3",
-          "[&_ul]:pl-6",
+          "[&_ul]:pl-7",
 
           "[&_ol]:list-decimal",
           "[&_ol]:space-y-3",
-          "[&_ol]:pl-6",
+          "[&_ol]:pl-7",
 
+          "[&_li]:leading-8",
           "[&_li]:marker:text-accent",
 
           // Quotes
           "[&_blockquote]:border-l-2",
-          "[&_blockquote]:border-border",
+          "[&_blockquote]:border-accent/40",
           "[&_blockquote]:pl-6",
           "[&_blockquote]:italic",
           "[&_blockquote]:text-fg",
 
           // Divider
-          "[&_hr]:my-16",
+          "[&_hr]:my-20",
           "[&_hr]:border-border",
 
           // Inline code
@@ -76,22 +89,27 @@ export function Prose({
           "[&_code]:text-fg",
 
           // Code blocks
+          "[&_pre]:my-10",
           "[&_pre]:overflow-x-auto",
           "[&_pre]:rounded-2xl",
           "[&_pre]:border",
           "[&_pre]:border-border",
           "[&_pre]:bg-card",
           "[&_pre]:p-6",
+          "[&_pre]:text-sm",
 
           "[&_pre_code]:bg-transparent",
           "[&_pre_code]:p-0",
 
           // Tables
+          "[&_table]:block",
+          "[&_table]:overflow-x-auto",
           "[&_table]:w-full",
           "[&_table]:border-collapse",
 
           "[&_th]:border-b",
           "[&_th]:border-border",
+          "[&_th]:px-4",
           "[&_th]:py-3",
           "[&_th]:text-left",
           "[&_th]:font-semibold",
@@ -99,6 +117,7 @@ export function Prose({
 
           "[&_td]:border-b",
           "[&_td]:border-border-muted",
+          "[&_td]:px-4",
           "[&_td]:py-3",
 
           // Images

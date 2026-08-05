@@ -15,7 +15,15 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-border">
       <Container>
-        <div className="grid gap-12 py-16 md:grid-cols-[1.5fr_repeat(5,1fr)]">
+        <div
+          className="
+            grid
+            gap-12
+            py-16
+            sm:grid-cols-2
+            lg:grid-cols-[1.5fr_repeat(4,1fr)]
+          "
+        >
           <Stack gap="sm">
             <BrandLogo />
 
@@ -52,19 +60,27 @@ export function Footer() {
           />
 
           <FooterSection
-            title="Social"
-            items={footer.social}
-            showIcons
-          />
-
-          <FooterSection
             title="Contact"
             items={footer.contact}
             showIcons
           />
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-border py-6 text-sm text-fg-secondary md:flex-row md:items-center md:justify-between">
+        <div
+          className="
+            flex
+            flex-col
+            gap-2
+            border-t
+            border-border
+            py-6
+            text-sm
+            text-fg-secondary
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+        >
           <Text
             size="sm"
             muted

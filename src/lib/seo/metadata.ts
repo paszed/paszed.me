@@ -19,12 +19,16 @@ export function createMetadata({
 }: MetadataOptions): Metadata {
   const url = `${site.url}${path}`;
 
+  const imageUrl = image.startsWith("http")
+    ? image
+    : `${site.url}${image}`;
+
   return {
     title,
     description,
 
     alternates: {
-      canonical: path || "/",
+      canonical: url,
     },
 
     openGraph: {
@@ -35,7 +39,7 @@ export function createMetadata({
       description,
       images: [
         {
-          url: image,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: title,
@@ -47,8 +51,8 @@ export function createMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [image],
-      creator: "@paszed_",
+      images: [imageUrl],
+      creator: site.social.x,
     },
   };
 }

@@ -1,14 +1,15 @@
 export const home = {
   hero: {
-    eyebrow: "ENGINEERING • SYSTEMS • CRAFT",
+    eyebrow: "ENGINEERING • SYSTEMS • SOFTWARE",
 
-    title: "Building software with longevity in mind.",
+    title:
+      "I build software systems that scale beyond the first version.",
 
     subtitle:
-      "Developer infrastructure, software platforms, and AI systems guided by clarity, composition, and long-term thinking.",
+      "Developer tools, modern web platforms, and AI-powered workflows designed with clarity, reliability, and long-term maintainability.",
 
     description:
-      "I'm Edvard, a software engineer focused on building reusable foundations for modern software. I work across developer tooling, platform infrastructure, distributed systems, and AI while documenting the architecture, trade-offs, and lessons behind what I build.",
+      "I'm Edvard, a software engineer focused on turning recurring technical problems into reusable systems. I design and build developer infrastructure, applications, and automation workflows while documenting the architecture, decisions, and lessons behind them.",
 
     primaryCta: {
       label: "View Projects",

@@ -1,4 +1,5 @@
 import {
+  Badge,
   Cluster,
   Eyebrow,
   Heading,
@@ -21,22 +22,26 @@ export function ArticleHeader({
   return (
     <Stack
       as="header"
-      gap="md"
+      gap="lg"
       className="mb-20"
     >
-      <Eyebrow>{article.category}</Eyebrow>
+      <Eyebrow>
+        {article.category}
+      </Eyebrow>
 
-      <Heading as="h1">
-        {article.title}
-      </Heading>
+      <Stack gap="md">
+        <Heading as="h1">
+          {article.title}
+        </Heading>
 
-      <Text
-        size="lg"
-        muted
-        className="max-w-2xl"
-      >
-        {article.description}
-      </Text>
+        <Text
+          size="lead"
+          muted
+          className="max-w-3xl"
+        >
+          {article.description}
+        </Text>
+      </Stack>
 
       <Cluster
         gap="sm"
@@ -49,13 +54,9 @@ export function ArticleHeader({
           {article.author}
         </Text>
 
-        <Text
-          as="span"
-          size="sm"
-          aria-hidden
-        >
-          •
-        </Text>
+        <span aria-hidden>
+          ·
+        </span>
 
         <Text
           as="span"
@@ -66,13 +67,9 @@ export function ArticleHeader({
             : "Draft"}
         </Text>
 
-        <Text
-          as="span"
-          size="sm"
-          aria-hidden
-        >
-          •
-        </Text>
+        <span aria-hidden>
+          ·
+        </span>
 
         <Text
           as="span"
@@ -83,6 +80,16 @@ export function ArticleHeader({
           )}
         </Text>
       </Cluster>
+
+      {article.tags.length > 0 && (
+        <Cluster gap="sm">
+          {article.tags.map((tag) => (
+            <Badge key={tag}>
+              {tag}
+            </Badge>
+          ))}
+        </Cluster>
+      )}
     </Stack>
   );
 }
