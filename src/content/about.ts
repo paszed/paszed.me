@@ -3,43 +3,43 @@ export const about = {
     title: "About",
 
     intro:
-      "I'm Edvard, a software engineer focused on building reliable software systems, developer tools, and modern applications with strong technical foundations.",
+      "I'm Edvard, a software engineer focused on building reliable applications, developer tools, and systems that help ideas become useful products.",
   },
 
   story: [
-    "I build software by starting with the underlying problem rather than the first implementation. Whether it is an application, internal tool, or reusable system, I focus on creating solutions that remain understandable and maintainable as they grow.",
+    "I approach software by understanding the underlying problem first. The goal is not just to write code, but to create systems that remain clear, maintainable, and valuable as they grow.",
 
-    "My work combines product development with engineering foundations: application architecture, developer experience, automation, infrastructure, and practical AI workflows. I enjoy turning repeated problems into systems that make future work simpler.",
+    "My work combines product development with strong engineering foundations: application architecture, automation, developer experience, infrastructure, and practical AI workflows.",
 
-    "I believe good software is built through iteration. Design decisions become clearer through building, testing assumptions, measuring results, and continuously improving the systems around the product.",
+    "I enjoy turning recurring problems into reusable solutions. Whether improving an existing system or building something new, I focus on reducing complexity and creating foundations that last.",
 
-    "This website documents that process. The projects show what I build, while the journal explores the technical decisions, trade-offs, and lessons behind the work.",
+    "This website documents the systems I build, the decisions behind them, and the lessons learned throughout the process.",
   ],
 
   philosophy: [
     {
-      title: "Understand before building",
+      title: "Understand the problem first",
 
       description:
-        "The strongest solutions come from understanding the real problem before choosing the technology or implementation.",
+        "The best technical solutions come from understanding the real need before choosing the implementation.",
     },
     {
-      title: "Create systems that scale",
+      title: "Build for change",
 
       description:
-        "Software should be designed so that future changes improve the system instead of creating unnecessary complexity.",
+        "Software should be designed so future improvements become easier rather than adding unnecessary complexity.",
     },
     {
-      title: "Reduce recurring friction",
+      title: "Remove recurring friction",
 
       description:
-        "Repeated manual work and recurring technical problems are opportunities to create better tools and workflows.",
+        "Repeated problems are opportunities to create better tools, workflows, and systems.",
     },
     {
-      title: "Keep improving",
+      title: "Improve through shipping",
 
       description:
-        "Engineering skill grows through shipping, feedback, reflection, and continuously refining how software is built.",
+        "Engineering grows through building, feedback, iteration, and continuously refining the process.",
     },
   ],
 

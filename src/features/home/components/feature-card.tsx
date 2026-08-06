@@ -30,7 +30,7 @@ export function FeatureCard({
         <Heading
           as="h3"
           className="
-            text-2xl
+            text-xl
             transition-colors
             duration-200
             group-hover:text-accent

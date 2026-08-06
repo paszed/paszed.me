@@ -21,7 +21,7 @@ export function FeaturedProjects() {
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Projects"
+            eyebrow="Selected Work"
             title={home.featuredProjects.title}
             description={home.featuredProjects.description}
             actions={
@@ -47,7 +47,7 @@ export function FeaturedProjects() {
             </Grid>
           ) : (
             <Text muted>
-              Featured projects are coming soon.
+              Projects are being prepared.
             </Text>
           )}
         </Stack>

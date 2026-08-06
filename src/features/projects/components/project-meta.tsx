@@ -20,11 +20,7 @@ export function ProjectMeta({
   return (
     <Cluster
       gap="sm"
-      className="
-        text-xs
-        uppercase
-        tracking-wide
-      "
+      className="text-xs uppercase tracking-wide"
     >
       <StatusBadge tone={status.tone}>
         {status.label}

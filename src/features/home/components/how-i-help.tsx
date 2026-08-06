@@ -15,28 +15,22 @@ export function HowIHelp() {
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Working Together"
+            eyebrow="Services"
             title={home.howIHelp.title}
-            description={
-              home.howIHelp.description
-            }
+            description={home.howIHelp.description}
           />
 
           <Grid
             columns={3}
             gap="lg"
           >
-            {home.howIHelp.items.map(
-              (item) => (
-                <FeatureCard
-                  key={item.title}
-                  title={item.title}
-                  description={
-                    item.description
-                  }
-                />
-              ),
-            )}
+            {home.howIHelp.items.map((item) => (
+              <FeatureCard
+                key={item.title}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
           </Grid>
         </Stack>
       </Container>

@@ -18,7 +18,7 @@ export function ProjectOverview({
   }
 
   return (
-    <ProjectSection title="Overview">
+    <ProjectSection title="The Problem & Solution">
       <Measure size="3xl">
         <Stack gap="lg">
           {overview.map((paragraph) => (
@@ -26,10 +26,7 @@ export function ProjectOverview({
               key={paragraph}
               size="lg"
               muted
-              className="
-                leading-9
-                tracking-[-0.01em]
-              "
+              className="leading-9 tracking-[-0.01em]"
             >
               {paragraph}
             </Text>

@@ -19,7 +19,7 @@ export function ProjectSection({
       <Stack gap="lg">
         <Heading
           as="h2"
-          className="text-3xl"
+          className="text-2xl sm:text-3xl"
         >
           {title}
         </Heading>

@@ -23,10 +23,7 @@ export function ProjectCard(project: ProjectCardProps) {
     >
       <Card
         variant="interactive"
-        className="
-          flex h-full flex-col
-          p-6 sm:p-8
-        "
+        className="flex h-full flex-col p-6 sm:p-8"
       >
         <Stack
           gap="md"
@@ -37,11 +34,7 @@ export function ProjectCard(project: ProjectCardProps) {
           <Stack gap="sm">
             <Heading
               as="h3"
-              className="
-                transition-colors
-                duration-200
-                group-hover:text-accent
-              "
+              className="transition-colors duration-200 group-hover:text-accent"
             >
               {project.title}
             </Heading>
@@ -57,10 +50,7 @@ export function ProjectCard(project: ProjectCardProps) {
 
           <Text
             muted
-            className="
-              line-clamp-3
-              leading-relaxed
-            "
+            className="line-clamp-3 leading-relaxed"
           >
             {project.summary}
           </Text>
@@ -71,11 +61,9 @@ export function ProjectCard(project: ProjectCardProps) {
               className="pt-2"
             >
               {project.technologies
-                .slice(0, 3)
+                .slice(0, 4)
                 .map((technology) => (
-                  <Badge
-                    key={technology.name}
-                  >
+                  <Badge key={technology.name}>
                     {technology.name}
                   </Badge>
                 ))}
@@ -84,16 +72,10 @@ export function ProjectCard(project: ProjectCardProps) {
 
           <Cluster
             gap="sm"
-            className="
-              mt-auto
-              pt-6
-              text-sm
-              font-medium
-              text-accent
-            "
+            className="mt-auto pt-6 text-sm font-medium text-accent"
           >
             <Text as="span">
-              View case study
+              Read case study
             </Text>
 
             <ActionIcon name="open" />

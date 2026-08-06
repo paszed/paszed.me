@@ -15,15 +15,15 @@ export function AboutPhilosophy() {
       <Stack gap="xl">
         <Stack gap="sm">
           <Heading as="h2">
-            How I Build Software
+            Engineering Principles
           </Heading>
 
           <Text
             muted
             className="max-w-2xl leading-relaxed"
           >
-            The principles I use when designing systems, making technical
-            decisions, and solving engineering problems.
+            The principles that guide how I approach software design,
+            technical decisions, and long-term maintainability.
           </Text>
         </Stack>
 
@@ -40,7 +40,7 @@ export function AboutPhilosophy() {
               <Stack gap="sm">
                 <Heading
                   as="h3"
-                  className="text-2xl"
+                  className="text-xl sm:text-2xl"
                 >
                   {principle.title}
                 </Heading>

@@ -29,7 +29,18 @@ export function ProjectListSection({
             <Text
               key={item}
               muted
-              className="flex items-start gap-4 leading-relaxed before:mt-2 before:size-2 before:shrink-0 before:rounded-full before:bg-success before:content-['']"
+              className="
+                flex
+                items-start
+                gap-4
+                leading-relaxed
+                before:mt-2
+                before:size-2
+                before:shrink-0
+                before:rounded-full
+                before:bg-success
+                before:content-['']
+              "
             >
               {item}
             </Text>

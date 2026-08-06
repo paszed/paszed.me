@@ -20,7 +20,7 @@ export function ProjectLinks({
   }
 
   return (
-    <ProjectSection title="Resources">
+    <ProjectSection title="Links">
       <Cluster gap="md">
         {project.links.map((link) => (
           <Link

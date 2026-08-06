@@ -15,13 +15,16 @@ import {
   ProjectRoadmap,
   ProjectTech,
 } from "@/features/projects";
-import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 import {
-  JsonLd,
   createBreadcrumbSchema,
   createMetadata,
   createProjectSchema,
+  JsonLd,
 } from "@/lib/seo";
+import {
+  getProjectBySlug,
+  getProjectSlugs,
+} from "@/lib/projects";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -65,23 +68,6 @@ export default async function ProjectPage({
     notFound();
   }
 
-  const projectSchema = createProjectSchema(project);
-
-  const breadcrumbSchema = createBreadcrumbSchema([
-    {
-      name: "Home",
-      path: "/",
-    },
-    {
-      name: "Projects",
-      path: "/projects",
-    },
-    {
-      name: project.title,
-      path: `/projects/${project.slug}`,
-    },
-  ]);
-
   const sections = [
     {
       title: "Problem",
@@ -111,21 +97,42 @@ export default async function ProjectPage({
 
   return (
     <>
-      <JsonLd data={projectSchema} />
+      <JsonLd
+        data={createProjectSchema(project)}
+      />
 
-      <JsonLd data={breadcrumbSchema} />
+      <JsonLd
+        data={createBreadcrumbSchema([
+          {
+            name: "Home",
+            path: "/",
+          },
+          {
+            name: "Projects",
+            path: "/projects",
+          },
+          {
+            name: project.title,
+            path: `/projects/${project.slug}`,
+          },
+        ])}
+      />
 
       <Page>
-        <Stack className="space-y-20">
+        <Stack className="space-y-16 sm:space-y-20">
           <ProjectHero project={project} />
 
           {project.gallery.length > 0 && (
             <ProjectGallery project={project} />
           )}
 
-          <ProjectOverview overview={project.overview} />
+          <ProjectOverview
+            overview={project.overview}
+          />
 
-          <ProjectArchitecture project={project} />
+          <ProjectArchitecture
+            project={project}
+          />
 
           {sections.map(
             ({ title, items }) =>

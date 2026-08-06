@@ -16,9 +16,9 @@ export function ProjectsHero() {
         muted
         className="max-w-2xl leading-relaxed"
       >
-        Software systems, developer tools, and infrastructure experiments
-        built around one principle: create foundations that remain useful as
-        complexity grows.
+        A collection of software products, developer tools, and technical
+        systems built to solve real problems through thoughtful architecture
+        and reliable engineering.
       </Text>
     </PageHeader>
   );

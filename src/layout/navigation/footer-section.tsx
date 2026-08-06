@@ -27,13 +27,12 @@ export function FooterSection({
   return (
     <Stack gap="sm">
       <Text
-        as="h2"
-        size="xs"
-        className="font-semibold uppercase tracking-[0.2em] text-fg-muted"
-      >
-        {title}
-      </Text>
-
+  as="h2"
+  size="xs"
+  className="font-semibold uppercase tracking-[0.2em] text-fg-muted"
+>
+  {title}
+</Text>
       <List>
         {items.map((item) => (
           <ListItem key={item.label}>
@@ -49,12 +48,26 @@ export function FooterSection({
                   ? "noopener noreferrer"
                   : undefined
               }
-              className="group inline-flex items-center gap-2 text-xs text-fg-secondary transition-colors hover:text-fg"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-2
+                text-xs
+                text-fg-secondary
+                transition-colors
+                hover:text-fg
+              "
             >
               {showIcons && (
                 <SocialIcon
                   name={item.label}
-                  className="size-3 opacity-70 transition-opacity group-hover:opacity-100"
+                  className="
+                    size-3
+                    opacity-70
+                    transition-opacity
+                    group-hover:opacity-100
+                  "
                 />
               )}
 

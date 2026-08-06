@@ -23,7 +23,7 @@ export function ProjectTech({
   }
 
   return (
-    <ProjectSection title="Technologies">
+    <ProjectSection title="Technology & Tools">
       <Measure size="3xl">
         <Surface className="overflow-hidden rounded-lg">
           <Table>
@@ -35,7 +35,7 @@ export function ProjectTech({
                   </TableHead>
 
                   <TableCell>
-                    {technology.purpose ?? "—"}
+                    {technology.purpose ?? "Used as part of the system architecture."}
                   </TableCell>
                 </TableRow>
               ))}

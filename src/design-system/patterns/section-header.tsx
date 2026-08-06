@@ -30,7 +30,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "flex flex-col gap-6",
+        "flex flex-col gap-5",
         !centered &&
           "md:flex-row md:items-end md:justify-between",
         centered && "items-center text-center",
@@ -39,7 +39,7 @@ export function SectionHeader({
     >
       <div
         className={cn(
-          "space-y-4",
+          "space-y-3",
           centered ? "max-w-3xl" : "max-w-2xl",
         )}
       >
@@ -59,6 +59,7 @@ export function SectionHeader({
           <Text
             size="lead"
             muted
+            className="leading-relaxed"
           >
             {description}
           </Text>

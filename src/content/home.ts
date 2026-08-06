@@ -22,52 +22,52 @@ export const home = {
     },
   },
 
-  capabilities: {
-    title: "Capabilities",
+    capabilities: {
+    title: "What I Build",
 
     description:
-      "Areas where I help teams design, build, and improve modern software systems.",
+      "Software solutions designed around reliability, maintainability, and long-term growth.",
 
     items: [
       {
         title: "Web Applications",
         description:
-          "Modern full-stack applications with thoughtful architecture, reliable foundations, and user-focused experiences.",
+          "Production-ready applications, dashboards, and platforms built with modern technologies and scalable architecture.",
       },
       {
-        title: "Developer Infrastructure",
+        title: "Internal Tools",
         description:
-          "Internal tools, automation, and workflows that reduce friction and help teams build software more effectively.",
+          "Custom tools and systems that simplify operations, automate workflows, and remove unnecessary friction.",
       },
       {
-        title: "AI Workflows",
+        title: "AI-Powered Workflows",
         description:
-          "Practical AI integrations, automation systems, and workflows that improve existing software processes.",
+          "Practical AI integrations that improve existing processes, reduce repetitive work, and create new capabilities.",
       },
     ],
   },
 
   howIHelp: {
-    title: "How I Can Help",
+    title: "How I Help",
 
     description:
-      "I work with individuals, startups, and teams to design, build, and improve software systems.",
+      "From early ideas to improving existing systems, I help turn technical challenges into dependable software.",
 
     items: [
       {
-        title: "Build New Software",
+        title: "Build New Products",
         description:
-          "From early concepts to production-ready applications, I help turn ideas into reliable software with a strong technical foundation.",
+          "Transform ideas into functional software products with a strong foundation, thoughtful architecture, and a clear path forward.",
       },
       {
-        title: "Improve Existing Systems",
+        title: "Improve Existing Software",
         description:
-          "I help simplify complex codebases, improve architecture, and create systems that are easier to maintain and extend.",
+          "Analyze, refactor, and improve systems that have become difficult to maintain, scale, or extend.",
       },
       {
-        title: "Automate Workflows",
+        title: "Automate Repetitive Work",
         description:
-          "I build tools and integrations that remove repetitive work and help teams operate more efficiently.",
+          "Create integrations, tools, and workflows that save time and help teams focus on higher-value work.",
       },
     ],
   },

@@ -18,9 +18,10 @@ export function AboutHero() {
       <div
         className="
           grid
-          gap-12
+          gap-10
           lg:grid-cols-[auto_minmax(0,1fr)]
           lg:items-center
+          lg:gap-16
         "
       >
         <Surface className="w-fit rounded-full p-2 shadow-sm">

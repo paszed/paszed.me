@@ -185,6 +185,30 @@ describe("SEO", () => {
         },
       });
     });
+
+    it("supports absolute image URLs", () => {
+      const image =
+        "https://example.com/custom-og.png";
+
+      const metadata = createMetadata({
+        title: "External Image",
+        description: "Metadata with external image",
+        image,
+      });
+
+      expect(metadata).toMatchObject({
+        openGraph: {
+          images: [
+            {
+              url: image,
+            },
+          ],
+        },
+        twitter: {
+          images: [image],
+        },
+      });
+    });
   });
 
   describe("createOrganizationSchema", () => {

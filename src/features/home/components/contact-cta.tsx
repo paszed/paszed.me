@@ -13,14 +13,14 @@ import {
   TextLink,
 } from "@/design-system";
 
-import { profiles } from "@/content";
 import { site } from "@/config/site";
+import { profiles } from "@/content";
 
 export function ContactCTA() {
   return (
     <Section>
       <Container>
-        <Surface className="rounded-3xl border p-8 text-center sm:p-12">
+        <Surface className="rounded-3xl border p-6 text-center sm:p-10 lg:p-12">
           <Measure
             size="2xl"
             className="mx-auto"
@@ -30,17 +30,17 @@ export function ContactCTA() {
               className="items-center"
             >
               <Heading as="h2">
-                Need software built properly?
+                Have a software problem to solve?
               </Heading>
 
               <Text
                 size="lg"
                 muted
+                className="leading-relaxed"
               >
-                I help turn ideas, technical challenges, and recurring
-                workflows into reliable software systems — from web
-                applications and internal tools to developer infrastructure
-                and automation.
+                I help founders and teams design, build, and improve reliable
+                software — from new applications and internal tools to
+                automation workflows and AI integrations.
               </Text>
 
               <Cluster

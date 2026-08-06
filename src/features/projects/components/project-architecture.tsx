@@ -24,7 +24,7 @@ export function ProjectArchitecture({
   }
 
   return (
-    <ProjectSection title="Architecture">
+    <ProjectSection title="Technical Approach">
       <Measure size="3xl">
         <Stack gap="xl">
           {project.architecture.description.map(
@@ -33,10 +33,7 @@ export function ProjectArchitecture({
                 key={paragraph}
                 size="lg"
                 muted
-                className="
-                  leading-9
-                  tracking-[-0.01em]
-                "
+                className="leading-9 tracking-[-0.01em]"
               >
                 {paragraph}
               </Text>

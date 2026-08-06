@@ -15,28 +15,22 @@ export function Capabilities() {
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Capabilities"
+            eyebrow="What I Build"
             title={home.capabilities.title}
-            description={
-              home.capabilities.description
-            }
+            description={home.capabilities.description}
           />
 
           <Grid
             columns={3}
             gap="lg"
           >
-            {home.capabilities.items.map(
-              (item) => (
-                <FeatureCard
-                  key={item.title}
-                  title={item.title}
-                  description={
-                    item.description
-                  }
-                />
-              ),
-            )}
+            {home.capabilities.items.map((item) => (
+              <FeatureCard
+                key={item.title}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
           </Grid>
         </Stack>
       </Container>

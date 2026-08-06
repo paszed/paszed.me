@@ -13,15 +13,15 @@ export function AboutStory() {
       <Stack gap="xl">
         <Stack gap="sm">
           <Heading as="h2">
-            My Approach
+            How I Work
           </Heading>
 
           <Text
             muted
             className="max-w-2xl leading-relaxed"
           >
-            How I think about building software, solving problems, and creating
-            systems that remain useful over time.
+            A practical approach to turning ideas and technical challenges
+            into reliable software.
           </Text>
         </Stack>
 

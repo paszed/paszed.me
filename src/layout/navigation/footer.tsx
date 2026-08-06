@@ -15,18 +15,27 @@ export function Footer() {
   return (
     <footer className="mt-16 border-t border-border sm:mt-20">
       <Container>
-        <div className="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_repeat(4,1fr)] lg:gap-6 lg:py-12">
+        <div
+          className="
+            grid
+            gap-10
+            py-10
+            sm:grid-cols-2
+            lg:grid-cols-[1.4fr_repeat(4,1fr)]
+            lg:gap-8
+            lg:py-12
+          "
+        >
           <Stack gap="sm">
             <BrandLogo />
 
             <Text
-              size="xs"
-              muted
-              className="max-w-xs leading-5"
-            >
-              Building developer tools, AI applications, and modern web
-              products.
-            </Text>
+  size="xs"
+  muted
+  className="max-w-xs leading-5"
+>
+  Building developer tools, AI applications, and modern web products.
+</Text>
 
             <Text
               size="xs"
@@ -59,7 +68,19 @@ export function Footer() {
           />
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-border py-4 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          className="
+            flex
+            flex-col
+            gap-2
+            border-t
+            border-border
+            py-4
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+          "
+        >
           <Text
             size="xs"
             muted

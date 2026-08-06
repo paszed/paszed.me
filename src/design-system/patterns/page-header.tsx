@@ -3,7 +3,7 @@ import type {
   ReactNode,
 } from "react";
 
-import { cn } from "@/lib";
+import { cn } from "@/lib/utils";
 
 import { Stack } from "../layout";
 
@@ -20,7 +20,6 @@ export function PageHeader({
   return (
     <header
       className={cn(
-        "relative",
         className,
       )}
       {...props}

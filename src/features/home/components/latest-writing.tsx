@@ -47,9 +47,8 @@ export function LatestWriting() {
             </Grid>
           ) : (
             <Text muted>
-              I&apos;m currently writing new engineering notes. Check back soon
-              for articles on software architecture, developer tooling, AI, and
-              the lessons I learn while building.
+              Writing and engineering notes will be published here as projects
+              and ideas develop.
             </Text>
           )}
         </Stack>

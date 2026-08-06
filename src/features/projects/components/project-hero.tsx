@@ -31,29 +31,30 @@ export function ProjectHero({
         <Text
           size="lead"
           muted
-          className="max-w-3xl"
+          className="max-w-3xl leading-relaxed"
         >
           {project.tagline}
         </Text>
 
         <Text
-          size="lg"
           muted
-          className="max-w-3xl leading-relaxed"
+          className="max-w-3xl text-lg leading-relaxed"
         >
           {project.summary}
         </Text>
       </Stack>
 
-      <Cluster gap="sm">
-        {project.technologies
-          .slice(0, 5)
-          .map((technology) => (
-            <Badge key={technology.name}>
-              {technology.name}
-            </Badge>
-          ))}
-      </Cluster>
+      {project.technologies.length > 0 && (
+        <Cluster gap="sm">
+          {project.technologies
+            .slice(0, 5)
+            .map((technology) => (
+              <Badge key={technology.name}>
+                {technology.name}
+              </Badge>
+            ))}
+        </Cluster>
+      )}
 
       <Divider />
     </Hero>

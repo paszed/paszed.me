@@ -15,26 +15,22 @@ export function Philosophy() {
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Philosophy"
+            eyebrow="Principles"
             title={home.philosophy.title}
-            description="The principles that shape how I approach software design, engineering, and long-term maintainability."
+            description="The principles that guide how I approach software design, engineering decisions, and long-term maintainability."
           />
 
           <Grid
             columns={3}
             gap="lg"
           >
-            {home.philosophy.items.map(
-              (principle) => (
-                <FeatureCard
-                  key={principle.title}
-                  title={principle.title}
-                  description={
-                    principle.description
-                  }
-                />
-              ),
-            )}
+            {home.philosophy.items.map((principle) => (
+              <FeatureCard
+                key={principle.title}
+                title={principle.title}
+                description={principle.description}
+              />
+            ))}
           </Grid>
         </Stack>
       </Container>

@@ -15,16 +15,19 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Edvard Pasz, the engineering philosophy behind his software platforms, and his approach to building maintainable systems.",
+    "Learn about Edvard Pasz, his engineering approach, software philosophy, and the systems he builds.",
 };
 
 export default function AboutPage() {
   return (
     <Page>
-      <Stack gap="2xl">
+      <Stack gap="xl">
         <AboutHero />
+
         <AboutStory />
+
         <AboutPhilosophy />
+
         <AboutSkills />
       </Stack>
     </Page>

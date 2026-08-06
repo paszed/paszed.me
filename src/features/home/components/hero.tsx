@@ -46,16 +46,16 @@ export function Hero() {
               <Text
                 size="lead"
                 muted
-                className="max-w-2xl"
+                className="max-w-2xl leading-relaxed"
               >
                 {home.hero.subtitle}
               </Text>
             </Stack>
 
             <Text
-              size="lead"
+              size="lg"
               muted
-              className="max-w-3xl font-serif leading-9"
+              className="max-w-3xl leading-8"
             >
               {home.hero.description}
             </Text>

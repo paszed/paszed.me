@@ -23,12 +23,12 @@ export function AboutSkills() {
             muted
             className="max-w-2xl leading-relaxed"
           >
-            Technologies and tools I use to design, build, test, and maintain
-            modern software systems.
+            The technologies and workflows I use to design, build, test, and
+            maintain modern software systems.
           </Text>
         </Stack>
 
-        <Stack gap="xl">
+        <Stack gap="lg">
           {about.skills.map((group) => (
             <Stack
               key={group.category}
@@ -52,14 +52,14 @@ export function AboutSkills() {
                 {group.category}
               </Text>
 
-              <Cluster gap="md">
+              <Cluster gap="sm">
                 {group.items.map((item) => (
                   <Badge
                     key={item}
                     className="
                       gap-2
-                      px-4
-                      py-2
+                      px-3
+                      py-1.5
                       transition-colors
                       hover:border-border
                       hover:text-fg
