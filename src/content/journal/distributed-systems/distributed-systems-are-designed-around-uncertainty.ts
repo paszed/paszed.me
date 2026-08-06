@@ -1,9 +1,9 @@
 import type { JournalEntry } from "@/types/journal";
 
-const coordinationIsTheEnemyOfScalability: JournalEntry = {
-  slug: "coordination-is-the-enemy-of-scalability",
+const distributedSystemsAreDesignedAroundUncertainty: JournalEntry = {
+  slug: "distributed-systems-are-designed-around-uncertainty",
 
-  title: "Coordination Is the Enemy of Scalability",
+  title: "Distributed Systems Are Designed Around Uncertainty",
 
   description:
     "Scaling distributed systems is rarely limited by processor speed or hardware capacity. More often, scalability is constrained by coordination. Every dependency that requires multiple machines to agree introduces latency, complexity and reduced throughput.",
@@ -375,4 +375,4 @@ Reducing it is one of the most powerful architectural decisions an engineer can 
   ],
 };
 
-export default coordinationIsTheEnemyOfScalability;
+export default distributedSystemsAreDesignedAroundUncertainty;
