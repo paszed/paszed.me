@@ -1,11 +1,11 @@
 import type { JournalEntry } from "@/types/journal";
 
-import { getSortedArticles } from "./get-sorted-articles";
+import { getPublishedArticles } from "./get-published-articles";
 
 export function getPreviousArticle(
   slug: string,
 ): JournalEntry | undefined {
-  const articles = getSortedArticles();
+  const articles = getPublishedArticles();
 
   const index = articles.findIndex(
     (article) => article.slug === slug,

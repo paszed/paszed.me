@@ -10,10 +10,10 @@ import {
   Text,
 } from "@/design-system";
 import { journalCategories } from "@/content/journal";
-import { getAllArticles } from "@/lib/journal";
+import { getPublishedArticles } from "@/lib/journal";
 
 export default function JournalPage() {
-  const articles = getAllArticles();
+  const articles = getPublishedArticles();
 
   const categories = journalCategories.map((definition) => ({
     ...definition,
@@ -170,15 +170,6 @@ export default function JournalPage() {
                           >
                             {article.readingTimeMinutes} min
                           </Text>
-
-                          {!article.published && (
-                            <Text
-                              size="sm"
-                              muted
-                            >
-                              Draft
-                            </Text>
-                          )}
                         </Cluster>
                       </div>
                     </Link>

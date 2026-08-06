@@ -9,7 +9,7 @@ import {
   ReadingProgress,
 } from "@/features/journal";
 import {
-  getArticle,
+  getPublishedArticle,
   getNextArticle,
   getPreviousArticle,
   getRelatedArticles,
@@ -32,7 +32,7 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const article = getArticle(slug);
+  const article = getPublishedArticle(slug);
 
   if (!article) {
     return {};
@@ -51,7 +51,7 @@ export default async function JournalArticlePage({
 }: Props) {
   const { slug } = await params;
 
-  const article = getArticle(slug);
+  const article = getPublishedArticle(slug);
 
   if (!article) {
     notFound();
@@ -89,7 +89,7 @@ export default async function JournalArticlePage({
 
         <ArticleContent article={article} />
 
-        <ArticleRelated articles={related} />
+        <ArticleRelated articles={article ? related : []} />
 
         <ArticleNavigation
           previous={previous}
