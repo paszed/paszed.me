@@ -22,7 +22,7 @@ const internalPlatformsAreProductsNotSharedInfrastructure: JournalEntry = {
 
   tags: [
     "Platform Engineering",
-    "Developer[118;1:3u Experience",
+    "Developer Experience",
     "Internal Developer Platforms",
     "Engineering",
     "Product Thinking",

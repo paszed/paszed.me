@@ -484,7 +484,7 @@ They are the ones who leave behind systems that remain understandable years afte
 
 Complexity is not something waiting to be discovered inside software.
 
-It is something introduced, intentionally or unintentionally, by the pe[118;1:3uople who build it.
+It is something introduced, intentionally or unintentionally, by the people who build it.
 
 The same engineers who introduce unnecessary complexity also possess the ability to prevent it.
 

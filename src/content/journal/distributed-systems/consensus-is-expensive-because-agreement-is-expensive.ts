@@ -165,7 +165,7 @@ Only operations demanding absolute correctness require coordinated agreement.
 
 This philosophy dramatically improves system performance.
 
-Rather than[118;1:3u accelerating consensus, architecture reduces the number of situations in which consensus becomes necessary.
+Rather than accelerating consensus, architecture reduces the number of situations in which consensus becomes necessary.
 
 The fastest consensus is frequently the one that never needed to occur.
 `,
@@ -375,7 +375,7 @@ The objective is not making consensus faster.
 
 The objective is building systems that require less of it.
 
-Distributed systems become more scalable, more resilient and easier to evolve when agreement becomes the exception rather than the rule[118;1:3u.
+Distributed systems become more scalable, more resilient and easier to evolve when agreement becomes the exception rather than the rule.
 
 Consensus is expensive because agreement is expensive.
 

@@ -173,7 +173,7 @@ Capacity expands and contracts.
 
 The identity of the machine becomes less important than the availability of compute itself.
 
-Good infrastructure intentionally creates this separation[118;1:3u.
+Good infrastructure intentionally creates this separation.
 
 It encourages engineers to build systems that depend upon execution rather than location.
 

@@ -283,7 +283,7 @@ Short outages no longer interrupt every request.
 
 Scaling decisions become localized rather than system-wide.
 
-Queues make this possible by preservi[118;1:3ung intent between moments in time.
+Queues make this possible by preserving intent between moments in time.
 
 The message represents work that should happen.
 

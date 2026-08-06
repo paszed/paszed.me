@@ -24,7 +24,7 @@ const platformsEncodeOrganizationalKnowledge: JournalEntry = {
     "Platform Engineering",
     "Engineering",
     "Developer Experience",
-    "Knowledge Sharin[118;1:3ug",
+    "Knowledge Sharingg",
     "Architecture",
   ],
 
@@ -159,7 +159,7 @@ Infrastructure templates reflect years of production experience.
 
 Recovery procedures become standardized.
 
-This transforms the platform into something greater t[118;1:3uhan tooling.
+This transforms the platform into something greater than tooling.
 
 It becomes the organization's memory.
 

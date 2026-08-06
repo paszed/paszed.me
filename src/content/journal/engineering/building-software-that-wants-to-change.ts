@@ -125,7 +125,7 @@ Bad engineering fights it.
 
 Systems designed around rigid assumptions eventually become expensive to modify because every new discovery feels like an exception.
 
-Sys[118;1:3utems designed for evolution expect those discoveries from the beginning.
+Systems designed for evolution expect those discoveries from the beginning.
 
 Instead of asking,
 

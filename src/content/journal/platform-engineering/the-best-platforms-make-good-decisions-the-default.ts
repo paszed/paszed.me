@@ -161,7 +161,7 @@ Templates include sensible defaults.
 
 Deployment pipelines validate changes automatically.
 
-Infras[118;1:3utructure modules enforce organizational standards.
+Infrastructure modules enforce organizational standards.
 
 Policy engines reject unsafe configurations before production.
 

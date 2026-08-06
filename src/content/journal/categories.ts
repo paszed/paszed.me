@@ -77,7 +77,7 @@ export const journalCategories = [
     category: "Philosophy",
     slug: "philosophy",
     description:
-      "Lea[118;1:3urning, building, curiosity, judgment, and the principles behind engineering practice.",
+      "Learning, building, curiosity, judgment, and the principles behind engineering practice.",
   },
   {
     category: "Career",

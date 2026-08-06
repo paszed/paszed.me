@@ -177,7 +177,7 @@ Success metrics are monitored carefully.
 
 Internal infrastructure deserves the same discipline.
 
-Engineers have workflows[118;1:3u.
+Engineers have workflows.
 
 They experience frustration.
 

@@ -167,7 +167,7 @@ This is why architects invest significant effort into designing partition bounda
 
 Good boundaries maximize local work.
 
-Poor boundaries maximize cross-parti[118;1:3ution communication.
+Poor boundaries maximize cross-partition communication.
 
 The difference often determines whether a system continues scaling gracefully or reaches a coordination ceiling.
 `,
@@ -263,7 +263,7 @@ Healthy partitioning creates autonomous units.
 
 Each partition becomes a largely self-contained system with well-defined responsibilities.
 
-The more independently those units operate, the more effectively the architecture scal[118;1:3ues.
+The more independently those units operate, the more effectively the architecture scales.
 
 Partitioning is therefore less about dividing data and more about creating independent domains of execution.
 `,

@@ -183,7 +183,7 @@ The resource itself may continue performing correctly.
 
 The dependency surrounding it becomes the bottleneck.
 
-Distributed systems rarely slow down because individual m[118;1:3uachines become inefficient.
+Distributed systems rarely slow down because individual machines become inefficient.
 
 They slow down because too many machines require the same machine at the same time.
 
@@ -285,7 +285,7 @@ Independent teams evolve independent systems.
 
 The most scalable architectures are not those with the largest clusters.
 
-They[118;1:3u are the ones that require the fewest conversations between those clusters.
+They are the ones that require the fewest conversations between those clusters.
 
 Reducing coordination increases parallelism.
 

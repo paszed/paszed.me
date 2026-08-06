@@ -185,7 +185,7 @@ Automation therefore improves more than productivity.
 
 It improves attention.
 
-Engineers spend less time rememb[118;1:3uering procedures.
+Engineers spend less time remembering procedures.
 
 More time solving meaningful problems.
 

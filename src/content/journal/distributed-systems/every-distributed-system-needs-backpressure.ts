@@ -189,7 +189,7 @@ Backpressure acknowledges this progression explicitly.
 
 It prefers controlled degradation over uncontrolled collapse.
 
-D[118;1:3uistributed systems survive heavy load not because they avoid pressure, but because they decide how to absorb it.
+Distributed systems survive heavy load not because they avoid pressure, but because they decide how to absorb it.
 `,
     },
 

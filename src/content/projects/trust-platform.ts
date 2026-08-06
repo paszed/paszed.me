@@ -79,7 +79,7 @@ export const trustPlatform: Project = {
   challenges: [
     "Designing trust policies that remain configurable across different application domains.",
     "Maintaining complete and useful audit trails without excessive operational complexity.",
-    "Balancing automated enforcement with workflow[118;1:3us requiring human judgment.",
+    "Balancing automated enforcement with workflows requiring human judgment.",
     "Keeping permissions explicit as roles and capabilities expand.",
     "Evolving reputation and trust models without destabilizing existing integrations.",
   ],

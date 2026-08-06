@@ -191,7 +191,7 @@ Is demand increasing?
 
 Is capacity approaching its limit?
 
-Healthy engineering organizations treat metr[118;1:3uics as continuous conversations with their infrastructure rather than dashboards viewed only during outages.
+Healthy engineering organizations treat metrics as continuous conversations with their infrastructure rather than dashboards viewed only during outages.
 
 Systems that expose meaningful measurements become significantly easier to operate over time.
 `,
@@ -299,7 +299,7 @@ Instead of asking whether telemetry should exist, teams ask what future engineer
 
 The best systems explain themselves naturally because they were designed to do so from the beginning.
 
-Observability is therefore n[118;1:3uot an operational feature.
+Observability is therefore not an operational feature.
 
 It is an architectural responsibility.
 `,

@@ -179,7 +179,7 @@ Changes become larger.
 
 Failures become more difficult to diagnose.
 
-Build systems therefore influence engineering culture as much as e[118;1:3ungineering productivity.
+Build systems therefore influence engineering culture as much as engineering productivity.
 
 Fast feedback encourages continuous improvement because learning remains closely connected to action.
 

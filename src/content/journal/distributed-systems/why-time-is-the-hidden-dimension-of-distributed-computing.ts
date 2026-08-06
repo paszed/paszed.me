@@ -119,7 +119,7 @@ An account deleted before creation completes.
 
 Inventory restored before the purchase succeeds.
 
-These [118;1:3usituations rarely result from insufficient performance.
+These situations rarely result from insufficient performance.
 
 They result from incorrect sequencing.
 
@@ -167,7 +167,7 @@ Consistency is not solely about identical data.
 
 It is also about when identical data becomes visible.
 
-Architects therefore think in terms of propagation rather than i[118;1:3unstantaneous synchronization.
+Architects therefore think in terms of propagation rather than instantaneous synchronization.
 
 Information moves through a system over time.
 
