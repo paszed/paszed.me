@@ -10,14 +10,14 @@ import type { JournalEntry } from "@/types/journal";
 
 import { getNextArticle } from "./get-next-article";
 import { getPreviousArticle } from "./get-previous-article";
-import { getSortedArticles } from "./get-sorted-articles";
+import { getPublishedArticles } from "./get-published-articles";
 
-vi.mock("./get-sorted-articles", () => ({
-  getSortedArticles: vi.fn(),
+vi.mock("./get-published-articles", () => ({
+  getPublishedArticles: vi.fn(),
 }));
 
-const mockedGetSortedArticles =
-  vi.mocked(getSortedArticles);
+const mockedGetPublishedArticles =
+  vi.mocked(getPublishedArticles);
 
 const articles = [
   {
@@ -36,8 +36,8 @@ const articles = [
 
 describe("journal navigation", () => {
   beforeEach(() => {
-    mockedGetSortedArticles.mockReset();
-    mockedGetSortedArticles.mockReturnValue(articles);
+    mockedGetPublishedArticles.mockReset();
+    mockedGetPublishedArticles.mockReturnValue(articles);
   });
 
   describe("getNextArticle", () => {
