@@ -17,8 +17,10 @@ export function NowSection({
 }: NowSectionProps) {
   return (
     <Section>
-      <Stack gap="md">
-        <Heading as="h2">{title}</Heading>
+      <Stack gap="xl">
+        <Heading as="h2">
+          {title}
+        </Heading>
 
         <List>
           {items.map((item) => (

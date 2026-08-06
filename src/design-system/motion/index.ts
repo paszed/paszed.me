@@ -1,3 +1,3 @@
-// src/design-system/motion/index.ts
-
 export * from "./fade-in";
+export * from "./reveal";
+export * from "./stagger";

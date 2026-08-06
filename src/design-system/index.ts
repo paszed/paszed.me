@@ -9,6 +9,12 @@ export {
   Stack,
 } from "./layout";
 
+export {
+  FadeIn,
+  Reveal,
+  Stagger,
+} from "./motion";
+
 export { useMounted } from "./hooks";
 
 export { Figure } from "./media/figure";
