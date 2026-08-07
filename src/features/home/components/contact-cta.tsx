@@ -13,24 +13,37 @@ import {
   TextLink,
 } from "@/design-system";
 
-import { site } from "@/config/site";
-import { profiles } from "@/content";
+interface ContactCTAContent {
+  title: string;
+  description: string;
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
 
-export function ContactCTA() {
+interface ContactCTAProps {
+  content: ContactCTAContent;
+}
+
+export function ContactCTA({
+  content,
+}: ContactCTAProps) {
   return (
     <Section>
       <Container>
-        <Surface className="rounded-3xl border p-6 text-center sm:p-10 lg:p-12">
-          <Measure
-            size="2xl"
-            className="mx-auto"
-          >
+        <Surface>
+          <Measure>
             <Stack
               gap="lg"
-              className="items-center"
+              className="items-center text-center"
             >
               <Heading as="h2">
-                Have a software problem to solve?
+                {content.title}
               </Heading>
 
               <Text
@@ -38,27 +51,21 @@ export function ContactCTA() {
                 muted
                 className="leading-relaxed"
               >
-                I help founders and teams design, build, and improve reliable
-                software — from new applications and internal tools to
-                automation workflows and AI integrations.
+                {content.description}
               </Text>
 
               <Cluster
                 gap="md"
                 className="justify-center"
               >
-                <Link href={`mailto:${site.email}`}>
+                <Link href={content.primaryCta.href}>
                   <Button>
-                    Start a conversation
+                    {content.primaryCta.label}
                   </Button>
                 </Link>
 
-                <TextLink
-                  href={profiles.github.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View GitHub
+                <TextLink href={content.secondaryCta.href}>
+                  {content.secondaryCta.label}
                 </TextLink>
               </Cluster>
             </Stack>

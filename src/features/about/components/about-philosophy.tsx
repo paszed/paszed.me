@@ -6,10 +6,15 @@ import {
   Stack,
   Text,
 } from "@/design-system";
+import type { AboutPhilosophyContent } from "@/features/about/types";
 
-import { about } from "@/content";
+interface AboutPhilosophyProps {
+  content: AboutPhilosophyContent;
+}
 
-export function AboutPhilosophy() {
+export function AboutPhilosophy({
+  content,
+}: AboutPhilosophyProps) {
   return (
     <Section>
       <Stack gap="xl">
@@ -22,8 +27,7 @@ export function AboutPhilosophy() {
             muted
             className="max-w-2xl leading-relaxed"
           >
-            The principles that guide how I approach software design,
-            technical decisions, and long-term maintainability.
+            The principles that guide how I approach software design, technical decisions, and long-term maintainability.
           </Text>
         </Stack>
 
@@ -31,7 +35,7 @@ export function AboutPhilosophy() {
           columns={2}
           gap="lg"
         >
-          {about.philosophy.map((principle) => (
+          {content.map((principle) => (
             <Card
               key={principle.title}
               variant="interactive"

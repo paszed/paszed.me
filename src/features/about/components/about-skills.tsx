@@ -7,10 +7,15 @@ import {
   TechnologyIcon,
   Text,
 } from "@/design-system";
+import type { AboutSkillsContent } from "@/features/about/types";
 
-import { about } from "@/content";
+interface AboutSkillsProps {
+  content: AboutSkillsContent;
+}
 
-export function AboutSkills() {
+export function AboutSkills({
+  content,
+}: AboutSkillsProps) {
   return (
     <Section>
       <Stack gap="xl">
@@ -23,13 +28,12 @@ export function AboutSkills() {
             muted
             className="max-w-2xl leading-relaxed"
           >
-            The technologies and workflows I use to design, build, test, and
-            maintain modern software systems.
+            The technologies and workflows I use to design, build, test, and maintain modern software systems.
           </Text>
         </Stack>
 
         <Stack gap="lg">
-          {about.skills.map((group) => (
+          {content.map((group) => (
             <Stack
               key={group.category}
               gap="md"

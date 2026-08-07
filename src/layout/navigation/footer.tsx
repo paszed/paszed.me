@@ -1,6 +1,5 @@
 import { BrandLogo } from "@/brand";
 import { site } from "@/config/site";
-import { footer } from "@/content/footer";
 import {
   Container,
   Stack,
@@ -9,33 +8,61 @@ import {
 
 import { FooterSection } from "./footer-section";
 
-export function Footer() {
+interface FooterContent {
+  navigation: readonly {
+    label: string;
+    href: string;
+  }[];
+
+  resources: readonly {
+    label: string;
+    href: string;
+  }[];
+
+  developer: readonly {
+    label: string;
+    href: string;
+  }[];
+
+  contact: readonly {
+    label: string;
+    href: string;
+  }[];
+}
+
+interface FooterProps {
+  content: FooterContent;
+}
+
+export function Footer({
+  content,
+}: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-16 border-t border-border sm:mt-20">
+    <footer className="mt-20 border-t border-border sm:mt-24">
       <Container>
         <div
           className="
             grid
             gap-10
-            py-10
+            py-12
             sm:grid-cols-2
-            lg:grid-cols-[1.4fr_repeat(4,1fr)]
+            lg:grid-cols-[1.5fr_repeat(4,1fr)]
             lg:gap-8
-            lg:py-12
+            lg:py-16
           "
         >
           <Stack gap="sm">
             <BrandLogo />
 
             <Text
-  size="xs"
-  muted
-  className="max-w-xs leading-5"
->
-  Building developer tools, AI applications, and modern web products.
-</Text>
+              size="xs"
+              muted
+              className="max-w-xs leading-5"
+            >
+              Building developer tools, AI applications, and modern web products.
+            </Text>
 
             <Text
               size="xs"
@@ -47,23 +74,23 @@ export function Footer() {
 
           <FooterSection
             title="Navigation"
-            items={footer.navigation}
+            items={content.navigation}
           />
 
           <FooterSection
             title="Resources"
-            items={footer.resources}
+            items={content.resources}
           />
 
           <FooterSection
             title="Developer"
-            items={footer.developer}
+            items={content.developer}
             showIcons
           />
 
           <FooterSection
             title="Contact"
-            items={footer.contact}
+            items={content.contact}
             showIcons
           />
         </div>

@@ -5,19 +5,26 @@ import { cn } from "@/lib/utils";
 interface NavLinkProps {
   href: string;
   label: string;
-  active?: boolean;
+  currentPath?: string;
 }
 
 export function NavLink({
   href,
   label,
-  active = false,
+  currentPath,
 }: NavLinkProps) {
+  const active =
+    currentPath === href ||
+    (href !== "/" &&
+      currentPath?.startsWith(`${href}/`));
+
   return (
     <Link
       href={href}
       aria-current={
-        active ? "page" : undefined
+        active
+          ? "page"
+          : undefined
       }
       className={cn(
         [

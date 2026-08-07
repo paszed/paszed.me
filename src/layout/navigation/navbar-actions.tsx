@@ -5,6 +5,7 @@ import {
   Button,
   ThemeToggle,
 } from "@/design-system";
+import { LanguageSwitcher } from "@/features/language-switcher";
 import { useCommandPalette } from "@/features/search";
 
 export function NavbarActions() {
@@ -17,12 +18,9 @@ export function NavbarActions() {
         onClick={toggle}
         aria-label="Open search"
         aria-keyshortcuts="Meta+K Control+K"
-        className="group gap-2 rounded-xl bg-surface px-3 py-2 text-sm text-fg-secondary transition-colors hover:border-border hover:text-fg"
+        className="group gap-3 rounded-xl bg-surface px-3 py-2 text-fg-secondary transition-colors hover:border-accent hover:text-accent"
       >
-        <ActionIcon
-          name="search"
-          className="size-4"
-        />
+        <ActionIcon name="search" />
 
         <span>
           Search
@@ -32,6 +30,8 @@ export function NavbarActions() {
           ⌘K
         </kbd>
       </Button>
+
+      <LanguageSwitcher />
 
       <div className="rounded-xl border border-border bg-surface p-1">
         <ThemeToggle />

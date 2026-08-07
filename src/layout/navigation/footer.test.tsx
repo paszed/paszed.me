@@ -7,9 +7,41 @@ import {
 
 import { Footer } from "./footer";
 
+const mockFooter = {
+  navigation: [
+    {
+      label: "Home",
+      href: "/",
+    },
+  ],
+
+  resources: [
+    {
+      label: "Uses",
+      href: "/uses",
+    },
+  ],
+
+  developer: [
+    {
+      label: "GitHub",
+      href: "https://github.com/paszed",
+    },
+  ],
+
+  contact: [
+    {
+      label: "Email",
+      href: "mailto:edvard@paszed.me",
+    },
+  ],
+} as const;
+
 vi.mock("@/design-system", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("@/design-system")>();
+    await importOriginal<
+      typeof import("@/design-system")
+    >();
 
   return {
     ...actual,
@@ -33,7 +65,9 @@ vi.mock("@/brand", () => ({
 
 describe("Footer", () => {
   it("renders a contentinfo landmark", () => {
-    renderWithProviders(<Footer />);
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
 
     expect(
       screen.getByRole("contentinfo"),
@@ -41,7 +75,9 @@ describe("Footer", () => {
   });
 
   it("renders the brand logo", () => {
-    renderWithProviders(<Footer />);
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
 
     expect(
       screen.getByTestId("brand-logo"),
@@ -49,7 +85,9 @@ describe("Footer", () => {
   });
 
   it("wraps its content in a Container", () => {
-    renderWithProviders(<Footer />);
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
 
     expect(
       screen.getByTestId("container"),
@@ -57,7 +95,9 @@ describe("Footer", () => {
   });
 
   it("renders the site description", () => {
-    renderWithProviders(<Footer />);
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
 
     expect(
       screen.getByText(
@@ -67,7 +107,9 @@ describe("Footer", () => {
   });
 
   it("renders the current year", () => {
-    renderWithProviders(<Footer />);
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
 
     expect(
       screen.getByText(
@@ -79,7 +121,9 @@ describe("Footer", () => {
   });
 
   it("renders the technology stack", () => {
-    renderWithProviders(<Footer />);
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
 
     expect(
       screen.getByText(

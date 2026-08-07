@@ -5,26 +5,42 @@ import {
   SectionHeader,
   Stack,
 } from "@/design-system";
-import { home } from "@/content";
 
 import { FeatureCard } from "./feature-card";
 
-export function Capabilities() {
+interface CapabilityItem {
+  title: string;
+  description: string;
+}
+
+interface CapabilitiesContent {
+  title: string;
+  description: string;
+  items: readonly CapabilityItem[];
+}
+
+interface CapabilitiesProps {
+  content: CapabilitiesContent;
+}
+
+export function Capabilities({
+  content,
+}: CapabilitiesProps) {
   return (
     <Section>
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="What I Build"
-            title={home.capabilities.title}
-            description={home.capabilities.description}
+            eyebrow="Services"
+            title={content.title}
+            description={content.description}
           />
 
           <Grid
             columns={3}
             gap="lg"
           >
-            {home.capabilities.items.map((item) => (
+            {content.items.map((item) => (
               <FeatureCard
                 key={item.title}
                 title={item.title}

@@ -5,20 +5,13 @@ import {
 } from "next/font/google";
 import type { ReactNode } from "react";
 
-import "./globals.css";
-
-import { metadata } from "@/config/metadata";
-import { GlobalSearch } from "@/features/search";
-import { Footer, Navbar } from "@/layout";
-import {
-  JsonLd,
-  createOrganizationSchema,
-  createPersonSchema,
-  createWebsiteSchema,
-} from "@/lib/seo";
 import { Providers } from "@/providers";
 
-export { metadata };
+import "./globals.css";
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,10 +31,6 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
 export default function RootLayout({
   children,
 }: RootLayoutProps) {
@@ -51,21 +40,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${serif.variable} ${mono.variable}`}
     >
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <JsonLd data={createWebsiteSchema()} />
-        <JsonLd data={createOrganizationSchema()} />
-        <JsonLd data={createPersonSchema()} />
-
+      <body>
         <Providers>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-
-            <GlobalSearch />
-
-            <main className="flex-1">{children}</main>
-
-            <Footer />
-          </div>
+          {children}
         </Providers>
       </body>
     </html>

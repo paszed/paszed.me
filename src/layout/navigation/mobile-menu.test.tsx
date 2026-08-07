@@ -12,7 +12,7 @@ import {
   screen,
 } from "@/design-system/testing";
 
-import { MobileMenu } from "./mobile-menu";
+let MobileMenu: typeof import("./mobile-menu").MobileMenu;
 
 vi.mock("next/navigation", () => ({
   usePathname: vi.fn(),
@@ -30,6 +30,10 @@ vi.mock("next/link", () => ({
       {children}
     </a>
   ),
+}));
+
+vi.mock("@/features/language-switcher", () => ({
+  LanguageSwitcher: () => <div data-testid="language-switcher" />,
 }));
 
 vi.mock("@/config/navigation", () => ({
@@ -53,10 +57,17 @@ describe("MobileMenu", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
 
+    const mobileMenuModule =
+  await import("./mobile-menu");
+
+MobileMenu = mobileMenuModule.MobileMenu;
+
     const { usePathname } =
       await import("next/navigation");
 
-    vi.mocked(usePathname).mockReturnValue("/");
+    vi.mocked(usePathname).mockReturnValue(
+      "/en",
+    );
   });
 
   it("renders the menu toggle button", () => {
@@ -172,7 +183,10 @@ describe("MobileMenu", () => {
       screen.getByRole("link", {
         name: "Home",
       }),
-    ).toHaveAttribute("href", "/");
+    ).toHaveAttribute(
+      "href",
+      "/en",
+    );
 
     expect(
       screen.getByRole("link", {
@@ -180,7 +194,7 @@ describe("MobileMenu", () => {
       }),
     ).toHaveAttribute(
       "href",
-      "/projects",
+      "/en/projects",
     );
 
     expect(
@@ -189,7 +203,7 @@ describe("MobileMenu", () => {
       }),
     ).toHaveAttribute(
       "href",
-      "/about",
+      "/en/about",
     );
   });
 
@@ -198,10 +212,12 @@ describe("MobileMenu", () => {
       await import("next/navigation");
 
     vi.mocked(usePathname).mockReturnValue(
-      "/projects",
+      "/en/projects",
     );
 
-    renderWithProviders(<MobileMenu />);
+    renderWithProviders(
+      <MobileMenu />,
+    );
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -278,7 +294,7 @@ describe("MobileMenu", () => {
     ).toBeInTheDocument();
 
     mockPathname.mockReturnValue(
-      "/projects",
+      "/en/projects",
     );
 
     rerender(

@@ -1,7 +1,4 @@
-import Image from "next/image";
-
 import {
-  Avatar,
   Heading,
   Measure,
   Section,
@@ -9,40 +6,21 @@ import {
   Surface,
   Text,
 } from "@/design-system";
+import type { AboutHeroContent } from "@/features/about/types";
 
-import { about } from "@/content";
+interface AboutHeroProps {
+  content: AboutHeroContent;
+}
 
-export function AboutHero() {
+export function AboutHero({
+  content,
+}: AboutHeroProps) {
   return (
     <Section>
-      <div
-        className="
-          grid
-          gap-10
-          lg:grid-cols-[auto_minmax(0,1fr)]
-          lg:items-center
-          lg:gap-16
-        "
-      >
-        <Surface className="w-fit rounded-full p-2 shadow-sm">
-          <Avatar className="relative size-28 overflow-hidden border-0 sm:size-36">
-            <Image
-              src="/images/profile.jpg"
-              alt="Portrait of Edvard Pasz"
-              fill
-              priority
-              sizes="(max-width: 640px) 112px, 144px"
-              className="object-cover"
-            />
-          </Avatar>
-        </Surface>
-
-        <Stack
-          gap="md"
-          className="max-w-3xl"
-        >
+      <Surface>
+        <Stack gap="md">
           <Heading as="h1">
-            {about.hero.title}
+            {content.title}
           </Heading>
 
           <Measure size="3xl">
@@ -51,11 +29,11 @@ export function AboutHero() {
               muted
               className="leading-relaxed"
             >
-              {about.hero.intro}
+              {content.intro}
             </Text>
           </Measure>
         </Stack>
-      </div>
+      </Surface>
     </Section>
   );
 }

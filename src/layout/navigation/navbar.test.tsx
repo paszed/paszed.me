@@ -1,4 +1,10 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 
 import {
   fireEvent,
@@ -61,19 +67,25 @@ vi.mock("@/features/search", () => ({
 
 vi.mock("@/design-system", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("@/design-system")>();
+    await importOriginal<
+      typeof import("@/design-system")
+    >();
 
   return {
     ...actual,
     ThemeToggle: () => (
-      <div data-testid="theme-toggle" />
+      <button data-testid="theme-toggle">
+        Theme
+      </button>
     ),
   };
 });
 
 vi.mock("./mobile-menu", () => ({
   MobileMenu: () => (
-    <div data-testid="mobile-menu" />
+    <div data-testid="mobile-menu">
+      Mobile Menu
+    </div>
   ),
 }));
 
@@ -85,7 +97,7 @@ describe("Navbar", () => {
       await import("next/navigation");
 
     vi.mocked(usePathname).mockReturnValue(
-      "/",
+      "/en",
     );
   });
 
@@ -114,7 +126,10 @@ describe("Navbar", () => {
       screen.getByRole("link", {
         name: "Home",
       }),
-    ).toHaveAttribute("href", "/");
+    ).toHaveAttribute(
+      "href",
+      "/en",
+    );
 
     expect(
       screen.getByRole("link", {
@@ -122,7 +137,7 @@ describe("Navbar", () => {
       }),
     ).toHaveAttribute(
       "href",
-      "/projects",
+      "/en/projects",
     );
 
     expect(
@@ -131,7 +146,7 @@ describe("Navbar", () => {
       }),
     ).toHaveAttribute(
       "href",
-      "/about",
+      "/en/about",
     );
   });
 
@@ -140,10 +155,12 @@ describe("Navbar", () => {
       await import("next/navigation");
 
     vi.mocked(usePathname).mockReturnValue(
-      "/projects",
+      "/en/projects",
     );
 
-    renderWithProviders(<Navbar />);
+    renderWithProviders(
+      <Navbar />,
+    );
 
     expect(
       screen.getByRole("link", {
@@ -158,8 +175,9 @@ describe("Navbar", () => {
       screen.getByRole("link", {
         name: "Home",
       }),
-    ).not.toHaveAttribute(
+    ).toHaveAttribute(
       "aria-current",
+      "page",
     );
   });
 

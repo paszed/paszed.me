@@ -27,9 +27,7 @@ vi.mock("../layout", () => ({
 describe("PageHeader", () => {
   it("renders a header landmark", () => {
     renderWithProviders(
-      <PageHeader>
-        <h1>Projects</h1>
-      </PageHeader>,
+      <PageHeader title="Projects" />,
     );
 
     expect(
@@ -37,11 +35,25 @@ describe("PageHeader", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders the title as a heading", () => {
+    renderWithProviders(
+      <PageHeader title="Projects" />,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: "Projects",
+        level: 1,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it("renders its children", () => {
     renderWithProviders(
-      <PageHeader>
-        <h1>Projects</h1>
-        <p>Recent work</p>
+      <PageHeader title="Projects">
+        <span>
+          Recent work
+        </span>
       </PageHeader>,
     );
 
@@ -56,10 +68,26 @@ describe("PageHeader", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders without a title", () => {
+    renderWithProviders(
+      <PageHeader>
+        Content
+      </PageHeader>,
+    );
+
+    expect(
+      screen.queryByRole("heading"),
+    ).not.toBeInTheDocument();
+
+    expect(
+      screen.getByText("Content"),
+    ).toBeInTheDocument();
+  });
+
   it("wraps its children in a Stack with the expected gap", () => {
     renderWithProviders(
       <PageHeader>
-        <p>Content</p>
+        Content
       </PageHeader>,
     );
 
@@ -85,16 +113,13 @@ describe("PageHeader", () => {
 
   it("forwards HTML attributes", () => {
     renderWithProviders(
-      <PageHeader
-        id="page-header"
-        data-testid="header"
-      >
+      <PageHeader id="page-header">
         Content
       </PageHeader>,
     );
 
     const header =
-      screen.getByTestId("header");
+      screen.getByRole("banner");
 
     expect(header).toHaveAttribute(
       "id",
@@ -103,7 +128,9 @@ describe("PageHeader", () => {
   });
 
   it("renders without children", () => {
-    renderWithProviders(<PageHeader />);
+    renderWithProviders(
+      <PageHeader />,
+    );
 
     expect(
       screen.getByRole("banner"),

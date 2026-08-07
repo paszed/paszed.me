@@ -9,24 +9,30 @@ import {
   Stack,
   Text,
 } from "@/design-system";
-import { home } from "@/content";
+import type { HomeFeaturedProjects } from "@/features/home/types";
 import { ProjectCard } from "@/features/projects";
 import { getFeaturedProjects } from "@/lib/projects";
 
-export function FeaturedProjects() {
+interface FeaturedProjectsProps {
+  content: HomeFeaturedProjects;
+}
+
+export function FeaturedProjects({
+  content,
+}: FeaturedProjectsProps) {
   const projects = getFeaturedProjects();
 
   return (
     <Section>
       <Container>
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SectionHeader
             eyebrow="Selected Work"
-            title={home.featuredProjects.title}
-            description={home.featuredProjects.description}
+            title={content.title}
+            description={content.description}
             actions={
               <Link href="/projects">
-                <Button>
+                <Button variant="outline">
                   View All Projects
                 </Button>
               </Link>

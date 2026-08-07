@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { ThemedLion } from "@/brand";
-import { home } from "@/content";
 import {
   Button,
   Cluster,
@@ -15,14 +14,30 @@ import {
   TextLink,
 } from "@/design-system";
 
-export function Hero() {
-  return (
-    <Section className="relative isolate overflow-hidden pt-10 pb-20 lg:min-h-[calc(100vh-4.5rem)] lg:py-0">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.18),transparent_42%)] dark:bg-[radial-gradient(circle_at_20%_20%,rgba(90,33,79,0.22),transparent_42%)]"
-      />
+interface HeroContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
 
+interface HeroProps {
+  content: HeroContent;
+}
+
+export function Hero({
+  content,
+}: HeroProps) {
+  return (
+    <Section>
       <ThemedLion />
 
       <Container className="relative z-10">
@@ -35,12 +50,12 @@ export function Hero() {
             className="max-w-3xl"
           >
             <Eyebrow>
-              {home.hero.eyebrow}
+              {content.eyebrow}
             </Eyebrow>
 
             <Stack gap="md">
               <Heading as="h1">
-                {home.hero.title}
+                {content.title}
               </Heading>
 
               <Text
@@ -48,7 +63,7 @@ export function Hero() {
                 muted
                 className="max-w-2xl leading-relaxed"
               >
-                {home.hero.subtitle}
+                {content.subtitle}
               </Text>
             </Stack>
 
@@ -57,21 +72,21 @@ export function Hero() {
               muted
               className="max-w-3xl leading-8"
             >
-              {home.hero.description}
+              {content.description}
             </Text>
 
             <Cluster
               gap="lg"
               className="pt-2"
             >
-              <Link href={home.hero.primaryCta.href}>
+              <Link href={content.primaryCta.href}>
                 <Button>
-                  {home.hero.primaryCta.label}
+                  {content.primaryCta.label}
                 </Button>
               </Link>
 
-              <TextLink href={home.hero.secondaryCta.href}>
-                {home.hero.secondaryCta.label} →
+              <TextLink href={content.secondaryCta.href}>
+                {content.secondaryCta.label} →
               </TextLink>
             </Cluster>
           </Stack>

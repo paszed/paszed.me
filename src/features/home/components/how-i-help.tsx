@@ -5,26 +5,42 @@ import {
   SectionHeader,
   Stack,
 } from "@/design-system";
-import { home } from "@/content";
 
 import { FeatureCard } from "./feature-card";
 
-export function HowIHelp() {
+interface HelpItem {
+  title: string;
+  description: string;
+}
+
+interface HowIHelpContent {
+  title: string;
+  description: string;
+  items: readonly HelpItem[];
+}
+
+interface HowIHelpProps {
+  content: HowIHelpContent;
+}
+
+export function HowIHelp({
+  content,
+}: HowIHelpProps) {
   return (
     <Section>
       <Container>
         <Stack gap="xl">
           <SectionHeader
             eyebrow="Services"
-            title={home.howIHelp.title}
-            description={home.howIHelp.description}
+            title={content.title}
+            description={content.description}
           />
 
           <Grid
             columns={3}
             gap="lg"
           >
-            {home.howIHelp.items.map((item) => (
+            {content.items.map((item) => (
               <FeatureCard
                 key={item.title}
                 title={item.title}

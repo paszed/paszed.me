@@ -11,29 +11,21 @@ import {
 } from "@/design-system";
 import type { Project } from "@/types/project";
 
-import { ProjectMeta } from "./project-meta";
-
 type ProjectCardProps = Project;
 
-export function ProjectCard(project: ProjectCardProps) {
+export function ProjectCard(
+  project: ProjectCardProps,
+) {
   return (
     <Link
       href={`/projects/${project.slug}`}
       className="group block h-full"
     >
-      <Card
-        variant="interactive"
-        className="flex h-full flex-col p-6 sm:p-8"
-      >
-        <Stack
-          gap="md"
-          className="h-full"
-        >
-          <ProjectMeta project={project} />
-
+      <Card>
+        <Stack gap="lg">
           <Stack gap="sm">
             <Heading
-              as="h3"
+              as="h2"
               className="transition-colors duration-200 group-hover:text-accent"
             >
               {project.title}

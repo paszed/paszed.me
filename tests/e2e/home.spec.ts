@@ -4,7 +4,7 @@ test.describe("Homepage", () => {
   test("loads successfully", async ({ page }) => {
     await page.goto("/");
 
-    await expect(page).toHaveURL("/");
+    await expect(page).toHaveURL("/en");
 
     await expect(
       page.getByRole("main"),

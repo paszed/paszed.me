@@ -9,24 +9,31 @@ import {
   Stack,
   Text,
 } from "@/design-system";
-import { home } from "@/content";
+import type { HomeLatestWriting } from "@/features/home/types";
 import { JournalCard } from "@/features/journal";
 import { getPublishedArticles } from "@/lib/journal";
 
-export function LatestWriting() {
-  const articles = getPublishedArticles().slice(0, 2);
+interface LatestWritingProps {
+  content: HomeLatestWriting;
+}
+
+export function LatestWriting({
+  content,
+}: LatestWritingProps) {
+  const articles =
+    getPublishedArticles().slice(0, 2);
 
   return (
     <Section>
       <Container>
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SectionHeader
             eyebrow="Journal"
-            title={home.latestWriting.title}
-            description={home.latestWriting.description}
+            title={content.title}
+            description={content.description}
             actions={
               <Link href="/journal">
-                <Button>
+                <Button variant="outline">
                   View Journal
                 </Button>
               </Link>
@@ -47,8 +54,7 @@ export function LatestWriting() {
             </Grid>
           ) : (
             <Text muted>
-              Writing and engineering notes will be published here as projects
-              and ideas develop.
+              Writing and engineering notes will be published here as projects and ideas develop.
             </Text>
           )}
         </Stack>

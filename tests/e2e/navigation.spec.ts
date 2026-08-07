@@ -2,29 +2,28 @@ import { expect, test } from "@playwright/test";
 
 test.describe("Navigation", () => {
   const pages = [
-    {
-      label: "About",
-      href: "/about",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Journal",
-      href: "/journal",
-    },
-    {
-      label: "Now",
-      href: "/now",
-    },
-  ];
-
+  {
+    label: "About",
+    href: "/en/about",
+  },
+  {
+    label: "Projects",
+    href: "/en/projects",
+  },
+  {
+    label: "Journal",
+    href: "/en/journal",
+  },
+  {
+    label: "Now",
+    href: "/en/now",
+  },
+];
   for (const route of pages) {
     test(`opens ${route.label}`, async ({
       page,
     }) => {
-      await page.goto("/");
+      await page.goto("/en");
 
       const navigation = page.getByRole(
         "navigation",

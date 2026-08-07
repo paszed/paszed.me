@@ -4,10 +4,15 @@ import {
   Stack,
   Text,
 } from "@/design-system";
+import type { AboutStoryContent } from "@/features/about/types";
 
-import { about } from "@/content";
+interface AboutStoryProps {
+  content: AboutStoryContent;
+}
 
-export function AboutStory() {
+export function AboutStory({
+  content,
+}: AboutStoryProps) {
   return (
     <Section>
       <Stack gap="xl">
@@ -20,8 +25,7 @@ export function AboutStory() {
             muted
             className="max-w-2xl leading-relaxed"
           >
-            A practical approach to turning ideas and technical challenges
-            into reliable software.
+            A practical approach to turning ideas and technical challenges into reliable software.
           </Text>
         </Stack>
 
@@ -29,7 +33,7 @@ export function AboutStory() {
           gap="lg"
           className="max-w-3xl"
         >
-          {about.story.map((paragraph) => (
+          {content.map((paragraph) => (
             <Text
               key={paragraph}
               size="lg"

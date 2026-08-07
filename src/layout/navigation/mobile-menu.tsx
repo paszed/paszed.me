@@ -9,11 +9,20 @@ import {
   ActionIcon,
   IconButton,
 } from "@/design-system";
+import { LanguageSwitcher } from "@/features/language-switcher";
+import { localizePath } from "@/i18n/navigation";
+import { getLocale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+
   const pathname = usePathname();
+
+  const locale = getLocale(
+    pathname.split("/")[1],
+  );
+
   const previousPathname = useRef(pathname);
 
   function closeMenu() {
@@ -97,13 +106,18 @@ export function MobileMenu() {
             className="flex flex-col gap-1 p-2"
           >
             {navigation.map((item) => {
+              const href = localizePath(
+                item.href,
+                locale,
+              );
+
               const active =
-                pathname === item.href;
+                pathname === href;
 
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={href}
                   onClick={closeMenu}
                   aria-current={
                     active
@@ -128,6 +142,10 @@ export function MobileMenu() {
                 </Link>
               );
             })}
+
+            <div className="mt-2 border-t border-border px-4 py-3">
+              <LanguageSwitcher />
+            </div>
           </nav>
         </div>
       </div>

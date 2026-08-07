@@ -1,23 +1,27 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 const pages = [
   "/",
-  "/about",
-  "/projects",
-  "/journal",
-  "/uses",
-  "/now",
+  "/en/about",
+  "/en/projects",
+  "/en/journal",
+  "/en/uses",
+  "/en/now",
 ];
 
-for (const page of pages) {
-  test(`${page} has no accessibility violations`, async ({
-    page: browser,
+for (const route of pages) {
+  test(`${route} has no accessibility violations`, async ({
+    page,
   }) => {
-    await browser.goto(page);
+    await page.goto(route);
+
+    await expect(
+      page.getByRole("main"),
+    ).toBeVisible();
 
     const results = await new AxeBuilder({
-      page: browser,
+      page,
     }).analyze();
 
     expect(results.violations).toEqual([]);
