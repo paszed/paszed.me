@@ -54,6 +54,7 @@ export {
   ContentIcon,
   SocialIcon,
   TechnologyIcon,
+  type TechnologyIconName,
 } from "./icons";
 
 export {

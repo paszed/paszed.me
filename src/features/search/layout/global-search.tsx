@@ -5,6 +5,9 @@ import {
   useRef,
 } from "react";
 
+import { getDictionary } from "@/i18n/get-dictionary";
+import { getLocale } from "@/i18n/routing";
+
 import {
   SearchBox,
   SearchDialog,
@@ -21,6 +24,10 @@ export function GlobalSearch() {
   const inputRef =
     useRef<HTMLInputElement>(null);
 
+  const content = getDictionary(
+    getLocale(),
+  );
+
   useEffect(() => {
     if (!open) {
       return;
@@ -36,7 +43,12 @@ export function GlobalSearch() {
       open={open}
       onClose={() => setOpen(false)}
     >
-      <SearchBox inputRef={inputRef} />
+      <SearchBox
+        inputRef={inputRef}
+        input={content.search.input}
+        empty={content.search.empty}
+        categories={content.search.categories}
+      />
     </SearchDialog>
   );
 }

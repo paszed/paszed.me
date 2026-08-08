@@ -14,6 +14,7 @@ interface CapabilityItem {
 }
 
 interface CapabilitiesContent {
+  eyebrow: string;
   title: string;
   description: string;
   items: readonly CapabilityItem[];
@@ -31,7 +32,7 @@ export function Capabilities({
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Services"
+            eyebrow={content.eyebrow}
             title={content.title}
             description={content.description}
           />

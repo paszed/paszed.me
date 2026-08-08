@@ -2,11 +2,19 @@ import {
   EmptyState,
 } from "@/design-system";
 
-export function SearchEmpty() {
+interface SearchEmptyProps {
+  title: string;
+  description: string;
+}
+
+export function SearchEmpty({
+  title,
+  description,
+}: SearchEmptyProps) {
   return (
     <EmptyState
-      title="No results found"
-      description="Try searching for a different term, project, article, or page."
+      title={title}
+      description={description}
     />
   );
 }

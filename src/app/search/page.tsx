@@ -1,15 +1,39 @@
 import type { Metadata } from "next";
 
 import { SearchPage } from "@/features/search";
-import { createMetadata } from "@/lib/seo";
+import {
+  defaultLocale,
+} from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export const metadata: Metadata = createMetadata({
-  title: "Search",
-  description:
-    "Search projects, engineering journal articles, and pages on paszed.me.",
-  path: "/search",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const content = getDictionary(
+    defaultLocale,
+  );
 
-export default function Page() {
-  return <SearchPage />;
+  return {
+    title: content.search.title,
+    description:
+      content.search.description,
+  };
+}
+
+export default async function Page() {
+  const content = getDictionary(
+    defaultLocale,
+  );
+
+  return (
+    <SearchPage
+      title={content.search.title}
+      description={
+        content.search.description
+      }
+      input={content.search.input}
+      empty={content.search.empty}
+      categories={
+        content.search.categories
+      }
+    />
+  );
 }

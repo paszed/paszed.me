@@ -6,17 +6,25 @@ import {
   Text,
 } from "@/design-system";
 
-import { uses } from "@/content";
+interface UsesHeroProps {
+  title: string;
+  description: string;
+}
 
-export function UsesHero() {
+export function UsesHero({
+  title,
+  description,
+}: UsesHeroProps) {
   return (
     <Section>
-      <Stack gap="md">
-        <Heading as="h1">Uses</Heading>
+      <Stack>
+        <Heading>
+          {title}
+        </Heading>
 
         <Measure size="3xl">
           <Text size="lg" muted>
-            {uses.description}
+            {description}
           </Text>
         </Measure>
       </Stack>

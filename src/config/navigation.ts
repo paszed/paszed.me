@@ -1,25 +1,21 @@
 export const navigation = [
   {
-    label: "Projects",
+    key: "projects",
     href: "/projects",
-    description: "Software projects, experiments, and systems I have built.",
   },
   {
-    label: "Journal",
+    key: "journal",
     href: "/journal",
-    description:
-      "Technical writing on engineering, architecture, AI, and systems design.",
   },
   {
-    label: "About",
+    key: "about",
     href: "/about",
-    description: "Background, skills, principles, and engineering philosophy.",
   },
   {
-    label: "Now",
+    key: "now",
     href: "/now",
-    description: "Current focus, priorities, and things I am working on.",
   },
 ] as const;
 
-export type Navigation = typeof navigation;
+export type Navigation =
+  typeof navigation[number];

@@ -1,5 +1,4 @@
 import {
-  ContentIcon,
   Eyebrow,
   List,
   Stack,
@@ -18,30 +17,46 @@ interface SearchResultsProps {
   results: readonly SearchItem[];
   selectedIndex: number;
   query: string;
+
+  empty: {
+    title: string;
+    description: string;
+  };
+
+  categories: {
+    Project: string;
+    Article: string;
+    Page: string;
+  };
 }
 
-function getCategoryIcon(
+function getCategoryLabel(
   category: SearchCategory,
-): "article" | "page" | "project" {
-  switch (category) {
-    case "Project":
-      return "project";
-
-    case "Article":
-      return "article";
-
-    case "Page":
-      return "page";
-  }
+  labels: SearchResultsProps["categories"],
+) {
+  return labels[category];
 }
 
 export function SearchResults({
   results,
   selectedIndex,
   query,
+  empty,
+  categories,
 }: SearchResultsProps) {
+  if (results.length === 0 && query) {
+    return (
+      <SearchEmpty
+        title={empty.title}
+        description={
+          empty.description
+        }
+      />
+    );
+  }
+
   if (results.length === 0) {
-    return <SearchEmpty />;
+    return null;
   }
 
   const groups = groupSearchResults(results);
@@ -49,18 +64,17 @@ export function SearchResults({
   let currentIndex = 0;
 
   return (
-    <Stack gap="lg">
+    <Stack gap="xl">
       {groups.map((group) => (
         <Stack
           key={group.category}
-          gap="sm"
+          gap="md"
         >
-          <Eyebrow className="flex items-center gap-2 text-fg-muted">
-            <ContentIcon
-              name={getCategoryIcon(group.category)}
-            />
-
-            {group.category}
+          <Eyebrow>
+            {getCategoryLabel(
+              group.category,
+              categories,
+            )}
           </Eyebrow>
 
           <List gap="md">

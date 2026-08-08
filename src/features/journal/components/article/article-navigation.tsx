@@ -12,26 +12,25 @@ import type { JournalEntry } from "@/types/journal";
 interface ArticleNavigationProps {
   previous?: JournalEntry;
   next?: JournalEntry;
+  labels: {
+    previous: string;
+    next: string;
+  };
 }
 
 export function ArticleNavigation({
   previous,
   next,
+  labels,
 }: ArticleNavigationProps) {
   if (!previous && !next) {
     return null;
   }
 
   return (
-    <Stack
-      as="nav"
-      className="mt-24 border-t border-border pt-10"
-    >
-      <Grid
-        gap="lg"
-        className="md:grid-cols-2"
-      >
-        <Stack>
+    <Stack>
+      <Grid>
+        <Stack className="text-left">
           {previous && (
             <Link
               href={`/journal/${previous.slug}`}
@@ -42,7 +41,9 @@ export function ArticleNavigation({
                 className="h-full"
               >
                 <Stack gap="sm">
-                  <Label>Previous</Label>
+                  <Label>
+                    {labels.previous}
+                  </Label>
 
                   <Heading
                     as="h3"
@@ -67,7 +68,9 @@ export function ArticleNavigation({
                 className="h-full"
               >
                 <Stack gap="sm">
-                  <Label>Next</Label>
+                  <Label>
+                    {labels.next}
+                  </Label>
 
                   <Heading
                     as="h3"

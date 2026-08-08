@@ -12,17 +12,23 @@ import { ProjectSection } from "./project-section";
 
 interface ProjectGalleryProps {
   project: Project;
+
+  title: string;
+
+  imageAlt: string;
 }
 
 export function ProjectGallery({
   project,
+  title,
+  imageAlt,
 }: ProjectGalleryProps) {
   if (project.gallery.length === 0) {
     return null;
   }
 
   return (
-    <ProjectSection title="Gallery">
+    <ProjectSection title={title}>
       <Grid
         columns={
           project.gallery.length > 1
@@ -36,33 +42,20 @@ export function ProjectGallery({
             key={image.src}
             caption={
               image.caption ? (
-                <Text
-                  size="sm"
-                  muted
-                >
+                <Text>
                   {image.caption}
                 </Text>
               ) : undefined
             }
           >
-            <Surface className="overflow-hidden rounded-2xl">
+            <Surface>
               <Image
                 src={image.src}
-                alt={image.alt}
-                width={1600}
-                height={900}
-                className="
-                  aspect-video
-                  w-full
-                  object-cover
-                  transition-transform
-                  duration-500
-                  hover:scale-[1.02]
-                "
-                sizes="
-                  (max-width: 768px) 100vw,
-                  50vw
-                "
+                alt={
+                  image.caption ?? imageAlt
+                }
+                width={1200}
+                height={800}
               />
             </Surface>
           </Figure>

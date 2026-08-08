@@ -28,6 +28,17 @@ interface FooterContent {
     label: string;
     href: string;
   }[];
+
+  labels: {
+    navigation: string;
+    resources: string;
+    developer: string;
+    contact: string;
+    description: string;
+    tagline: string;
+    copyright: string;
+    builtWith: string;
+  };
 }
 
 interface FooterProps {
@@ -37,23 +48,14 @@ interface FooterProps {
 export function Footer({
   content,
 }: FooterProps) {
-  const year = new Date().getFullYear();
+  const year =
+    new Date().getFullYear();
 
   return (
-    <footer className="mt-20 border-t border-border sm:mt-24">
+    <footer>
       <Container>
-        <div
-          className="
-            grid
-            gap-10
-            py-12
-            sm:grid-cols-2
-            lg:grid-cols-[1.5fr_repeat(4,1fr)]
-            lg:gap-8
-            lg:py-16
-          "
-        >
-          <Stack gap="sm">
+        <div>
+          <Stack>
             <BrandLogo />
 
             <Text
@@ -61,35 +63,35 @@ export function Footer({
               muted
               className="max-w-xs leading-5"
             >
-              Building developer tools, AI applications, and modern web products.
+              {content.labels.description}
             </Text>
 
             <Text
               size="xs"
               className="font-medium uppercase tracking-[0.16em] text-accent"
             >
-              Build. Learn. Ship.
+              {content.labels.tagline}
             </Text>
           </Stack>
 
           <FooterSection
-            title="Navigation"
+            title={content.labels.navigation}
             items={content.navigation}
           />
 
           <FooterSection
-            title="Resources"
+            title={content.labels.resources}
             items={content.resources}
           />
 
           <FooterSection
-            title="Developer"
+            title={content.labels.developer}
             items={content.developer}
             showIcons
           />
 
           <FooterSection
-            title="Contact"
+            title={content.labels.contact}
             items={content.contact}
             showIcons
           />
@@ -112,14 +114,22 @@ export function Footer({
             size="xs"
             muted
           >
-            © {year} {site.owner}. All rights reserved.
+            {content.labels.copyright
+              .replace(
+                "{year}",
+                String(year),
+              )
+              .replace(
+                "{owner}",
+                site.owner,
+              )}
           </Text>
 
           <Text
             size="xs"
             muted
           >
-            Built with Next.js, TypeScript & Tailwind CSS.
+            {content.labels.builtWith}
           </Text>
         </div>
       </Container>

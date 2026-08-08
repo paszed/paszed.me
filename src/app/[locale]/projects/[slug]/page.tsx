@@ -15,6 +15,7 @@ import {
   ProjectRoadmap,
   ProjectTech,
 } from "@/features/projects";
+import { getDictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/config";
 import {
   createBreadcrumbSchema,
@@ -70,29 +71,31 @@ export default async function ProjectPage({
     notFound();
   }
 
+  const content = getDictionary(locale);
+
   const sections = [
     {
-      title: "Problem",
+      title: content.projects.sections.problem,
       items: project.problem,
     },
     {
-      title: "Principles",
+      title: content.projects.sections.principles,
       items: project.principles,
     },
     {
-      title: "Capabilities",
+      title: content.projects.sections.capabilities,
       items: project.capabilities,
     },
     {
-      title: "Engineering Decisions",
+      title: content.projects.sections.engineering,
       items: project.engineering,
     },
     {
-      title: "Challenges",
+      title: content.projects.sections.challenges,
       items: project.challenges,
     },
     {
-      title: "Lessons Learned",
+      title: content.projects.sections.lessons,
       items: project.lessons,
     },
   ];
@@ -102,11 +105,11 @@ export default async function ProjectPage({
       <JsonLd
         data={createBreadcrumbSchema([
           {
-            name: "Home",
+            name: content.navigation.home,
             path: `/${locale}`,
           },
           {
-            name: "Projects",
+            name: content.navigation.projects,
             path: `/${locale}/projects`,
           },
           {
@@ -122,18 +125,43 @@ export default async function ProjectPage({
 
       <Page>
         <Stack className="space-y-16 sm:space-y-20">
-          <ProjectHero project={project} />
+          <ProjectHero
+            project={project}
+            labels={{
+              category:
+                project.category.replaceAll(
+                  "-",
+                  " ",
+                ),
+              started: String(project.started),
+            }}
+          />
 
           {project.gallery.length > 0 && (
-            <ProjectGallery project={project} />
+            <ProjectGallery
+              project={project}
+              title={
+                content.projects.sections.gallery
+              }
+              imageAlt={
+                content.projects.defaults
+                  .projectImageAlt
+              }
+            />
           )}
 
           <ProjectOverview
             overview={project.overview}
+            title={
+              content.projects.sections.overview
+            }
           />
 
           <ProjectArchitecture
             project={project}
+            title={
+              content.projects.sections.architecture
+            }
           />
 
           {sections.map(
@@ -147,14 +175,37 @@ export default async function ProjectPage({
               ),
           )}
 
-          <ProjectTech project={project} />
+          <ProjectTech
+            project={project}
+            labels={{
+              technology:
+                content.projects.sections
+                  .technology,
+              purpose:
+                content.projects.sections
+                  .purpose,
+              technologyPurpose:
+                content.projects.defaults
+                  .technologyPurpose,
+            }}
+          />
 
           {project.roadmap.length > 0 && (
-            <ProjectRoadmap project={project} />
+            <ProjectRoadmap
+              project={project}
+              title={
+                content.projects.sections.roadmap
+              }
+            />
           )}
 
           {project.links.length > 0 && (
-            <ProjectLinks project={project} />
+            <ProjectLinks
+              project={project}
+              title={
+                content.projects.sections.links
+              }
+            />
           )}
         </Stack>
       </Page>

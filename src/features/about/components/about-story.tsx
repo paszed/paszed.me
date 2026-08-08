@@ -18,14 +18,14 @@ export function AboutStory({
       <Stack gap="xl">
         <Stack gap="sm">
           <Heading as="h2">
-            How I Work
+            {content.title}
           </Heading>
 
           <Text
             muted
             className="max-w-2xl leading-relaxed"
           >
-            A practical approach to turning ideas and technical challenges into reliable software.
+            {content.description}
           </Text>
         </Stack>
 
@@ -33,7 +33,7 @@ export function AboutStory({
           gap="lg"
           className="max-w-3xl"
         >
-          {content.map((paragraph) => (
+          {content.items.map((paragraph) => (
             <Text
               key={paragraph}
               size="lg"

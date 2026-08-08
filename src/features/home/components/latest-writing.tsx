@@ -28,13 +28,13 @@ export function LatestWriting({
       <Container>
         <Stack gap="lg">
           <SectionHeader
-            eyebrow="Journal"
+            eyebrow={content.eyebrow}
             title={content.title}
             description={content.description}
             actions={
               <Link href="/journal">
                 <Button variant="outline">
-                  View Journal
+                  {content.actionLabel}
                 </Button>
               </Link>
             }
@@ -49,12 +49,14 @@ export function LatestWriting({
                 <JournalCard
                   key={article.slug}
                   article={article}
+                  draftLabel={content.draftLabel}
+                  readLabel={content.readLabel}
                 />
               ))}
             </Grid>
           ) : (
             <Text muted>
-              Writing and engineering notes will be published here as projects and ideas develop.
+              {content.emptyState}
             </Text>
           )}
         </Stack>

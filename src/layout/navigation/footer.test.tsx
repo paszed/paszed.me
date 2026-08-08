@@ -8,6 +8,21 @@ import {
 import { Footer } from "./footer";
 
 const mockFooter = {
+  labels: {
+    navigation: "Navigation",
+    resources: "Resources",
+    developer: "Developer",
+    contact: "Contact",
+    description:
+      "Building developer tools, AI applications, and modern web products.",
+    tagline:
+      "Build. Learn. Ship.",
+    copyright:
+      "© {year} {owner}. All rights reserved.",
+    builtWith:
+      "Built with Next.js, TypeScript & Tailwind CSS.",
+  },
+
   navigation: [
     {
       label: "Home",

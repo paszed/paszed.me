@@ -9,9 +9,9 @@ import {
   Text,
 } from "@/design-system";
 import { projects } from "@/content/projects";
-import { getDictionary } from "@/i18n/get-dictionary";
-import type { Locale } from "@/i18n/config";
 import { ProjectCard } from "@/features/projects";
+import type { Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
 interface ProjectsPageProps {
   params: Promise<{
@@ -45,16 +45,18 @@ export default async function ProjectsPage({
 
   return (
     <Page>
-      <Stack gap="xl">
+      <Stack className="space-y-16 sm:space-y-20">
+        <PageHeader
+          title={content.projects.title}
+        >
+          <Text
+            muted
+            className="max-w-2xl leading-relaxed"
+          >
+            {content.projects.description}
+          </Text>
+        </PageHeader>
 
-        <PageHeader title={content.projects.title}>
-  <Text
-    muted
-    className="max-w-2xl leading-relaxed"
-  >
-    {content.projects.description}
-  </Text>
-</PageHeader>
         {featuredProjects.length > 0 && (
           <Section>
             <Stack gap="xl">
@@ -71,7 +73,10 @@ export default async function ProjectsPage({
                   muted
                   className="max-w-2xl leading-relaxed"
                 >
-                  {content.projects.selectedDescription}
+                  {
+                    content.projects
+                      .selectedDescription
+                  }
                 </Text>
               </Stack>
 
@@ -80,6 +85,11 @@ export default async function ProjectsPage({
                   <ProjectCard
                     key={project.slug}
                     {...project}
+                    headingLevel="h2"
+                    readLabel={
+                      content.projects.card
+                        .readLabel
+                    }
                   />
                 ))}
               </Grid>
@@ -111,6 +121,11 @@ export default async function ProjectsPage({
                 <ProjectCard
                   key={project.slug}
                   {...project}
+                  headingLevel="h2"
+                  readLabel={
+                    content.projects.card
+                      .readLabel
+                  }
                 />
               ))}
             </Grid>

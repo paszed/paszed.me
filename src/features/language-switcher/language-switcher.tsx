@@ -14,8 +14,8 @@ import {
   locales,
 } from "@/i18n/config";
 
-import { getLocalizedPath } from "./lib/get-localized-path";
 import { getLocaleFromPath } from "./lib/get-locale-from-path";
+import { getLocalizedPath } from "./lib/get-localized-path";
 
 export function LanguageSwitcher() {
   const pathname =
@@ -69,18 +69,7 @@ export function LanguageSwitcher() {
         }
         aria-expanded={open}
         aria-haspopup="menu"
-        className="
-          flex
-          items-center
-          gap-2
-          rounded-lg
-          px-2
-          py-1
-          text-xs
-          font-medium
-          transition-colors
-          hover:bg-surface
-        "
+        className="flex items-center gap-2 rounded-lg px-2 py-1 text-xs font-medium transition-colors hover:bg-surface"
       >
         {localeFlags[currentLocale]}
 
@@ -96,19 +85,7 @@ export function LanguageSwitcher() {
       {open && (
         <div
           role="menu"
-          className="
-            absolute
-            right-0
-            z-50
-            mt-2
-            min-w-36
-            rounded-xl
-            border
-            border-border
-            bg-background
-            p-2
-            shadow-lg
-          "
+          className="absolute right-0 z-50 mt-2 min-w-36 rounded-xl border border-border bg-background p-2 shadow-lg"
         >
           {locales
             .filter(
@@ -125,17 +102,7 @@ export function LanguageSwitcher() {
                 onClick={() =>
                   setOpen(false)
                 }
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  rounded-lg
-                  px-3
-                  py-2
-                  text-sm
-                  transition-colors
-                  hover:bg-surface
-                "
+                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface"
               >
                 <span>
                   {localeFlags[locale]}

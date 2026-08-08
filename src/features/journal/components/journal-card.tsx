@@ -16,37 +16,26 @@ import type { JournalEntry } from "@/types/journal";
 
 interface JournalCardProps {
   article: JournalEntry;
+  draftLabel: string;
+  readLabel: string;
 }
 
 export function JournalCard({
   article,
+  draftLabel,
+  readLabel,
 }: JournalCardProps) {
   return (
     <Link
       href={`/journal/${article.slug}`}
       className="group block h-full"
     >
-      <Card
-        variant="interactive"
-        className="flex h-full flex-col"
-      >
-        <Stack
-          gap="lg"
-          className="h-full"
-        >
-          <Cluster
-            gap="sm"
-            className="
-              text-xs
-              font-medium
-              uppercase
-              tracking-[0.2em]
-              text-fg-muted
-            "
-          >
-            <Text as="span" size="xs">
+      <Card>
+        <Stack>
+          <Cluster>
+            <Badge>
               {article.category}
-            </Text>
+            </Badge>
 
             <span aria-hidden>
               ·
@@ -55,7 +44,7 @@ export function JournalCard({
             <Text as="span" size="xs">
               {article.publishedAt
                 ? formatDate(article.publishedAt)
-                : "Draft"}
+                : draftLabel}
             </Text>
 
             <span aria-hidden>
@@ -114,7 +103,7 @@ export function JournalCard({
               text-accent
             "
           >
-            Read essay →
+            {readLabel} →
           </Text>
         </Stack>
       </Card>

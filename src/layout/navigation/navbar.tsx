@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/brand";
 import { navigation } from "@/config/navigation";
 import { Container, ThemeToggle } from "@/design-system";
+import { getDictionary } from "@/i18n/get-dictionary";
 import { localizePath } from "@/i18n/navigation";
 import { getLocale } from "@/i18n/routing";
 
@@ -19,12 +20,15 @@ export function Navbar() {
     pathname.split("/")[1],
   );
 
+  const content = getDictionary(locale);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+    <header>
       <Container>
         <nav
-          aria-label="Primary navigation"
-          className="flex h-[4.5rem] items-center justify-between"
+          aria-label={
+            content.navigationLabels.navigation
+          }
         >
           <BrandLogo />
 
@@ -37,10 +41,14 @@ export function Navbar() {
                 );
 
                 return (
-                  <li key={item.href}>
+                  <li key={item.key}>
                     <NavLink
                       href={href}
-                      label={item.label}
+                      label={
+                        content.navigation[
+                          item.key
+                        ]
+                      }
                       currentPath={pathname}
                     />
                   </li>
@@ -48,12 +56,23 @@ export function Navbar() {
               })}
             </ul>
 
-            <NavbarActions />
+            <NavbarActions
+              searchLabel={
+                content.navigationLabels.search
+              }
+            />
 
             <div className="flex items-center gap-2 lg:hidden">
               <ThemeToggle />
 
-              <MobileMenu />
+              <MobileMenu
+                labels={
+                  content.navigationLabels
+                }
+                navigationLabels={
+                  content.navigation
+                }
+              />
             </div>
           </div>
         </nav>

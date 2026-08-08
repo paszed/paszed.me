@@ -1,20 +1,70 @@
-import type { home } from "@/content/en/home";
-export type HomeContent = typeof home;
+export interface HomeHero {
+  title: string;
+  description: string;
+  eyebrow: string;
+  actions?: {
+    primary?: string;
+    secondary?: string;
+  };
+}
 
-export type HomeHero =
-  HomeContent["hero"];
+export interface HomeCapabilitiesItem {
+  title: string;
+  description: string;
+}
 
-export type HomeCapabilities =
-  HomeContent["capabilities"];
+export interface HomeCapabilities {
+  title: string;
+  description: string;
+  items: readonly HomeCapabilitiesItem[];
+}
 
-export type HomeHowIHelp =
-  HomeContent["howIHelp"];
+export interface HomeHowIHelpItem {
+  title: string;
+  description: string;
+}
 
-export type HomeFeaturedProjects =
-  HomeContent["featuredProjects"];
+export interface HomeHowIHelp {
+  title: string;
+  description: string;
+  items: readonly HomeHowIHelpItem[];
+}
 
-export type HomeLatestWriting =
-  HomeContent["latestWriting"];
+export interface HomeFeaturedProjects {
+  eyebrow: string;
+  title: string;
+  description: string;
+  actionLabel: string;
+  emptyState: string;
+  readLabel: string;
+}
 
-export type HomePhilosophy =
-  HomeContent["philosophy"];
+export interface HomeLatestWriting {
+  eyebrow: string;
+  title: string;
+  description: string;
+  actionLabel: string;
+  emptyState: string;
+  draftLabel: string;
+  readLabel: string;
+}
+
+export interface HomePhilosophyItem {
+  title: string;
+  description: string;
+}
+
+export interface HomePhilosophy {
+  title: string;
+  description: string;
+  items: readonly HomePhilosophyItem[];
+}
+
+export interface HomeContent {
+  hero: HomeHero;
+  capabilities: HomeCapabilities;
+  howIHelp: HomeHowIHelp;
+  featuredProjects: HomeFeaturedProjects;
+  latestWriting: HomeLatestWriting;
+  philosophy: HomePhilosophy;
+}

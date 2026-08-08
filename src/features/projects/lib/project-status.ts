@@ -2,9 +2,13 @@ import type { Project } from "@/types/project";
 
 type ProjectStatus = Project["status"];
 
-interface ProjectStatusConfig {
+export interface ProjectStatusConfig {
   label: string;
-  tone: "info" | "warning" | "success" | "neutral";
+  tone:
+    | "info"
+    | "warning"
+    | "success"
+    | "neutral";
 }
 
 export const PROJECT_STATUS: Record<
@@ -15,14 +19,17 @@ export const PROJECT_STATUS: Record<
     label: "Research",
     tone: "info",
   },
+
   building: {
     label: "Building",
     tone: "warning",
   },
+
   production: {
     label: "Production",
     tone: "success",
   },
+
   archived: {
     label: "Archived",
     tone: "neutral",

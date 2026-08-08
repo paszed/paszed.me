@@ -14,7 +14,9 @@ interface PhilosophyItem {
 }
 
 interface PhilosophyContent {
+  eyebrow: string;
   title: string;
+  description: string;
   items: readonly PhilosophyItem[];
 }
 
@@ -30,9 +32,9 @@ export function Philosophy({
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Approach"
+            eyebrow={content.eyebrow}
             title={content.title}
-            description="How I approach building software with reliability, clarity, and long-term maintainability."
+            description={content.description}
           />
 
           <Grid

@@ -20,14 +20,14 @@ export function AboutPhilosophy({
       <Stack gap="xl">
         <Stack gap="sm">
           <Heading as="h2">
-            Engineering Principles
+            {content.title}
           </Heading>
 
           <Text
             muted
             className="max-w-2xl leading-relaxed"
           >
-            The principles that guide how I approach software design, technical decisions, and long-term maintainability.
+            {content.description}
           </Text>
         </Stack>
 
@@ -35,7 +35,7 @@ export function AboutPhilosophy({
           columns={2}
           gap="lg"
         >
-          {content.map((principle) => (
+          {content.items.map((principle) => (
             <Card
               key={principle.title}
               variant="interactive"

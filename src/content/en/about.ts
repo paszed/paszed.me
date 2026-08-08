@@ -6,84 +6,105 @@ export const about = {
       "I'm Edvard, a software engineer focused on building reliable applications, developer tools, and systems that help ideas become useful products.",
   },
 
-  story: [
-    "I approach software by understanding the underlying problem first. The goal is not just to write code, but to create systems that remain clear, maintainable, and valuable as they grow.",
+  story: {
+    title: "How I Work",
 
-    "My work combines product development with strong engineering foundations: application architecture, automation, developer experience, infrastructure, and practical AI workflows.",
+    description:
+      "A practical approach to turning ideas and technical challenges into reliable software.",
 
-    "I enjoy turning recurring problems into reusable solutions. Whether improving an existing system or building something new, I focus on reducing complexity and creating foundations that last.",
+    items: [
+      "I approach software by understanding the underlying problem first. The goal is not just to write code, but to create systems that remain clear, maintainable, and valuable as they grow.",
 
-    "This website documents the systems I build, the decisions behind them, and the lessons learned throughout the process.",
-  ],
+      "My work combines product development with strong engineering foundations: application architecture, automation, developer experience, infrastructure, and practical AI workflows.",
 
-  philosophy: [
-    {
-      title: "Understand the problem first",
+      "I enjoy turning recurring problems into reusable solutions. Whether improving an existing system or building something new, I focus on reducing complexity and creating foundations that last.",
 
-      description:
-        "The best technical solutions come from understanding the real need before choosing the implementation.",
-    },
-    {
-      title: "Build for change",
+      "This website documents the systems I build, the decisions behind them, and the lessons learned throughout the process.",
+    ],
+  },
 
-      description:
-        "Software should be designed so future improvements become easier rather than adding unnecessary complexity.",
-    },
-    {
-      title: "Remove recurring friction",
+  philosophy: {
+    title: "Engineering Principles",
 
-      description:
-        "Repeated problems are opportunities to create better tools, workflows, and systems.",
-    },
-    {
-      title: "Improve through shipping",
+    description:
+      "The principles that guide how I approach software design, technical decisions, and long-term maintainability.",
 
-      description:
-        "Engineering grows through building, feedback, iteration, and continuously refining the process.",
-    },
-  ],
+    items: [
+      {
+        title: "Understand the problem first",
 
-  skills: [
-    {
-      category: "Languages",
-      items: [
-        "TypeScript",
-        "JavaScript",
-        "Python",
-        "SQL",
-        "Go",
-      ],
-    },
-    {
-      category: "Application Engineering",
-      items: [
-        "React",
-        "Next.js",
-        "Node.js",
-        "Tailwind CSS",
-        "PostgreSQL",
-      ],
-    },
-    {
-      category: "Infrastructure & Tooling",
-      items: [
-        "Docker",
-        "GitHub Actions",
-        "REST APIs",
-        "Webhooks",
-        "OAuth",
-      ],
-    },
-    {
-      category: "Developer Workflow",
-      items: [
-        "Git",
-        "Neovim",
-        "Fish",
-        "pnpm",
-        "Vitest",
-        "Playwright",
-      ],
-    },
-  ],
+        description:
+          "The best technical solutions come from understanding the real need before choosing the implementation.",
+      },
+      {
+        title: "Build for change",
+
+        description:
+          "Software should be designed so future improvements become easier rather than adding unnecessary complexity.",
+      },
+      {
+        title: "Remove recurring friction",
+
+        description:
+          "Repeated problems are opportunities to create better tools, workflows, and systems.",
+      },
+      {
+        title: "Improve through shipping",
+
+        description:
+          "Engineering grows through building, feedback, iteration, and continuously refining the process.",
+      },
+    ],
+  },
+
+  skills: {
+    title: "Tools & Technologies",
+
+    description:
+      "The technologies and workflows I use to design, build, test, and maintain modern software systems.",
+
+    items: [
+      {
+        category: "Languages",
+        items: [
+          "TypeScript",
+          "JavaScript",
+          "Python",
+          "SQL",
+          "Go",
+        ],
+      },
+      {
+        category: "Application Engineering",
+        items: [
+          "React",
+          "Next.js",
+          "Node.js",
+          "Tailwind CSS",
+          "PostgreSQL",
+        ],
+      },
+      {
+        category: "Infrastructure & Tooling",
+        items: [
+          "Docker",
+          "GitHub Actions",
+          "REST APIs",
+          "Webhooks",
+          "OAuth",
+        ],
+      },
+      {
+        category: "Developer Workflow",
+        items: [
+          "Git",
+          "Neovim",
+          "Fish",
+          "pnpm",
+          "Vitest",
+          "Playwright",
+        ],
+      },
+    ],
+  },
 } as const;

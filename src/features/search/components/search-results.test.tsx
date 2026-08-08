@@ -1,4 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import {
+  render,
+  screen,
+} from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import type { SearchItem } from "../types/search";
@@ -32,13 +35,26 @@ const results: SearchItem[] = [
   },
 ];
 
+const empty = {
+  title: "No results found",
+  description: "Try a different search term.",
+};
+
+const categories = {
+  Project: "Projects",
+  Article: "Articles",
+  Page: "Pages",
+};
+
 describe("SearchResults", () => {
   it("renders the empty state", () => {
     render(
       <SearchResults
         results={[]}
         selectedIndex={0}
-        query=""
+        query="missing"
+        empty={empty}
+        categories={categories}
       />,
     );
 
@@ -47,12 +63,30 @@ describe("SearchResults", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders nothing when there are no results and no query", () => {
+    const { container } = render(
+      <SearchResults
+        results={[]}
+        selectedIndex={0}
+        query=""
+        empty={empty}
+        categories={categories}
+      />,
+    );
+
+    expect(
+      container.firstChild,
+    ).toBeNull();
+  });
+
   it("renders every result", () => {
     render(
       <SearchResults
         results={results}
         selectedIndex={0}
         query=""
+        empty={empty}
+        categories={categories}
       />,
     );
 
@@ -75,6 +109,8 @@ describe("SearchResults", () => {
         results={results}
         selectedIndex={0}
         query=""
+        empty={empty}
+        categories={categories}
       />,
     );
 

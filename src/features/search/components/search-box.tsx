@@ -13,10 +13,29 @@ import { SearchInput } from "./search-input";
 import { SearchResults } from "./search-results";
 
 interface SearchBoxProps {
+  input: {
+    placeholder: string;
+    label: string;
+  };
+
+  empty: {
+    title: string;
+    description: string;
+  };
+
+  categories: {
+    Project: string;
+    Article: string;
+    Page: string;
+  };
+
   inputRef?: RefObject<HTMLInputElement | null>;
 }
 
 export function SearchBox({
+  input,
+  empty,
+  categories,
   inputRef,
 }: SearchBoxProps) {
   const {
@@ -29,18 +48,22 @@ export function SearchBox({
 
   return (
     <Panel>
-      <Stack gap="md">
+      <Stack gap="lg">
         <SearchInput
           ref={inputRef}
           value={query}
           onChange={handleQueryChange}
           onKeyDown={handleKeyDown}
+          ariaLabel={input.label}
+          placeholder={input.placeholder}
         />
 
         <SearchResults
           results={results}
           selectedIndex={selectedIndex}
           query={query}
+          empty={empty}
+          categories={categories}
         />
       </Stack>
     </Panel>

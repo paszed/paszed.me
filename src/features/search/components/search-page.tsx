@@ -1,5 +1,4 @@
 import {
-  Heading,
   Measure,
   Page,
   Stack,
@@ -8,22 +7,58 @@ import {
 
 import { SearchBox } from "./search-box";
 
-export function SearchPage() {
+interface SearchPageProps {
+  title: string;
+  description: string;
+
+  input: {
+    placeholder: string;
+    label: string;
+  };
+
+  empty: {
+    title: string;
+    description: string;
+  };
+
+  categories: {
+    Project: string;
+    Article: string;
+    Page: string;
+  };
+}
+
+export function SearchPage({
+  title,
+  description,
+  input,
+  empty,
+  categories,
+}: SearchPageProps) {
   return (
-    <Page>
-      <Measure size="3xl">
-        <Stack gap="2xl">
-          <Stack gap="md">
-            <Heading as="h1">Search</Heading>
+    <Measure size="3xl">
+      <Page>
+        <Stack gap="xl">
+          <Stack gap="sm">
+            <Text
+              as="h1"
+              className="text-4xl font-semibold"
+            >
+              {title}
+            </Text>
 
             <Text muted>
-              Search across projects, journal articles, and pages.
+              {description}
             </Text>
           </Stack>
 
-          <SearchBox />
+          <SearchBox
+            input={input}
+            empty={empty}
+            categories={categories}
+          />
         </Stack>
-      </Measure>
-    </Page>
+      </Page>
+    </Measure>
   );
 }

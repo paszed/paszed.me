@@ -15,6 +15,8 @@ describe("SearchInput", () => {
       <SearchInput
         value=""
         onChange={() => {}}
+        ariaLabel="Search"
+        placeholder="Search articles, projects, and pages..."
       />,
     );
 
@@ -30,6 +32,8 @@ describe("SearchInput", () => {
       <SearchInput
         value="nextjs"
         onChange={() => {}}
+        ariaLabel="Search"
+        placeholder="Search articles, projects, and pages..."
       />,
     );
 
@@ -45,6 +49,8 @@ describe("SearchInput", () => {
       <SearchInput
         value=""
         onChange={onChange}
+        ariaLabel="Search"
+        placeholder="Search articles, projects, and pages..."
       />,
     );
 
@@ -70,6 +76,8 @@ describe("SearchInput", () => {
         value=""
         onChange={() => {}}
         onKeyDown={onKeyDown}
+        ariaLabel="Search"
+        placeholder="Search articles, projects, and pages..."
       />,
     );
 
@@ -84,13 +92,16 @@ describe("SearchInput", () => {
   });
 
   it("forwards the ref", () => {
-    const ref = createRef<HTMLInputElement>();
+    const ref =
+      createRef<HTMLInputElement>();
 
     render(
       <SearchInput
         ref={ref}
         value=""
         onChange={() => {}}
+        ariaLabel="Search"
+        placeholder="Search articles, projects, and pages..."
       />,
     );
 

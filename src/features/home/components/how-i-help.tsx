@@ -14,6 +14,7 @@ interface HelpItem {
 }
 
 interface HowIHelpContent {
+  eyebrow: string;
   title: string;
   description: string;
   items: readonly HelpItem[];
@@ -31,7 +32,7 @@ export function HowIHelp({
       <Container>
         <Stack gap="xl">
           <SectionHeader
-            eyebrow="Services"
+            eyebrow={content.eyebrow}
             title={content.title}
             description={content.description}
           />

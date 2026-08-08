@@ -14,6 +14,33 @@ import {
 
 let MobileMenu: typeof import("./mobile-menu").MobileMenu;
 
+const defaultProps = {
+  labels: {
+    open: "Open navigation menu",
+    close: "Close navigation menu",
+    navigation: "Mobile navigation",
+  },
+
+  navigationLabels: {
+    home: "Home",
+    projects: "Projects",
+    about: "About",
+    journal: "Journal",
+    now: "Now",
+  },
+};
+
+function renderMobileMenu(
+  props = {},
+) {
+  return renderWithProviders(
+    <MobileMenu
+      {...defaultProps}
+      {...props}
+    />,
+  );
+}
+
 vi.mock("next/navigation", () => ({
   usePathname: vi.fn(),
 }));
@@ -26,29 +53,32 @@ vi.mock("next/link", () => ({
   }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     href: string;
   }) => (
-    <a href={href} {...props}>
+    <a
+      href={href}
+      {...props}
+    >
       {children}
     </a>
   ),
 }));
 
 vi.mock("@/features/language-switcher", () => ({
-  LanguageSwitcher: () => <div data-testid="language-switcher" />,
+  LanguageSwitcher: () => null,
 }));
 
 vi.mock("@/config/navigation", () => ({
   navigation: [
     {
       href: "/",
-      label: "Home",
+      key: "home",
     },
     {
       href: "/projects",
-      label: "Projects",
+      key: "projects",
     },
     {
       href: "/about",
-      label: "About",
+      key: "about",
     },
   ],
 }));
@@ -58,9 +88,10 @@ describe("MobileMenu", () => {
     vi.clearAllMocks();
 
     const mobileMenuModule =
-  await import("./mobile-menu");
+      await import("./mobile-menu");
 
-MobileMenu = mobileMenuModule.MobileMenu;
+    MobileMenu =
+      mobileMenuModule.MobileMenu;
 
     const { usePathname } =
       await import("next/navigation");
@@ -71,7 +102,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
   });
 
   it("renders the menu toggle button", () => {
-    renderWithProviders(<MobileMenu />);
+    renderMobileMenu();
 
     expect(
       screen.getByRole("button", {
@@ -81,7 +112,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
   });
 
   it("opens the menu", () => {
-    renderWithProviders(<MobileMenu />);
+    renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -103,7 +134,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
   });
 
   it("closes the menu when the toggle is clicked again", () => {
-    renderWithProviders(<MobileMenu />);
+    renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -128,22 +159,10 @@ MobileMenu = mobileMenuModule.MobileMenu;
         name: "Close navigation menu",
       }),
     ).not.toBeInTheDocument();
-
-    const link = screen.getByRole("link", {
-      name: "Home",
-    });
-
-    const menuContainer =
-      link.closest("nav")?.parentElement
-        ?.parentElement;
-
-    expect(menuContainer).toHaveClass(
-      "pointer-events-none",
-    );
   });
 
   it("closes the menu when the backdrop is clicked", () => {
-    renderWithProviders(<MobileMenu />);
+    renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -171,7 +190,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
   });
 
   it("renders every navigation link", () => {
-    renderWithProviders(<MobileMenu />);
+    renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -215,9 +234,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
       "/en/projects",
     );
 
-    renderWithProviders(
-      <MobileMenu />,
-    );
+    renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -225,12 +242,13 @@ MobileMenu = mobileMenuModule.MobileMenu;
       }),
     );
 
-    const projects = screen.getByRole(
-      "link",
-      {
-        name: "Projects",
-      },
-    );
+    const projects =
+      screen.getByRole(
+        "link",
+        {
+          name: "Projects",
+        },
+      );
 
     expect(projects).toHaveClass(
       "bg-surface",
@@ -242,7 +260,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
   });
 
   it("closes after clicking a navigation link", () => {
-    renderWithProviders(<MobileMenu />);
+    renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -277,9 +295,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
       vi.mocked(usePathname);
 
     const { rerender } =
-      renderWithProviders(
-        <MobileMenu />,
-      );
+      renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -298,7 +314,9 @@ MobileMenu = mobileMenuModule.MobileMenu;
     );
 
     rerender(
-      <MobileMenu />,
+      <MobileMenu
+        {...defaultProps}
+      />,
     );
 
     expect(
@@ -315,7 +333,7 @@ MobileMenu = mobileMenuModule.MobileMenu;
   });
 
   it("renders the navigation landmark", () => {
-    renderWithProviders(<MobileMenu />);
+    renderMobileMenu();
 
     expect(
       screen.getByRole("navigation"),

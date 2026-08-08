@@ -8,17 +8,20 @@ import { ProjectSection } from "./project-section";
 
 interface ProjectOverviewProps {
   overview: readonly string[];
+
+  title: string;
 }
 
 export function ProjectOverview({
   overview,
+  title,
 }: ProjectOverviewProps) {
   if (overview.length === 0) {
     return null;
   }
 
   return (
-    <ProjectSection title="The Problem & Solution">
+    <ProjectSection title={title}>
       <Measure size="3xl">
         <Stack gap="lg">
           {overview.map((paragraph) => (

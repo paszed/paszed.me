@@ -1,14 +1,41 @@
-import type { about } from "@/content/en/about";
-export type AboutContent = typeof about;
+import type { TechnologyIconName } from "@/design-system";
 
-export type AboutHeroContent =
-  AboutContent["hero"];
+export interface AboutHeroContent {
+  title: string;
+  intro: string;
+}
 
-export type AboutStoryContent =
-  AboutContent["story"];
+export interface AboutStoryContent {
+  title: string;
+  description: string;
+  items: readonly string[];
+}
 
-export type AboutPhilosophyContent =
-  AboutContent["philosophy"];
+export interface AboutPhilosophyItem {
+  title: string;
+  description: string;
+}
 
-export type AboutSkillsContent =
-  AboutContent["skills"];
+export interface AboutPhilosophyContent {
+  title: string;
+  description: string;
+  items: readonly AboutPhilosophyItem[];
+}
+
+export interface AboutSkillsGroup {
+  category: string;
+  items: readonly TechnologyIconName[];
+}
+
+export interface AboutSkillsContent {
+  title: string;
+  description: string;
+  items: readonly AboutSkillsGroup[];
+}
+
+export interface AboutContent {
+  hero: AboutHeroContent;
+  story: AboutStoryContent;
+  philosophy: AboutPhilosophyContent;
+  skills: AboutSkillsContent;
+}

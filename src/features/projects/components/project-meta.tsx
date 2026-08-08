@@ -10,18 +10,20 @@ import { PROJECT_STATUS } from "../lib";
 
 interface ProjectMetaProps {
   project: Project;
+  categoryLabel: string;
+  startedLabel: string;
 }
 
 export function ProjectMeta({
   project,
+  categoryLabel,
+  startedLabel,
 }: ProjectMetaProps) {
-  const status = PROJECT_STATUS[project.status];
+  const status =
+    PROJECT_STATUS[project.status];
 
   return (
-    <Cluster
-      gap="sm"
-      className="text-xs uppercase tracking-wide"
-    >
+    <Cluster gap="md">
       <StatusBadge tone={status.tone}>
         {status.label}
       </StatusBadge>
@@ -30,14 +32,14 @@ export function ProjectMeta({
         size="xs"
         muted
       >
-        {project.category.replaceAll("-", " ")}
+        {categoryLabel}
       </Text>
 
       <Text
         size="xs"
         muted
       >
-        {project.started}
+        {startedLabel}
       </Text>
     </Cluster>
   );

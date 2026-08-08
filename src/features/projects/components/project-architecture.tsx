@@ -1,20 +1,22 @@
-import type { Project } from "@/types/project";
-
 import {
   CodeBlock,
   Measure,
   Stack,
   Text,
 } from "@/design-system";
+import type { Project } from "@/types/project";
 
 import { ProjectSection } from "./project-section";
 
 interface ProjectArchitectureProps {
   project: Project;
+
+  title: string;
 }
 
 export function ProjectArchitecture({
   project,
+  title,
 }: ProjectArchitectureProps) {
   if (
     project.architecture.description.length === 0 &&
@@ -24,9 +26,9 @@ export function ProjectArchitecture({
   }
 
   return (
-    <ProjectSection title="Technical Approach">
+    <ProjectSection title={title}>
       <Measure size="3xl">
-        <Stack gap="xl">
+        <Stack gap="lg">
           {project.architecture.description.map(
             (paragraph) => (
               <Text
@@ -43,7 +45,9 @@ export function ProjectArchitecture({
           {project.architecture.diagram && (
             <CodeBlock
               language="architecture"
-              code={project.architecture.diagram}
+              code={
+                project.architecture.diagram
+              }
               className="shadow-sm"
             />
           )}

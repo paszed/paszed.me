@@ -9,10 +9,11 @@ import {
   ReadingProgress,
 } from "@/features/journal";
 import type { Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 import {
-  getPublishedArticle,
   getNextArticle,
   getPreviousArticle,
+  getPublishedArticle,
   getRelatedArticles,
 } from "@/lib/journal";
 import {
@@ -53,6 +54,8 @@ export default async function JournalArticlePage({
 }: Props) {
   const { locale, slug } = await params;
 
+  const content = getDictionary(locale);
+
   const article = getPublishedArticle(slug);
 
   if (!article) {
@@ -68,11 +71,11 @@ export default async function JournalArticlePage({
       <JsonLd
         data={createBreadcrumbSchema([
           {
-            name: "Home",
+            name: content.navigation.home,
             path: `/${locale}`,
           },
           {
-            name: "Journal",
+            name: content.journal.title,
             path: `/${locale}/journal`,
           },
           {
@@ -89,8 +92,13 @@ export default async function JournalArticlePage({
       <ReadingProgress />
 
       <article className="mx-auto max-w-3xl px-6 py-24">
-        <ArticleHeader article={article} />
 
+        <ArticleHeader
+  article={article}
+  draftLabel={
+    content.journal.draftLabel
+  }
+/>
         <ArticleContent article={article} />
 
         <ArticleRelated articles={related} />
@@ -98,6 +106,7 @@ export default async function JournalArticlePage({
         <ArticleNavigation
           previous={previous}
           next={next}
+          labels={content.journal.navigation}
         />
       </article>
     </>

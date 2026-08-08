@@ -10,7 +10,9 @@ import { Input } from "@/design-system";
 interface SearchInputProps {
   value: string;
   onChange(value: string): void;
-  onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
+  onKeyDown?: KeyboardEventHandler;
+  ariaLabel: string;
+  placeholder: string;
 }
 
 export const SearchInput = forwardRef<
@@ -21,15 +23,17 @@ export const SearchInput = forwardRef<
     value,
     onChange,
     onKeyDown,
+    ariaLabel,
+    placeholder,
   },
   ref,
 ) {
   return (
     <Input
       ref={ref}
-      aria-label="Search"
+      aria-label={ariaLabel}
       type="search"
-      placeholder="Search articles, projects, and pages..."
+      placeholder={placeholder}
       value={value}
       onChange={(event) =>
         onChange(event.target.value)

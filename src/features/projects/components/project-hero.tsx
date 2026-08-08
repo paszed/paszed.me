@@ -14,15 +14,19 @@ import { ProjectMeta } from "./project-meta";
 
 interface ProjectHeroProps {
   project: Project;
+
+  labels: {
+    category: string;
+    started: string;
+  };
 }
 
 export function ProjectHero({
   project,
+  labels,
 }: ProjectHeroProps) {
   return (
     <Hero>
-      <ProjectMeta project={project} />
-
       <Stack gap="md">
         <Heading as="h1">
           {project.title}
@@ -55,6 +59,12 @@ export function ProjectHero({
             ))}
         </Cluster>
       )}
+
+      <ProjectMeta
+        project={project}
+        categoryLabel={labels.category}
+        startedLabel={labels.started}
+      />
 
       <Divider />
     </Hero>

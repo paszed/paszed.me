@@ -1,3 +1,9 @@
+export const nowPage = {
+  title: "Now",
+  description:
+    "What I'm currently building, learning, exploring, and working on.",
+} as const;
+
 export const now = [
   {
     title: "Building",

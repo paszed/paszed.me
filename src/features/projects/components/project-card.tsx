@@ -11,23 +11,36 @@ import {
 } from "@/design-system";
 import type { Project } from "@/types/project";
 
-type ProjectCardProps = Project;
+interface ProjectCardProps extends Project {
+  readLabel: string;
+  headingLevel?: "h2" | "h3";
+}
 
-export function ProjectCard(
-  project: ProjectCardProps,
-) {
+export function ProjectCard({
+  readLabel,
+  headingLevel = "h3",
+  ...project
+}: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
       className="group block h-full"
     >
-      <Card>
-        <Stack gap="lg">
+      <Card
+        variant="interactive"
+        className="
+          flex
+          h-full
+          flex-col
+          p-6
+        "
+      >
+        <Stack
+          gap="md"
+          className="h-full"
+        >
           <Stack gap="sm">
-            <Heading
-              as="h2"
-              className="transition-colors duration-200 group-hover:text-accent"
-            >
+            <Heading as={headingLevel}>
               {project.title}
             </Heading>
 
@@ -64,10 +77,16 @@ export function ProjectCard(
 
           <Cluster
             gap="sm"
-            className="mt-auto pt-6 text-sm font-medium text-accent"
+            className="
+              mt-auto
+              pt-6
+              text-sm
+              font-medium
+              text-accent
+            "
           >
             <Text as="span">
-              Read case study
+              {readLabel}
             </Text>
 
             <ActionIcon name="open" />

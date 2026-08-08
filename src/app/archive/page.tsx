@@ -9,21 +9,20 @@ import {
   Stack,
   Text,
 } from "@/design-system";
-import { ProjectCard } from "@/features/projects";
+import { getDictionary } from "@/i18n/get-dictionary";
 import { getArchivedProjects } from "@/features/archive";
+import { ProjectCard } from "@/features/projects";
 
 export default function ArchivePage() {
   const projects = getArchivedProjects();
+  const content = getDictionary("en");
 
   return (
     <Page>
       <Section>
-        <Stack gap="2xl">
+        <Stack gap="xl">
           <SectionHeader
-            level={1}
-            eyebrow="Archive"
-            title="Past projects and experiments."
-            description="Projects that are no longer actively developed but remain part of the engineering record."
+            title="Archive"
           />
 
           {projects.length > 0 ? (
@@ -32,6 +31,9 @@ export default function ArchivePage() {
                 <ProjectCard
                   key={project.slug}
                   {...project}
+                  readLabel={
+                    content.projects.card.readLabel
+                  }
                 />
               ))}
             </Grid>
@@ -48,7 +50,9 @@ export default function ArchivePage() {
               </Text>
 
               <Link href="/projects">
-                <Button>View Projects</Button>
+                <Button>
+                  View Projects
+                </Button>
               </Link>
             </Stack>
           )}

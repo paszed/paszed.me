@@ -23,6 +23,8 @@ export const home = {
   },
 
   capabilities: {
+    eyebrow: "Services",
+
     title: "What We Build",
 
     description:
@@ -51,6 +53,8 @@ export const home = {
   },
 
   howIHelp: {
+    eyebrow: "Services",
+
     title: "How We Help",
 
     description:
@@ -79,17 +83,36 @@ export const home = {
   },
 
   featuredProjects: {
-    title: "Selected Work",
+  eyebrow: "Selected Work",
 
-    description:
-      "Examples of software systems, developer tools, and applications built with modern technologies and strong engineering foundations.",
-  },
+  title: "Selected Work",
+
+  description:
+    "Examples of software systems, developer tools, and applications built with modern technologies and strong engineering foundations.",
+
+  actionLabel: "View All Projects",
+
+  readLabel: "Read case study",
+
+  emptyState: "Projects are being prepared.",
+},
 
   latestWriting: {
+    eyebrow: "Journal",
+
     title: "Insights",
 
     description:
       "Thoughts on software development, automation, architecture, and building reliable digital products.",
+
+    actionLabel: "View Journal",
+
+    emptyState:
+      "Writing and engineering notes will be published here as projects and ideas develop.",
+
+    draftLabel: "Draft",
+
+    readLabel: "Read essay",
   },
 
   contact: {
@@ -111,7 +134,12 @@ export const home = {
   },
 
   philosophy: {
+    eyebrow: "Approach",
+
     title: "How We Work",
+
+    description:
+      "How we approach building software with reliability, clarity, and long-term maintainability.",
 
     items: [
       {

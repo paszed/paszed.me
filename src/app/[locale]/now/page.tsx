@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 
 import {
   Page,
-  PageHeader,
+  SectionHeader,
   Stack,
-  Text,
 } from "@/design-system";
 import {
   NowSection,
@@ -18,11 +17,16 @@ interface NowPageProps {
   }>;
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: NowPageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  const content = getDictionary(locale);
+
   return {
-    title: "Now",
-    description:
-      "What I&apos;m currently building, learning, exploring, and working on.",
+    title: content.nowPage.title,
+    description: content.nowPage.description,
   };
 }
 
@@ -35,18 +39,16 @@ export default async function NowPage({
 
   return (
     <Page>
-      <Stack gap="xl">
-        <PageHeader
-          title="Now"
-        />
+      <Stack className="space-y-16 sm:space-y-20">
 
-        <Text
-          muted
-          className="max-w-2xl leading-relaxed"
-        >
-          What I&apos;m currently building, learning, exploring, and working on.
-        </Text>
-
+        <SectionHeader
+  eyebrow="Paszed"
+  title={content.nowPage.title}
+  description={
+    content.nowPage.description
+  }
+  level={1}
+/>
         {content.now.map((section) => (
           <NowSection
             key={section.title}

@@ -14,17 +14,15 @@ import type { JournalEntry } from "@/types/journal";
 
 interface ArticleHeaderProps {
   article: JournalEntry;
+  draftLabel: string;
 }
 
 export function ArticleHeader({
   article,
+  draftLabel,
 }: ArticleHeaderProps) {
   return (
-    <Stack
-      as="header"
-      gap="lg"
-      className="mb-20"
-    >
+    <Stack>
       <Eyebrow>
         {article.category}
       </Eyebrow>
@@ -47,10 +45,7 @@ export function ArticleHeader({
         gap="sm"
         className="text-sm text-fg-muted"
       >
-        <Text
-          as="span"
-          size="sm"
-        >
+        <Text as="span" size="sm">
           {article.author}
         </Text>
 
@@ -58,23 +53,17 @@ export function ArticleHeader({
           ·
         </span>
 
-        <Text
-          as="span"
-          size="sm"
-        >
+        <Text as="span" size="sm">
           {article.publishedAt
             ? formatDate(article.publishedAt)
-            : "Draft"}
+            : draftLabel}
         </Text>
 
         <span aria-hidden>
           ·
         </span>
 
-        <Text
-          as="span"
-          size="sm"
-        >
+        <Text as="span" size="sm">
           {formatReadingTime(
             article.readingTimeMinutes,
           )}

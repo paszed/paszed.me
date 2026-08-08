@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import {
   Button,
   Cluster,
@@ -10,35 +8,31 @@ import { ProjectSection } from "./project-section";
 
 interface ProjectLinksProps {
   project: Project;
+  title: string;
 }
 
 export function ProjectLinks({
   project,
+  title,
 }: ProjectLinksProps) {
   if (project.links.length === 0) {
     return null;
   }
 
   return (
-    <ProjectSection title="Links">
+    <ProjectSection title={title}>
       <Cluster gap="md">
         {project.links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            key={link.label}
+            variant={
+              link.primary
+                ? "default"
+                : "outline"
+            }
           >
-            <Button
-              variant={
-                link.primary
-                  ? "default"
-                  : "outline"
-              }
-            >
-              {link.label}
-            </Button>
-          </Link>
+            {link.label}
+          </Button>
         ))}
       </Cluster>
     </ProjectSection>

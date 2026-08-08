@@ -2,7 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { navigation } from "@/config/navigation";
 import {
@@ -14,8 +18,25 @@ import { localizePath } from "@/i18n/navigation";
 import { getLocale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
-export function MobileMenu() {
-  const [open, setOpen] = useState(false);
+interface MobileMenuProps {
+  labels: {
+    open: string;
+    close: string;
+    navigation: string;
+  };
+
+  navigationLabels: Record<
+    string,
+    string
+  >;
+}
+
+export function MobileMenu({
+  labels,
+  navigationLabels,
+}: MobileMenuProps) {
+  const [open, setOpen] =
+    useState(false);
 
   const pathname = usePathname();
 
@@ -23,7 +44,8 @@ export function MobileMenu() {
     pathname.split("/")[1],
   );
 
-  const previousPathname = useRef(pathname);
+  const previousPathname =
+    useRef(pathname);
 
   function closeMenu() {
     setOpen(false);
@@ -44,8 +66,8 @@ export function MobileMenu() {
         type="button"
         aria-label={
           open
-            ? "Close navigation menu"
-            : "Open navigation menu"
+            ? labels.close
+            : labels.open
         }
         aria-expanded={open}
         onClick={() =>
@@ -62,7 +84,7 @@ export function MobileMenu() {
       {open && (
         <button
           type="button"
-          aria-label="Close navigation menu"
+          aria-label={labels.close}
           onClick={closeMenu}
           className="fixed inset-0 z-40 bg-background/40 backdrop-blur-sm md:hidden"
         />
@@ -97,12 +119,12 @@ export function MobileMenu() {
               "duration-200",
             ],
             open
-              ? "translate-y-0 opacity-100"
+              ? "translate-y-0 opacity-1"
               : "-translate-y-2 opacity-0",
           )}
         >
           <nav
-            aria-label="Mobile navigation"
+            aria-label={labels.navigation}
             className="flex flex-col gap-1 p-2"
           >
             {navigation.map((item) => {
@@ -116,7 +138,7 @@ export function MobileMenu() {
 
               return (
                 <Link
-                  key={item.href}
+                  key={item.key}
                   href={href}
                   onClick={closeMenu}
                   aria-current={
@@ -138,7 +160,11 @@ export function MobileMenu() {
                       : "text-fg-secondary hover:bg-surface hover:text-fg",
                   )}
                 >
-                  {item.label}
+                  {
+                    navigationLabels[
+                      item.key
+                    ]
+                  }
                 </Link>
               );
             })}

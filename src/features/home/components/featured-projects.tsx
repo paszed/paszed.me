@@ -14,7 +14,9 @@ import { ProjectCard } from "@/features/projects";
 import { getFeaturedProjects } from "@/lib/projects";
 
 interface FeaturedProjectsProps {
-  content: HomeFeaturedProjects;
+  content: HomeFeaturedProjects & {
+    readLabel: string;
+  };
 }
 
 export function FeaturedProjects({
@@ -25,17 +27,18 @@ export function FeaturedProjects({
   return (
     <Section>
       <Container>
-        <Stack gap="lg">
+        <Stack gap="xl">
           <SectionHeader
-            eyebrow="Selected Work"
+            eyebrow={content.eyebrow}
             title={content.title}
             description={content.description}
             actions={
+
               <Link href="/projects">
-                <Button variant="outline">
-                  View All Projects
-                </Button>
-              </Link>
+  <Button>
+    {content.actionLabel}
+  </Button>
+</Link>
             }
           />
 
@@ -48,12 +51,13 @@ export function FeaturedProjects({
                 <ProjectCard
                   key={project.slug}
                   {...project}
+                  readLabel={content.readLabel}
                 />
               ))}
             </Grid>
           ) : (
             <Text muted>
-              Projects are being prepared.
+              {content.emptyState}
             </Text>
           )}
         </Stack>

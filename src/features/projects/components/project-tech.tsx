@@ -13,32 +13,56 @@ import { ProjectSection } from "./project-section";
 
 interface ProjectTechProps {
   project: Project;
+
+  labels: {
+    technology: string;
+    purpose: string;
+    technologyPurpose: string;
+  };
 }
 
 export function ProjectTech({
   project,
+  labels,
 }: ProjectTechProps) {
   if (project.technologies.length === 0) {
     return null;
   }
 
   return (
-    <ProjectSection title="Technology & Tools">
+    <ProjectSection title={labels.technology}>
       <Measure size="3xl">
-        <Surface className="overflow-hidden rounded-lg">
+        <Surface>
           <Table>
-            <TableBody>
-              {project.technologies.map((technology) => (
-                <TableRow key={technology.name}>
-                  <TableHead className="w-40">
-                    {technology.name}
-                  </TableHead>
+            <TableHead>
+              <TableRow>
+                <TableCell>
+                  {labels.technology}
+                </TableCell>
 
-                  <TableCell>
-                    {technology.purpose ?? "Used as part of the system architecture."}
-                  </TableCell>
-                </TableRow>
-              ))}
+                <TableCell>
+                  {labels.purpose}
+                </TableCell>
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {project.technologies.map(
+                (technology) => (
+                  <TableRow
+                    key={technology.name}
+                  >
+                    <TableCell>
+                      {technology.name}
+                    </TableCell>
+
+                    <TableCell>
+                      {technology.purpose ??
+                        labels.technologyPurpose}
+                    </TableCell>
+                  </TableRow>
+                ),
+              )}
             </TableBody>
           </Table>
         </Surface>

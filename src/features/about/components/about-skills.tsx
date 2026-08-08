@@ -21,19 +21,19 @@ export function AboutSkills({
       <Stack gap="xl">
         <Stack gap="sm">
           <Heading as="h2">
-            Tools & Technologies
+            {content.title}
           </Heading>
 
           <Text
             muted
             className="max-w-2xl leading-relaxed"
           >
-            The technologies and workflows I use to design, build, test, and maintain modern software systems.
+            {content.description}
           </Text>
         </Stack>
 
         <Stack gap="lg">
-          {content.map((group) => (
+          {content.items.map((group) => (
             <Stack
               key={group.category}
               gap="md"
