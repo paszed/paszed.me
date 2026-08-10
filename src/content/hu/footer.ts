@@ -11,7 +11,7 @@ export const footer = {
     tagline:
       "Építés. Tanulás. Szállítás.",
     copyright:
-      "© {year} {owner}. Minden jog fenntartva.",
+      "© {year} Alapworks. Minden jog fenntartva.",
     builtWith:
       "Next.js, TypeScript és Tailwind CSS használatával készült.",
   },
@@ -23,11 +23,10 @@ export const footer = {
     },
     {
       label: "Projektek",
-      href: "/projects",
+      href: "/work",
     },
     {
       label: "Napló",
-      href: "/journal",
     },
     {
       label: "Rólam",
@@ -38,7 +37,6 @@ export const footer = {
   resources: [
     {
       label: "Eszközök",
-      href: "/uses",
     },
     {
       label: "Linkek",

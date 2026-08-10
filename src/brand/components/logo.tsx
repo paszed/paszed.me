@@ -1,21 +1,16 @@
 import Link from "next/link";
 
 import { site } from "@/config/site";
-import { Text } from "@/design-system";
 
 export function BrandLogo() {
   return (
     <Link
       href="/"
       aria-label={`${site.name} homepage`}
+      data-testid="brand-logo"
       className="group inline-flex items-center font-mono text-lg font-semibold tracking-tight"
     >
-      <Text
-        as="span"
-        className="transition-colors duration-200 group-hover:text-accent"
-      >
-        {site.brand}
-      </Text>
+      {site.brand}
 
       <span
         aria-hidden="true"

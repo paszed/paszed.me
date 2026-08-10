@@ -11,7 +11,7 @@ export const footer = {
     tagline:
       "Bauen. Lernen. Liefern.",
     copyright:
-      "© {year} {owner}. Alle Rechte vorbehalten.",
+      "© {year} Alapworks. Alle Rechte vorbehalten.",
     builtWith:
       "Erstellt mit Next.js, TypeScript & Tailwind CSS.",
   },
@@ -23,11 +23,10 @@ export const footer = {
     },
     {
       label: "Projekte",
-      href: "/projects",
+      href: "/work",
     },
     {
       label: "Journal",
-      href: "/journal",
     },
     {
       label: "Über mich",
@@ -38,7 +37,6 @@ export const footer = {
   resources: [
     {
       label: "Werkzeuge",
-      href: "/uses",
     },
     {
       label: "Links",

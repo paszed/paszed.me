@@ -23,10 +23,10 @@ const defaultProps = {
 
   navigationLabels: {
     home: "Home",
-    projects: "Projects",
-    about: "About",
-    journal: "Journal",
-    now: "Now",
+    services: "Services",
+    work: "Our Work",
+    about: "About Us",
+    contact: "Contact",
   },
 };
 
@@ -62,9 +62,12 @@ vi.mock("next/link", () => ({
   ),
 }));
 
-vi.mock("@/features/language-switcher", () => ({
-  LanguageSwitcher: () => null,
-}));
+vi.mock(
+  "@/features/language-switcher",
+  () => ({
+    LanguageSwitcher: () => null,
+  }),
+);
 
 vi.mock("@/config/navigation", () => ({
   navigation: [
@@ -73,12 +76,20 @@ vi.mock("@/config/navigation", () => ({
       key: "home",
     },
     {
+      href: "/services",
+      key: "services",
+    },
+    {
       href: "/projects",
-      key: "projects",
+      key: "work",
     },
     {
       href: "/about",
       key: "about",
+    },
+    {
+      href: "/contact",
+      key: "contact",
     },
   ],
 }));
@@ -209,7 +220,16 @@ describe("MobileMenu", () => {
 
     expect(
       screen.getByRole("link", {
-        name: "Projects",
+        name: "Services",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/en/services",
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Our Work",
       }),
     ).toHaveAttribute(
       "href",
@@ -218,11 +238,20 @@ describe("MobileMenu", () => {
 
     expect(
       screen.getByRole("link", {
-        name: "About",
+        name: "About Us",
       }),
     ).toHaveAttribute(
       "href",
       "/en/about",
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Contact",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/en/contact",
     );
   });
 
@@ -242,20 +271,25 @@ describe("MobileMenu", () => {
       }),
     );
 
-    const projects =
+    const work =
       screen.getByRole(
         "link",
         {
-          name: "Projects",
+          name: "Our Work",
         },
       );
 
-    expect(projects).toHaveClass(
+    expect(work).toHaveClass(
       "bg-surface",
     );
 
-    expect(projects).toHaveClass(
+    expect(work).toHaveClass(
       "text-accent",
+    );
+
+    expect(work).toHaveAttribute(
+      "aria-current",
+      "page",
     );
   });
 
@@ -270,7 +304,7 @@ describe("MobileMenu", () => {
 
     fireEvent.click(
       screen.getByRole("link", {
-        name: "Projects",
+        name: "Our Work",
       }),
     );
 
@@ -305,7 +339,7 @@ describe("MobileMenu", () => {
 
     expect(
       screen.getByRole("link", {
-        name: "Projects",
+        name: "Our Work",
       }),
     ).toBeInTheDocument();
 

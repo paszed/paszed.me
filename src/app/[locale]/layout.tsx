@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import { GlobalSearch } from "@/features/search";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale } from "@/i18n/routing";

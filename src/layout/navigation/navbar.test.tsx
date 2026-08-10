@@ -28,10 +28,7 @@ vi.mock("next/link", () => ({
   }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     href: string;
   }) => (
-    <a
-      href={href}
-      {...props}
-    >
+    <a href={href} {...props}>
       {children}
     </a>
   ),
@@ -39,9 +36,7 @@ vi.mock("next/link", () => ({
 
 vi.mock("@/brand", () => ({
   BrandLogo: () => (
-    <div data-testid="brand-logo">
-      Brand
-    </div>
+    <div data-testid="brand-logo">Brand</div>
   ),
 }));
 
@@ -52,12 +47,20 @@ vi.mock("@/config/navigation", () => ({
       key: "home",
     },
     {
+      href: "/services",
+      key: "services",
+    },
+    {
       href: "/projects",
-      key: "projects",
+      key: "work",
     },
     {
       href: "/about",
       key: "about",
+    },
+    {
+      href: "/contact",
+      key: "contact",
     },
   ],
 }));
@@ -105,9 +108,7 @@ describe("Navbar", () => {
   });
 
   it("renders the brand logo", () => {
-    renderWithProviders(
-      <Navbar />,
-    );
+    renderWithProviders(<Navbar />);
 
     expect(
       screen.getByTestId("brand-logo"),
@@ -115,9 +116,7 @@ describe("Navbar", () => {
   });
 
   it("renders the primary navigation", () => {
-    renderWithProviders(
-      <Navbar />,
-    );
+    renderWithProviders(<Navbar />);
 
     expect(
       screen.getByRole("navigation"),
@@ -125,9 +124,7 @@ describe("Navbar", () => {
   });
 
   it("renders all navigation links", () => {
-    renderWithProviders(
-      <Navbar />,
-    );
+    renderWithProviders(<Navbar />);
 
     expect(
       screen.getByRole("link", {
@@ -140,7 +137,16 @@ describe("Navbar", () => {
 
     expect(
       screen.getByRole("link", {
-        name: "Projects",
+        name: "Services",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/en/services",
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Our Work",
       }),
     ).toHaveAttribute(
       "href",
@@ -149,11 +155,20 @@ describe("Navbar", () => {
 
     expect(
       screen.getByRole("link", {
-        name: "About",
+        name: "About Us",
       }),
     ).toHaveAttribute(
       "href",
       "/en/about",
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Contact",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/en/contact",
     );
   });
 
@@ -165,13 +180,11 @@ describe("Navbar", () => {
       "/en/projects",
     );
 
-    renderWithProviders(
-      <Navbar />,
-    );
+    renderWithProviders(<Navbar />);
 
     expect(
       screen.getByRole("link", {
-        name: "Projects",
+        name: "Our Work",
       }),
     ).toHaveAttribute(
       "aria-current",
@@ -180,9 +193,7 @@ describe("Navbar", () => {
   });
 
   it("opens the command palette", () => {
-    renderWithProviders(
-      <Navbar />,
-    );
+    renderWithProviders(<Navbar />);
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -196,9 +207,7 @@ describe("Navbar", () => {
   });
 
   it("renders the search shortcut", () => {
-    renderWithProviders(
-      <Navbar />,
-    );
+    renderWithProviders(<Navbar />);
 
     expect(
       screen.getByText("⌘K"),
@@ -212,9 +221,7 @@ describe("Navbar", () => {
   });
 
   it("renders desktop and mobile controls", () => {
-    renderWithProviders(
-      <Navbar />,
-    );
+    renderWithProviders(<Navbar />);
 
     expect(
       screen.getAllByTestId(
@@ -231,9 +238,7 @@ describe("Navbar", () => {
 
   it("renders the header", () => {
     const { container } =
-      renderWithProviders(
-        <Navbar />,
-      );
+      renderWithProviders(<Navbar />);
 
     expect(
       container.querySelector("header"),

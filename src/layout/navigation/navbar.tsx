@@ -30,49 +30,51 @@ export function Navbar() {
             content.navigationLabels.navigation
           }
         >
-          <BrandLogo />
+          <div className="flex items-center justify-between gap-6">
+            <BrandLogo />
 
-          <div className="flex items-center gap-4">
-            <ul className="hidden items-center gap-7 lg:flex">
-              {navigation.map((item) => {
-                const href = localizePath(
-                  item.href,
-                  locale,
-                );
+            <div className="flex items-center gap-4">
+              <ul className="hidden items-center gap-7 lg:flex">
+                {navigation.map((item) => {
+                  const href = localizePath(
+                    item.href,
+                    locale,
+                  );
 
-                return (
-                  <li key={item.key}>
-                    <NavLink
-                      href={href}
-                      label={
-                        content.navigation[
-                          item.key
-                        ]
-                      }
-                      currentPath={pathname}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
+                  return (
+                    <li key={item.key}>
+                      <NavLink
+                        href={href}
+                        label={
+                          content.navigation[
+                            item.key
+                          ]
+                        }
+                        currentPath={pathname}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
 
-            <NavbarActions
-              searchLabel={
-                content.navigationLabels.search
-              }
-            />
-
-            <div className="flex items-center gap-2 lg:hidden">
-              <ThemeToggle />
-
-              <MobileMenu
-                labels={
-                  content.navigationLabels
-                }
-                navigationLabels={
-                  content.navigation
+              <NavbarActions
+                searchLabel={
+                  content.navigationLabels.search
                 }
               />
+
+              <div className="flex items-center gap-2 lg:hidden">
+                <ThemeToggle />
+
+                <MobileMenu
+                  labels={
+                    content.navigationLabels
+                  }
+                  navigationLabels={
+                    content.navigation
+                  }
+                />
+              </div>
             </div>
           </div>
         </nav>

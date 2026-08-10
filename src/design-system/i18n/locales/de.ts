@@ -5,7 +5,6 @@ export const de: TranslationDictionary = {
     home: "Startseite",
     about: "Über mich",
     projects: "Projekte",
-    journal: "Journal",
     contact: "Kontakt",
   },
 

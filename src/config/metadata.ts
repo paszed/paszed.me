@@ -20,14 +20,12 @@ export const metadata: Metadata = {
 
   authors: [
     {
-      name: site.owner,
+      name: site.name,
       url: site.url,
     },
   ],
 
-  creator: site.owner,
-
-  publisher: site.owner,
+  publisher: site.name,
 
   alternates: {
     canonical: "/",
@@ -38,21 +36,21 @@ export const metadata: Metadata = {
   },
 
   keywords: [
-    "Edvard Pasz",
-    "Paszed",
-    "Software Engineer",
+    "Alapworks",
+    "Software Engineering",
     "Software Architecture",
-    "Developer Tools",
-    "Developer Experience",
+    "Web Development",
+    "Digital Products",
+    "Web Applications",
+    "Automation",
+    "Artificial Intelligence",
+    "AI Engineering",
     "TypeScript",
     "React",
     "Next.js",
-    "Go",
-    "Artificial Intelligence",
-    "AI Engineering",
-    "Developer Infrastructure",
-    "Systems Design",
-    "Technical Writing",
+    "PostgreSQL",
+    "Developer Experience",
+    "Developer Tools",
   ],
 
   openGraph: {
@@ -60,7 +58,6 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-
     title: site.title,
     description: site.description,
 
@@ -69,24 +66,20 @@ export const metadata: Metadata = {
         url: site.ogImage,
         width: 1200,
         height: 630,
-        alt: `${site.name} — ${site.owner}`,
+        alt: `${site.name} — ${site.title}`,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-
-    creator: site.social.x
-      .replace("https://x.com/", "@"),
-
     title: site.title,
     description: site.description,
 
     images: [
       {
         url: site.ogImage,
-        alt: `${site.name} — ${site.owner}`,
+        alt: `${site.name} — ${site.title}`,
       },
     ],
   },
@@ -98,7 +91,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,

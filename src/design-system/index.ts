@@ -58,7 +58,6 @@ export {
 } from "./icons";
 
 export {
-  ReadingProgressBar,
   Table,
   TableBody,
   TableCell,

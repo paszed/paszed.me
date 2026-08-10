@@ -1,4 +1,5 @@
 import { site } from "@/config/site";
+
 import type { Schema } from "./types";
 
 export function createOrganizationSchema(): Schema {

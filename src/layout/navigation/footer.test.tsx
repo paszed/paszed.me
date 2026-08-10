@@ -11,12 +11,12 @@ const mockFooter = {
   labels: {
     navigation: "Navigation",
     resources: "Resources",
-    developer: "Developer",
+    developer: "Engineering",
     contact: "Contact",
     description:
-      "Building developer tools, AI applications, and modern web products.",
+      "Building software products, digital experiences, and engineering systems.",
     tagline:
-      "Build. Learn. Ship.",
+      "Build. Solve. Ship.",
     copyright:
       "© {year} {owner}. All rights reserved.",
     builtWith:
@@ -28,26 +28,42 @@ const mockFooter = {
       label: "Home",
       href: "/",
     },
+    {
+      label: "Services",
+      href: "/services",
+    },
+    {
+      label: "Our Work",
+      href: "/projects",
+    },
+    {
+      label: "About Us",
+      href: "/about",
+    },
+    {
+      label: "Contact",
+      href: "/contact",
+    },
   ],
 
   resources: [
     {
-      label: "Uses",
-      href: "/uses",
+      label: "Projects",
+      href: "/projects",
     },
   ],
 
   developer: [
     {
       label: "GitHub",
-      href: "https://github.com/paszed",
+      href: "https://github.com/alapworks",
     },
   ],
 
   contact: [
     {
-      label: "Email",
-      href: "mailto:edvard@paszed.me",
+      label: "Tom",
+      href: "mailto:tom@alapworks.com",
     },
   ],
 } as const;
@@ -74,7 +90,9 @@ vi.mock("@/design-system", async (importOriginal) => {
 
 vi.mock("@/brand", () => ({
   BrandLogo: () => (
-    <div data-testid="brand-logo" />
+    <div data-testid="brand-logo">
+      Brand
+    </div>
   ),
 }));
 
@@ -116,9 +134,39 @@ describe("Footer", () => {
 
     expect(
       screen.getByText(
-        /Building developer tools/i,
+        /Building software products/i,
       ),
     ).toBeInTheDocument();
+  });
+
+  it("renders the engineering link", () => {
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "GitHub",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "https://github.com/alapworks",
+    );
+  });
+
+  it("renders the business contact", () => {
+    renderWithProviders(
+      <Footer content={mockFooter} />,
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Tom",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "mailto:tom@alapworks.com",
+    );
   });
 
   it("renders the current year", () => {

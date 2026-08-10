@@ -1,19 +1,22 @@
+export interface SiteSocial {
+  github?: string;
+  linkedin?: string;
+  x?: string;
+}
+
 export const site = {
-  name: "Paszed",
+  name: "Alapworks",
+  brand: "alapworks",
 
-  brand: "paszed",
-
-  owner: "Edvard Pasz",
-
-  url: "https://paszed.me",
+  url: "https://alapworks.com",
 
   title:
-    "Edvard Pasz — Developer Tools, Software Engineering & AI Workflows",
+    "Alapworks — Software Engineering & Digital Products",
 
   description:
-    "Personal website of Edvard Pasz. Building developer tools, exploring practical AI workflows, and documenting software engineering, architecture, terminal workflows, and the systems behind the projects I create.",
+    "Alapworks is a software engineering studio building modern web products, digital experiences, and engineering systems.",
 
-  email: "edvard@paszed.me",
+  email: undefined,
 
   locale: "en_US",
 
@@ -22,10 +25,10 @@ export const site = {
   themeColor: "#f8f5ef",
 
   social: {
-    github: "https://github.com/paszed",
-    linkedin: "https://linkedin.com/in/paszed",
-    x: "https://x.com/paszed_",
-  },
+    github: undefined,
+    linkedin: undefined,
+    x: undefined,
+  } satisfies SiteSocial,
 
   ogImage: "/og.png",
 } as const;

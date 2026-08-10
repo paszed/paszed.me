@@ -1,23 +1,5 @@
-"use client";
+import { ThemeProvider } from "@/design-system/providers/theme-provider";
 
-import type { ReactNode } from "react";
-
-import { CommandPaletteProvider } from "@/features/search";
-
-import { ThemeProvider } from "./theme-provider";
-
-interface ProvidersProps {
-  children: ReactNode;
-}
-
-export function Providers({
-  children,
-}: ProvidersProps) {
-  return (
-    <ThemeProvider>
-      <CommandPaletteProvider>
-        {children}
-      </CommandPaletteProvider>
-    </ThemeProvider>
-  );
+export function Providers({ children }: { children: React.ReactNode }) {
+  return <ThemeProvider>{children}</ThemeProvider>;
 }

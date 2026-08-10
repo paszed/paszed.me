@@ -6,7 +6,6 @@ import {
   ThemeToggle,
 } from "@/design-system";
 import { LanguageSwitcher } from "@/features/language-switcher";
-import { useCommandPalette } from "@/features/search";
 
 interface NavbarActionsProps {
   searchLabel: string;

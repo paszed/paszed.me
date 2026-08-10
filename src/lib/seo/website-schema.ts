@@ -1,7 +1,10 @@
 import { site } from "@/config/site";
+
 import type { Schema } from "./types";
 
-export function createWebsiteSchema(): Schema {
+export function createWebsiteSchema(
+  language = site.language,
+): Schema {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -12,11 +15,12 @@ export function createWebsiteSchema(): Schema {
 
     description: site.description,
 
-    inLanguage: site.language,
+    inLanguage: language,
 
     publisher: {
-      "@type": "Person",
-      name: site.owner,
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
     },
   };
 }

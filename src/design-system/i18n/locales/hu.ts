@@ -5,7 +5,6 @@ export const hu: TranslationDictionary = {
     home: "Kezdőlap",
     about: "Rólam",
     projects: "Projektek",
-    journal: "Napló",
     contact: "Kapcsolat",
   },
 

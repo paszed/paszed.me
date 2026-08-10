@@ -1,21 +1,25 @@
-export const navigation = [
+ export const navigation = [
   {
-    key: "projects",
-    href: "/projects",
+      key: "home",
+      href: "/",
   },
   {
-    key: "journal",
-    href: "/journal",
+      key: "services",
+      href: "/services",
   },
   {
-    key: "about",
-    href: "/about",
+      key: "work",
+      href: "/work",
   },
   {
-    key: "now",
-    href: "/now",
+      key: "about",
+      href: "/about",
   },
-] as const;
+  {
+      key: "contact",
+      href: "/contact",
+  },
+  ] as const;
 
-export type Navigation =
-  typeof navigation[number];
+  export type Navigation =
+  (typeof navigation)[number];

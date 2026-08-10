@@ -1,11 +1,15 @@
+export interface HomeHeroAction {
+  label: string;
+  href: string;
+}
+
 export interface HomeHero {
-  title: string;
-  description: string;
   eyebrow: string;
-  actions?: {
-    primary?: string;
-    secondary?: string;
-  };
+  title: string;
+  subtitle: string;
+  description: string;
+  primaryCta: HomeHeroAction;
+  secondaryCta: HomeHeroAction;
 }
 
 export interface HomeCapabilitiesItem {
@@ -14,6 +18,7 @@ export interface HomeCapabilitiesItem {
 }
 
 export interface HomeCapabilities {
+  eyebrow: string;
   title: string;
   description: string;
   items: readonly HomeCapabilitiesItem[];
@@ -25,6 +30,7 @@ export interface HomeHowIHelpItem {
 }
 
 export interface HomeHowIHelp {
+  eyebrow: string;
   title: string;
   description: string;
   items: readonly HomeHowIHelpItem[];
@@ -49,12 +55,25 @@ export interface HomeLatestWriting {
   readLabel: string;
 }
 
+export interface HomeContactAction {
+  label: string;
+  href: string;
+}
+
+export interface HomeContact {
+  title: string;
+  description: string;
+  primaryCta: HomeContactAction;
+  secondaryCta: HomeContactAction;
+}
+
 export interface HomePhilosophyItem {
   title: string;
   description: string;
 }
 
 export interface HomePhilosophy {
+  eyebrow: string;
   title: string;
   description: string;
   items: readonly HomePhilosophyItem[];
@@ -66,5 +85,6 @@ export interface HomeContent {
   howIHelp: HomeHowIHelp;
   featuredProjects: HomeFeaturedProjects;
   latestWriting: HomeLatestWriting;
+  contact: HomeContact;
   philosophy: HomePhilosophy;
 }

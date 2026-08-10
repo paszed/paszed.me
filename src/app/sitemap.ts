@@ -1,18 +1,16 @@
 import type { MetadataRoute } from "next";
 
 import { site } from "@/config/site";
-import { getPublishedArticles } from "@/lib/journal";
-import { getProjectSlugs } from "@/lib/projects";
+import { services } from "@/content/services";
+import { work } from "@/content/work";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
     "",
+    "/services",
+    "/work",
     "/about",
-    "/projects",
-    "/journal",
-    "/uses",
-    "/now",
-    "/links",
+    "/contact",
   ];
 
   const staticPages = pages.map((page) => ({
@@ -21,23 +19,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page === "" ? 1 : 0.8,
   }));
 
-  const projectPages = getProjectSlugs().map((slug) => ({
-    url: `${site.url}/projects/${slug}`,
+  const servicePages = services.map((service) => ({
+    url: `${site.url}/services/${service.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  const journalPages = getPublishedArticles().map((article) => ({
-    url: `${site.url}/journal/${article.slug}`,
-    lastModified:
-      article.publishedAt ?? undefined,
+  const workPages = work.map((item) => ({
+    url: `${site.url}/work/${item.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
   return [
     ...staticPages,
-    ...projectPages,
-    ...journalPages,
+    ...servicePages,
+    ...workPages,
   ];
 }

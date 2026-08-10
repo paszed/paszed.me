@@ -24,7 +24,7 @@ describe("SEO", () => {
       const article = {
         title: "Testing Architecture",
         description: "An article about testing.",
-        author: "Edvard Pasz",
+        author: "Alapworks",
         slug: "testing-architecture",
         publishedAt,
       } as JournalEntry;
@@ -60,7 +60,7 @@ describe("SEO", () => {
       const article = {
         title: "Draft",
         description: "Draft article",
-        author: "Edvard Pasz",
+        author: "Alapworks",
         slug: "draft",
       } as JournalEntry;
 
@@ -115,24 +115,31 @@ describe("SEO", () => {
   });
 
   describe("createMetadata", () => {
-    it("creates metadata using its defaults", () => {
+    it("creates localized metadata using its defaults", () => {
       const metadata = createMetadata({
         title: "Home",
-        description: "Personal website",
+        description: "Alapworks home",
+        locale: "en",
       });
 
       expect(metadata).toEqual({
         title: "Home",
-        description: "Personal website",
+        description: "Alapworks home",
         alternates: {
-          canonical: site.url,
+          canonical: `${site.url}/en`,
+          languages: {
+            en: `${site.url}/en`,
+            de: `${site.url}/de`,
+            hu: `${site.url}/hu`,
+          },
         },
         openGraph: {
           type: "website",
-          url: site.url,
+          url: `${site.url}/en`,
           siteName: site.name,
           title: "Home",
-          description: "Personal website",
+          description: "Alapworks home",
+          locale: "en_US",
           images: [
             {
               url: `${site.url}${site.ogImage}`,
@@ -145,19 +152,19 @@ describe("SEO", () => {
         twitter: {
           card: "summary_large_image",
           title: "Home",
-          description: "Personal website",
+          description: "Alapworks home",
           images: [
             `${site.url}${site.ogImage}`,
           ],
-          creator: site.social.x,
         },
       });
     });
 
-    it("supports custom metadata options", () => {
+    it("supports custom localized metadata options", () => {
       const metadata = createMetadata({
         title: "Article",
         description: "Article description",
+        locale: "de",
         path: "/journal/article",
         image: "/custom-og.png",
         type: "article",
@@ -166,11 +173,21 @@ describe("SEO", () => {
       expect(metadata).toMatchObject({
         alternates: {
           canonical:
-            `${site.url}/journal/article`,
+            `${site.url}/de/journal/article`,
+          languages: {
+            en:
+              `${site.url}/en/journal/article`,
+            de:
+              `${site.url}/de/journal/article`,
+            hu:
+              `${site.url}/hu/journal/article`,
+          },
         },
         openGraph: {
           type: "article",
-          url: `${site.url}/journal/article`,
+          url:
+            `${site.url}/de/journal/article`,
+          locale: "de_DE",
           images: [
             {
               url:
@@ -192,12 +209,16 @@ describe("SEO", () => {
 
       const metadata = createMetadata({
         title: "External Image",
-        description: "Metadata with external image",
+        description:
+          "Metadata with external image",
+        locale: "hu",
         image,
       });
 
       expect(metadata).toMatchObject({
         openGraph: {
+          url: `${site.url}/hu`,
+          locale: "hu_HU",
           images: [
             {
               url: image,
@@ -227,22 +248,39 @@ describe("SEO", () => {
   });
 
   describe("createPersonSchema", () => {
-    it("creates person structured data", () => {
-      const schema = createPersonSchema();
-
-      expect(schema).toMatchObject({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: site.owner,
-        url: site.url,
-        email: site.email,
-        image: `${site.url}${site.ogImage}`,
+    it("creates person structured data from explicit person data", () => {
+      const person = {
+        name: "Edvard Pasz",
+        url: "https://paszed.me",
+        email: "edvard@paszed.me",
+        image: "https://paszed.me/avatar.png",
         sameAs: [
-          site.social.github,
-          site.social.linkedin,
-          site.social.x,
+          "https://github.com/paszed",
+          "https://linkedin.com/in/paszed",
+          "https://x.com/paszed",
         ],
         jobTitle: "Software Engineer",
+        knowsAbout: [
+          "Software Engineering",
+          "Artificial Intelligence",
+          "TypeScript",
+          "Next.js",
+          "React",
+        ],
+      };
+
+      const schema = createPersonSchema(person);
+
+      expect(schema).toEqual({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: person.name,
+        url: person.url,
+        email: person.email,
+        image: person.image,
+        sameAs: person.sameAs,
+        jobTitle: person.jobTitle,
+        knowsAbout: person.knowsAbout,
       });
 
       expect(schema.knowsAbout).toEqual(
@@ -254,6 +292,20 @@ describe("SEO", () => {
           "React",
         ]),
       );
+    });
+
+    it("supports a person with only required data", () => {
+      const person = {
+        name: "Tom",
+      };
+
+      expect(
+        createPersonSchema(person),
+      ).toEqual({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Tom",
+      });
     });
   });
 
@@ -306,7 +358,8 @@ describe("SEO", () => {
         },
         {
           label: "GitHub",
-          href: "https://github.com/example/project",
+          href:
+            "https://github.com/example/project",
         },
       ]);
 
@@ -341,7 +394,8 @@ describe("SEO", () => {
         },
         {
           label: "Repository",
-          href: "https://example.com/repository",
+          href:
+            "https://example.com/repository",
         },
       ]);
 
@@ -355,7 +409,7 @@ describe("SEO", () => {
       });
     });
 
-    it("falls back to the local project URL when links are absent", () => {
+    it("falls back to the localized project URL when links are absent", () => {
       const project = createProject([]);
 
       const schema =
@@ -363,7 +417,7 @@ describe("SEO", () => {
 
       expect(schema).toMatchObject({
         url:
-          `${site.url}/projects/bootstrapper`,
+          `${site.url}/en/projects/bootstrapper`,
       });
 
       expect(schema).not.toHaveProperty(
@@ -388,8 +442,9 @@ describe("SEO", () => {
         description: site.description,
         inLanguage: site.language,
         publisher: {
-          "@type": "Person",
-          name: site.owner,
+          "@type": "Organization",
+          name: site.name,
+          url: site.url,
         },
       });
     });

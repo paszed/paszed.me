@@ -1,38 +1,58 @@
-import { site } from "@/config/site";
 import type { Schema } from "./types";
 
-export function createPersonSchema(): Schema {
+export interface PersonSchemaInput {
+  name: string;
+  url?: string;
+  email?: string;
+  image?: string;
+  sameAs?: readonly string[];
+  jobTitle?: string;
+  knowsAbout?: readonly string[];
+}
+
+export function createPersonSchema(
+  person: PersonSchemaInput,
+): Schema {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
 
-    name: site.owner,
+    name: person.name,
 
-    url: site.url,
+    ...(person.url
+      ? {
+          url: person.url,
+        }
+      : {}),
 
-    email: site.email,
+    ...(person.email
+      ? {
+          email: person.email,
+        }
+      : {}),
 
-    image: `${site.url}${site.ogImage}`,
+    ...(person.image
+      ? {
+          image: person.image,
+        }
+      : {}),
 
-    sameAs: [
-      site.social.github,
-      site.social.linkedin,
-      site.social.x,
-    ],
+    ...(person.sameAs?.length
+      ? {
+          sameAs: person.sameAs,
+        }
+      : {}),
 
-    jobTitle: "Software Engineer",
+    ...(person.jobTitle
+      ? {
+          jobTitle: person.jobTitle,
+        }
+      : {}),
 
-    knowsAbout: [
-      "Software Engineering",
-      "Software Architecture",
-      "Developer Tools",
-      "Developer Experience",
-      "Artificial Intelligence",
-      "AI Engineering",
-      "TypeScript",
-      "Go",
-      "Next.js",
-      "React",
-    ],
+    ...(person.knowsAbout?.length
+      ? {
+          knowsAbout: person.knowsAbout,
+        }
+      : {}),
   };
 }

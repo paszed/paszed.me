@@ -24,11 +24,13 @@ interface MobileMenuProps {
     close: string;
     navigation: string;
   };
-
-  navigationLabels: Record<
-    string,
-    string
-  >;
+  navigationLabels: {
+    home: string;
+    services: string;
+    work: string;
+    about: string;
+    contact: string;
+  };
 }
 
 export function MobileMenu({
@@ -119,7 +121,7 @@ export function MobileMenu({
               "duration-200",
             ],
             open
-              ? "translate-y-0 opacity-1"
+              ? "translate-y-0 opacity-100"
               : "-translate-y-2 opacity-0",
           )}
         >
@@ -160,11 +162,9 @@ export function MobileMenu({
                       : "text-fg-secondary hover:bg-surface hover:text-fg",
                   )}
                 >
-                  {
-                    navigationLabels[
-                      item.key
-                    ]
-                  }
+                  {navigationLabels[
+                    item.key
+                  ]}
                 </Link>
               );
             })}

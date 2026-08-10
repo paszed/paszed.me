@@ -18,7 +18,7 @@ export const home = {
 
     secondaryCta: {
       label: "View Our Work",
-      href: "/projects",
+      href: "/work",
     },
   },
 
@@ -129,7 +129,7 @@ export const home = {
 
     secondaryCta: {
       label: "View Our Work",
-      href: "/projects",
+      href: "/work",
     },
   },
 

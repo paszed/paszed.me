@@ -3,7 +3,6 @@ export interface TranslationDictionary {
     home: string;
     about: string;
     projects: string;
-    journal: string;
     contact: string;
   };
 

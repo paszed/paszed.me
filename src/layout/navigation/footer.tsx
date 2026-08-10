@@ -52,10 +52,21 @@ export function Footer({
     new Date().getFullYear();
 
   return (
-    <footer>
+    <footer className="border-t border-border">
       <Container>
-        <div>
-          <Stack>
+        <div
+          className="
+            grid
+            gap-10
+            py-10
+            sm:grid-cols-2
+            lg:grid-cols-5
+          "
+        >
+          <Stack
+            gap="md"
+            className="lg:col-span-2"
+          >
             <BrandLogo />
 
             <Text
@@ -68,7 +79,12 @@ export function Footer({
 
             <Text
               size="xs"
-              className="font-medium uppercase tracking-[0.16em] text-accent"
+              className="
+                font-medium
+                uppercase
+                tracking-[0.16em]
+                text-accent
+              "
             >
               {content.labels.tagline}
             </Text>
@@ -121,7 +137,7 @@ export function Footer({
               )
               .replace(
                 "{owner}",
-                site.owner,
+                site.name,
               )}
           </Text>
 
