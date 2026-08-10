@@ -1,46 +1,52 @@
 "use client";
 
-import {
-  ActionIcon,
-  Button,
-  ThemeToggle,
-} from "@/design-system";
+import Link from "next/link";
+
+import { ThemeToggle } from "@/design-system";
 import { LanguageSwitcher } from "@/features/language-switcher";
+import type { Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/navigation";
 
 interface NavbarActionsProps {
-  searchLabel: string;
+  contactLabel: string;
+  locale: Locale;
 }
 
 export function NavbarActions({
-  searchLabel,
+  contactLabel,
+  locale,
 }: NavbarActionsProps) {
-  const { toggle } =
-    useCommandPalette();
-
   return (
-    <div className="flex items-center gap-3">
-      <Button
-        variant="outline"
-        className="group"
-        onClick={toggle}
-        aria-label={searchLabel}
-      >
-        <ActionIcon name="search" />
-
-        <span>
-          {searchLabel}
-        </span>
-
-        <kbd className="rounded-md border border-border px-1.5 py-0.5 text-[11px] text-fg-muted transition-colors group-hover:border-accent/40">
-          ⌘K
-        </kbd>
-      </Button>
-
+    <div className="flex items-center gap-2">
       <LanguageSwitcher />
 
-      <div className="rounded-xl border border-border bg-surface p-1">
-        <ThemeToggle />
-      </div>
+      <ThemeToggle />
+
+      <Link
+        href={localizePath("/contact", locale)}
+        className="
+          inline-flex
+          h-9
+          items-center
+          justify-center
+          rounded-full
+          bg-fg
+          px-4
+          text-xs
+          font-semibold
+          text-background
+          transition-[transform,background-color,opacity]
+          duration-200
+          hover:bg-accent
+          hover:text-background
+          active:scale-[0.97]
+          focus-visible:outline-2
+          focus-visible:outline-offset-2
+          focus-visible:outline-accent
+        "
+      >
+        {contactLabel}
+      </Link>
     </div>
   );
 }

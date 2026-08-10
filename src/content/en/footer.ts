@@ -1,5 +1,3 @@
-import { profiles } from "@/content/profiles";
-
 export const footer = {
   labels: {
     navigation: "Navigation",
@@ -44,12 +42,7 @@ export const footer = {
     },
   ],
 
-  developer: [
-    profiles.github,
-    profiles.npm,
-  ],
+  developer: [],
 
-  contact: [
-    profiles.email,
-  ],
+  contact: [],
 } as const;

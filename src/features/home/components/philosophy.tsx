@@ -41,11 +41,11 @@ export function Philosophy({
             columns={3}
             gap="lg"
           >
-            {content.items.map((principle) => (
+            {content.items.map((item) => (
               <FeatureCard
-                key={principle.title}
-                title={principle.title}
-                description={principle.description}
+                key={item.title}
+                title={item.title}
+                description={item.description}
               />
             ))}
           </Grid>

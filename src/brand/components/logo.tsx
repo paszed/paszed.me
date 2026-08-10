@@ -1,22 +1,23 @@
 import Link from "next/link";
 
-import { site } from "@/config/site";
+import { brand } from "@/brand/config/brand";
 
-export function BrandLogo() {
+export interface BrandLogoProps {
+  className?: string;
+}
+
+export function BrandLogo({
+  className,
+}: BrandLogoProps) {
   return (
     <Link
       href="/"
-      aria-label={`${site.name} homepage`}
+      aria-label={`${brand.name} homepage`}
       data-testid="brand-logo"
-      className="group inline-flex items-center font-mono text-lg font-semibold tracking-tight"
+      className={className}
     >
-      {site.brand}
-
-      <span
-        aria-hidden="true"
-        className="ml-0.5 text-accent transition-opacity duration-200 group-hover:opacity-80"
-      >
-        _
+      <span className="font-mono text-lg font-semibold tracking-tight">
+        {brand.wordmark}
       </span>
     </Link>
   );

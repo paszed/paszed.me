@@ -5,9 +5,12 @@ import {
 } from "next/font/google";
 import type { ReactNode } from "react";
 
+import { metadata as siteMetadata } from "@/config/metadata";
 import { Providers } from "@/providers";
 
 import "./globals.css";
+
+export const metadata = siteMetadata;
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -41,9 +44,7 @@ export default function RootLayout({
       className={`${inter.variable} ${serif.variable} ${mono.variable}`}
     >
       <body>
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

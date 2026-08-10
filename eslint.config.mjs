@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
 
     // Generated artifacts:
+    ".open-next/**",
     "coverage/**",
     "playwright-report/**",
     "test-results/**",

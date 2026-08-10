@@ -27,7 +27,7 @@ vi.mock("@/design-system/icons/social-icon", () => ({
   }: {
     name: string;
   }) => (
-    <svg
+    <span
       data-testid="social-icon"
       data-name={name}
     />
@@ -89,6 +89,32 @@ describe("FooterSection", () => {
     );
   });
 
+  it("renders non-link items as text", () => {
+    const itemsWithText = [
+      ...items,
+      {
+        label: "Vienna, Austria",
+      },
+    ] as const;
+
+    renderWithProviders(
+      <FooterSection
+        title="Developer"
+        items={itemsWithText}
+      />,
+    );
+
+    expect(
+      screen.getByText("Vienna, Austria"),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.queryByRole("link", {
+        name: "Vienna, Austria",
+      }),
+    ).not.toBeInTheDocument();
+  });
+
   it("opens external links in a new tab", () => {
     renderWithProviders(
       <FooterSection
@@ -101,10 +127,7 @@ describe("FooterSection", () => {
       screen.getByRole("link", {
         name: "GitHub",
       }),
-    ).toHaveAttribute(
-      "target",
-      "_blank",
-    );
+    ).toHaveAttribute("target", "_blank");
 
     expect(
       screen.getByRole("link", {
@@ -177,6 +200,32 @@ describe("FooterSection", () => {
       "data-name",
       "Projects",
     );
+  });
+
+  it("does not render a social icon for non-link items", () => {
+    const itemsWithText = [
+      {
+        label: "Vienna, Austria",
+      },
+    ] as const;
+
+    renderWithProviders(
+      <FooterSection
+        title="Developer"
+        items={itemsWithText}
+        showIcons
+      />,
+    );
+
+    expect(
+      screen.queryByTestId(
+        "social-icon",
+      ),
+    ).not.toBeInTheDocument();
+
+    expect(
+      screen.getByText("Vienna, Austria"),
+    ).toBeInTheDocument();
   });
 
   it("renders an empty list when no items are provided", () => {

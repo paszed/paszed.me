@@ -1,11 +1,9 @@
 import { describe, expect, it } from "vitest";
 
 import { site } from "@/config/site";
-import type { JournalEntry } from "@/types/journal";
 import type { Project } from "@/types/project";
 
 import {
-  createArticleSchema,
   createBreadcrumbSchema,
   createMetadata,
   createOrganizationSchema,
@@ -15,63 +13,6 @@ import {
 } from "./index";
 
 describe("SEO", () => {
-  describe("createArticleSchema", () => {
-    it("creates article structured data", () => {
-      const publishedAt = new Date(
-        "2026-01-15T12:00:00.000Z",
-      );
-
-      const article = {
-        title: "Testing Architecture",
-        description: "An article about testing.",
-        author: "Alapworks",
-        slug: "testing-architecture",
-        publishedAt,
-      } as JournalEntry;
-
-      expect(
-        createArticleSchema(article),
-      ).toEqual({
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline: article.title,
-        description: article.description,
-        author: {
-          "@type": "Person",
-          name: article.author,
-        },
-        publisher: {
-          "@type": "Organization",
-          name: site.name,
-          url: site.url,
-        },
-        mainEntityOfPage:
-          `${site.url}/journal/${article.slug}`,
-        url:
-          `${site.url}/journal/${article.slug}`,
-        image: `${site.url}${site.ogImage}`,
-        datePublished:
-          publishedAt.toISOString(),
-        inLanguage: site.language,
-      });
-    });
-
-    it("supports articles without a publication date", () => {
-      const article = {
-        title: "Draft",
-        description: "Draft article",
-        author: "Alapworks",
-        slug: "draft",
-      } as JournalEntry;
-
-      expect(
-        createArticleSchema(article),
-      ).toMatchObject({
-        datePublished: undefined,
-      });
-    });
-  });
-
   describe("createBreadcrumbSchema", () => {
     it("creates ordered breadcrumb structured data", () => {
       expect(
@@ -386,7 +327,7 @@ describe("SEO", () => {
       });
     });
 
-    it("recognizes demo and repository link labels", () => {
+    it("recognizes live demo and repository link labels", () => {
       const project = createProject([
         {
           label: "Live Demo",
@@ -406,6 +347,38 @@ describe("SEO", () => {
         sameAs: "https://demo.example.com",
         codeRepository:
           "https://example.com/repository",
+      });
+    });
+
+    it("recognizes a demo link label", () => {
+      const project = createProject([
+        {
+          label: "Demo",
+          href: "https://demo.example.com",
+        },
+      ]);
+
+      expect(
+        createProjectSchema(project),
+      ).toMatchObject({
+        url: "https://demo.example.com",
+        sameAs: "https://demo.example.com",
+      });
+    });
+
+    it("recognizes website labels case-insensitively", () => {
+      const project = createProject([
+        {
+          label: "WEBSITE",
+          href: "https://example.com",
+        },
+      ]);
+
+      expect(
+        createProjectSchema(project),
+      ).toMatchObject({
+        url: "https://example.com",
+        sameAs: "https://example.com",
       });
     });
 

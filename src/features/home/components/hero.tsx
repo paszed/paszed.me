@@ -1,17 +1,14 @@
 import Link from "next/link";
 
-import { ThemedLion } from "@/brand";
 import {
   Button,
   Cluster,
   Container,
   Eyebrow,
-  Grid,
   Heading,
   Section,
   Stack,
   Text,
-  TextLink,
 } from "@/design-system";
 
 interface HeroContent {
@@ -33,66 +30,95 @@ interface HeroProps {
   content: HeroContent;
 }
 
-export function Hero({
-  content,
-}: HeroProps) {
+export function Hero({ content }: HeroProps) {
   return (
-    <Section>
-      <ThemedLion />
+    <Section className="relative overflow-hidden pt-20 sm:pt-28 lg:pt-36">
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-0
+          -z-10
+          h-[32rem]
+          bg-[radial-gradient(circle_at_50%_0%,color-mix(in_srgb,var(--accent)_10%,transparent),transparent_65%)]
+        "
+      />
 
-      <Container className="relative z-10">
-        <Grid
-          gap="lg"
-          className="items-center lg:min-h-[calc(100vh-4.5rem)] lg:grid-cols-[1.05fr_0.95fr]"
+      <Container>
+        <Stack
+          gap="xl"
+          className="max-w-5xl"
         >
-          <Stack
-            gap="xl"
-            className="max-w-3xl"
+          <Eyebrow>{content.eyebrow}</Eyebrow>
+
+          <Heading
+            as="h1"
+            className="
+              max-w-5xl
+              text-balance
+              text-5xl
+              font-semibold
+              tracking-[-0.04em]
+              sm:text-6xl
+              lg:text-7xl
+              xl:text-8xl
+            "
           >
-            <Eyebrow>
-              {content.eyebrow}
-            </Eyebrow>
+            {content.title}
+          </Heading>
 
-            <Stack gap="md">
-              <Heading as="h1">
-                {content.title}
-              </Heading>
+          <Text
+            size="lead"
+            className="max-w-3xl text-balance leading-relaxed text-fg-secondary"
+          >
+            {content.subtitle}
+          </Text>
 
-              <Text
-                size="lead"
-                muted
-                className="max-w-2xl leading-relaxed"
+          <Text
+            size="lg"
+            muted
+            className="max-w-2xl leading-8"
+          >
+            {content.description}
+          </Text>
+
+          <Cluster
+            gap="md"
+            className="pt-2"
+          >
+            <Link href={content.primaryCta.href}>
+              <Button>
+                {content.primaryCta.label}
+              </Button>
+            </Link>
+
+            <Link
+              href={content.secondaryCta.href}
+              className="
+                inline-flex
+                h-10
+                items-center
+                px-2
+                text-sm
+                font-medium
+                text-fg-secondary
+                transition-colors
+                duration-200
+                hover:text-fg
+              "
+            >
+              {content.secondaryCta.label}
+              <span
+                aria-hidden="true"
+                className="ml-2"
               >
-                {content.subtitle}
-              </Text>
-            </Stack>
-
-            <Text
-              size="lg"
-              muted
-              className="max-w-3xl leading-8"
-            >
-              {content.description}
-            </Text>
-
-            <Cluster
-              gap="lg"
-              className="pt-2"
-            >
-              <Link href={content.primaryCta.href}>
-                <Button>
-                  {content.primaryCta.label}
-                </Button>
-              </Link>
-
-              <TextLink href={content.secondaryCta.href}>
-                {content.secondaryCta.label} →
-              </TextLink>
-            </Cluster>
-          </Stack>
-
-          <div className="relative hidden min-h-[28rem] lg:block" />
-        </Grid>
+                →
+              </span>
+            </Link>
+          </Cluster>
+        </Stack>
       </Container>
     </Section>
   );

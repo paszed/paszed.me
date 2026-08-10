@@ -1,25 +1,29 @@
- export const navigation = [
+export const navigation = [
   {
-      key: "home",
-      href: "/",
+    key: "services",
+    href: "/services",
   },
   {
-      key: "services",
-      href: "/services",
+    key: "work",
+    href: "/work",
   },
   {
-      key: "work",
-      href: "/work",
+    key: "process",
+    href: "/process",
   },
   {
-      key: "about",
-      href: "/about",
+    key: "pricing",
+    href: "/pricing",
   },
   {
-      key: "contact",
-      href: "/contact",
+    key: "about",
+    href: "/about",
   },
-  ] as const;
+  {
+    key: "faq",
+    href: "/faq",
+  },
+] as const;
 
-  export type Navigation =
+export type Navigation =
   (typeof navigation)[number];

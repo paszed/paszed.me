@@ -63,10 +63,16 @@ describe("ThemeToggle", () => {
     });
 
     expect(button).toBeInTheDocument();
-    expect(screen.queryByTestId("sun-icon")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("moon-icon")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("sun-icon"),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("moon-icon"),
+    ).not.toBeInTheDocument();
 
-    expect(button.firstElementChild).toHaveClass("h-4", "w-4");
+    expect(button.firstElementChild).toHaveClass(
+      "size-4",
+    );
   });
 
   it("renders the moon icon in light mode", () => {
@@ -106,7 +112,7 @@ describe("ThemeToggle", () => {
 
     fireEvent.click(
       screen.getByRole("button", {
-        name: "Toggle theme",
+        name: "Switch to dark mode",
       }),
     );
 
@@ -126,7 +132,7 @@ describe("ThemeToggle", () => {
 
     fireEvent.click(
       screen.getByRole("button", {
-        name: "Toggle theme",
+        name: "Switch to light mode",
       }),
     );
 
@@ -135,12 +141,12 @@ describe("ThemeToggle", () => {
 
   it("merges custom class names", () => {
     renderWithProviders(
-      <ThemeToggle className="ring-2" />,
+      <ThemeToggle className="ring-2 rounded-lg p-2" />,
     );
 
     expect(
       screen.getByRole("button", {
-        name: "Toggle theme",
+        name: "Switch to dark mode",
       }),
     ).toHaveClass(
       "ring-2",
@@ -154,7 +160,7 @@ describe("ThemeToggle", () => {
 
     expect(
       screen.getByRole("button", {
-        name: "Toggle theme",
+        name: "Switch to dark mode",
       }),
     ).toHaveAttribute("type", "button");
   });

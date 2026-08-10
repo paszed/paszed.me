@@ -1,10 +1,9 @@
 import type { ReactNode } from "react";
 
-import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { locales } from "@/i18n/config";
 import { isLocale } from "@/i18n/routing";
 import { Footer, Navbar } from "@/layout";
-import { Providers } from "@/providers";
 
 interface LocaleLayoutProps {
   children: ReactNode;
@@ -32,20 +31,14 @@ export default async function LocaleLayout({
   const content = getDictionary(locale);
 
   return (
-    <Providers>
-      <div className="flex min-h-screen flex-col">
-        <Navbar />
+    <>
+      <Navbar locale={locale} />
 
-        <GlobalSearch />
+      <main className="flex-1">
+        {children}
+      </main>
 
-        <main className="flex-1">
-          {children}
-        </main>
-
-        <Footer
-          content={content.footer}
-        />
-      </div>
-    </Providers>
+      <Footer content={content.footer} />
+    </>
   );
 }

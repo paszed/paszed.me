@@ -7,14 +7,11 @@ import {
 } from "vitest";
 
 import {
-  fireEvent,
   renderWithProviders,
   screen,
 } from "@/design-system/testing";
 
 import { Navbar } from "./navbar";
-
-const mockToggle = vi.fn();
 
 vi.mock("next/navigation", () => ({
   usePathname: vi.fn(),
@@ -55,20 +52,26 @@ vi.mock("@/config/navigation", () => ({
       key: "work",
     },
     {
+      href: "/process",
+      key: "process",
+    },
+    {
+      href: "/pricing",
+      key: "pricing",
+    },
+    {
       href: "/about",
       key: "about",
+    },
+    {
+      href: "/faq",
+      key: "faq",
     },
     {
       href: "/contact",
       key: "contact",
     },
   ],
-}));
-
-vi.mock("@/features/search", () => ({
-  useCommandPalette: () => ({
-    toggle: mockToggle,
-  }),
 }));
 
 vi.mock("@/design-system", async (importOriginal) => {
@@ -80,7 +83,10 @@ vi.mock("@/design-system", async (importOriginal) => {
   return {
     ...actual,
     ThemeToggle: () => (
-      <button data-testid="theme-toggle">
+      <button
+        type="button"
+        data-testid="theme-toggle"
+      >
         Theme
       </button>
     ),
@@ -108,7 +114,9 @@ describe("Navbar", () => {
   });
 
   it("renders the brand logo", () => {
-    renderWithProviders(<Navbar />);
+    renderWithProviders(
+      <Navbar locale="en" />,
+    );
 
     expect(
       screen.getByTestId("brand-logo"),
@@ -116,7 +124,9 @@ describe("Navbar", () => {
   });
 
   it("renders the primary navigation", () => {
-    renderWithProviders(<Navbar />);
+    renderWithProviders(
+      <Navbar locale="en" />,
+    );
 
     expect(
       screen.getByRole("navigation"),
@@ -124,52 +134,43 @@ describe("Navbar", () => {
   });
 
   it("renders all navigation links", () => {
-    renderWithProviders(<Navbar />);
-
-    expect(
-      screen.getByRole("link", {
-        name: "Home",
-      }),
-    ).toHaveAttribute(
-      "href",
-      "/en",
+    renderWithProviders(
+      <Navbar locale="en" />,
     );
 
-    expect(
-      screen.getByRole("link", {
-        name: "Services",
-      }),
-    ).toHaveAttribute(
-      "href",
-      "/en/services",
-    );
+    const links = [
+      ["/en", ""],
+      ["/en/services", "Services"],
+      ["/en/projects", "Our Work"],
+      ["/en/process", "Process"],
+      ["/en/pricing", "Pricing"],
+      ["/en/about", "About Us"],
+      ["/en/faq", "FAQ"],
+      ["/en/contact", "Contact"],
+    ] as const;
 
-    expect(
-      screen.getByRole("link", {
-        name: "Our Work",
-      }),
-    ).toHaveAttribute(
-      "href",
-      "/en/projects",
-    );
+    for (const [href, name] of links) {
+      const link = name
+        ? screen.getAllByRole("link", { name })
+          .find(
+            (element) =>
+              element.getAttribute("href") ===
+              href,
+          )
+        : screen
+            .getAllByRole("link")
+            .find(
+              (element) =>
+                element.getAttribute("href") ===
+                href,
+            );
 
-    expect(
-      screen.getByRole("link", {
-        name: "About Us",
-      }),
-    ).toHaveAttribute(
-      "href",
-      "/en/about",
-    );
-
-    expect(
-      screen.getByRole("link", {
-        name: "Contact",
-      }),
-    ).toHaveAttribute(
-      "href",
-      "/en/contact",
-    );
+      expect(link).toBeDefined();
+      expect(link).toHaveAttribute(
+        "href",
+        href,
+      );
+    }
   });
 
   it("marks the active navigation item", async () => {
@@ -180,7 +181,9 @@ describe("Navbar", () => {
       "/en/projects",
     );
 
-    renderWithProviders(<Navbar />);
+    renderWithProviders(
+      <Navbar locale="en" />,
+    );
 
     expect(
       screen.getByRole("link", {
@@ -192,53 +195,54 @@ describe("Navbar", () => {
     );
   });
 
-  it("opens the command palette", () => {
-    renderWithProviders(<Navbar />);
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: /search/i,
-      }),
+  it("renders the contact action", () => {
+    renderWithProviders(
+      <Navbar locale="en" />,
     );
 
+    const contactLinks =
+      screen.getAllByRole("link", {
+        name: "Contact",
+      });
+
+    expect(contactLinks).toHaveLength(2);
+
     expect(
-      mockToggle,
-    ).toHaveBeenCalledOnce();
+      contactLinks.some(
+        (link) =>
+          link.getAttribute("href") ===
+          "/en/contact",
+      ),
+    ).toBe(true);
   });
 
-  it("renders the search shortcut", () => {
-    renderWithProviders(<Navbar />);
-
-    expect(
-      screen.getByText("⌘K"),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("button", {
-        name: /search/i,
-      }),
-    ).toBeInTheDocument();
-  });
-
-  it("renders desktop and mobile controls", () => {
-    renderWithProviders(<Navbar />);
+  it("renders the theme toggle", () => {
+    renderWithProviders(
+      <Navbar locale="en" />,
+    );
 
     expect(
       screen.getAllByTestId(
         "theme-toggle",
       ),
-    ).toHaveLength(2);
+    ).toHaveLength(1);
+  });
+
+  it("renders the mobile menu", () => {
+    renderWithProviders(
+      <Navbar locale="en" />,
+    );
 
     expect(
-      screen.getByTestId(
-        "mobile-menu",
-      ),
+      screen.getByTestId("mobile-menu"),
     ).toBeInTheDocument();
   });
 
   it("renders the header", () => {
     const { container } =
-      renderWithProviders(<Navbar />);
+      renderWithProviders(
+        <Navbar locale="en" />,
+      );
 
     expect(
       container.querySelector("header"),

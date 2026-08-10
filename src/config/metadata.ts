@@ -29,10 +29,6 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "/",
-
-    types: {
-      "application/rss+xml": "/rss.xml",
-    },
   },
 
   keywords: [
@@ -50,7 +46,7 @@ export const metadata: Metadata = {
     "Next.js",
     "PostgreSQL",
     "Developer Experience",
-    "Developer Tools",
+    "Engineering Systems",
   ],
 
   openGraph: {

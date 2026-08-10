@@ -5,12 +5,13 @@ export interface FlagProps {
   className?: string;
 }
 
-export function Flags({ locale, className }: FlagProps) {
+export function Flags({
+  locale,
+  className,
+}: FlagProps) {
   const flags: Record<Locale, string> = {
     en: "🇬🇧",
     de: "🇩🇪",
-    es: "🇪🇸",
-    fr: "🇫🇷",
     hu: "🇭🇺",
   };
 
@@ -18,7 +19,6 @@ export function Flags({ locale, className }: FlagProps) {
     <span
       className={className}
       aria-hidden="true"
-      role="img"
     >
       {flags[locale]}
     </span>

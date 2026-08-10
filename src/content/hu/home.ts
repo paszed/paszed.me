@@ -1,18 +1,18 @@
 export const home = {
   hero: {
-    eyebrow: "SZOFTVER • AUTOMATIZÁCIÓ • MI",
+    eyebrow: "SZOFTVER • AUTOMATIZÁLÁS • AI",
 
     title:
-      "Olyan szoftvereket építünk, amelyek segítik a vállalkozásokat hatékonyabban működni.",
+      "Olyan szoftvereket fejlesztünk, amelyek segítenek a vállalkozásoknak hatékonyabban működni.",
 
     subtitle:
-      "Egyedi webalkalmazások, belső eszközök és automatizációs rendszerek, amelyek időt takarítanak meg, csökkentik a komplexitást és együtt fejlődnek a vállalkozással.",
+      "Egyedi webalkalmazások, belső eszközök és automatizálási rendszerek, amelyek időt takarítanak meg, csökkentik a komplexitást és együtt tudnak fejlődni a vállalkozásoddal.",
 
     description:
-      "Edvard vagyok, szoftverfejlesztő, aki segít vállalkozásoknak ötleteiket és működési kihívásaikat megbízható szoftverekké alakítani. Társalapítómmal együtt a technikai kivitelezést tiszta kommunikációval ötvözzük, hogy valódi értéket teremtő, praktikus megoldásokat építsünk.",
+      "Edvard vagyok, szoftverfejlesztőként segítek vállalkozásoknak az ötleteiket és működési kihívásaikat megbízható szoftverekké alakítani. Társalapítómmal együtt a technikai megvalósítást világos kommunikációval ötvözzük, hogy praktikus, valódi értéket teremtő megoldásokat hozzunk létre.",
 
     primaryCta: {
-      label: "Projekt megbeszélése",
+      label: "Beszéljünk a projektedről",
       href: "/contact",
     },
 
@@ -25,26 +25,29 @@ export const home = {
   capabilities: {
     eyebrow: "Szolgáltatások",
 
-    title: "Amit építünk",
+    title: "Mit építünk",
 
     description:
-      "Szoftvermegoldások, amelyek a vállalkozás céljaihoz, folyamataihoz és ügyfeleihez igazodnak.",
+      "A vállalkozásod céljaihoz, folyamataihoz és ügyfeleihez igazított szoftvermegoldások.",
 
     items: [
       {
         title: "Üzleti weboldalak",
+
         description:
-          "Gyors, modern weboldalak, amelyek világosan kommunikálják az értéket és segítenek az ügyfelek bizalmának kialakításában.",
+          "Gyors, modern weboldalak, amelyek világosan kommunikálják az értékeidet, és segítenek az ügyfeleknek megismerni és megbízni a vállalkozásodban.",
       },
       {
         title: "Webalkalmazások",
+
         description:
-          "Egyedi platformok, irányítópultok és ügyféleszközök, amelyek a vállalkozás valódi működéséhez igazodnak.",
+          "Egyedi platformok, dashboardok és ügyféleszközök, amelyeket a vállalkozásod tényleges működéséhez igazítunk.",
       },
       {
-        title: "Automatizáció és MI",
+        title: "Automatizálás és AI",
+
         description:
-          "Gyakorlati automatizációs rendszerek, amelyek csökkentik az ismétlődő munkát, összekapcsolják a meglévő eszközöket és javítják a hatékonyságot.",
+          "Gyakorlati automatizálási rendszerek, amelyek csökkentik az ismétlődő munkát, összekapcsolják a meglévő eszközöket és javítják a hatékonyságot.",
       },
     ],
   },
@@ -60,37 +63,44 @@ export const home = {
     items: [
       {
         title: "Egyedi szoftver",
+
         description:
-          "Alkalmazások, irányítópultok és digitális eszközök az egyedi üzleti igényekhez tervezve.",
+          "Alkalmazások, dashboardok és digitális eszközök, amelyeket az egyedi üzleti igényeidhez igazítunk.",
       },
       {
-        title: "Folyamatautomatizáció",
+        title: "Folyamatautomatizálás",
+
         description:
-          "Ismétlődő feladatok automatizálása, rendszerek összekapcsolása és manuális munka csökkentése.",
+          "Ismétlődő feladatok automatizálása, rendszerek összekapcsolása és a manuális munka csökkentése megbízható munkafolyamatokkal.",
       },
       {
         title: "Szoftverfejlesztés",
+
         description:
-          "Meglévő alkalmazások modernizálása, teljesítmény javítása és erősebb technikai alapok létrehozása.",
+          "Meglévő alkalmazások modernizálása, a teljesítmény javítása és stabilabb technikai alapok kialakítása.",
       },
     ],
   },
 
   featuredProjects: {
-  eyebrow: "Kiemelt munkák",
+    eyebrow: "Kiemelt munkák",
 
-  title: "Kiemelt munkák",
+    title: "Kiemelt munkák",
 
-  description:
-    "Példák szoftverrendszerekre, fejlesztői eszközökre és modern technológiákkal épített alkalmazásokra.",
+    description:
+      "Modern technológiákkal és erős mérnöki alapokra építve fejlesztett szoftverrendszerek, fejlesztői eszközök és alkalmazások példái.",
 
-  actionLabel: "Összes projekt",
+    actionLabel: "Összes projekt megtekintése",
 
-  readLabel: "Esettanulmány olvasása",
+    readLabel: "Esettanulmány olvasása",
 
-  emptyState:
-    "A projektek előkészítés alatt állnak.",
-},
+    emptyState: "A projektek előkészítés alatt állnak.",
+  },
+
+  process: {
+    eyebrow: "Folyamat",
+    actionLabel: "Így dolgozunk",
+  },
 
   latestWriting: {
     eyebrow: "Napló",
@@ -98,12 +108,12 @@ export const home = {
     title: "Gondolatok",
 
     description:
-      "Írások szoftverfejlesztésről, automatizációról, architektúráról és megbízható digitális termékek építéséről.",
+      "Gondolatok szoftverfejlesztésről, automatizálásról, architektúráról és megbízható digitális termékek építéséről.",
 
     actionLabel: "Napló megtekintése",
 
     emptyState:
-      "A fejlesztési jegyzetek és írások itt jelennek meg, ahogy a projektek és ötletek fejlődnek.",
+      "Itt jelennek majd meg a projektjeinkkel és ötleteinkkel kapcsolatos írások és mérnöki jegyzetek.",
 
     draftLabel: "Piszkozat",
 
@@ -112,13 +122,13 @@ export const home = {
 
   contact: {
     title:
-      "Van egy megoldandó szoftverproblémája?",
+      "Van egy megoldandó szoftveres problémád?",
 
     description:
-      "Segítünk vállalkozásoknak megbízható szoftvereket tervezni, építeni és fejleszteni — weboldalaktól és alkalmazásoktól kezdve automatizációs és MI-alapú munkafolyamatokig.",
+      "Segítünk vállalkozásoknak megbízható szoftvereket tervezni, fejleszteni és továbbfejleszteni — weboldalaktól és alkalmazásoktól az automatizálási rendszerekig és AI-alapú munkafolyamatokig.",
 
     primaryCta: {
-      label: "Projekt megbeszélése",
+      label: "Beszéljünk a projektedről",
       href: "/contact",
     },
 
@@ -134,23 +144,26 @@ export const home = {
     title: "Hogyan dolgozunk",
 
     description:
-      "Megbízható, átlátható és hosszú távon fenntartható szoftvereket építünk.",
+      "Így fejlesztünk megbízható, átlátható és hosszú távon karbantartható szoftvereket.",
 
     items: [
       {
-        title: "Először megértünk",
+        title: "Először megértjük",
+
         description:
-          "Először megértjük a célokat, folyamatokat és kihívásokat, mielőtt technikai megoldást választunk.",
+          "Mielőtt technikai megoldást választanánk, megismerjük a céljaidat, folyamataidat és kihívásaidat.",
       },
       {
         title: "A jövőre építünk",
+
         description:
-          "A szoftvernek a mai problémákat kell megoldania, miközben rugalmasnak kell maradnia a jövőbeli növekedéshez.",
+          "A szoftvernek a mai problémákat kell megoldania, miközben elég rugalmasnak kell maradnia a vállalkozásod jövőbeli növekedéséhez.",
       },
       {
         title: "Tartós értéket teremtünk",
+
         description:
-          "Megbízható rendszerekre fókuszálunk, amelyek időt takarítanak meg, javítják a működést és hosszú távon értéket adnak.",
+          "Megbízható rendszerekre összpontosítunk, amelyek időt takarítanak meg, javítják a működést és a fejlesztés után is hosszú távon értéket teremtenek.",
       },
     ],
   },

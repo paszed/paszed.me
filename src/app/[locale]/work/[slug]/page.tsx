@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import {
-  Page,
-  Stack,
-} from "@/design-system";
+  getWorkBySlug,
+  getWorkSlugs,
+} from "@/content/work";
+import { Page, Stack } from "@/design-system";
 import {
   WorkArchitecture,
   WorkGallery,
@@ -20,20 +21,16 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import {
   createBreadcrumbSchema,
   createMetadata,
-  createWorkSchema,
+  createProjectSchema,
   JsonLd,
 } from "@/lib/seo";
-import {
-  getWorkBySlug,
-  getWorkSlugs,
-} from "@/content/work";
 
-type WorkPageProps = {
+interface WorkPageProps {
   params: Promise<{
     locale: Locale;
     slug: string;
   }>;
-};
+}
 
 export async function generateStaticParams() {
   return getWorkSlugs().map((slug) => ({
@@ -45,18 +42,17 @@ export async function generateMetadata({
   params,
 }: WorkPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
+  const project = getWorkBySlug(slug);
 
-  const work = getWorkBySlug(slug);
-
-  if (!work) {
+  if (!project) {
     return {};
   }
 
   return createMetadata({
-    title: work.title,
-    description: work.summary,
+    title: project.title,
+    description: project.summary,
     locale,
-    path: `/works/${work.slug}`,
+    path: `/work/${project.slug}`,
     type: "article",
   });
 }
@@ -66,9 +62,9 @@ export default async function WorkPage({
 }: WorkPageProps) {
   const { locale, slug } = await params;
 
-  const work = getWorkBySlug(slug);
+  const project = getWorkBySlug(slug);
 
-  if (!work) {
+  if (!project) {
     notFound();
   }
 
@@ -76,28 +72,28 @@ export default async function WorkPage({
 
   const sections = [
     {
-      title: content.works.sections.problem,
-      items: work.problem,
+      title: content.projects.sections.problem,
+      items: project.problem,
     },
     {
-      title: content.works.sections.principles,
-      items: work.principles,
+      title: content.projects.sections.principles,
+      items: project.principles,
     },
     {
-      title: content.works.sections.capabilities,
-      items: work.capabilities,
+      title: content.projects.sections.capabilities,
+      items: project.capabilities,
     },
     {
-      title: content.works.sections.engineering,
-      items: work.engineering,
+      title: content.projects.sections.engineering,
+      items: project.engineering,
     },
     {
-      title: content.works.sections.challenges,
-      items: work.challenges,
+      title: content.projects.sections.challenges,
+      items: project.challenges,
     },
     {
-      title: content.works.sections.lessons,
-      items: work.lessons,
+      title: content.projects.sections.lessons,
+      items: project.lessons,
     },
   ];
 
@@ -106,62 +102,62 @@ export default async function WorkPage({
       <JsonLd
         data={createBreadcrumbSchema([
           {
-            name: content.navigation.home,
+            name: content.navigationLabels.home,
             path: `/${locale}`,
           },
           {
             name: content.navigation.work,
-            path: `/${locale}/works`,
+            path: `/${locale}/work`,
           },
           {
-            name: work.title,
-            path: `/${locale}/works/${work.slug}`,
+            name: project.title,
+            path: `/${locale}/work/${project.slug}`,
           },
         ])}
       />
 
       <JsonLd
-        data={createWorkSchema(work)}
+        data={createProjectSchema(project)}
       />
 
       <Page>
         <Stack className="space-y-16 sm:space-y-20">
           <WorkHero
-            work={work}
+            project={project}
             labels={{
-              category:
-                work.category.replaceAll(
-                  "-",
-                  " ",
-                ),
-              started: String(work.started),
+              category: project.category.replaceAll(
+                "-",
+                " ",
+              ),
+              started: String(project.started),
             }}
           />
 
-          {work.gallery.length > 0 && (
+          {project.gallery.length > 0 && (
             <WorkGallery
-              work={work}
+              project={project}
               title={
-                content.works.sections.gallery
+                content.projects.sections.gallery
               }
               imageAlt={
-                content.works.defaults
-                  .workImageAlt
+                content.projects.defaults
+                  .projectImageAlt
               }
             />
           )}
 
           <WorkOverview
-            overview={work.overview}
+            overview={project.overview}
             title={
-              content.works.sections.overview
+              content.projects.sections.overview
             }
           />
 
           <WorkArchitecture
-            work={work}
+            project={project}
             title={
-              content.works.sections.architecture
+              content.projects.sections
+                .architecture
             }
           />
 
@@ -177,34 +173,35 @@ export default async function WorkPage({
           )}
 
           <WorkTech
-            work={work}
+            project={project}
             labels={{
               technology:
-                content.works.sections
+                content.projects.sections
                   .technology,
               purpose:
-                content.works.sections
+                content.projects.sections
                   .purpose,
               technologyPurpose:
-                content.works.defaults
+                content.projects.defaults
                   .technologyPurpose,
             }}
           />
 
-          {work.roadmap.length > 0 && (
+          {project.roadmap.length > 0 && (
             <WorkRoadmap
-              work={work}
+              project={project}
               title={
-                content.works.sections.roadmap
+                content.projects.sections
+                  .roadmap
               }
             />
           )}
 
-          {work.links.length > 0 && (
+          {project.links.length > 0 && (
             <WorkLinks
-              work={work}
+              project={project}
               title={
-                content.works.sections.links
+                content.projects.sections.links
               }
             />
           )}

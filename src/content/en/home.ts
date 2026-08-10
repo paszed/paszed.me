@@ -83,19 +83,24 @@ export const home = {
   },
 
   featuredProjects: {
-  eyebrow: "Selected Work",
+    eyebrow: "Selected Work",
 
-  title: "Selected Work",
+    title: "Selected Work",
 
-  description:
-    "Examples of software systems, developer tools, and applications built with modern technologies and strong engineering foundations.",
+    description:
+      "Examples of software systems, developer tools, and applications built with modern technologies and strong engineering foundations.",
 
-  actionLabel: "View All Projects",
+    actionLabel: "View All Projects",
 
-  readLabel: "Read case study",
+    readLabel: "Read case study",
 
-  emptyState: "Projects are being prepared.",
-},
+    emptyState: "Projects are being prepared.",
+  },
+
+  process: {
+    eyebrow: "Process",
+    actionLabel: "See How We Work",
+  },
 
   latestWriting: {
     eyebrow: "Journal",

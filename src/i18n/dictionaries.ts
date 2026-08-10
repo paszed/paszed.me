@@ -5,13 +5,49 @@ import { en } from "@/content/en";
 import { hu } from "@/content/hu";
 
 import type { AboutContent } from "@/features/about/types";
-import type { HomeContent } from "@/features/home/types";
+import type {
+  HomeCapabilities,
+  HomeContact,
+  HomeFeaturedProjects,
+  HomeHero,
+  HomePhilosophy,
+} from "@/features/home/types";
+import type { FAQContent } from "@/types/faq";
+import type { ProcessContent } from "@/types/process";
 
-interface NavigationContent {
-  home: string;
+interface HomeContent {
+  hero: HomeHero;
+  capabilities: HomeCapabilities;
+  howIHelp: HomeCapabilities;
+  featuredProjects: HomeFeaturedProjects;
+
+  process: {
+    eyebrow: string;
+    actionLabel: string;
+  };
+
+  latestWriting: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    actionLabel: string;
+    emptyState: string;
+    draftLabel: string;
+    readLabel: string;
+  };
+
+  contact: HomeContact;
+  philosophy: HomePhilosophy;
+}
+
+interface NavigationContent
+  extends Record<string, string> {
   services: string;
   work: string;
+  process: string;
+  pricing: string;
   about: string;
+  faq: string;
   contact: string;
 }
 
@@ -25,7 +61,7 @@ interface NavigationLabelsContent {
 
 interface FooterLink {
   label: string;
-  href: string;
+  href?: string;
 }
 
 interface FooterLabels {
@@ -47,23 +83,6 @@ interface FooterContent {
   contact: readonly FooterLink[];
 }
 
-
-interface LinksContent {
-  title: string;
-  description: string;
-  sections: {
-    featured: string;
-    developer: string;
-    social: string;
-  };
-}
-
-interface NowSection {
-  title: string;
-  items: readonly string[];
-}
-
-
 interface ProjectsContent {
   title: string;
   description: string;
@@ -71,9 +90,12 @@ interface ProjectsContent {
   selectedDescription: string;
   allProjects: string;
   portfolio: string;
+  emptyState: string;
+
   card: {
     readLabel: string;
   };
+
   sections: {
     links: string;
     technology: string;
@@ -89,39 +111,176 @@ interface ProjectsContent {
     challenges: string;
     lessons: string;
   };
+
   defaults: {
     technologyPurpose: string;
     projectImageAlt: string;
   };
 }
 
-interface SearchContent {
+interface AddOnsContent {
   title: string;
   description: string;
-  input: {
-    placeholder: string;
-    label: string;
+  forLabel: string;
+
+  items: {
+    "website-care": {
+      name: string;
+      for: string;
+      features: readonly string[];
+    };
+
+    "google-visibility": {
+      name: string;
+      for: string;
+      features: readonly string[];
+    };
+
+    "content-support": {
+      name: string;
+      for: string;
+      features: readonly string[];
+    };
+
+    "additional-pages": {
+      name: string;
+      for: string;
+      examples: readonly string[];
+    };
+
+    "additional-languages": {
+      name: string;
+      for: string;
+      features: readonly string[];
+    };
   };
-  empty: {
+
+  startingFrom: string;
+  perMonth: string;
+  perPage: string;
+  perLanguage: string;
+  addOnsAvailable: string;
+  examples: string;
+}
+
+interface ServicesContent {
+  title: string;
+  description: string;
+  items: readonly {
+    slug: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+interface ContactContent {
+  title: string;
+  description: string;
+  emailLabel: string;
+  email: string;
+  primaryCta: string;
+  secondaryCta: string;
+}
+
+interface LegalSection {
+  title: string;
+  body: readonly string[];
+}
+
+interface LegalDocument {
+  title: string;
+  description: string;
+  sections: readonly LegalSection[];
+}
+
+interface LegalContent {
+  imprint: LegalDocument;
+  privacy: LegalDocument;
+  terms: LegalDocument;
+  legal: {
     title: string;
     description: string;
   };
-  categories: {
-    Project: string;
-    Article: string;
-    Page: string;
+}
+
+interface PricingPlan {
+  forLabel: string;
+  for: string;
+  addOns: string;
+}
+
+interface PricingContent {
+  title: string;
+  description: string;
+
+  paymentLabel: string;
+  paymentDescription: string;
+
+  plans: {
+    starter: PricingPlan;
+    business: PricingPlan;
+    premium: PricingPlan;
   };
+
+  upfront: string;
+  from: string;
+  perMonth: string;
+  total: string;
+  months: string;
+
+  calculator: {
+    title: string;
+    description: string;
+
+    packageLabel: string;
+    paymentLabel: string;
+    addOnsLabel: string;
+
+    monthly: string;
+    upfront: string;
+    total: string;
+    perMonth: string;
+    months: string;
+
+    selected: string;
+    pages: string;
+    languages: string;
+
+    estimatedInvestment: string;
+    estimatedMonthlyPayment: string;
+    estimatedTotal: string;
+
+    websiteCare: string;
+    googleVisibility: string;
+    contentSupport: string;
+    additionalPages: string;
+    additionalLanguages: string;
+
+    from: string;
+    page: string;
+    language: string;
+
+    includes: string;
+    removeLabel: string;
+    addLabel: string;
+  };
+
+  noteTitle: string;
+  note: string;
 }
 
 interface Dictionary {
   about: AboutContent;
+  addOns: AddOnsContent;
+  contact: ContactContent;
+  faq: FAQContent;
   home: HomeContent;
   footer: FooterContent;
-  links: LinksContent;
-  now: readonly NowSection[];
+  legal: LegalContent;
+  pricing: PricingContent;
+  process: ProcessContent;
   projects: ProjectsContent;
-  search: SearchContent;
-  uses: typeof en.uses;
+  services: ServicesContent;
   navigation: NavigationContent;
   navigationLabels: NavigationLabelsContent;
 }

@@ -1,25 +1,22 @@
-"use client";
-
-import { usePathname } from "next/navigation";
+import type { Locale } from "@/i18n/config";
 
 import { BrandLogo } from "@/brand";
 import { navigation } from "@/config/navigation";
-import { Container, ThemeToggle } from "@/design-system";
+import { Container } from "@/design-system";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizePath } from "@/i18n/navigation";
-import { getLocale } from "@/i18n/routing";
 
 import { MobileMenu } from "./mobile-menu";
 import { NavLink } from "./nav-link";
 import { NavbarActions } from "./navbar-actions";
 
-export function Navbar() {
-  const pathname = usePathname();
+interface NavbarProps {
+  locale: Locale;
+}
 
-  const locale = getLocale(
-    pathname.split("/")[1],
-  );
-
+export function Navbar({
+  locale,
+}: NavbarProps) {
   const content = getDictionary(locale);
 
   return (
@@ -29,53 +26,53 @@ export function Navbar() {
           aria-label={
             content.navigationLabels.navigation
           }
+          className="flex h-16 items-center justify-between"
         >
-          <div className="flex items-center justify-between gap-6">
-            <BrandLogo />
+          <BrandLogo />
 
-            <div className="flex items-center gap-4">
-              <ul className="hidden items-center gap-7 lg:flex">
-                {navigation.map((item) => {
-                  const href = localizePath(
-                    item.href,
-                    locale,
-                  );
+          <div className="hidden items-center gap-8 lg:flex">
+            <ul className="flex items-center gap-7">
+              {navigation.map((item) => {
+                const href = localizePath(
+                  item.href,
+                  locale,
+                );
 
-                  return (
-                    <li key={item.key}>
-                      <NavLink
-                        href={href}
-                        label={
-                          content.navigation[
-                            item.key
-                          ]
-                        }
-                        currentPath={pathname}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
+                return (
+                  <li key={item.key}>
+                    <NavLink
+                      href={href}
+                      label={
+                        content.navigation[
+                          item.key
+                        ]
+                      }
+                    />
+                  </li>
+                );
+              })}
+            </ul>
 
-              <NavbarActions
-                searchLabel={
-                  content.navigationLabels.search
-                }
-              />
+            <NavbarActions
+              contactLabel={
+                content.navigation.contact
+              }
+              locale={locale}
+            />
+          </div>
 
-              <div className="flex items-center gap-2 lg:hidden">
-                <ThemeToggle />
-
-                <MobileMenu
-                  labels={
-                    content.navigationLabels
-                  }
-                  navigationLabels={
-                    content.navigation
-                  }
-                />
-              </div>
-            </div>
+          <div className="flex items-center lg:hidden">
+            <MobileMenu
+              labels={
+                content.navigationLabels
+              }
+              navigationLabels={
+                content.navigation
+              }
+              contactLabel={
+                content.navigation.contact
+              }
+            />
           </div>
         </nav>
       </Container>

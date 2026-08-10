@@ -24,30 +24,21 @@ interface MobileMenuProps {
     close: string;
     navigation: string;
   };
-  navigationLabels: {
-    home: string;
-    services: string;
-    work: string;
-    about: string;
-    contact: string;
-  };
+  navigationLabels: Record<string, string>;
+  contactLabel: string;
 }
 
 export function MobileMenu({
   labels,
   navigationLabels,
+  contactLabel,
 }: MobileMenuProps) {
-  const [open, setOpen] =
-    useState(false);
-
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
   const locale = getLocale(
     pathname.split("/")[1],
   );
-
-  const previousPathname =
-    useRef(pathname);
+  const previousPathname = useRef(pathname);
 
   function closeMenu() {
     setOpen(false);
@@ -62,20 +53,53 @@ export function MobileMenu({
     }
   }, [pathname]);
 
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const handleKeyDown = (
+      event: KeyboardEvent,
+    ) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener(
+      "keydown",
+      handleKeyDown,
+    );
+
+    return () => {
+      document.removeEventListener(
+        "keydown",
+        handleKeyDown,
+      );
+    };
+  }, [open]);
+
+  const contactHref = localizePath(
+    "/contact",
+    locale,
+  );
+
   return (
     <>
       <IconButton
         type="button"
         aria-label={
-          open
-            ? labels.close
-            : labels.open
+          open ? labels.close : labels.open
         }
         aria-expanded={open}
         onClick={() =>
           setOpen((value) => !value)
         }
-        className="relative z-[70] rounded-xl transition-colors hover:bg-surface"
+        className={cn(
+          "relative z-[70] rounded-full",
+          "text-fg-secondary transition-colors duration-200",
+          "hover:bg-muted hover:text-fg",
+        )}
       >
         <ActionIcon
           name={open ? "close" : "menu"}
@@ -88,20 +112,13 @@ export function MobileMenu({
           type="button"
           aria-label={labels.close}
           onClick={closeMenu}
-          className="fixed inset-0 z-40 bg-background/40 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm lg:hidden"
         />
       )}
 
       <div
         className={cn(
-          [
-            "absolute",
-            "inset-x-0",
-            "top-full",
-            "z-50",
-            "mt-2",
-            "md:hidden",
-          ],
+          "absolute inset-x-0 top-full z-50 lg:hidden",
           open
             ? "pointer-events-auto"
             : "pointer-events-none",
@@ -109,17 +126,9 @@ export function MobileMenu({
       >
         <div
           className={cn(
-            [
-              "mx-4",
-              "overflow-hidden",
-              "rounded-2xl",
-              "border",
-              "border-border",
-              "bg-background",
-              "shadow-xl",
-              "transition-all",
-              "duration-200",
-            ],
+            "mx-3 mt-3 overflow-hidden rounded-2xl border border-border",
+            "bg-background/95 shadow-2xl backdrop-blur-xl",
+            "transition-[opacity,transform] duration-200 ease-out",
             open
               ? "translate-y-0 opacity-100"
               : "-translate-y-2 opacity-0",
@@ -127,49 +136,77 @@ export function MobileMenu({
         >
           <nav
             aria-label={labels.navigation}
-            className="flex flex-col gap-1 p-2"
+            className="p-2"
           >
-            {navigation.map((item) => {
-              const href = localizePath(
-                item.href,
-                locale,
-              );
+            <div className="flex flex-col">
+              {navigation.map((item) => {
+                const href = localizePath(
+                  item.href,
+                  locale,
+                );
 
-              const active =
-                pathname === href;
+                const active =
+                  pathname === href ||
+                  (href !== "/" &&
+                    pathname.startsWith(
+                      `${href}/`,
+                    ));
 
-              return (
-                <Link
-                  key={item.key}
-                  href={href}
-                  onClick={closeMenu}
-                  aria-current={
-                    active
-                      ? "page"
-                      : undefined
-                  }
-                  className={cn(
-                    [
-                      "rounded-xl",
-                      "px-4",
-                      "py-2.5",
-                      "text-sm",
-                      "font-medium",
-                      "transition-colors",
-                    ],
-                    active
-                      ? "bg-surface text-accent"
-                      : "text-fg-secondary hover:bg-surface hover:text-fg",
-                  )}
-                >
-                  {navigationLabels[
-                    item.key
-                  ]}
-                </Link>
-              );
-            })}
+                return (
+                  <Link
+                    key={item.key}
+                    href={href}
+                    onClick={closeMenu}
+                    aria-current={
+                      active
+                        ? "page"
+                        : undefined
+                    }
+                    className={cn(
+                      "rounded-xl px-4 py-3 text-sm font-medium",
+                      "transition-[background-color,color] duration-200",
+                      active
+                        ? "bg-muted text-fg"
+                        : "text-fg-secondary hover:bg-muted hover:text-fg",
+                    )}
+                  >
+                    {
+                      navigationLabels[
+                        item.key
+                      ]
+                    }
+                  </Link>
+                );
+              })}
+            </div>
 
-            <div className="mt-2 border-t border-border px-4 py-3">
+            <div className="mt-2 border-t border-border p-3">
+              <Link
+                href={contactHref}
+                onClick={closeMenu}
+                className="
+                  flex
+                  h-11
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-fg
+                  px-4
+                  text-sm
+                  font-semibold
+                  text-background
+                  transition-[background-color,transform]
+                  duration-200
+                  hover:bg-accent
+                  hover:text-background
+                  active:scale-[0.98]
+                "
+              >
+                {contactLabel}
+              </Link>
+            </div>
+
+            <div className="border-t border-border p-3">
               <LanguageSwitcher />
             </div>
           </nav>

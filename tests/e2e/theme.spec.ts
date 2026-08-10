@@ -8,7 +8,7 @@ test.describe("Theme", () => {
 
     await expect(
       page.getByRole("button", {
-        name: "Toggle theme",
+        name: "Switch to dark mode",
       }),
     ).toBeVisible();
   });

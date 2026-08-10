@@ -28,26 +28,6 @@ describe("Flags", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the Spanish flag", () => {
-    renderWithProviders(
-      <Flags locale="es" />,
-    );
-
-    expect(
-      screen.getByText("🇪🇸"),
-    ).toBeInTheDocument();
-  });
-
-  it("renders the French flag", () => {
-    renderWithProviders(
-      <Flags locale="fr" />,
-    );
-
-    expect(
-      screen.getByText("🇫🇷"),
-    ).toBeInTheDocument();
-  });
-
   it("renders the Hungarian flag", () => {
     renderWithProviders(
       <Flags locale="hu" />,

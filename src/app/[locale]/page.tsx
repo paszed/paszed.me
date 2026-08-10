@@ -5,9 +5,8 @@ import {
   ContactCTA,
   FeaturedProjects,
   Hero,
-  HowIHelp,
-  LatestWriting,
   Philosophy,
+  ProcessPreview,
 } from "@/features/home";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -22,13 +21,11 @@ export async function generateMetadata({
   params,
 }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
-
   const content = getDictionary(locale);
 
   return {
     title: content.home.hero.title,
-    description:
-      content.home.hero.description,
+    description: content.home.hero.description,
   };
 }
 
@@ -36,11 +33,10 @@ export default async function HomePage({
   params,
 }: HomePageProps) {
   const { locale } = await params;
-
   const content = getDictionary(locale);
 
   return (
-    <div className="overflow-hidden">
+    <>
       <Hero
         content={content.home.hero}
       />
@@ -49,16 +45,19 @@ export default async function HomePage({
         content={content.home.capabilities}
       />
 
-      <HowIHelp
-        content={content.home.howIHelp}
-      />
-
       <FeaturedProjects
-        content={content.home.featuredProjects}
+        content={
+          content.home.featuredProjects
+        }
       />
 
-      <LatestWriting
-        content={content.home.latestWriting}
+      <ProcessPreview
+        content={content.process}
+        eyebrow={content.home.process.eyebrow}
+        href={`/${locale}/process`}
+        actionLabel={
+          content.home.process.actionLabel
+        }
       />
 
       <Philosophy
@@ -68,6 +67,6 @@ export default async function HomePage({
       <ContactCTA
         content={content.home.contact}
       />
-    </div>
+    </>
   );
 }

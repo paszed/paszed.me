@@ -10,7 +10,6 @@ import {
   Stack,
   Surface,
   Text,
-  TextLink,
 } from "@/design-system";
 
 interface ContactCTAContent {
@@ -36,27 +35,30 @@ export function ContactCTA({
   return (
     <Section>
       <Container>
-        <Surface>
+        <Surface className="overflow-hidden">
           <Measure>
             <Stack
               gap="lg"
-              className="items-center text-center"
+              className="items-center px-6 py-16 text-center sm:px-10 sm:py-20"
             >
-              <Heading as="h2">
+              <Heading
+                as="h2"
+                className="text-balance"
+              >
                 {content.title}
               </Heading>
 
               <Text
                 size="lg"
                 muted
-                className="leading-relaxed"
+                className="max-w-2xl leading-relaxed"
               >
                 {content.description}
               </Text>
 
               <Cluster
                 gap="md"
-                className="justify-center"
+                className="justify-center pt-2"
               >
                 <Link href={content.primaryCta.href}>
                   <Button>
@@ -64,9 +66,23 @@ export function ContactCTA({
                   </Button>
                 </Link>
 
-                <TextLink href={content.secondaryCta.href}>
+                <Link
+                  href={content.secondaryCta.href}
+                  className="
+                    inline-flex
+                    h-10
+                    items-center
+                    px-2
+                    text-sm
+                    font-medium
+                    text-fg-secondary
+                    transition-colors
+                    duration-200
+                    hover:text-fg
+                  "
+                >
                   {content.secondaryCta.label}
-                </TextLink>
+                </Link>
               </Cluster>
             </Stack>
           </Measure>

@@ -1,121 +1,81 @@
 @import "tailwindcss";
 
-/*
-  Global design tokens.
-
-  The site uses semantic tokens rather than direct colors:
-  components should consume:
-  - bg-background
-  - text-foreground
-  - bg-surface
-  - border-border
-  - text-fg-secondary
-  - text-accent
-
-  Theme switching is handled by the `.dark` class.
-*/
-
 :root {
-  /* Base */
-  --background: #f8f5ef;
-  --foreground: #2b2622;
+  --background: #f6f7f9;
+  --foreground: #11141a;
 
-  /* Surfaces */
-  --surface: #f2ede4;
-  --card: #fcfbf8;
-  --muted: #ece5da;
+  --surface: #eef0f3;
+  --card: #ffffff;
+  --muted: #e7e9ed;
 
-  /* Borders */
-  --border: #b99b73;
-  --border-muted: #ddd2bf;
+  --border: #d7dae0;
+  --border-muted: #e7e9ed;
 
-  /* Text hierarchy */
-  --fg: #2b2622;
-  --fg-secondary: #5c5247;
-  --fg-muted: #766858;
+  --fg: #11141a;
+  --fg-secondary: #555b66;
+  --fg-muted: #777e89;
 
-  /* Brand */
-  --accent: #a65232;
-  --accent-hover: #8b4328;
+  --accent: #5267a8;
+  --accent-hover: #43578f;
 
-  /* Status */
-  --success: #55613b;
-  --warning: #c9a24a;
-  --danger: #a65232;
+  --success: #4d755f;
+  --warning: #9b7b3d;
+  --danger: #a65353;
 
-  /* Effects */
-  --shadow-color: rgba(43, 38, 34, 0.08);
+  --shadow-color: rgba(17, 20, 26, 0.08);
 }
 
 .dark {
-  /* Base */
-  --background: #050608;
-  --foreground: #e8dfc9;
+  --background: #080a0e;
+  --foreground: #edf0f5;
 
-  /* Surfaces */
-  --surface: #0d0f12;
-  --card: #15171b;
-  --muted: #1c1d22;
+  --surface: #0f1218;
+  --card: #141820;
+  --muted: #1b2029;
 
-  /* Borders */
-  --border: #3b2d1f;
-  --border-muted: #56422d;
+  --border: #282e38;
+  --border-muted: #20252e;
 
-  /* Text hierarchy */
-  --fg: #e8dfc9;
-  --fg-secondary: #b8ae9c;
-  --fg-muted: #8e8577;
+  --fg: #edf0f5;
+  --fg-secondary: #a9afba;
+  --fg-muted: #7e8591;
 
-  /* Brand */
-  --accent: #c9a24a;
-  --accent-hover: #e0b85d;
+  --accent: #91a5e8;
+  --accent-hover: #a8b8ef;
 
-  /* Status */
-  --success: #68764a;
-  --warning: #c9a24a;
-  --danger: #b76545;
+  --success: #78a58a;
+  --warning: #c5a665;
+  --danger: #d47c7c;
 
-  /* Effects */
   --shadow-color: rgba(0, 0, 0, 0.35);
 }
 
 @theme inline {
-  /* Base */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Surfaces */
   --color-surface: var(--surface);
   --color-card: var(--card);
   --color-muted: var(--muted);
 
-  /* Borders */
   --color-border: var(--border);
   --color-border-muted: var(--border-muted);
 
-  /* Text */
   --color-fg: var(--fg);
   --color-fg-secondary: var(--fg-secondary);
   --color-fg-muted: var(--fg-muted);
 
-  /* Brand */
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
 
-  /* Status */
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
 
-  /* Typography */
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
 }
-
-/*
-  Base reset
-*/
 
 *,
 *::before,
@@ -124,18 +84,25 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  min-height: 100%;
   background: var(--background);
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
+  margin: 0;
 
   background:
     radial-gradient(
-      circle at top,
-      color-mix(in srgb, var(--accent) 4%, transparent),
-      transparent 35%
+      circle at 50% -10%,
+      color-mix(in srgb, var(--accent) 6%, transparent),
+      transparent 38%
     ),
     var(--background);
 
@@ -152,18 +119,10 @@ body {
     color 250ms ease;
 }
 
-/*
-  Selection
-*/
-
 ::selection {
-  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
   color: var(--foreground);
 }
-
-/*
-  Media defaults
-*/
 
 img,
 svg,
@@ -177,10 +136,6 @@ img {
   user-select: none;
 }
 
-/*
-  Interaction defaults
-*/
-
 button,
 a {
   -webkit-tap-highlight-color: transparent;
@@ -190,18 +145,18 @@ button {
   cursor: pointer;
 }
 
-/*
-  Accessibility
-*/
+a {
+  color: inherit;
+}
 
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/*
-  Scrollbar
-*/
+::selection {
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -218,4 +173,19 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

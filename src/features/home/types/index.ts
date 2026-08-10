@@ -24,34 +24,12 @@ export interface HomeCapabilities {
   items: readonly HomeCapabilitiesItem[];
 }
 
-export interface HomeHowIHelpItem {
-  title: string;
-  description: string;
-}
-
-export interface HomeHowIHelp {
-  eyebrow: string;
-  title: string;
-  description: string;
-  items: readonly HomeHowIHelpItem[];
-}
-
 export interface HomeFeaturedProjects {
   eyebrow: string;
   title: string;
   description: string;
   actionLabel: string;
   emptyState: string;
-  readLabel: string;
-}
-
-export interface HomeLatestWriting {
-  eyebrow: string;
-  title: string;
-  description: string;
-  actionLabel: string;
-  emptyState: string;
-  draftLabel: string;
   readLabel: string;
 }
 
@@ -79,10 +57,20 @@ export interface HomePhilosophy {
   items: readonly HomePhilosophyItem[];
 }
 
+export interface HomeLatestWriting {
+  eyebrow: string;
+  title: string;
+  description: string;
+  actionLabel: string;
+  emptyState: string;
+  draftLabel: string;
+  readLabel: string;
+}
+
 export interface HomeContent {
   hero: HomeHero;
   capabilities: HomeCapabilities;
-  howIHelp: HomeHowIHelp;
+  howIHelp: HomeCapabilities;
   featuredProjects: HomeFeaturedProjects;
   latestWriting: HomeLatestWriting;
   contact: HomeContact;

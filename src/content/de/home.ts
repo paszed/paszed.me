@@ -3,13 +3,13 @@ export const home = {
     eyebrow: "SOFTWARE • AUTOMATISIERUNG • KI",
 
     title:
-      "Wir entwickeln Software, die Unternehmen smarter arbeiten lässt.",
+      "Wir entwickeln Software, mit der Unternehmen effizienter arbeiten.",
 
     subtitle:
       "Individuelle Webanwendungen, interne Tools und Automatisierungssysteme, die Zeit sparen, Komplexität reduzieren und mit Ihrem Unternehmen wachsen.",
 
     description:
-      "Ich bin Edvard, Softwareentwickler und helfe Unternehmen dabei, Ideen und operative Herausforderungen in zuverlässige Software umzusetzen. Gemeinsam mit meinem Mitgründer verbinden wir technische Umsetzung mit klarer Kommunikation, um praktische Lösungen mit echtem Mehrwert zu bauen.",
+      "Ich bin Edvard, Softwareentwickler und unterstütze Unternehmen dabei, Ideen und operative Herausforderungen in zuverlässige Software zu verwandeln. Gemeinsam mit meinem Mitgründer verbinden wir technische Umsetzung mit klarer Kommunikation, um praktische Lösungen mit echtem Mehrwert zu entwickeln.",
 
     primaryCta: {
       label: "Projekt besprechen",
@@ -17,7 +17,7 @@ export const home = {
     },
 
     secondaryCta: {
-      label: "Unsere Arbeit ansehen",
+      label: "Unsere Arbeiten",
       href: "/work",
     },
   },
@@ -25,26 +25,29 @@ export const home = {
   capabilities: {
     eyebrow: "Leistungen",
 
-    title: "Was wir bauen",
+    title: "Was wir entwickeln",
 
     description:
       "Softwarelösungen, die auf Ihre Geschäftsziele, Prozesse und Kunden ausgerichtet sind.",
 
     items: [
       {
-        title: "Business-Websites",
+        title: "Unternehmenswebsites",
+
         description:
-          "Schnelle, moderne Websites, die Ihren Wert klar kommunizieren und Kunden helfen, Ihrem Unternehmen zu vertrauen.",
+          "Schnelle, moderne Websites, die Ihren Mehrwert klar vermitteln und Kunden dabei helfen, Ihr Unternehmen zu entdecken und Vertrauen aufzubauen.",
       },
       {
         title: "Webanwendungen",
+
         description:
-          "Individuelle Plattformen, Dashboards und Kundentools, die zu Ihren tatsächlichen Geschäftsprozessen passen.",
+          "Individuelle Plattformen, Dashboards und Kundentools, die auf die tatsächlichen Abläufe Ihres Unternehmens zugeschnitten sind.",
       },
       {
         title: "Automatisierung & KI",
+
         description:
-          "Praktische Automatisierungssysteme, die wiederkehrende Arbeit reduzieren, bestehende Tools verbinden und Effizienz verbessern.",
+          "Praktische Automatisierungssysteme, die wiederkehrende Aufgaben reduzieren, bestehende Tools verbinden und die Effizienz verbessern.",
       },
     ],
   },
@@ -55,42 +58,49 @@ export const home = {
     title: "Wie wir helfen",
 
     description:
-      "Von neuen Produkten bis zur Verbesserung bestehender Prozesse helfen wir Unternehmen, Software effizienter einzusetzen.",
+      "Von neuen Produkten bis zur Verbesserung bestehender Prozesse helfen wir Unternehmen dabei, Software effizienter einzusetzen.",
 
     items: [
       {
         title: "Individuelle Software",
+
         description:
-          "Anwendungen, Dashboards und digitale Werkzeuge, die auf Ihre spezifischen Anforderungen zugeschnitten sind.",
+          "Anwendungen, Dashboards und digitale Tools, die auf Ihre spezifischen Anforderungen zugeschnitten sind.",
       },
       {
         title: "Prozessautomatisierung",
+
         description:
-          "Automatisieren Sie wiederkehrende Aufgaben, verbinden Sie Systeme und reduzieren Sie manuelle Arbeit.",
+          "Wiederkehrende Aufgaben automatisieren, Systeme verbinden und manuelle Arbeit mit zuverlässigen Workflows reduzieren.",
       },
       {
-        title: "Software-Verbesserung",
+        title: "Software verbessern",
+
         description:
-          "Modernisieren Sie bestehende Anwendungen, verbessern Sie Performance und schaffen Sie eine stärkere technische Basis.",
+          "Bestehende Anwendungen modernisieren, Performance verbessern und eine stärkere technische Grundlage schaffen.",
       },
     ],
   },
 
   featuredProjects: {
-  eyebrow: "Ausgewählte Arbeiten",
+    eyebrow: "Ausgewählte Arbeiten",
 
-  title: "Ausgewählte Arbeiten",
+    title: "Ausgewählte Arbeiten",
 
-  description:
-    "Beispiele für Softwaresysteme, Entwicklertools und Anwendungen mit modernen Technologien und soliden technischen Grundlagen.",
+    description:
+      "Beispiele für Softwaresysteme, Entwicklertools und Anwendungen, die mit modernen Technologien und soliden technischen Grundlagen entwickelt wurden.",
 
-  actionLabel: "Alle Projekte ansehen",
+    actionLabel: "Alle Projekte ansehen",
 
-  readLabel: "Fallstudie lesen",
+    readLabel: "Fallstudie lesen",
 
-  emptyState:
-    "Projekte werden vorbereitet.",
-},
+    emptyState: "Projekte werden derzeit vorbereitet.",
+  },
+
+  process: {
+    eyebrow: "Prozess",
+    actionLabel: "So arbeiten wir",
+  },
 
   latestWriting: {
     eyebrow: "Journal",
@@ -98,12 +108,12 @@ export const home = {
     title: "Einblicke",
 
     description:
-      "Gedanken über Softwareentwicklung, Automatisierung, Architektur und den Bau zuverlässiger digitaler Produkte.",
+      "Gedanken zu Softwareentwicklung, Automatisierung, Architektur und der Entwicklung zuverlässiger digitaler Produkte.",
 
     actionLabel: "Journal ansehen",
 
     emptyState:
-      "Schriften und technische Notizen werden hier veröffentlicht, während Projekte und Ideen entstehen.",
+      "Hier werden künftig Texte und technische Notizen zu unseren Projekten und Ideen veröffentlicht.",
 
     draftLabel: "Entwurf",
 
@@ -112,10 +122,10 @@ export const home = {
 
   contact: {
     title:
-      "Haben Sie ein Softwareproblem zu lösen?",
+      "Sie haben ein Softwareproblem zu lösen?",
 
     description:
-      "Wir helfen Unternehmen dabei, zuverlässige Software zu planen, zu entwickeln und zu verbessern — von Websites und Anwendungen bis zu Automatisierung und KI-gestützten Workflows.",
+      "Wir unterstützen Unternehmen bei der Entwicklung, Umsetzung und Verbesserung zuverlässiger Software — von Websites und Anwendungen bis hin zu Automatisierungssystemen und KI-gestützten Workflows.",
 
     primaryCta: {
       label: "Projekt besprechen",
@@ -123,34 +133,37 @@ export const home = {
     },
 
     secondaryCta: {
-      label: "Unsere Arbeit ansehen",
+      label: "Unsere Arbeiten",
       href: "/work",
     },
   },
 
   philosophy: {
-    eyebrow: "Arbeitsweise",
+    eyebrow: "Ansatz",
 
     title: "Wie wir arbeiten",
 
     description:
-      "Wie wir Software mit Zuverlässigkeit, Klarheit und langfristiger Wartbarkeit entwickeln.",
+      "Wie wir Software mit Fokus auf Zuverlässigkeit, Klarheit und langfristige Wartbarkeit entwickeln.",
 
     items: [
       {
-        title: "Erst verstehen",
+        title: "Zuerst verstehen",
+
         description:
-          "Wir verstehen zuerst Ziele, Prozesse und Herausforderungen, bevor wir eine technische Lösung wählen.",
+          "Wir beginnen damit, Ihre Ziele, Prozesse und Herausforderungen zu verstehen, bevor wir eine technische Lösung festlegen.",
       },
       {
         title: "Für die Zukunft bauen",
+
         description:
-          "Software sollte heutige Probleme lösen und gleichzeitig flexibel genug für zukünftiges Wachstum bleiben.",
+          "Software sollte heutige Probleme lösen und gleichzeitig flexibel genug für das zukünftige Wachstum Ihres Unternehmens sein.",
       },
       {
-        title: "Nachhaltigen Wert schaffen",
+        title: "Langfristigen Wert schaffen",
+
         description:
-          "Wir konzentrieren uns auf zuverlässige Systeme, die Zeit sparen, Abläufe verbessern und langfristig Wert liefern.",
+          "Wir konzentrieren uns auf zuverlässige Systeme, die Zeit sparen, Abläufe verbessern und auch nach dem Launch langfristig Mehrwert schaffen.",
       },
     ],
   },

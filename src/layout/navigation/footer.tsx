@@ -8,26 +8,16 @@ import {
 
 import { FooterSection } from "./footer-section";
 
+interface FooterLink {
+  label: string;
+  href?: string;
+}
+
 interface FooterContent {
-  navigation: readonly {
-    label: string;
-    href: string;
-  }[];
-
-  resources: readonly {
-    label: string;
-    href: string;
-  }[];
-
-  developer: readonly {
-    label: string;
-    href: string;
-  }[];
-
-  contact: readonly {
-    label: string;
-    href: string;
-  }[];
+  navigation: readonly FooterLink[];
+  resources: readonly FooterLink[];
+  developer: readonly FooterLink[];
+  contact: readonly FooterLink[];
 
   labels: {
     navigation: string;
@@ -45,24 +35,17 @@ interface FooterProps {
   content: FooterContent;
 }
 
-export function Footer({
-  content,
-}: FooterProps) {
-  const year =
-    new Date().getFullYear();
+export function Footer({ content }: FooterProps) {
+  const year = new Date().getFullYear();
+
+  const copyright = content.labels.copyright
+    .replace("{year}", String(year))
+    .replace("{owner}", site.name);
 
   return (
-    <footer className="border-t border-border">
+    <footer>
       <Container>
-        <div
-          className="
-            grid
-            gap-10
-            py-10
-            sm:grid-cols-2
-            lg:grid-cols-5
-          "
-        >
+        <div className="grid gap-10 py-12 lg:grid-cols-5 lg:gap-8">
           <Stack
             gap="md"
             className="lg:col-span-2"
@@ -70,21 +53,16 @@ export function Footer({
             <BrandLogo />
 
             <Text
-              size="xs"
+              size="sm"
               muted
-              className="max-w-xs leading-5"
+              className="max-w-sm leading-6"
             >
               {content.labels.description}
             </Text>
 
             <Text
               size="xs"
-              className="
-                font-medium
-                uppercase
-                tracking-[0.16em]
-                text-accent
-              "
+              className="font-medium uppercase tracking-[0.18em] text-accent"
             >
               {content.labels.tagline}
             </Text>
@@ -113,38 +91,12 @@ export function Footer({
           />
         </div>
 
-        <div
-          className="
-            flex
-            flex-col
-            gap-2
-            border-t
-            border-border
-            py-4
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
-        >
-          <Text
-            size="xs"
-            muted
-          >
-            {content.labels.copyright
-              .replace(
-                "{year}",
-                String(year),
-              )
-              .replace(
-                "{owner}",
-                site.name,
-              )}
+        <div className="flex flex-col gap-2 border-t border-border py-5 sm:flex-row sm:items-center sm:justify-between">
+          <Text size="xs" muted>
+            {copyright}
           </Text>
 
-          <Text
-            size="xs"
-            muted
-          >
+          <Text size="xs" muted>
             {content.labels.builtWith}
           </Text>
         </div>

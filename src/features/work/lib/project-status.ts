@@ -4,11 +4,7 @@ type ProjectStatus = Project["status"];
 
 export interface ProjectStatusConfig {
   label: string;
-  tone:
-    | "info"
-    | "warning"
-    | "success"
-    | "neutral";
+  tone: "info" | "warning" | "success" | "neutral";
 }
 
 export const PROJECT_STATUS: Record<

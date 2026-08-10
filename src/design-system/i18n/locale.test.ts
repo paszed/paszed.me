@@ -11,8 +11,6 @@ describe("locale", () => {
     expect(locales).toEqual([
       "en",
       "de",
-      "es",
-      "fr",
       "hu",
     ]);
   });

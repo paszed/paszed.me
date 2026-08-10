@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   Container,
   Grid,
@@ -49,6 +51,21 @@ export function Capabilities({
               />
             ))}
           </Grid>
+
+          <Link
+            href="/services"
+            className="
+              w-fit
+              text-sm
+              font-medium
+              text-fg-secondary
+              transition-colors
+              duration-200
+              hover:text-fg
+            "
+          >
+            Explore our services →
+          </Link>
         </Stack>
       </Container>
     </Section>

@@ -10,11 +10,10 @@ export const site = {
 
   url: "https://alapworks.com",
 
-  title:
-    "Alapworks — Software Engineering & Digital Products",
+  title: "Alapworks — Software Engineering & Digital Products",
 
   description:
-    "Alapworks is a software engineering studio building modern web products, digital experiences, and engineering systems.",
+    "Alapworks is a software engineering studio building thoughtful digital products, modern web experiences, and robust engineering systems.",
 
   email: undefined,
 
@@ -22,7 +21,7 @@ export const site = {
 
   language: "en",
 
-  themeColor: "#f8f5ef",
+  themeColor: "#0a0d12",
 
   social: {
     github: undefined,

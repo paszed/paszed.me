@@ -3,11 +3,13 @@ import AxeBuilder from "@axe-core/playwright";
 
 const pages = [
   "/",
+  "/en/services",
+  "/en/work",
+  "/en/process",
+  "/en/pricing",
   "/en/about",
-  "/en/projects",
-  "/en/journal",
-  "/en/uses",
-  "/en/now",
+  "/en/faq",
+  "/en/contact",
 ];
 
 for (const route of pages) {

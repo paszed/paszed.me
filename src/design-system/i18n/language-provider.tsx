@@ -1,20 +1,26 @@
 "use client";
 
-import { useMemo, useState, type PropsWithChildren } from "react";
+import {
+  useMemo,
+  useState,
+  type PropsWithChildren,
+} from "react";
 
+import {
+  defaultLocale,
+  type Locale,
+} from "./locale";
 import { LanguageContext } from "./language-context";
-import { defaultLocale, type Locale } from "./locale";
-import { de, en, es, fr, hu } from "./locales";
+import { de, en, hu } from "./locales";
 
 const dictionaries = {
   en,
   de,
-  es,
-  fr,
   hu,
 } as const;
 
-export interface LanguageProviderProps extends PropsWithChildren {
+export interface LanguageProviderProps
+  extends PropsWithChildren {
   defaultLanguage?: Locale;
 }
 
@@ -22,7 +28,8 @@ export function LanguageProvider({
   children,
   defaultLanguage = defaultLocale,
 }: LanguageProviderProps) {
-  const [locale, setLocale] = useState<Locale>(defaultLanguage);
+  const [locale, setLocale] =
+    useState<Locale>(defaultLanguage);
 
   const value = useMemo(
     () => ({

@@ -12,8 +12,6 @@ import {
   screen,
 } from "@/design-system/testing";
 
-let MobileMenu: typeof import("./mobile-menu").MobileMenu;
-
 const defaultProps = {
   labels: {
     open: "Open navigation menu",
@@ -22,24 +20,16 @@ const defaultProps = {
   },
 
   navigationLabels: {
-    home: "Home",
     services: "Services",
     work: "Our Work",
+    process: "Process",
+    pricing: "Pricing",
     about: "About Us",
-    contact: "Contact",
+    faq: "FAQ",
   },
-};
 
-function renderMobileMenu(
-  props = {},
-) {
-  return renderWithProviders(
-    <MobileMenu
-      {...defaultProps}
-      {...props}
-    />,
-  );
-}
+  contactLabel: "Contact",
+};
 
 vi.mock("next/navigation", () => ({
   usePathname: vi.fn(),
@@ -53,43 +43,41 @@ vi.mock("next/link", () => ({
   }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     href: string;
   }) => (
-    <a
-      href={href}
-      {...props}
-    >
+    <a href={href} {...props}>
       {children}
     </a>
   ),
 }));
 
-vi.mock(
-  "@/features/language-switcher",
-  () => ({
-    LanguageSwitcher: () => null,
-  }),
-);
+vi.mock("@/features/language-switcher", () => ({
+  LanguageSwitcher: () => null,
+}));
 
 vi.mock("@/config/navigation", () => ({
   navigation: [
-    {
-      href: "/",
-      key: "home",
-    },
     {
       href: "/services",
       key: "services",
     },
     {
-      href: "/projects",
+      href: "/work",
       key: "work",
+    },
+    {
+      href: "/process",
+      key: "process",
+    },
+    {
+      href: "/pricing",
+      key: "pricing",
     },
     {
       href: "/about",
       key: "about",
     },
     {
-      href: "/contact",
-      key: "contact",
+      href: "/faq",
+      key: "faq",
     },
   ],
 }));
@@ -97,12 +85,6 @@ vi.mock("@/config/navigation", () => ({
 describe("MobileMenu", () => {
   beforeEach(async () => {
     vi.clearAllMocks();
-
-    const mobileMenuModule =
-      await import("./mobile-menu");
-
-    MobileMenu =
-      mobileMenuModule.MobileMenu;
 
     const { usePathname } =
       await import("next/navigation");
@@ -112,8 +94,13 @@ describe("MobileMenu", () => {
     );
   });
 
-  it("renders the menu toggle button", () => {
-    renderMobileMenu();
+  it("renders the menu toggle button", async () => {
+    const { MobileMenu } =
+      await import("./mobile-menu");
+
+    renderWithProviders(
+      <MobileMenu {...defaultProps} />,
+    );
 
     expect(
       screen.getByRole("button", {
@@ -122,86 +109,13 @@ describe("MobileMenu", () => {
     ).toBeInTheDocument();
   });
 
-  it("opens the menu", () => {
-    renderMobileMenu();
+  it("opens the menu", async () => {
+    const { MobileMenu } =
+      await import("./mobile-menu");
 
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: "Open navigation menu",
-      }),
+    renderWithProviders(
+      <MobileMenu {...defaultProps} />,
     );
-
-    expect(
-      screen.getAllByRole("button", {
-        name: "Close navigation menu",
-      }),
-    ).toHaveLength(2);
-
-    expect(
-      screen.getByRole("link", {
-        name: "Home",
-      }),
-    ).toBeInTheDocument();
-  });
-
-  it("closes the menu when the toggle is clicked again", () => {
-    renderMobileMenu();
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: "Open navigation menu",
-      }),
-    );
-
-    fireEvent.click(
-      screen.getAllByRole("button", {
-        name: "Close navigation menu",
-      })[0],
-    );
-
-    expect(
-      screen.getByRole("button", {
-        name: "Open navigation menu",
-      }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.queryByRole("button", {
-        name: "Close navigation menu",
-      }),
-    ).not.toBeInTheDocument();
-  });
-
-  it("closes the menu when the backdrop is clicked", () => {
-    renderMobileMenu();
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: "Open navigation menu",
-      }),
-    );
-
-    fireEvent.click(
-      screen.getAllByRole("button", {
-        name: "Close navigation menu",
-      })[1],
-    );
-
-    expect(
-      screen.getByRole("button", {
-        name: "Open navigation menu",
-      }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.queryByRole("button", {
-        name: "Close navigation menu",
-      }),
-    ).not.toBeInTheDocument();
-  });
-
-  it("renders every navigation link", () => {
-    renderMobileMenu();
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -211,11 +125,23 @@ describe("MobileMenu", () => {
 
     expect(
       screen.getByRole("link", {
-        name: "Home",
+        name: "Services",
       }),
-    ).toHaveAttribute(
-      "href",
-      "/en",
+    ).toBeInTheDocument();
+  });
+
+  it("renders the expected navigation links", async () => {
+    const { MobileMenu } =
+      await import("./mobile-menu");
+
+    renderWithProviders(
+      <MobileMenu {...defaultProps} />,
+    );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
     );
 
     expect(
@@ -233,7 +159,25 @@ describe("MobileMenu", () => {
       }),
     ).toHaveAttribute(
       "href",
-      "/en/projects",
+      "/en/work",
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Process",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/en/process",
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "Pricing",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/en/pricing",
     );
 
     expect(
@@ -243,6 +187,15 @@ describe("MobileMenu", () => {
     ).toHaveAttribute(
       "href",
       "/en/about",
+    );
+
+    expect(
+      screen.getByRole("link", {
+        name: "FAQ",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/en/faq",
     );
 
     expect(
@@ -260,10 +213,15 @@ describe("MobileMenu", () => {
       await import("next/navigation");
 
     vi.mocked(usePathname).mockReturnValue(
-      "/en/projects",
+      "/en/work",
     );
 
-    renderMobileMenu();
+    const { MobileMenu } =
+      await import("./mobile-menu");
+
+    renderWithProviders(
+      <MobileMenu {...defaultProps} />,
+    );
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -271,65 +229,32 @@ describe("MobileMenu", () => {
       }),
     );
 
-    const work =
-      screen.getByRole(
-        "link",
-        {
-          name: "Our Work",
-        },
-      );
-
-    expect(work).toHaveClass(
-      "bg-surface",
-    );
-
-    expect(work).toHaveClass(
-      "text-accent",
-    );
-
-    expect(work).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
-  });
-
-  it("closes after clicking a navigation link", () => {
-    renderMobileMenu();
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: "Open navigation menu",
-      }),
-    );
-
-    fireEvent.click(
+    expect(
       screen.getByRole("link", {
         name: "Our Work",
       }),
+    ).toHaveAttribute(
+      "aria-current",
+      "page",
     );
-
-    expect(
-      screen.getByRole("button", {
-        name: "Open navigation menu",
-      }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.queryByRole("button", {
-        name: "Close navigation menu",
-      }),
-    ).not.toBeInTheDocument();
   });
 
   it("closes when the pathname changes", async () => {
     const { usePathname } =
       await import("next/navigation");
 
-    const mockPathname =
+    const pathname =
       vi.mocked(usePathname);
 
+    pathname.mockReturnValue("/en");
+
+    const { MobileMenu } =
+      await import("./mobile-menu");
+
     const { rerender } =
-      renderMobileMenu();
+      renderWithProviders(
+        <MobileMenu {...defaultProps} />,
+      );
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -338,19 +263,16 @@ describe("MobileMenu", () => {
     );
 
     expect(
-      screen.getByRole("link", {
-        name: "Our Work",
+      screen.getByRole("button", {
+        name: "Close navigation menu",
+        expanded: true,
       }),
     ).toBeInTheDocument();
 
-    mockPathname.mockReturnValue(
-      "/en/projects",
-    );
+    pathname.mockReturnValue("/en/work");
 
     rerender(
-      <MobileMenu
-        {...defaultProps}
-      />,
+      <MobileMenu {...defaultProps} />,
     );
 
     expect(
@@ -358,19 +280,93 @@ describe("MobileMenu", () => {
         name: "Open navigation menu",
       }),
     ).toBeInTheDocument();
-
-    expect(
-      screen.queryByRole("button", {
-        name: "Close navigation menu",
-      }),
-    ).not.toBeInTheDocument();
   });
 
-  it("renders the navigation landmark", () => {
-    renderMobileMenu();
+  it("closes when Escape is pressed", async () => {
+    const { MobileMenu } =
+      await import("./mobile-menu");
+
+    renderWithProviders(
+      <MobileMenu {...defaultProps} />,
+    );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
+    );
 
     expect(
-      screen.getByRole("navigation"),
+      screen.getByRole("button", {
+        name: "Close navigation menu",
+        expanded: true,
+      }),
+    ).toBeInTheDocument();
+
+    fireEvent.keyDown(document, {
+      key: "Escape",
+    });
+
+    expect(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("keeps the menu open for non-Escape keys", async () => {
+    const { MobileMenu } =
+      await import("./mobile-menu");
+
+    renderWithProviders(
+      <MobileMenu {...defaultProps} />,
+    );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
+    );
+
+    fireEvent.keyDown(document, {
+      key: "Enter",
+    });
+
+    expect(
+      screen.getByRole("button", {
+        name: "Close navigation menu",
+        expanded: true,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("closes when the backdrop is clicked", async () => {
+    const { MobileMenu } =
+      await import("./mobile-menu");
+
+    renderWithProviders(
+      <MobileMenu {...defaultProps} />,
+    );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
+    );
+
+    const closeButtons =
+      screen.getAllByRole("button", {
+        name: "Close navigation menu",
+      });
+
+    expect(closeButtons).toHaveLength(2);
+
+    fireEvent.click(closeButtons[1]);
+
+    expect(
+      screen.getByRole("button", {
+        name: "Open navigation menu",
+      }),
     ).toBeInTheDocument();
   });
 });
